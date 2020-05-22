@@ -1,0 +1,37 @@
+
+pool:
+  vmImage: 'Ubuntu 16.04'
+
+trigger:
+  branches:
+    include:
+    - master
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '12.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    yarn global add gatsby-cli
+  displayName: 'install gatsby'
+
+- script: |
+    yarn
+    yarn build
+  displayName: 'gatsby build'
+ 
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/public/'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/website-$(Build.BuildId).zip'
+  displayName: 'archive website'
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)/website-$(Build.BuildId).zip'
+    ArtifactName: 'website-drop-$(Build.BuildId)'
+  displayName: 'publish website artifact'
