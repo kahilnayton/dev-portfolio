@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
@@ -22,6 +24,9 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-icon": "^1.0.0",
+    "react-icons": "^3.10.0",
+    "react-typing-effect": "^2.0.3",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {

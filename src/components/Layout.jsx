@@ -1,5 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Global } from "@emotion/core";
+import resetStyles from '../styles/reset'
+import globalStyles from '../styles/global';
+import typeStyles from '../styles/typography';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 
@@ -84,10 +88,12 @@ const Branding = styled.div`
   }
 `;
 
+const LayoutContainer = styled.div``;
+
 const Layout = ({ children }) => {
   return (
-    <>
-      <Header>
+    <LayoutContainer>
+    <Global styles={[resetStyles, globalStyles, typeStyles]}/>
         <StaticQuery
           query={`${navigationQuery}`}
           // When it resolves this navigation query it's going to inject the result into this render function
@@ -116,9 +122,8 @@ const Layout = ({ children }) => {
             );
           }}
         />
-      </Header>
       <MainWrapper>{children}</MainWrapper>
-    </>
+      </LayoutContainer>
   );
 };
 

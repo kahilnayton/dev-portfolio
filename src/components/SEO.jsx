@@ -1,45 +1,46 @@
 
-import React from "react"
-import PropTypes from "prop-types"
+import React, {Component} from "react"
 import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-      }
-    `
-  )
+class SEO extends Component {
+  render() {
 
-  const metaDescription = description || site.siteMetadata.description
+    const siteMetadata = {
+      title: `The video content data company`,
+      description: `This is the default description for AnyClip.`,
+      siteName: 'kahilDev',
+      siteUrl: `https://www.kahildev.com/`,
+      siteLanguage: `en-US`,
+      siteLocale: `en_us`,
+      authorName: `Kahil`,
+    };
+
+    let meta = [];
 
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: siteMetadata.siteLanguage,
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={siteMetadata.title}
+      titleTemplate={`%s | ${siteMetadata.siteName}`}
       meta={[
         {
           name: `description`,
-          content: metaDescription,
+          content: siteMetadata.description,
         },
         {
           property: `og:title`,
-          content: title,
+          content: siteMetadata.title,
         },
         {
           property: `og:description`,
-          content: metaDescription,
+          content: siteMetadata.description,
+        },
+        {
+          property: `og:image`,
+          content: siteMetadata.image,
         },
         {
           property: `og:type`,
@@ -51,32 +52,24 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: siteMetadata.author,
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: siteMetadata.title,
         },
         {
           name: `twitter:description`,
-          content: metaDescription,
+          content: siteMetadata.description,
         },
       ].concat(meta)}
-    />
-  )
-}
+    >
+ <script type="module" src="https://googlechromelabs.github.io/dark-mode-toggle/src/dark-mode-toggle.mjs"></script>
 
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
 
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+</Helmet>
+    )
+  }
 }
 
 export default SEO
