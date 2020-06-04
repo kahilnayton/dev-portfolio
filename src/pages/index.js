@@ -7,7 +7,7 @@ import Projects from '../components/Projects';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ContactForm from '../components/ContactForm';
-import ReactTypingEffect from 'react-typing-effect';
+// import ReactTypingEffect from 'react-typing-effect';
 import { window } from 'browser-monads';
 
 const IndexPage = props => {
@@ -20,10 +20,10 @@ const IndexPage = props => {
         <section id="hero" className="hero">
           <div className="titlebox">
             <div className="hero-text-container">
-              <ReactTypingEffect
+              {/* <ReactTypingEffect
                 className="hero-title developer"
                 text=">Full-Stack Developer."
-              />
+              /> */}
             </div>
             <h6 className="hero-subtitle">
               I am a full-stack developer who loves to help organizations find
