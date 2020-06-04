@@ -8,6 +8,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ContactForm from '../components/ContactForm';
 import ReactTypingEffect from 'react-typing-effect';
+import { window } from 'browser-monads';
 
 const IndexPage = props => {
   return (
