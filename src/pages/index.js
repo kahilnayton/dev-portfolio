@@ -10,7 +10,8 @@ import ContactForm from '../components/ContactForm';
 // import ReactTypingEffect from 'react-typing-effect';
 import { window } from 'browser-monads';
 
-const IndexPage = props => {
+const IndexPage = ({ data }) => {
+  console.log(data.prismic)
   return (
     <>
       {/* <SliceZone body={props.data.prismic.allHomepages.edges[0].node.body} /> */}
@@ -48,52 +49,53 @@ export default IndexPage;
 export const query = graphql`
   {
     prismic {
-      allHomepages {
+      allHomes {
         edges {
           node {
-            body {
-              ... on PRISMIC_HomepageBodyHero {
-                type
-                primary {
-                  hero_content
-                  hero_title
-                  background_image
-                }
-              }
-              ... on PRISMIC_HomepageBodyCall_to_action_grid {
-                type
-                label
-                primary {
-                  section_title
-                }
-                fields {
-                  button_label
-                  call_to_action_title
-                  button_destination {
-                    ... on PRISMIC_Page {
-                      _meta {
-                        uid
-                      }
+            content
+            heading
+            project_heading
+            project_list {
+              project {
+                ... on PRISMIC_Project {
+                  title
+                  description
+                  _meta {
+                    uid
+                  }
+                  project_image
+                  project_link {
+                    ... on PRISMIC__ExternalLink {
+                      url
                     }
                   }
-                  content
-                  featured_image
-                }
-              }
-              ... on PRISMIC_HomepageBodyPrice_list {
-                type
-                label
-                fields {
-                  price_list_description
-                  price_list_title
-                  price_per_month
-                  price_type
-                }
-                primary {
-                  title
+                  release_date
                 }
               }
             }
+            contact_list {
+              contact {
+                ... on PRISMIC_Contact {
+                  link_label
+                  _linkType
+                  _meta {
+                    uid
+                  }
+                  link {
+                    ... on PRISMIC__ExternalLink {
+                      url
+                    }
+                  }
+                }
+              }
+            }
+            body {
+              ... on PRISMIC_HomeBodyHero {
+                type
+                label
+              }
+            }
+            contact_heading
           }
         }
       }
