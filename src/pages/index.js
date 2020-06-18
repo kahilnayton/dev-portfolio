@@ -7,38 +7,32 @@ import Projects from '../components/Projects';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ContactForm from '../components/ContactForm';
-// import ReactTypingEffect from 'react-typing-effect';
-import { window } from 'browser-monads';
+import Hero from '../components/Hero';
+import FeaturedProjects from '../components/FeaturedProjects'
 
 const IndexPage = ({ data }) => {
-  console.log(data.prismic)
+const home = data.prismic.allHomes.edges[0].node
+
   return (
     <>
       {/* <SliceZone body={props.data.prismic.allHomepages.edges[0].node.body} /> */}
+
+      <Hero
+        heading={home.hero_heading}
+        text={home.hero_text}
+        background={home.hero_background}
+        variant="homepage"
+      />
+
       <Header />
 
-      <main>
-        <section id="hero" className="hero">
-          <div className="titlebox">
-            <div className="hero-text-container">
-              {/* <ReactTypingEffect
-                className="hero-title developer"
-                text=">Full-Stack Developer."
-              /> */}
-            </div>
-            <h6 className="hero-subtitle">
-              I am a full-stack developer who loves to help organizations find
-              creative solutions to their digitally-based problems.
-            </h6>
-          </div>
-        </section>
+      <About />
 
-        <About />
+      <Projects />
 
-        <Projects />
+      <FeaturedProjects projects={home.featured_projects} variant="homepage" />
 
-        <ContactForm />
-      </main>
+      <ContactForm />
 
       <Footer />
     </>
