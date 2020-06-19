@@ -1,134 +1,30 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import { Global } from "@emotion/core";
-// import resetStyles from '../styles/reset'
-// import globalStyles from '../styles/global';
-// import typeStyles from '../styles/typography';
-// import { StaticQuery, graphql, Link } from 'gatsby';
-// import styled from 'styled-components';
+import React from "react";
+import styled from "@emotion/styled";
+import {Global} from "@emotion/core";
+import resetStyles from "../styles/reset";
+import globalStyles from '../styles/global';
+import typeStyles from '../styles/typography';
+import Footer from "./Footer";
+import Header from "./Header";
 
-// const navigationQuery = graphql`
-//   {
-//     prismic {
-//       allNavigations {
-//         edges {
-//           node {
-//             branding
-//             navigation_links {
-//               label
-//               link {
-//                 ... on PRISMIC_Contact_page {
-//                   _meta {
-//                     uid
-//                   }
-//                 }
-//                 ... on PRISMIC_Page {
-//                   _meta {
-//                     uid
-//                   }
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+const LayoutContainer = styled.div`
+`;
 
-// const MainWrapper = styled.main`
-//   margin: 0 auto;
-// `;
+const Layout = ({children}) => (
+  <LayoutContainer>
+    <Global styles={[resetStyles, globalStyles, typeStyles]}/>
 
-// const Header = styled.header`
-//   display: flex;
-//   background: black;
-//   height: 66px;
-//   padding: 0 16px;
-//   box-sizing: border-box;
-// `;
+    <div className="Layout">
+      <Header/>
 
-// const NavLinks = styled.div`
-//   margin-left: auto;
-//   display: flex;
-// `;
+      <main className="Layout__content">
+        {children}
+      </main>
 
-// const NavLink = styled.div`
-//   margin: auto 0;
+      <Footer/>
+    </div>
 
-//   a {
-//     color: white;
-//     padding: 0 16px;
-//     text-decoration: none;
-//     font-weight: bold;
-//     font-size: 16px;
+  </LayoutContainer>
+);
 
-//     &:hover {
-//       color: orange;
-//     }
-//   }
-// `;
-
-// const Branding = styled.div`
-//   color: orange;
-//   font-weight: bold;
-//   font-size: 20px;
-//   margin: auto 0;
-
-//   a {
-//     color: white;
-//     padding: 0 16px;
-//     text-decoration: none;
-//     font-weight: bold;
-//     font-size: 16px;
-
-//     &:hover {
-//       color: orange;
-//     }
-//   }
-// `;
-
-// const LayoutContainer = styled.div``;
-
-// const Layout = ({ children }) => {
-//   return (
-//     <LayoutContainer>
-//     <Global styles={[resetStyles, globalStyles, typeStyles]}/>
-//         <StaticQuery
-//           query={`${navigationQuery}`}
-//           // When it resolves this navigation query it's going to inject the result into this render function
-//           render={data => {
-//             return (
-//               <>
-//                 <Branding>
-//                   <Link to="/">
-//                     {data.prismic.allNavigations.edges[0].node.branding}
-//                   </Link>
-//                 </Branding>
-//                 <NavLinks>
-//                   {data.prismic.allNavigations.edges[0].node.navigation_links.map(
-//                     link => {
-//                       return (
-//                         <NavLink key={link.link._meta.uid}>
-//                           <Link to={`/${link.link._meta.uid}`}>
-//                             {link.label}
-//                           </Link>
-//                         </NavLink>
-//                       );
-//                     }
-//                   )}
-//                 </NavLinks>
-//               </>
-//             );
-//           }}
-//         />
-//       <MainWrapper>{children}</MainWrapper>
-//       </LayoutContainer>
-//   );
-// };
-
-// Layout.propTypes = {
-//   children: PropTypes.node.isRequired,
-// };
-
-// export default Layout;
+export default Layout;

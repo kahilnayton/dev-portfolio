@@ -68,14 +68,17 @@ const ProjectsContainer = styled.div`
   }
 `;
 
-const FeaturedProjects = ({ heading, content, buttonText, destination, projects, variant }) => {
+const FeaturedProjects = (props) => {
+  console.log(props)
+
+  const { heading, content, buttonText, destination, projects, variant } = props
   let projectsHeading;
 
-  if (heading && heading[0].text) {
-    projectsHeading = <RichText render={heading}/>;
-  } else if (heading) {
-    projectsHeading = <h3>{heading}</h3>;
-  }
+  // if (heading && heading[0].text) {
+  //   projectsHeading = <RichText render={heading}/>;
+  // } else if (heading) {
+  //   projectsHeading = <h3>{heading}</h3>;
+  // }
 
   return (
     <ProjectsContainer className={`${variant ? `FeaturedProjects--${variant}` : ''}`}>

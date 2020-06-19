@@ -15,7 +15,7 @@ import {
   DiSass,
   DiPostgresql,
 } from 'react-icons/di';
-import { GrGatsbyjs } from 'react-icons/gr';
+import { GrGatsbyjs, GrGraphQl } from 'react-icons/gr';
 import styled from 'styled-components';
 
 const Li = styled.li`
@@ -81,6 +81,10 @@ export default function About() {
         </Li>
         <Li>
           <GrGatsbyjs className="fab fa-gatsby icon-size" />
+          <h4 className="about-subtitle block">Node.js</h4>
+        </Li>
+        <Li>
+          <GrGraphQl className="fab fa-graphql icon-size" />
           <h4 className="about-subtitle block">Node.js</h4>
         </Li>
       </ul>

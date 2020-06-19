@@ -1,41 +1,40 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
 // import SliceZone from '../components/SliceZone';
-// import Layout from '../components/Layout';
+import Layout from '../components/Layout';
 import About from '../components/About';
 import Projects from '../components/Projects';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ContactForm from '../components/ContactForm';
 import Hero from '../components/Hero';
-import FeaturedProjects from '../components/FeaturedProjects'
+import FeaturedProjects from '../components/FeaturedProjects';
 
 const IndexPage = ({ data }) => {
-const home = data.prismic.allHomes.edges[0].node
+  const home = data.prismic.allHomes.edges[0].node;
+  // console.log(home.body[0].primary.background_image.url);
 
   return (
-    <>
-      {/* <SliceZone body={props.data.prismic.allHomepages.edges[0].node.body} /> */}
-
+    <Layout>
       <Hero
-        heading={home.hero_heading}
-        text={home.hero_text}
-        background={home.hero_background}
+        heading={home.heading}
+        text={home.body[0].primary.text}
+        background={home.body[0].primary.background_image}
         variant="homepage"
       />
 
-      <Header />
-
       <About />
 
-      <Projects />
+      {/* <Projects /> */}
 
-      <FeaturedProjects projects={home.featured_projects} variant="homepage" />
+      <FeaturedProjects
+        projects={home.project_list}
+        variant="homepage"
+        project_heading={home.project_heading}
+      />
 
       <ContactForm />
-
-      <Footer />
-    </>
+    </Layout>
   );
 };
 export default IndexPage;
@@ -87,6 +86,11 @@ export const query = graphql`
               ... on PRISMIC_HomeBodyHero {
                 type
                 label
+                primary {
+                  background_image
+                  hero_content
+                  hero_title
+                }
               }
             }
             contact_heading
