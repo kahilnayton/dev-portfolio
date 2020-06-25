@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Rubric } from "../../styles/typography";
+// import { Rubric } from "../../styles/typography";
 import styled from "@emotion/styled";
 import colors from "../../styles/colors";
 import dimensions from '../../styles/dimensions';
@@ -29,11 +29,11 @@ const CardContainer = styled(Link)`
       }
       
       > div:last-child {
-        background-color: ${colors.teal600};
+        background-color: ${colors.grey900};
         
         &::before {
           transform: scaleY(1);
-          background-color: ${colors.teal600};
+          background-color: ${colors.grey900};
         }
       }
     }
@@ -100,12 +100,9 @@ const CardContent = styled.div`
   }
 `;
 
-const ProjectCard = ({ uid, title, image, type, topic, preview_text }) => {
-  let trimmed_preview_text;
+const ProjectCard = (props) => {
 
-  if (preview_text) {
-    trimmed_preview_text = preview_text > 200 ? `${preview_text.substr(0,200)} …` : preview_text;
-  }
+  const {uid, title, image, description } = props
 
   return (
     <CardContainer to={`/project/${uid}`}>
@@ -116,16 +113,10 @@ const ProjectCard = ({ uid, title, image, type, topic, preview_text }) => {
       )}
 
       <CardContent>
-        {(topic || type) && (
-          <Rubric>
-            <span>{topic}</span>
-            <span>{type}</span>
-          </Rubric>
-        )}
 
         <h4>{title}</h4>
 
-        {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
+        {description && <p>{description}</p>}
       </CardContent>
     </CardContainer>
   )

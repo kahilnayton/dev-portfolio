@@ -1,12 +1,8 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 // import SliceZone from '../components/SliceZone';
 import Layout from '../components/Layout';
 import About from '../components/About';
-import Projects from '../components/Projects';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import ContactForm from '../components/ContactForm';
 import Hero from '../components/Hero';
 import FeaturedProjects from '../components/FeaturedProjects';
 
@@ -25,15 +21,12 @@ const IndexPage = ({ data }) => {
 
       <About />
 
-      {/* <Projects /> */}
 
       <FeaturedProjects
         projects={home.project_list}
         variant="homepage"
         project_heading={home.project_heading}
       />
-
-      <ContactForm />
     </Layout>
   );
 };

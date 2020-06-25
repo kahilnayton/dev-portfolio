@@ -83,6 +83,7 @@ const FeaturedProjects = (props) => {
   return (
     <ProjectsContainer className={`${variant ? `FeaturedProjects--${variant}` : ''}`}>
       <Inner>
+      <h1>Projects</h1>
         {(heading || content || (buttonText && destination)) && (
           <header>
             <div>
@@ -98,36 +99,18 @@ const FeaturedProjects = (props) => {
 
         {(projects && projects.length > 0) && (
           <ProjectsGrid dense={projects.length > 3}>
-            {projects.slice(0,4).map((feature, i) => {
-              if (feature.node) {
-                return (
-                  <li key={i}>
-                    <ProjectCard
-                      uid={feature.node._meta.uid}
-                      image={feature.node.preview_image || feature.node.feature_image}
-                      title={feature.node.title[0].text}
-                      type={feature.node.project_type && feature.node.project_type.title}
-                      topic={feature.node.topic && feature.node.topic.title}
-                      preview_text={feature.node.preview_text}
-                    />
-                  </li>
-                );
-              } else if (feature.project) {
-                return (
-                  <li key={i}>
-                    <ProjectCard
-                      uid={feature.project._meta.uid}
-                      image={feature.project.preview_image || feature.project.feature_image}
-                      title={feature.project.title[0].text}
-                      type={feature.project.project_type && feature.project.project_type.title}
-                      topic={feature.project.topic && feature.project.topic.title}
-                      preview_text={feature.project.preview_text}
-                    />
-                  </li>
-                )
-              }
-
-              return null;
+            {projects.map((feature, i) => {
+              // debugger;
+              return (
+                <li key={i}>
+                  <ProjectCard
+                    uid={feature.project._meta.uid}
+                    image={feature.project.project_image}
+                    title={feature.project.title[0].text}
+                    description={feature.project.description[0].text}
+                  />
+                </li>
+              )
             })}
           </ProjectsGrid>
         )}

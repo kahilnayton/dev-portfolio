@@ -21,10 +21,7 @@ const colors = {
 
   green400: "#10CDA9",
 
-  teal800: "#0E4252",
-  teal700: "#2D5C6A",
-  teal200: "#798B90",
-  teal100: "#8EA5AA",
+  red600: "#D32030",
 
   blue400: "#6076FF",
   blue200: "#D9D8DE",

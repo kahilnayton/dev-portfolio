@@ -1,7 +1,7 @@
 
 import React, {Component} from "react"
 import Helmet from "react-helmet"
-import { StaticQuery, graphql } from "gatsby"
+// import { StaticQuery, graphql } from "gatsby"
 
 class SEO extends Component {
   render() {
