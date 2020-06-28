@@ -14,6 +14,10 @@ const ProjectsContainer = styled.div`
   position: relative;
   width: 100%;
 
+  h1 {
+    padding: 3rem 0;
+  }
+
   
   & + * {
     margin-top: 6.4rem;

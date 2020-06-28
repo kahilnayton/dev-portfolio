@@ -1,8 +1,14 @@
 import React from 'react';
+import colors from 'styles/colors';
+import styled from '@emotion/styled';
+
+const FooterContainer = styled.footer`
+  margin-top: 5rem;
+`;
 
 export default function Footer() {
   return (
-    <footer>
+    <FooterContainer>
       <a
         href="https://www.linkedin.com/in/kahilnayton/"
         className="linked-in icon-size"
@@ -11,16 +17,6 @@ export default function Footer() {
         href="https://www.youtube.com/watch?v=bCD669baBEI&feature=youtu.be"
         className="youtube icon-size"
       ></a>
-      <span>
-        <dark-mode-toggle
-          id="dark-mode-toggle"
-          legend="Theme Switcher"
-          light="Light"
-          dark="Dark"
-          appearance="switch"
-          permanent="false"
-        ></dark-mode-toggle>
-      </span>
-    </footer>
+    </FooterContainer>
   );
 }

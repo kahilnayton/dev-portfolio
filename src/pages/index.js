@@ -8,7 +8,6 @@ import FeaturedProjects from '../components/FeaturedProjects';
 
 const IndexPage = ({ data }) => {
   const home = data.prismic.allHomes.edges[0].node;
-  // console.log(home.body[0].primary.background_image.url);
 
   return (
     <Layout>

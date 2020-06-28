@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import colors from '../styles/colors';
 import Button from '../components/_ui/Button';
 import dimensions from '../styles/dimensions';
+import {Inner} from '../styles/structure'
 
 const encode = data => {
   return Object.keys(data)
@@ -15,6 +16,17 @@ const FormButton = styled(Button)`
   margin: auto;
   background: white;
 `;
+
+const FormInner = styled(Inner)`
+h2 {
+  padding-bottom: 3rem;
+}
+
+@media (min-width: ${dimensions.tabletLandscapeUp}px) {
+
+}
+
+`
 
 const Form = styled.form`
   display: grid;
@@ -41,7 +53,7 @@ const Form = styled.form`
 
     .message {
       grid-column: 1 /3;
-      grid-row: 4;
+      grid-row: 3;
       
       text-area {
         height: 164rem;
@@ -111,10 +123,7 @@ export default class ContactForm extends Component {
       firstName: '',
       lastName: '',
       email: '',
-      organization: '',
-      title: '',
       message: '',
-      MailChimpResult: '',
     };
   }
 
@@ -149,7 +158,6 @@ export default class ContactForm extends Component {
           firstName: [],
           lastName: [],
           email: [],
-          organization: [],
           message: [],
         })
       );
@@ -162,23 +170,22 @@ export default class ContactForm extends Component {
       firstName,
       lastName,
       email,
-      organization,
-      title,
       message,
       statusMessage,
     } = this.state;
 
     return (
-      <>
+      <FormInner>
+        <h2>Get in touch</h2>
         <Form
-          name="contact-leading-edge"
+          name="contact-kahil-dev"
           method="post"
           action="/thanks/"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}
-        >
-          <input type="hidden" name="form-name" value="contact-leading-edge" />
+          >
+          <input type="hidden" name="form-name" value="contact-kahil-dev" />
 
           <div className="first-name">
             <Input
@@ -210,16 +217,6 @@ export default class ContactForm extends Component {
             />
             <label htmlFor="email">Email</label>
           </div>
-          <div className="organization">
-            <Input
-              name="organization"
-              id="organization"
-              required={false}
-              value={organization}
-              onChange={this.handleChange}
-            />
-            <label htmlFor="organization">Organization</label>
-          </div>
           <div className="message">
             <TextArea
               name="message"
@@ -231,13 +228,11 @@ export default class ContactForm extends Component {
             <label htmlFor="message">Message</label>
           </div>
 
-          {/* <SignMeUp>Contact</SignMeUp> */}
-
           <StatusMessage>{statusMessage}</StatusMessage>
 
-          <FormButton type="submit"> Join the Community</FormButton>
+          <FormButton type="submit">Submit</FormButton>
         </Form>
-      </>
+      </FormInner>
     );
   }
 }

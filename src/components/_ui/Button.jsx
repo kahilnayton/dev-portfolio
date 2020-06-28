@@ -17,7 +17,7 @@ const ButtonContainer = styled("button")`
 
     &:hover {
       cursor: pointer;
-      background: ${colors.orange500};
+      background: ${colors.red500};
       color: #fff;
     }
 `

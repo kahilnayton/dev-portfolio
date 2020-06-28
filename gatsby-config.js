@@ -20,6 +20,17 @@ module.exports = {
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-catch-links`,
+    `gatsby-plugin-resolve-src`,
+    `gatsby-plugin-remove-trailing-slashes`,
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /vectors/,
+        }
+      }
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -47,6 +58,14 @@ module.exports = {
         repositoryName: 'kahildev',
         // path: '/preview',
         // previews: true,
+        pages: [
+          {
+            type: 'Project',
+            match: '/project/:uid',
+            path: '/project',
+            component: require.resolve('./src/templates/project.js'),
+          }
+        ]
       }
     },
   ],
