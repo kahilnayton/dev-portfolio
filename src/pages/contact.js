@@ -10,7 +10,6 @@ const ContactFormContainer = styled.div`
 `;
 
 const Contact = props => {
-  console.log(props);
   return (
     <Layout>
       <ContactFormContainer>
