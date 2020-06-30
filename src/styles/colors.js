@@ -16,11 +16,11 @@ const colors = {
   orange100: "#FBF7F4",
 
   
-  lime100: "#F0F2DA",
   
   
-  red600: "#D32030",
+  red: "#FF193C",
   
+  purple: "#462178",
   yellow: "#FFF44F",
   blue: "#34C3E0",
   green: "#6DBF67",

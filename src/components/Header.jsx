@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { graphql, StaticQuery, Link } from 'gatsby';
 import { Inner } from 'styles/structure';
 import colors from 'styles/colors';
+import gradients from 'styles/gradients';
 import dimensions from 'styles/dimensions';
 // import CleanInput from 'components/_ui/CleanInput';
 // import GenericLink from 'components/_ui/GenericLink';
@@ -37,7 +38,7 @@ const HeaderBar = styled.div`
   width: 100%;
   height: ${headerHeightMobile};
   padding: 2.2rem 0 2rem;
-  background-color: ${colors.grey700};
+  background: ${gradients.rainbowToRight};
   transition: box-shadow 0.12s ease-in-out;
   z-index: 10;
 

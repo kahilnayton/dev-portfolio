@@ -30,7 +30,7 @@ const CardContainer = styled(Link)`
       }
       
       > div:last-child {
-        background: ${gradients.rainbow};
+        background: ${gradients.purpleRed};
         
         &::before {
           transform: scaleY(1);
@@ -67,7 +67,7 @@ const CardImage = styled.div`
     width: 100%;
     height: 100%;
     display: inline-block;
-    background: ${colors.yellow};
+    background: ${colors.grey200};
     mix-blend-mode: multiply;
     transition: transform 0.12s ease-in-out;
   }

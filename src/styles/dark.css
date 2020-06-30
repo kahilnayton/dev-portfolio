@@ -205,17 +205,6 @@ nav li {
  text-align: center;
 }
 
-/* /Hero Section */
-
-/* About */
-
-.about {
- text-align: center;
- background: black;
- position: relative;
- background: radial-gradient(circle at 100% 50%, rgba(0, 0, 0, 0.4), rgba(11, 11, 11, 0.85) );
-}
-
 .card {
  background: #5c2b1f;
  border-radius: 3px;
@@ -225,16 +214,6 @@ nav li {
  margin: 0 auto;
 }
 
-.about ul {
- max-width: 750px;
- margin: 0 auto;
- z-index: 2;
- position: relative;
-}
-
-.about ul li {
- margin: .75rem 2rem;
-}
 
 .about-title, .about-subtitle {
  color: var(--text-light);
@@ -243,11 +222,6 @@ nav li {
 .about-subtitle {
  font-size: 1rem;
  font-weight: 400;
-}
-
-.profile-pic {
- margin: 1.25rem 0;
- width: 200px;
 }
 
 .fa-html5 {

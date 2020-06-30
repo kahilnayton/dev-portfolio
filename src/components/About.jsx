@@ -16,6 +16,8 @@ import {
   DiPostgresql,
 } from 'react-icons/di';
 import { GrGatsbyjs, GrGraphQl } from 'react-icons/gr';
+import gradients from '../styles/gradients';
+import colors from '../styles/colors';
 import styled from '@emotion/styled';
 
 const Li = styled.li`
@@ -24,9 +26,32 @@ const Li = styled.li`
   }
 `;
 
+const Section = styled.section`
+  text-align: center;
+  background: black;
+  position: relative;
+  background: ${gradients.rainbow};
+
+  h2, h4 {
+    color: ${colors.grey200};
+  }
+
+  ul {
+    max-width: 750px;
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+
+    li {
+      margin: .75rem 2rem;
+
+    }
+  }
+`;
+
 export default function About() {
   return (
-    <section id="about" className="about">
+    <Section id="about" className="about">
       <h2 className="section-title">Languages &amp; Tools</h2>
       <ul>
         <Li>
@@ -88,6 +113,6 @@ export default function About() {
           <h4 className="about-subtitle block">Node.js</h4>
         </Li>
       </ul>
-    </section>
+    </Section>
   );
 }
