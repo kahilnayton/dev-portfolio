@@ -4,7 +4,9 @@ import './src/styles/common.css'
 
 import "./src/fonts/fonts.css";
 
-const { registerLinkResolver } = require("gatsby-source-prismic-graphql")
-const { linkResolver } = require("./src/utils/linkResolver")
+// import React from "react"
+// import { ParallaxProvider } from "react-scroll-parallax"
 
-registerLinkResolver(linkResolver)
+// export const wrapPageElement = ({ element, props }) => {
+//   return <ParallaxProvider>{element}</ParallaxProvider>
+// }

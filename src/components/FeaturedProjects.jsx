@@ -3,11 +3,12 @@ import styled from "@emotion/styled";
 import { Inner } from '../styles/structure';
 // import colors from "../colors";
 import dimensions from '../styles/dimensions';
-import RichText from '../components/RichText';
+// import RichText from '../components/RichText';
 import Content from '../components/_ui/Content';
 import ProjectsGrid from '../components/_grid/Projects';
 import ProjectCard from '../components/_card/Project';
-import { GrFormNextLink } from 'react-icons/gr';
+import { Link } from "gatsby"
+// import { GrFormNextLink } from 'react-icons/gr';
 
 
 const ProjectsContainer = styled.div`
@@ -73,7 +74,6 @@ const ProjectsContainer = styled.div`
 `;
 
 const FeaturedProjects = (props) => {
-  console.log(props)
 
   const { heading, content, buttonText, destination, projects, variant } = props
   let projectsHeading;
@@ -96,7 +96,8 @@ const FeaturedProjects = (props) => {
             </div>
 
             {(buttonText && destination) && (
-              <GrFormNextLink destination={destination} text={buttonText} />
+              <Link>Next</Link>
+              // <GrFormNextLink destination={destination} text={buttonText} />
             )}
           </header>
         )}

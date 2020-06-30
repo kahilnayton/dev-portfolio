@@ -18,7 +18,7 @@ const IndexPage = ({ data }) => {
         variant="homepage"
       />
 
-      <About />
+      {/* <About /> */}
 
 
       <FeaturedProjects
