@@ -210,11 +210,10 @@ nav li {
 /* About */
 
 .about {
- min-height: 90vh;
  text-align: center;
  background: black;
  position: relative;
- /* background: radial-gradient(circle at 100% 50%, rgba(0, 0, 0, 0.4), rgba(11, 11, 11, 0.85) ); */
+ background: radial-gradient(circle at 100% 50%, rgba(0, 0, 0, 0.4), rgba(11, 11, 11, 0.85) );
 }
 
 .card {
@@ -591,7 +590,7 @@ footer h6 a:link {
  }
 
  .icon-size {
-   font-size: 4rem;
+   /* font-size: 4rem; */
  }
 
  .about::before {

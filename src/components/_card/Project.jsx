@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 // import { Rubric } from "../../styles/typography";
 import styled from "@emotion/styled";
 import colors from "../../styles/colors";
+import gradients from '../../styles/gradients'
 import dimensions from '../../styles/dimensions';
 
 const CardContainer = styled(Link)`
@@ -29,11 +30,11 @@ const CardContainer = styled(Link)`
       }
       
       > div:last-child {
-        background-color: ${colors.grey900};
+        background: ${gradients.rainbow};
         
         &::before {
           transform: scaleY(1);
-          background-color: ${colors.grey900};
+          /* background-color: ${colors.grey900}; */
         }
       }
     }
@@ -56,6 +57,19 @@ const CardImage = styled.div`
     transform-origin: center center;
     transition: transform 0.32s ease-out;
     object-fit: cover;
+  }
+
+  ::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background: ${colors.yellow};
+    mix-blend-mode: multiply;
+    transition: transform 0.12s ease-in-out;
   }
 `;
 

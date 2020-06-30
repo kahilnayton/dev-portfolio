@@ -15,16 +15,16 @@ const colors = {
   orange200: "#F2EFED",
   orange100: "#FBF7F4",
 
-  yellow500: "#FFD600",
-
+  
   lime100: "#F0F2DA",
-
-  green400: "#10CDA9",
-
+  
+  
   red600: "#D32030",
-
-  blue400: "#6076FF",
-  blue200: "#D9D8DE",
+  
+  yellow: "#FFF44F",
+  blue: "#34C3E0",
+  green: "#6DBF67",
 };
+
 
 export default colors;

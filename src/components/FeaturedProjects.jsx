@@ -8,7 +8,7 @@ import Content from '../components/_ui/Content';
 import ProjectsGrid from '../components/_grid/Projects';
 import ProjectCard from '../components/_card/Project';
 import { Link } from "gatsby"
-// import { GrFormNextLink } from 'react-icons/gr';
+import { GrFormNextLink } from 'react-icons/gr';
 
 
 const ProjectsContainer = styled.div`
@@ -96,8 +96,7 @@ const FeaturedProjects = (props) => {
             </div>
 
             {(buttonText && destination) && (
-              <Link>Next</Link>
-              // <GrFormNextLink destination={destination} text={buttonText} />
+              <GrFormNextLink destination={destination} text={buttonText} />
             )}
           </header>
         )}
