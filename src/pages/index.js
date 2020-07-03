@@ -10,7 +10,7 @@ const IndexPage = ({ data }) => {
   const home = data.prismic.allHomes.edges[0].node;
 
   return (
-    <Layout>
+    <>
 
       <h2>Hello</h2>
       {/* <Hero
@@ -30,7 +30,7 @@ const IndexPage = ({ data }) => {
         variant="homepage"
         project_heading={home.project_heading}
       /> */}
-    </Layout>
+    </>
   );
 };
 export default IndexPage;
