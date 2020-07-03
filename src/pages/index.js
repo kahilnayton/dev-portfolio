@@ -10,10 +10,8 @@ const IndexPage = ({ data }) => {
   const home = data.prismic.allHomes.edges[0].node;
 
   return (
-    <>
-
-      <h2>Hello</h2>
-      {/* <Hero
+    <Layout>
+      <Hero
         heading={home.heading}
         text={home.body[0].primary.text}
         background={home.body[0].primary.background_image}
@@ -22,15 +20,13 @@ const IndexPage = ({ data }) => {
 
       <About />
 
-      
-
 
       <FeaturedProjects
         projects={home.project_list}
         variant="homepage"
         project_heading={home.project_heading}
-      /> */}
-    </>
+      />
+    </Layout>
   );
 };
 export default IndexPage;

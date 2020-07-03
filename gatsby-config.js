@@ -36,7 +36,7 @@ module.exports = {
     {
       resolve: `gatsby-source-prismic-graphql`,
       options: {
-        repositoryName: 'kahildev',
+        repositoryName: 'kahil-dev',
         // path: '/preview',
         // previews: true,
         pages: [
