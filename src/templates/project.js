@@ -12,11 +12,15 @@ const ProjectCard = styled.div`
 
   padding-top: 10rem;
   grid-gap: 1.5rem;
+
+  h2 {
+    grid-row: 1;
+  }
 `;
 
 const ImageContainer = styled.div`
-grid-row: 1 / 6;
-grid-column: 1 / 6;
+  grid-row: 1 / 6;
+  grid-column: 1 / 6;
   img {
     height: 100%;
     object-fit: cover;
@@ -26,14 +30,19 @@ grid-column: 1 / 6;
 `;
 
 const Project = ({ data }) => {
-  const project = data.prismic.allProjects.edges[0].node || undefined;
+  const project = data.prismic.projectsByUID;
 
+  console.log(project);
+  if (!project) {
+    return null;
+  }
 
   return (
     <Layout>
+        <h2>{project.edges[0].node.title[0].text}</h2>
       <ProjectCard>
         <ImageContainer>
-          <img src={project.project_image.url} alt="" />
+          <img src={project.edges[0].node.project_image.url} alt="" />
         </ImageContainer>
       </ProjectCard>
     </Layout>
@@ -45,7 +54,7 @@ export default Project;
 export const query = graphql`
   query BlogPost($uid: String) {
     prismic {
-      allProjects(uid: $uid) {
+      projectsByUID: allProjects(uid: $uid) {
         edges {
           node {
             title
