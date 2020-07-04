@@ -32,7 +32,6 @@ const ImageContainer = styled.div`
 const Project = ({ data }) => {
   const project = data.prismic.projectsByUID;
 
-  console.log(project);
   if (!project) {
     return null;
   }
