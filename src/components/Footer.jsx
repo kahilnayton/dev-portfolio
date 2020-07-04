@@ -1,7 +1,7 @@
 import React from 'react';
 import gradients from 'styles/gradients';
 import styled from '@emotion/styled';
-import SocialBar from 'components/socialBar';
+import SocialBar from 'components/SocialBar';
 
 const FooterContainer = styled.footer`
   background: ${gradients.rainbow};
