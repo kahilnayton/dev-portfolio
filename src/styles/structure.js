@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import dimensions from "styles/dimensions";
+import dimensions from "../styles/dimensions";
 
 const fractionStrToDecimal = str => str.split('/').reduce((p, c) => p / c);
 

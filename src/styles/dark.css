@@ -1,35 +1,3 @@
-/* :root {
-  --nav-background: #000000;
-  --text-light: rgb(235, 235, 235);
-  --text-dark: rgb(54, 54, 54);
-  --bg-about: rgb(255, 255, 255);
-  --bg-projects: rgb(255, 255, 255);
-  --bg-contact: #2d3436;
-  --nav-shadow: 0 0px 10px rgba(0, 0, 0, 0.6);
-  --element-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.25);
-  --text-shadow: 5px 5px .2rem rgba(0, 0, 0, 0.25);
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  text-decoration: none;
-}
-
-body {
- font-family: 'Helvetica', sans-serif;
- font-weight: 400;
- background-color: rgb(0, 0, 0);
- position: relative;
-}
-
-h1, h2, h3, h4, h5, h6, p, label {
- color: var(--text-light);
-}
-
-/* DRY Classes */
 
 a:link, a:visited {
  color: var(--text-light);
@@ -51,11 +19,8 @@ a:link, a:visited {
  display: block;
 }
 
-/*  */
-
 .container {
  margin: 0 auto;
- /* width: 85%; */
  max-width: 1000px;
 }
 
@@ -78,9 +43,8 @@ a:link, a:visited {
 /* Navigation */
 .nav-header {
  display: flex;
-opacity: 0.7;
  justify-content: center;
- background: var(--nav-background);
+ background:#D32030;
  margin: 0 auto;
  position: fixed;
  top: 0;
@@ -101,7 +65,6 @@ opacity: 0.7;
  display: flex;
  height: 100%;
  margin-left: 1em;
- /* position: absolute; */
  top: 0;
  left: 0;
 }
@@ -186,7 +149,6 @@ nav li {
 
 .hero {
  height: 100vh;
- background: center / cover no-repeat url('./../img/nyc-1.jpeg');
  position: relative;
 }
 
@@ -238,18 +200,6 @@ nav li {
  text-align: center;
 }
 
-/* /Hero Section */
-
-/* About */
-
-.about {
- min-height: 90vh;
- text-align: center;
- background: black;
- position: relative;
- /* background: radial-gradient(circle at 100% 50%, rgba(0, 0, 0, 0.4), rgba(11, 11, 11, 0.85) ); */
-}
-
 .card {
  background: #5c2b1f;
  border-radius: 3px;
@@ -259,16 +209,6 @@ nav li {
  margin: 0 auto;
 }
 
-.about ul {
- max-width: 750px;
- margin: 0 auto;
- z-index: 2;
- position: relative;
-}
-
-.about ul li {
- margin: .75rem 2rem;
-}
 
 .about-title, .about-subtitle {
  color: var(--text-light);
@@ -277,11 +217,6 @@ nav li {
 .about-subtitle {
  font-size: 1rem;
  font-weight: 400;
-}
-
-.profile-pic {
- margin: 1.25rem 0;
- width: 200px;
 }
 
 .fa-html5 {
@@ -325,7 +260,7 @@ color: #0074D9;
  height: 4rem;
  display: block;
  margin: 0 auto 1rem;
- background: center / contain no-repeat url('../img/express.png');
+ background: center / contain no-repeat url('../images/express.png');
 }
 
 .fa-node, .fa-npm {
@@ -337,7 +272,7 @@ color: #0074D9;
  height: 4rem;
  display: block;
  margin: 0 auto 1rem;
- background: center / cover no-repeat url('../img/ruby.png');
+ background: center / cover no-repeat url('../images/ruby.png');
 }
 
 .p5 {
@@ -345,7 +280,7 @@ color: #0074D9;
  height: 4rem;
  display: block;
  margin: 0 auto 1rem;
- background: center / contain no-repeat url('../img/p5.png');
+ background: center / contain no-repeat url('../images/p5.png');
 }
 
 .linked-in {
@@ -353,7 +288,7 @@ color: #0074D9;
  height: 4rem;
  display: block;
  margin: 0 auto 1rem;
- background: center / contain no-repeat url('../img/linkedin.svg');
+ background: center / contain no-repeat url('../images/linkedin.svg');
 }
 
 .slack {
@@ -361,7 +296,7 @@ color: #0074D9;
  height: 4rem;
  display: block;
  margin: 0 auto 1rem;
- /* background: center / contain no-repeat url('../img/slack_color.png'); */
+ /* background: center / contain no-repeat url('../images/slack_color.png'); */
 }
 
 i {
@@ -454,7 +389,7 @@ i {
 /* Contact */
 
 .contact {
- /* background-image: linear-gradient(to bottom, black), center / cover no-repeat url("./../img/beach.JPG"); */
+ /* background-image: linear-gradient(to bottom, black), center / cover no-repeat url("./../images/beach.JPG"); */
  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.25);
 }
 
@@ -624,7 +559,7 @@ footer h6 a:link {
  }
 
  .icon-size {
-   font-size: 4rem;
+   /* font-size: 4rem; */
  }
 
  .about::before {

@@ -1,26 +1,20 @@
 import React from 'react';
+import gradients from 'styles/gradients';
+import styled from '@emotion/styled';
+import SocialBar from 'components/SocialBar';
+
+const FooterContainer = styled.footer`
+  background: ${gradients.rainbow};
+  height: 5rem;
+  display: grid;
+  padding: 5rem;
+  justify-content: start;
+`;
 
 export default function Footer() {
   return (
-    <footer>
-      <a
-        href="https://www.linkedin.com/in/kahilnayton/"
-        className="linked-in icon-size"
-      ></a>
-      <a
-        href="https://www.youtube.com/watch?v=bCD669baBEI&feature=youtu.be"
-        className="youtube icon-size"
-      ></a>
-      <span>
-        <dark-mode-toggle
-          id="dark-mode-toggle"
-          legend="Theme Switcher"
-          light="Light"
-          dark="Dark"
-          appearance="switch"
-          permanent="false"
-        ></dark-mode-toggle>
-      </span>
-    </footer>
+    <FooterContainer>
+      <SocialBar />
+    </FooterContainer>
   );
 }
