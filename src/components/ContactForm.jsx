@@ -23,10 +23,6 @@ h2 {
   color: ${colors.grey200};
 }
 
-@media (min-width: ${dimensions.tabletLandscapeUp}px) {
-
-}
-
 `
 
 const Form = styled.form`
@@ -45,6 +41,10 @@ const Form = styled.form`
 
   & > * {
     font-size: 1.6rem;
+  }
+
+  label {
+    color: black;
   }
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
@@ -78,6 +78,7 @@ const EmailInput = styled.input`
   height: 6rem;
   border: 1px solid #eee;
   width: 100%;
+
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     grid-column: 1/3;
@@ -142,7 +143,7 @@ export default class ContactForm extends Component {
     })
       .then(() =>
         this.setState({
-          statusMessage: 'Thanks you for contacting us!',
+          statusMessage: 'Thanks for getting in touch!',
         })
       )
       .catch(() =>

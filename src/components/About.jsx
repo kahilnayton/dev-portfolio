@@ -30,7 +30,7 @@ const Section = styled.section`
   text-align: center;
   background: black;
   position: relative;
-  background: ${gradients.rainbow};
+  background: ${gradients.purpleRedCircle};
 
   h2, h4 {
     color: ${colors.grey200};

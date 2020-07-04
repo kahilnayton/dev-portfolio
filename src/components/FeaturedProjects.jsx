@@ -1,22 +1,23 @@
 import React from 'react';
 import styled from "@emotion/styled";
 import { Inner } from '../styles/structure';
-// import colors from "../colors";
+import colors from "styles/colors";
 import dimensions from '../styles/dimensions';
 // import RichText from '../components/RichText';
 import Content from '../components/_ui/Content';
 import ProjectsGrid from '../components/_grid/Projects';
 import ProjectCard from '../components/_card/Project';
-import { Link } from "gatsby"
 import { GrFormNextLink } from 'react-icons/gr';
 
 
 const ProjectsContainer = styled.div`
   position: relative;
   width: 100%;
+  padding-bottom: 4rem;
 
   h1 {
     padding: 3rem 0;
+    color: ${colors.grey200};
   }
 
   
@@ -77,12 +78,6 @@ const FeaturedProjects = (props) => {
 
   const { heading, content, buttonText, destination, projects, variant } = props
   let projectsHeading;
-
-  // if (heading && heading[0].text) {
-  //   projectsHeading = <RichText render={heading}/>;
-  // } else if (heading) {
-  //   projectsHeading = <h3>{heading}</h3>;
-  // }
 
   return (
     <ProjectsContainer className={`${variant ? `FeaturedProjects--${variant}` : ''}`}>

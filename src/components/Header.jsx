@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from '@emotion/styled';
-import { graphql, StaticQuery, Link } from 'gatsby';
+import { Link } from 'gatsby';
 import { Inner } from 'styles/structure';
 import colors from 'styles/colors';
 import gradients from 'styles/gradients';
@@ -234,13 +234,6 @@ const MobileContent = styled(Inner)`
   }
 `;
 
-const MobileFooter = styled.footer`
-  width: 100%;
-  height: 8.8rem;
-  padding-top: 4rem;
-  flex: 0 0 8.8rem;
-`;
-
 export default class Header extends Component {
   constructor(props) {
     super(props);
@@ -277,8 +270,6 @@ export default class Header extends Component {
   }
 
   render() {
-    const self = this;
-
     return (
       <HeaderContainer
         className={`${this.state.isOpen ? 'is-open' : ''} ${

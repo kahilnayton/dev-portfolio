@@ -19,11 +19,8 @@ a:link, a:visited {
  display: block;
 }
 
-/*  */
-
 .container {
  margin: 0 auto;
- /* width: 85%; */
  max-width: 1000px;
 }
 
@@ -68,7 +65,6 @@ a:link, a:visited {
  display: flex;
  height: 100%;
  margin-left: 1em;
- /* position: absolute; */
  top: 0;
  left: 0;
 }

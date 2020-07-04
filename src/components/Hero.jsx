@@ -4,13 +4,14 @@ import styled from '@emotion/styled';
 import dimensions from '../styles/dimensions';
 import { Inner, Wrap } from '../styles/structure';
 import { Rubric } from '../styles/typography';
-/*import colors from "styles/colors";*/
+import colors from 'styles/colors';
 
 const HeroContainer = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
   padding-top: 4rem;
+
 
   * {
     color: #fff;
@@ -51,13 +52,28 @@ const HeroBackground = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border: solid;
+    
+        &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: ${colors.blue};
+        mix-blend-mode: multiply;
+        transition: transform 0.12s ease-in-out;
+      }
   }
-
+  
+  
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     width: calc(100% - 8rem);
     left: 4rem;
   }
-`;
+  `;
 
 const HeroForeground = styled.div`
   position: absolute;
@@ -65,7 +81,7 @@ const HeroForeground = styled.div`
   bottom: 0;
   left: 0;
   z-index: 1;
-
+  
   &::before {
     content: '';
     position: absolute;
@@ -76,7 +92,7 @@ const HeroForeground = styled.div`
     z-index: -10;
     max-width: 60rem;
   }
-
+  
   img {
     z-index: 20;
     padding: 3rem 0 0 13rem;
