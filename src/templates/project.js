@@ -38,12 +38,17 @@ const Project = ({ data }) => {
 
   return (
     <Layout>
-        <h2>{project.edges[0].node.title[0].text}</h2>
-      <ProjectCard>
-        <ImageContainer>
-          <img src={project.edges[0].node.project_image.url} alt="" />
-        </ImageContainer>
-      </ProjectCard>
+      {project.edges.length && (
+        <ProjectCard>
+          <h2>{project.edges[0].node.title[0].text || undefined}</h2>
+          <ImageContainer>
+            <img
+              src={project.edges[0].node.project_image.url || undefined}
+              alt=""
+            />
+          </ImageContainer>
+        </ProjectCard>
+      )}
     </Layout>
   );
 };
