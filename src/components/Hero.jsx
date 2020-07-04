@@ -10,6 +10,7 @@ const HeroContainer = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
+  padding-top: 4rem;
 
   * {
     color: #fff;

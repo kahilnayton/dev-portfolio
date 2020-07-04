@@ -7,7 +7,7 @@ import gradients from 'styles/gradients';
 import dimensions from 'styles/dimensions';
 // import CleanInput from 'components/_ui/CleanInput';
 // import GenericLink from 'components/_ui/GenericLink';
-// import SocialBar from 'components/SocialBar';
+import SocialBar from 'components/SocialBar';
 import { document } from 'browser-monads';
 
 const headerHeightMobile = '6.4rem';
@@ -51,12 +51,6 @@ const HeaderBar = styled.div`
     height: ${headerHeightDesktop};
     padding-top: 4rem;
     box-shadow: none;
-
-    /* // prevent drop shadow on desktop when: header is not sticky but mobile nav is open; panel is open */
-    .is-open:not(.is-sticky) &,
-    .is-sticky.has-open-panel & {
-      box-shadow: none;
-    }
   }
 `;
 
@@ -79,10 +73,10 @@ const HeaderLinks = styled.div`
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     display: flex;
     padding: 2rem;
-    width: 60%;
+    width: 100%;
     margin: auto;
-    align-items: space-between;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: flex-end;
   }
   a {
     color: ${colors.red500};
@@ -299,15 +293,7 @@ export default class Header extends Component {
             </Link>
 
             <HeaderLinks>
-              {/* {data.links.map((link, i) => (
-                <Link key={i} to={link.end_point}>
-                  {link.label}
-                </Link>
-              ))} */}
-
-              <Link to="/contact">Contact</Link>
-              <Link to="/music">Music</Link>
-              <Link to="/instagram">Instagram</Link>
+              <SocialBar />
             </HeaderLinks>
 
             <HeaderHamburger
@@ -326,14 +312,10 @@ export default class Header extends Component {
           <MobileLinks>
             <MobileToggle>
               <MobileContent>
-                <Link to="/contact">Contact</Link>
-                <Link to="/music">Music</Link>
-                <Link to="/instagram">Instagram</Link>
+                <SocialBar />
               </MobileContent>
             </MobileToggle>
           </MobileLinks>
-
-          <MobileFooter></MobileFooter>
         </HeaderMobile>
       </HeaderContainer>
     );

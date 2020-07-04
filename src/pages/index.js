@@ -1,16 +1,23 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-// import SliceZone from '../components/SliceZone';
 import Layout from '../components/Layout';
+import styled from '@emotion/styled';
+import colors from 'styles/colors';
 import About from '../components/About';
 import Hero from '../components/Hero';
 import FeaturedProjects from '../components/FeaturedProjects';
+
+const Wrapper = styled.div`
+background: ${colors.blue};
+`
+
 
 const IndexPage = ({ data }) => {
   const home = data.prismic.allHomes.edges[0].node;
 
   return (
     <Layout>
+      <Wrapper>
       <Hero
         heading={home.heading}
         text={home.body[0].primary.text}
@@ -25,7 +32,8 @@ const IndexPage = ({ data }) => {
         projects={home.project_list}
         variant="homepage"
         project_heading={home.project_heading}
-      />
+        />
+        </Wrapper>
     </Layout>
   );
 };

@@ -20,6 +20,7 @@ const FormButton = styled(Button)`
 const FormInner = styled(Inner)`
 h2 {
   padding-bottom: 3rem;
+  color: ${colors.grey200};
 }
 
 @media (min-width: ${dimensions.tabletLandscapeUp}px) {
