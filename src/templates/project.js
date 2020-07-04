@@ -26,8 +26,8 @@ grid-column: 1 / 6;
 `;
 
 const Project = ({ data }) => {
-  const project = data.prismic.allProjects.edges[0].node;
-  console.log(project);
+  const project = data.prismic.allProjects.edges[0].node || undefined;
+
 
   return (
     <Layout>
