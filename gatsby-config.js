@@ -5,7 +5,7 @@ require('dotenv').config({
 const siteMetadata = {
   title: `gatsby-prismic-blog`,
   description: `New portfolio blog`,
-  image: `src/images/track_fit.jpg`,
+  image: `src/images/spring_logo.png`,
   siteUrl: `http://www.kahilnayton.com/`,
   siteLanguage: `en-US`,
   siteLocale: `en_us`,
@@ -66,7 +66,7 @@ module.exports = {
         background_color: `#D32030`,
         theme_color: `#D32030`,
         display: `minimal-ui`,
-        icon: `src/images/portfolio_logo.png`, // This path is relative to the root of the site.
+        icon: `src/images/spring_logo.png`, // This path is relative to the root of the site.
       },
     },
   ],

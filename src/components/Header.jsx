@@ -5,7 +5,7 @@ import { Inner } from 'styles/structure';
 import colors from 'styles/colors';
 import gradients from 'styles/gradients';
 import dimensions from 'styles/dimensions';
-// import springLogo from '../images/spring_logo.png'
+import springLogo from '../images/spring_logo.png'
 import SocialBar from 'components/SocialBar';
 import { document } from 'browser-monads';
 
@@ -57,6 +57,12 @@ const HeaderInner = styled(Inner)`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
+  img {
+    height: 3.2rem;
+    width: 3.2rem;
+    display: block;
+  }
 
   a {
     h4 {
@@ -284,7 +290,7 @@ export default class Header extends Component {
         <HeaderBar>
           <HeaderInner>
             <Link to="/">
-              <h4>Kahil Nayton</h4>
+              <img src={springLogo} alt=""/>
             </Link>
 
             <HeaderLinks>

@@ -52,7 +52,7 @@ const ProjectDescription = styled.div`
   pre {
     background: ${colors.grey900};
     color: #fff;
-    /* padding: 1.6rem; */
+    padding: 1.6rem;
   }
 `;
 
