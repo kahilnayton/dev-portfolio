@@ -4,7 +4,7 @@ import colors from 'styles/colors';
 import Layout from 'components/Layout';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
-// import { linkResolver } from '../utils/linkResolver';
+import TechStack from '../components/TechStack';
 
 const ProjectWrapper = styled.div`
   background: #fff;
@@ -56,31 +56,12 @@ const ProjectDescription = styled.div`
   }
 `;
 
-const TechWrapper = styled.div`
-display: grid;
-grid-template-columns: 1fr 1fr;
-grid-template-rows: 1fr 1fr;
-width: 20vw;
-align-items: center;
-
-  img {
-    grid-column: 1;
-    height: 4rem;
-    width: 100%;
-  }
-  p {
-    grid-column: 2;
-  }
-`;
-
 const Project = ({ data }) => {
   const project = data.prismic.projectsByUID;
-  const tech = project.edges[0].node.tech_stack[0].tech;
 
   if (!project) {
     return null;
   }
-
 
   return (
     <Layout>
@@ -89,20 +70,17 @@ const Project = ({ data }) => {
           <ProjectDescription>
             <RichText render={project.edges[0].node.description} />
             <a href={project.edges[0].node.project_link.url}>
-              <img src={project.edges[0].node.project_gif.url} alt={project.edges[0].node.project_gif.alt}/>
+              <img
+                src={project.edges[0].node.project_gif.url}
+                alt={project.edges[0].node.project_gif.alt}
+              />
             </a>
-
           </ProjectDescription>
         )}
-        <h2 className='tech-stack'>Tech Stack</h2>
-        {tech.length > 0 &&
-          tech.map((t, i) => (
-            <TechWrapper key={i}>
-              <img src={t.url} alt={t.alt} />
-              <p>{t.alt}</p>
-              {console.log(t)}
-            </TechWrapper>
-          ))}
+        <h2 className="tech-stack">Tech Stack</h2>
+        {project.edges.length > 0 && (
+          <TechStack stack={project.edges[0].node.tech_stack[0].tech} />
+        )}
       </ProjectWrapper>
     </Layout>
   );
