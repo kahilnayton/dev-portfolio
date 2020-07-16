@@ -5,7 +5,7 @@ require('dotenv').config({
 const siteMetadata = {
   title: `gatsby-prismic-blog`,
   description: `New portfolio blog`,
-  image: `src/images/kahil.JPG`,
+  image: `src/images/track_fit.jpg`,
   siteUrl: `http://www.kahilnayton.com/`,
   siteLanguage: `en-US`,
   siteLocale: `en_us`,

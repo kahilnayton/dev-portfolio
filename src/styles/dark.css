@@ -260,7 +260,6 @@ color: #0074D9;
  height: 4rem;
  display: block;
  margin: 0 auto 1rem;
- background: center / contain no-repeat url('../images/express.png');
 }
 
 .fa-node, .fa-npm {
@@ -272,15 +271,6 @@ color: #0074D9;
  height: 4rem;
  display: block;
  margin: 0 auto 1rem;
- background: center / cover no-repeat url('../images/ruby.png');
-}
-
-.p5 {
- width: 4rem;
- height: 4rem;
- display: block;
- margin: 0 auto 1rem;
- background: center / contain no-repeat url('../images/p5.png');
 }
 
 .linked-in {
@@ -288,7 +278,7 @@ color: #0074D9;
  height: 4rem;
  display: block;
  margin: 0 auto 1rem;
- background: center / contain no-repeat url('../images/linkedin.svg');
+ background: center / contain no-repeat url('../vectors/linkedin.svg');
 }
 
 .slack {

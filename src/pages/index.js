@@ -8,32 +8,32 @@ import Hero from '../components/Hero';
 import FeaturedProjects from '../components/FeaturedProjects';
 
 const Wrapper = styled.div`
-background: ${colors.blue};
-`
-
+  background: ${colors.blue};
+`;
 
 const IndexPage = ({ data }) => {
   const home = data.prismic.allHomes.edges[0].node;
 
+  console.log(home);
+
   return (
     <Layout>
       <Wrapper>
-      <Hero
-        heading={home.heading}
-        text={home.body[0].primary.text}
-        background={home.body[0].primary.background_image}
-        variant="homepage"
-      />
-
-      <About />
-
-
-      <FeaturedProjects
-        projects={home.project_list}
-        variant="homepage"
-        project_heading={home.project_heading}
+        <Hero
+          heading={home.heading}
+          text={home.body[0].primary.hero_title[0].text}
+          background={home.body[0].primary.background_image}
+          variant="homepage"
         />
-        </Wrapper>
+
+        <About />
+
+        <FeaturedProjects
+          projects={home.project_list}
+          variant="homepage"
+          project_heading={home.project_heading}
+        />
+      </Wrapper>
     </Layout>
   );
 };

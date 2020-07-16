@@ -12,7 +12,6 @@ const HeroContainer = styled.div`
   width: 100%;
   padding-top: 4rem;
 
-
   * {
     color: #fff;
   }
@@ -52,36 +51,34 @@ const HeroBackground = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: solid;
-    
-        &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: ${colors.blue};
-        mix-blend-mode: multiply;
-        transition: transform 0.12s ease-in-out;
-      }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: ${colors.blue};
+      mix-blend-mode: multiply;
+      transition: transform 0.12s ease-in-out;
+    }
   }
-  
-  
+
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     width: calc(100% - 8rem);
     left: 4rem;
   }
-  `;
+`;
 
 const HeroForeground = styled.div`
   position: absolute;
-  width: 100vw;
+  width: 10vw;
   bottom: 0;
   left: 0;
   z-index: 1;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -92,7 +89,7 @@ const HeroForeground = styled.div`
     z-index: -10;
     max-width: 60rem;
   }
-  
+
   img {
     z-index: 20;
     padding: 3rem 0 0 13rem;
@@ -123,12 +120,27 @@ const HeroWrap = styled(Wrap)`
 const HeroContent = styled.div`
   position: relative;
   z-index: 10;
-  color: #fff;
+  background: ${colors.grey100};
   max-width: 85rem;
   text-shadow: 0 0.3rem 2rem rgba(0, 0, 0, 0.18);
+  padding: 1.6rem;
+
+    &:hover {
+    background: ${colors.blue};
+    }
 
   p {
     margin-top: 3.2rem;
+    color: ${colors.red};
+    &:hover {
+    color: #fff;
+    }
+  }
+  h1 {
+    color: ${colors.red};
+    &:hover {
+    color: #fff;
+    }
   }
 
   span {
@@ -148,7 +160,16 @@ const HeroContent = styled.div`
   }
 `;
 
-const Hero = ({ rubric, heading, text, background, variant, foreground }) => {
+const Hero = ({
+  heading,
+  text,
+  background,
+  variant,
+  foreground,
+  content,
+  rubric,
+}) => {
+  console.log(text);
   return (
     <HeroContainer className={`${variant ? `Hero--${variant}` : ''}`}>
       <HeroInner>

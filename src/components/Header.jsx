@@ -5,13 +5,12 @@ import { Inner } from 'styles/structure';
 import colors from 'styles/colors';
 import gradients from 'styles/gradients';
 import dimensions from 'styles/dimensions';
-// import CleanInput from 'components/_ui/CleanInput';
-// import GenericLink from 'components/_ui/GenericLink';
+// import springLogo from '../images/spring_logo.png'
 import SocialBar from 'components/SocialBar';
 import { document } from 'browser-monads';
 
-const headerHeightMobile = '6.4rem';
-const headerHeightDesktop = '10.4rem';
+const headerHeightMobile = '6rem';
+const headerHeightDesktop = '6rem';
 
 const HeaderContainer = styled.div`
   display: block;
@@ -38,7 +37,7 @@ const HeaderBar = styled.div`
   width: 100%;
   height: ${headerHeightMobile};
   padding: 2.2rem 0 2rem;
-  background: ${gradients.rainbowToRight};
+  background: ${gradients.purpleRedCircle};
   transition: box-shadow 0.12s ease-in-out;
   z-index: 10;
 
@@ -49,7 +48,6 @@ const HeaderBar = styled.div`
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     height: ${headerHeightDesktop};
-    padding-top: 4rem;
     box-shadow: none;
   }
 `;
@@ -63,6 +61,13 @@ const HeaderInner = styled(Inner)`
   a {
     h4 {
       color: ${colors.grey100};
+      font-size: 2.4rem;
+      display: inline-block;
+      width: 20rem;
+
+      &:hover {
+      color: ${colors.blue};
+      }
     }
   }
 `;
@@ -72,7 +77,6 @@ const HeaderLinks = styled.div`
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     display: flex;
-    padding: 2rem;
     width: 100%;
     margin: auto;
     align-items: center;
@@ -203,7 +207,7 @@ const MobileToggle = styled.div`
 
     a {
       color: #fff;
-      fill: ${colors.red500};
+      fill: ${colors.red};
     }
   }
 `;
