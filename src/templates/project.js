@@ -8,7 +8,7 @@ import TechStack from '../components/TechStack';
 
 const ProjectWrapper = styled.div`
   background: #fff;
-  padding: 4rem 12rem;
+  padding: 1.6rem 2.3rem 12rem 2.3rem;
 
   h2.tech-stack {
     font-size: 2.4rem;
@@ -53,6 +53,8 @@ const ProjectDescription = styled.div`
     background: ${colors.grey900};
     color: #fff;
     padding: 1.6rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
   }
 `;
 
