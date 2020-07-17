@@ -1,36 +1,39 @@
 import React from 'react';
 import styled from '@emotion/styled';
+// import dimensions from '../styles/dimensions';
 // import colors from 'styles/colors';
 
 const TechWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  width: 20vw;
-  align-items: center;
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+`;
+const TechContainer = styled.div`
+  padding-left: 2.3rem;
 
   img {
-    grid-column: 1;
     height: 4rem;
-    width: 100%;
+    width: 4rem;
+    &:hover {
+      transform: scale(1.2);
+    }
   }
   p {
-    grid-column: 2;
   }
 `;
 
 const TechStack = props => {
   return (
-    <div>
+    <TechWrapper>
       {props.stack.length > 0 &&
         props.stack.map((t, i) => (
-          <TechWrapper key={i}>
-            <img src={t.url} alt={t.alt} />
+          <TechContainer key={i}>
+            <img src={t.tech[0].url} alt={t.alt} />
             <p>{t.alt}</p>
             {console.log(t)}
-          </TechWrapper>
+          </TechContainer>
         ))}
-    </div>
+    </TechWrapper>
   );
 };
 

@@ -5,6 +5,7 @@ import Layout from 'components/Layout';
 import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import TechStack from '../components/TechStack';
+import dimensions from '../styles/dimensions';
 
 const ProjectWrapper = styled.div`
   background: #fff;
@@ -14,6 +15,12 @@ const ProjectWrapper = styled.div`
     font-size: 2.4rem;
     text-decoration: underline;
     margin-bottom: 1.6rem;
+    padding-left: 2.3rem;
+  }
+
+  @media (min-width: ${dimensions.tabletLandscapeUp}px) {
+  padding: 1.6rem 4.6rem 12rem 4.6rem;
+
   }
 `;
 
@@ -79,9 +86,8 @@ const Project = ({ data }) => {
             </a>
           </ProjectDescription>
         )}
-        <h2 className="tech-stack">Tech Stack</h2>
         {project.edges.length > 0 && (
-          <TechStack stack={project.edges[0].node.tech_stack[0].tech} />
+          <TechStack stack={project.edges[0].node.tech_stack} />
         )}
       </ProjectWrapper>
     </Layout>
