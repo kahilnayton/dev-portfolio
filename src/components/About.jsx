@@ -19,6 +19,8 @@ import { GrGatsbyjs, GrGraphQl } from 'react-icons/gr';
 import gradients from '../styles/gradients';
 import colors from '../styles/colors';
 import styled from '@emotion/styled';
+import Cloud from '../components/Cloud'
+
 
 const Li = styled.li`
   &:hover {
@@ -32,7 +34,8 @@ const Section = styled.section`
   position: relative;
   background: ${gradients.purpleRedCircle};
 
-  h2, h4 {
+  h2,
+  h4 {
     color: ${colors.grey200};
   }
 
@@ -43,8 +46,7 @@ const Section = styled.section`
     position: relative;
 
     li {
-      margin: .75rem 2rem;
-
+      margin: 0.75rem 2rem;
     }
   }
 `;
@@ -52,6 +54,7 @@ const Section = styled.section`
 export default function About() {
   return (
     <Section id="about" className="about">
+      <Cloud/>
       <h2 className="section-title">Languages &amp; Tools</h2>
       <ul>
         <Li>

@@ -196,12 +196,13 @@ const MobileToggle = styled.div`
     right: 2rem;
     top: 50%;
     transform: translateY(-50%);
-    fill: ${colors.red500};
+    fill: ${colors.grey500};
     display: block;
     width: 2rem;
     height: 1.3rem;
     transform-origin: center center;
     transition: transform 0.08s ease-in-out;
+    /* transform: scale(1.8); */
   }
 
   a {
@@ -239,10 +240,14 @@ const MobileContent = styled(Inner)`
     color: ${colors.grey800};
 
     &:hover {
-      color: ${colors.red500};
+      color: ${colors.blue};
     }
   }
 `;
+
+const BurgerSocialBar = styled(SocialBar)`
+align-self: flex-end;
+`
 
 export default class Header extends Component {
   constructor(props) {
@@ -313,8 +318,11 @@ export default class Header extends Component {
           <MobileLinks>
             <MobileToggle>
               <MobileContent>
-                <SocialBar />
+                <Link to='/'>Home</Link>  
+                <Link to='/contact'>Contact</Link>  
+                <Link to='/projects'>Projects</Link>  
               </MobileContent>
+                <BurgerSocialBar variant='burger' />
             </MobileToggle>
           </MobileLinks>
         </HeaderMobile>
