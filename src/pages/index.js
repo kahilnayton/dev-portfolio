@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import colors from 'styles/colors';
 import About from '../components/About';
 import Hero from '../components/Hero';
+import SEO from 'components/SEO';
 import FeaturedProjects from '../components/FeaturedProjects';
 
 const Wrapper = styled.div`
@@ -17,6 +18,13 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
+       <SEO
+        title={home.social_title || 'Home'}
+        description={
+          home.social_description ? home.social_description : null
+        }
+        image={home.social_image ? home.social_image.url : null}
+      />
       <Wrapper>
         <Hero
           heading={home.heading}

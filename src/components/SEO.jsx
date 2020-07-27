@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
+import { graphql, StaticQuery } from 'gatsby';
 
 class SEO extends Component {
+  
   render() {
+    const social = this.props.data.prismic.allSocials.edges[0].node;
+
     const siteMetadata = {
-      title: `Kahil Nayton`,
-      description: `Full stack developer based in NYC`,
-      siteName: 'kahil nayton blog',
-      siteUrl: `https://www.kahildev.com/`,
+     title: this.props.title || social.title || `Default Page Title`,
+      description:
+        this.props.description ||
+        social.description ||
+        `This is the default page description for this project.`,
+      image: this.props.image || social.image || `src/images/spring_logo.png`,
+      siteName: social.siteName || `Kahil Nayton Full Stack Developer`,
+      siteUrl: social.siteUrl || `https://www.kahildev.com/`,
       siteLanguage: `en-US`,
       siteLocale: `en_us`,
-      authorName: `Kahil Nayton`,
+      authorName: `Kahil`,
+      author: `Kahil | https://www.kahildev.com`,
+      twitter: social.twitter || `kahilnayton`,
     };
 
     let meta = [];
@@ -65,4 +75,33 @@ class SEO extends Component {
   }
 }
 
-export default SEO;
+export default props => (
+  <StaticQuery
+    query={graphql`
+      {
+        prismic {
+          allSocials {
+            edges {
+              node {
+                _meta {
+                  uid
+                }
+                default_description
+                default_image
+                default_title
+                facebook
+                instagram
+                linkedin
+                site_name
+                site_url
+                twitter
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => <SEO data={data} {...props} />}
+  />
+);
+
