@@ -5,7 +5,7 @@ import dimensions from '../styles/dimensions';
 import { Inner, Wrap } from '../styles/structure';
 import { Rubric } from '../styles/typography';
 import colors from 'styles/colors';
-import CloudComponent from '../components/Cloud'
+import CloudComponent from './CloudComponent'
 
 const HeroContainer = styled.div`
   position: relative;
@@ -170,7 +170,7 @@ const Hero = ({
   content,
   rubric,
 }) => {
-  console.log(text);
+  
   return (
     <HeroContainer className={`${variant ? `Hero--${variant}` : ''}`}>
       <HeroInner>

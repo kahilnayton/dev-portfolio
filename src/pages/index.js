@@ -14,7 +14,6 @@ const Wrapper = styled.div`
 const IndexPage = ({ data }) => {
   const home = data.prismic.allHomes.edges[0].node;
 
-  console.log(home);
 
   return (
     <Layout>

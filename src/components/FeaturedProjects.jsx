@@ -8,7 +8,7 @@ import Content from '../components/_ui/Content';
 import ProjectsGrid from '../components/_grid/Projects';
 import ProjectCard from '../components/_card/Project';
 import { GrFormNextLink } from 'react-icons/gr';
-import CloudComponent from '../components/Cloud'
+import CloudComponent from './CloudComponent'
 
 const ProjectsContainer = styled.div`
   position: relative;

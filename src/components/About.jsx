@@ -19,7 +19,7 @@ import { GrGatsbyjs, GrGraphQl } from 'react-icons/gr';
 import gradients from '../styles/gradients';
 import colors from '../styles/colors';
 import styled from '@emotion/styled';
-import CloudComponent from '../components/Cloud'
+import CloudComponent from './CloudComponent'
 
 
 const Li = styled.li`
