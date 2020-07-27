@@ -19,7 +19,7 @@ import { GrGatsbyjs, GrGraphQl } from 'react-icons/gr';
 import gradients from '../styles/gradients';
 import colors from '../styles/colors';
 import styled from '@emotion/styled';
-import Cloud from '../components/Cloud'
+import CloudComponent from '../components/Cloud'
 
 
 const Li = styled.li`
@@ -54,7 +54,7 @@ const Section = styled.section`
 export default function About() {
   return (
     <Section id="about" className="about">
-      <Cloud/>
+      <CloudComponent direction='left' distance='10rem'/>
       <h2 className="section-title">Languages &amp; Tools</h2>
       <ul>
         <Li>
@@ -116,6 +116,7 @@ export default function About() {
           <h4 className="about-subtitle block">Node.js</h4>
         </Li>
       </ul>
+      <CloudComponent direction='right' distance='2rem'/>
     </Section>
   );
 }

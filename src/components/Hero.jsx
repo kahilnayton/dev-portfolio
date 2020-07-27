@@ -5,6 +5,7 @@ import dimensions from '../styles/dimensions';
 import { Inner, Wrap } from '../styles/structure';
 import { Rubric } from '../styles/typography';
 import colors from 'styles/colors';
+import CloudComponent from '../components/Cloud'
 
 const HeroContainer = styled.div`
   position: relative;
@@ -183,6 +184,7 @@ const Hero = ({
             <img src={foreground.url} alt={foreground.alt} />
           </HeroForeground>
         )}
+        <CloudComponent direction='right' distance='2rem'/>
         <HeroWrap>
           <HeroContent>
             {rubric && (

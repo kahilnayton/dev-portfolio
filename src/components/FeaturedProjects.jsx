@@ -8,6 +8,7 @@ import Content from '../components/_ui/Content';
 import ProjectsGrid from '../components/_grid/Projects';
 import ProjectCard from '../components/_card/Project';
 import { GrFormNextLink } from 'react-icons/gr';
+import CloudComponent from '../components/Cloud'
 
 const ProjectsContainer = styled.div`
   position: relative;
@@ -87,6 +88,7 @@ const FeaturedProjects = props => {
       className={`${variant ? `FeaturedProjects--${variant}` : ''}`}
     >
       <Inner>
+      <CloudComponent direction='left' distance='10rem'/>
         <h1>Blog</h1>
         {(heading || content || (buttonText && destination)) && (
           <header>
