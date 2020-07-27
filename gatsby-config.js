@@ -3,10 +3,10 @@ require('dotenv').config({
 });
 
 const siteMetadata = {
-  title: `gatsby-prismic-blog`,
-  description: `New portfolio blog`,
+  title: `Kahil Nayton portfolio`,
+  description: `kahil nayton is a full stack developer`,
   image: `src/images/spring_logo.png`,
-  siteUrl: `http://www.kahilnayton.com/`,
+  siteUrl: `http://www.kahildev.com/`,
   siteLanguage: `en-US`,
   siteLocale: `en_us`,
   authorName: `kahil nayton`,
@@ -37,8 +37,8 @@ module.exports = {
       resolve: `@prismicio/gatsby-source-prismic-graphql`,
       options: {
         repositoryName: 'kahildev',
-        // path: '/preview',
-        // previews: true,
+        path: '/preview',
+        previews: true,
         pages: [
           {
             type: 'Project',

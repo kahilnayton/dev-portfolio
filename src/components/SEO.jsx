@@ -4,13 +4,13 @@ import Helmet from 'react-helmet';
 class SEO extends Component {
   render() {
     const siteMetadata = {
-      title: `Full stack developer based in NYC`,
-      description: `Love to solve problems to satisfy all clients needs`,
-      siteName: 'kahil development',
+      title: `Kahil Nayton`,
+      description: `Full stack developer based in NYC`,
+      siteName: 'kahil nayton blog',
       siteUrl: `https://www.kahildev.com/`,
       siteLanguage: `en-US`,
       siteLocale: `en_us`,
-      authorName: `Kahil`,
+      authorName: `Kahil Nayton`,
     };
 
     let meta = [];
