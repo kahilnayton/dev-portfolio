@@ -69,5 +69,12 @@ module.exports = {
         icon: `src/images/spring_logo.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-173710090-1",
+        head: true,
+      },
+    },
   ],
 }
