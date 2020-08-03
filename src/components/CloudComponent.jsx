@@ -6,9 +6,17 @@ import styled from '@emotion/styled';
 
 const CloudContainer = styled.div`
   svg {
-    height: 10rem;
     width: 10rem;
   }
+
+.Clouds-notFound {
+  right: 10rem;
+  padding-top: 30rem;
+}
+.Clouds-notFound--right {
+  right: 10rem;
+  padding-top: 66rem;
+}
 `;
 
 const RightCloud = styled.div`
@@ -18,6 +26,7 @@ const RightCloud = styled.div`
   top: 0;
   margin-top: -4rem;
 `;
+
 const LeftCloud = styled.div`
   display: block;
   position: absolute;
@@ -25,20 +34,22 @@ const LeftCloud = styled.div`
   margin-top: -28rem;
   top: 24rem;
   position: absolute;
+
 `;
 
 const CloudComponent = props => {
+  console.log(props);
   return (
     <CloudContainer>
       {props.direction === 'left' && (
-        <LeftCloud>
+        <LeftCloud className={props.variant ? `Clouds-${props.variant}` : ''}>
           <Fade left distance={props.distance}>
             <CloudOne />
           </Fade>
         </LeftCloud>
       )}
       {props.direction === 'right' && (
-        <RightCloud>
+        <RightCloud className={props.variant ? `Clouds-${props.variant}--right` : ''}>
           <Fade right distance={props.distance}>
             <CloudTwo />
           </Fade>
