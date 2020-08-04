@@ -5,12 +5,12 @@ import colors from 'styles/colors';
 import dimensions from '../styles/dimensions';
 // import RichText from '../components/RichText';
 import Content from './_ui/Content';
-import ProjectsGrid from './_grid/ProjectsGrid';
+import BlogsGrid from './_grid/BlogsGrid';
 import GenericCard from './_card/GenericCard';
 import { GrFormNextLink } from 'react-icons/gr';
 import CloudComponent from './CloudComponent'
 
-const ProjectsContainer = styled.div`
+const BlogsContainer = styled.div`
   position: relative;
   width: 100%;
   padding-bottom: 4rem;
@@ -73,28 +73,28 @@ const ProjectsContainer = styled.div`
   }
 `;
 
-const FeaturedProjects = props => {
+const FeaturedBlogs = props => {
   const {
     heading,
     content,
     buttonText,
     destination,
-    projects,
+    blogs,
     variant,
   } = props;
-  let projectsHeading;
+  let blogsHeading;
 
   return (
-    <ProjectsContainer
-      className={`${variant ? `FeaturedProjects--${variant}` : ''}`}
+    <BlogsContainer
+      className={`${variant ? `FeaturedBlogs--${variant}` : ''}`}
     >
       <Inner>
-      <CloudComponent variant='project' direction='left' distance='10rem'/>
-        <h1>Project</h1>
+      <CloudComponent variant='blog' direction='left' distance='10rem'/>
+        <h1>Blog</h1>
         {(heading || content || (buttonText && destination)) && (
           <header>
             <div>
-              {projectsHeading}
+              {blogsHeading}
               {content && <Content content={content} />}
             </div>
 
@@ -104,9 +104,9 @@ const FeaturedProjects = props => {
           </header>
         )}
 
-        {projects && projects.length > 0 && (
-          <ProjectsGrid dense={projects.length > 3}>
-            {projects.map((feature, i) => {
+        {blogs && blogs.length > 0 && (
+          <BlogsGrid dense={blogs.length > 3}>
+            {blogs.map((feature, i) => {
               return (
                 <li key={i}>
                   <GenericCard
@@ -118,11 +118,11 @@ const FeaturedProjects = props => {
                 </li>
               );
             })}
-          </ProjectsGrid>
+          </BlogsGrid>
         )}
       </Inner>
-    </ProjectsContainer>
+    </BlogsContainer>
   );
 };
 
-export default FeaturedProjects;
+export default FeaturedBlogs;

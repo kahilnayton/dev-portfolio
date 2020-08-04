@@ -33,7 +33,7 @@ const Form = styled.form`
   align-items: center;
   padding: 6.9rem 2rem 8.2rem 2rem;
 
-  height: 100%;
+  height: 80%;
   flex-direction: column;
   background-color: ${colors.grey200};
   max-width: 800px;

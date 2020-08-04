@@ -6,10 +6,13 @@ import colors from 'styles/colors';
 import About from '../components/About';
 import Hero from '../components/Hero';
 import SEO from 'components/SEO';
-import FeaturedProjects from '../components/FeaturedProjects';
+import ContactForm from '../components/ContactForm'
+import FeaturedBlogs from '../components/FeaturedBlogs';
+import FeaturedProjects from '../components/FeaturedProjects'
 
 const Wrapper = styled.div`
   background: ${colors.blue};
+  padding-bottom: 13rem;
 `;
 
 const IndexPage = ({ data }) => {
@@ -35,11 +38,19 @@ const IndexPage = ({ data }) => {
 
         <About />
 
+        <FeaturedBlogs
+          blogs={home.project_list}
+          variant="homepage"
+          blog_heading={home.project_heading}
+        />
+
         <FeaturedProjects
           projects={home.project_list}
           variant="homepage"
           project_heading={home.project_heading}
         />
+
+        <ContactForm/>
       </Wrapper>
     </Layout>
   );

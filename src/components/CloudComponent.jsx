@@ -17,6 +17,14 @@ const CloudContainer = styled.div`
   right: 10rem;
   padding-top: 66rem;
 }
+.Clouds-blog {
+  right: 10rem;
+  padding-left: 12rem;
+}
+.Clouds-project {
+  right: 10rem;
+  padding-left: 26rem;
+}
 `;
 
 const RightCloud = styled.div`

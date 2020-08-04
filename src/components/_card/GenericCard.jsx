@@ -114,7 +114,7 @@ const CardContent = styled.div`
   }
 `;
 
-const ProjectCard = (props) => {
+const GenericCard = (props) => {
 
   const {uid, title, image, description } = props
 
@@ -136,4 +136,4 @@ const ProjectCard = (props) => {
   )
 };
 
-export default ProjectCard;
+export default GenericCard;
