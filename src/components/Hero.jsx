@@ -5,7 +5,7 @@ import dimensions from '../styles/dimensions';
 import { Inner, Wrap } from '../styles/structure';
 import { Rubric } from '../styles/typography';
 import colors from 'styles/colors';
-import CloudComponent from './CloudComponent'
+import CloudComponent from './CloudComponent';
 
 const HeroContainer = styled.div`
   position: relative;
@@ -126,21 +126,21 @@ const HeroContent = styled.div`
   text-shadow: 0 0.3rem 2rem rgba(0, 0, 0, 0.18);
   padding: 1.6rem;
 
-    &:hover {
+  &:hover {
     background: ${colors.blue};
-    }
+  }
 
   p {
     margin-top: 3.2rem;
     color: ${colors.red};
     &:hover {
-    color: #fff;
+      color: #fff;
     }
   }
   h1 {
     color: ${colors.red};
     &:hover {
-    color: #fff;
+      color: #fff;
     }
   }
 
@@ -170,7 +170,6 @@ const Hero = ({
   content,
   rubric,
 }) => {
-  
   return (
     <HeroContainer className={`${variant ? `Hero--${variant}` : ''}`}>
       <HeroInner>
@@ -179,24 +178,15 @@ const Hero = ({
             <img src={background.url} alt={background.alt} />
           </HeroBackground>
         )}
-        {foreground && (
-          <HeroForeground>
-            <img src={foreground.url} alt={foreground.alt} />
-          </HeroForeground>
-        )}
-        <CloudComponent direction='right' distance='2rem'/>
+        <CloudComponent direction="right" distance="2rem" />
         <HeroWrap>
-          <HeroContent>
-            {rubric && (
-              <Rubric>
-                <span>{rubric}</span>
-              </Rubric>
-            )}
+          {variant !== 'projectPage' && (
+            <HeroContent>
+              {heading && <RichText render={heading} />}
 
-            {heading && <RichText render={heading} />}
-
-            {text && <p className="is-large">{text}</p>}
-          </HeroContent>
+              {text && <p className="is-large">{text}</p>}
+            </HeroContent>
+          )}
         </HeroWrap>
       </HeroInner>
     </HeroContainer>

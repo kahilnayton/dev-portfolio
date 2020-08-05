@@ -16,24 +16,21 @@ const Wrapper = styled.div`
 `;
 
 const Projects = ({ data }) => {
-  const page = data.prismic.allProject_pages.edges[0].node;
-  const projects = data.prismic.allProjects;
-
-  console.log(projects)
+  const projectPage = data.prismic.allProject_pages.edges[0].node;
 
   return (
     <Layout>
       <Wrapper>
         <Hero
-          // heading={page.heading}
-          // text={page.body[0].primary.hero_title[0].text}
-          background={page.body[0].primary.background_image}
-          variant="projects page"
+          heading={projectPage.heading}
+          text={'Thanks for dropping by!'}
+          background={projectPage.body[0].primary.background_image}
+          variant="projectPage"
         />
-      <FeaturedProjects
-          projects={projects.project_list}
-          variant="projects"
-          project_heading={projects.project_heading}
+        <FeaturedProjects
+          projects={projectPage.projects_list}
+          variant="projectPage"
+          project_heading={projectPage.project_heading}
         />
       </Wrapper>
     </Layout>
@@ -63,28 +60,29 @@ export const query = graphql`
             _meta {
               uid
             }
-          }
-        }
-      }
-      allProjects {
-        edges {
-          node {
-            _meta {
-              uid
-            }
-            project_image
-            project_link {
-              ... on PRISMIC__ExternalLink {
-                target
-                url
-              }
-            }
-            description
-            _meta {
+            projects_list {
+              project {
+                ... on PRISMIC_Project {
+                  title
+                  description
+                  project_gif
+                  project_image
+                  tech_stack {
+                    tech
+                  }
+                  project_link {
+                    ... on PRISMIC__ExternalLink {
+                      target
+                      url
+                    }
+                  }
+                  _meta {
                     uid
                   }
-            project_gif
-            title
+                  release_date
+                }
+              }
+            }
           }
         }
       }

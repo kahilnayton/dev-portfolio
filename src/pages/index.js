@@ -44,7 +44,7 @@ const IndexPage = ({ data }) => {
         <FeaturedProjects
           projects={home.project_list}
           variant="homepage"
-          project_heading={home.project_heading}
+          project_heading={'Projects'}
         />
 
         <ContactForm />

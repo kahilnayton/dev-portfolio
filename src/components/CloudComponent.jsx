@@ -46,7 +46,6 @@ const LeftCloud = styled.div`
 `;
 
 const CloudComponent = props => {
-  console.log(props);
   return (
     <CloudContainer>
       {props.direction === 'left' && (
