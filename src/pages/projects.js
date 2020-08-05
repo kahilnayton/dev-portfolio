@@ -80,6 +80,9 @@ export const query = graphql`
               }
             }
             description
+            _meta {
+                    uid
+                  }
             project_gif
             title
           }
