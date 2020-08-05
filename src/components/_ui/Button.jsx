@@ -8,17 +8,18 @@ const ButtonContainer = styled("button")`
     position: relative;
     display: inline-block;
     padding: 1.6rem 3.33vw 1.4rem;
-    background: ${colors.yellow500};
+    background: ${colors.grey200};
     color: ${colors.grey900};
     font-size: 1.8rem;
     font-weight: 600;
     outline: none;
     border: none;
     transition: background 0.08s ease-in-out, color 0.12s ease-in-out;
+    border-radius: 4px;
 
     &:hover {
       cursor: pointer;
-      background: ${gradients.rainbow};
+      background: ${colors.red};
       color: #fff;
     }
 `

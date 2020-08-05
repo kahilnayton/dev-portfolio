@@ -54,7 +54,7 @@ const Form = styled.form`
 
     .message {
       grid-column: 1 /3;
-      grid-row: 3;
+      grid-row: 2;
       
       text-area {
         height: 164rem;
@@ -62,30 +62,13 @@ const Form = styled.form`
 
     }
     .email {
-      grid-row: 2;
-      grid-column: 1 / 3;
+      grid-row: 1;
+      grid-column: 2;
     }
 
     label {
       font-size: 1.6rem;
     }
-  }
-`;
-
-
-const EmailInput = styled.input`
-  margin-bottom: 1rem;
-  height: 6rem;
-  border: 1px solid #eee;
-  width: 100%;
-
-
-  @media (min-width: ${dimensions.tabletLandscapeUp}px) {
-    grid-column: 1/3;
-  }
-
-  & + * {
-    color: ${colors.teal600};
   }
 `;
 
@@ -122,8 +105,7 @@ export default class ContactForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: '',
-      lastName: '',
+      name: '',
       email: '',
       message: '',
     };
@@ -157,8 +139,7 @@ export default class ContactForm extends Component {
       .then(() => console.log('%c Netlify Forms and Mailchimp data sent', 'color: green'))
       .finally(() =>
         this.setState({
-          firstName: [],
-          lastName: [],
+          name: [],
           email: [],
           message: [],
         })
@@ -169,8 +150,7 @@ export default class ContactForm extends Component {
 
   render() {
     const {
-      firstName,
-      lastName,
+      name,
       email,
       message,
       statusMessage,
@@ -189,35 +169,25 @@ export default class ContactForm extends Component {
           >
           <input type="hidden" name="form-name" value="contact-kahil-dev" />
 
-          <div className="first-name">
+          <div className="name">
             <Input
-              name="firstName"
-              id="firstName"
-              value={firstName}
+              name="name"
+              id="name"
+              value={name}
               required={true}
               onChange={this.handleChange}
             />
-            <label htmlFor="firstName">First Name</label>
-          </div>
-          <div className="last-name">
-            <Input
-              name="lastName"
-              id="lastName"
-              required={true}
-              value={lastName}
-              onChange={this.handleChange}
-            />
-            <label htmlFor="lastName">Last Name</label>
+            <label htmlFor="name">Name</label>
           </div>
           <div className="email">
-            <EmailInput
+            <Input
               name="email"
               id="email"
               required={true}
               value={email}
               onChange={this.handleChange}
             />
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">email</label>
           </div>
           <div className="message">
             <TextArea

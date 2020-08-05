@@ -6,9 +6,9 @@ import colors from 'styles/colors';
 import About from '../components/About';
 import Hero from '../components/Hero';
 import SEO from 'components/SEO';
-import ContactForm from '../components/ContactForm'
+import ContactForm from '../components/ContactForm';
 import FeaturedBlogs from '../components/FeaturedBlogs';
-import FeaturedProjects from '../components/FeaturedProjects'
+import FeaturedProjects from '../components/FeaturedProjects';
 
 const Wrapper = styled.div`
   background: ${colors.blue};
@@ -18,14 +18,11 @@ const Wrapper = styled.div`
 const IndexPage = ({ data }) => {
   const home = data.prismic.allHomes.edges[0].node;
 
-
   return (
     <Layout>
-       <SEO
+      <SEO
         title={home.social_title || 'Home'}
-        description={
-          home.social_description ? home.social_description : null
-        }
+        description={home.social_description ? home.social_description : null}
         image={home.social_image ? home.social_image.url : null}
       />
       <Wrapper>
@@ -39,9 +36,9 @@ const IndexPage = ({ data }) => {
         <About />
 
         <FeaturedBlogs
-          blogs={home.project_list}
+          blogs={home.blog_list}
           variant="homepage"
-          blog_heading={home.project_heading}
+          blog_heading={home.blog_heading}
         />
 
         <FeaturedProjects
@@ -50,7 +47,7 @@ const IndexPage = ({ data }) => {
           project_heading={home.project_heading}
         />
 
-        <ContactForm/>
+        <ContactForm />
       </Wrapper>
     </Layout>
   );
@@ -112,6 +109,32 @@ export const query = graphql`
               }
             }
             contact_heading
+            blog_list {
+              blog {
+                ... on PRISMIC_Project {
+                  title
+                  description
+                  _meta {
+                    uid
+                  }
+                  project_gif
+                  project_image
+                  tech_stack {
+                    tech
+                  }
+                  project_link {
+                    ... on PRISMIC__ExternalLink {
+                      target
+                      url
+                    }
+                  }
+                  _meta {
+                    uid
+                  }
+                }
+              }
+            }
+            blog_heading
           }
         }
       }

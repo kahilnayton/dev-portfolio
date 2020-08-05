@@ -4,6 +4,7 @@ import { Inner } from '../styles/structure';
 import colors from 'styles/colors';
 import dimensions from '../styles/dimensions';
 // import RichText from '../components/RichText';
+import ButtonLink from './_ui/ButtonLink'
 import Content from './_ui/Content';
 import ProjectsGrid from './_grid/ProjectsGrid';
 import GenericCard from './_card/GenericCard';
@@ -14,6 +15,7 @@ const ProjectsContainer = styled.div`
   position: relative;
   width: 100%;
   padding-bottom: 4rem;
+
 
   h1 {
     padding: 3rem 0;
@@ -73,6 +75,17 @@ const ProjectsContainer = styled.div`
   }
 `;
 
+const ProjectInner = styled(Inner)`
+display: flex;
+flex-direction: column;
+`
+
+const ButtonContainer = styled.div`
+display: flex;
+justify-content: flex-end;
+margin-top: 4rem;
+`
+
 const FeaturedProjects = props => {
   const {
     heading,
@@ -88,7 +101,7 @@ const FeaturedProjects = props => {
     <ProjectsContainer
       className={`${variant ? `FeaturedProjects--${variant}` : ''}`}
     >
-      <Inner>
+      <ProjectInner>
       <CloudComponent variant='project' direction='left' distance='10rem'/>
         <h1>Project</h1>
         {(heading || content || (buttonText && destination)) && (
@@ -120,7 +133,11 @@ const FeaturedProjects = props => {
             })}
           </ProjectsGrid>
         )}
-      </Inner>
+        <ButtonContainer>
+          <ButtonLink to='/projects'>View all</ButtonLink>
+          </ButtonContainer>
+      </ProjectInner>
+
     </ProjectsContainer>
   );
 };

@@ -84,6 +84,8 @@ const FeaturedBlogs = props => {
   } = props;
   let blogsHeading;
 
+  console.log(props)
+
   return (
     <BlogsContainer
       className={`${variant ? `FeaturedBlogs--${variant}` : ''}`}
@@ -110,10 +112,10 @@ const FeaturedBlogs = props => {
               return (
                 <li key={i}>
                   <GenericCard
-                    uid={feature.project._meta.uid}
-                    image={feature.project.project_image}
-                    title={feature.project.title[0].text}
-                    description={feature.project.description[0].text}
+                    uid={feature.blog._meta.uid}
+                    image={feature.blog.project_image}
+                    title={feature.blog.title[0].text}
+                    description={feature.blog.description[0].text}
                   />
                 </li>
               );

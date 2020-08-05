@@ -8,7 +8,7 @@ const ButtonContainer = styled(Link)`
   position: relative;
   display: inline-block;
   padding: 1.6rem 3.33vw 1.4rem;
-  background: ${colors.yellow500};
+  background: ${colors.grey200};
   color: ${colors.grey900};
   font-size: 1.8rem;
   font-weight: 600;
@@ -18,7 +18,7 @@ const ButtonContainer = styled(Link)`
 
   &:hover {
     cursor: pointer;
-    background: ${gradients.rainbow};
+    background: ${colors.red};
     color: #fff;
   }
 `;
