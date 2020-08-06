@@ -9,6 +9,8 @@ import SEO from 'components/SEO';
 import ContactForm from '../components/ContactForm';
 import FeaturedBlogs from '../components/FeaturedBlogs';
 import FeaturedProjects from '../components/FeaturedProjects';
+import PlaneComponent from '../components/PlaneComponent';
+import plane from '../images/plane5.png';
 
 const Wrapper = styled.div`
   background: ${colors.blue};
@@ -33,6 +35,8 @@ const IndexPage = ({ data }) => {
           variant="homepage"
         />
 
+        <PlaneComponent direction="right" plane={plane}/>
+
         <About />
 
         <FeaturedBlogs
@@ -40,6 +44,8 @@ const IndexPage = ({ data }) => {
           variant="homepage"
           blog_heading={home.blog_heading}
         />
+        
+        {/* <PlaneComponent plane={planeTwo} /> */}
 
         <FeaturedProjects
           projects={home.project_list}
