@@ -49,16 +49,13 @@ const Form = styled.form`
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     grid-template-columns: repeat(2, 1fr);
-    padding: 6.9rem 11.2rem 8.2rem 7rem;
+    padding: 6rem 11.2rem 8.2rem 7rem;
     grid-gap: 3rem;
 
     .message {
       grid-column: 1 /3;
       grid-row: 2;
-      
-      text-area {
-        height: 164rem;
-      }
+    
 
     }
     .email {

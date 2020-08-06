@@ -1,9 +1,10 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from 'react';
+import { Link } from 'gatsby';
 // import { Rubric } from "../../styles/typography";
-import styled from "@emotion/styled";
-import colors from "../../styles/colors";
-import gradients from '../../styles/gradients'
+
+import styled from '@emotion/styled';
+import colors from '../../styles/colors';
+import gradients from '../../styles/gradients';
 import dimensions from '../../styles/dimensions';
 
 const CardContainer = styled(Link)`
@@ -46,7 +47,7 @@ const CardImage = styled.div`
   width: 100%;
   padding-bottom: 66.6667%;
   overflow: hidden;
-  
+
   img {
     display: block;
     position: absolute;
@@ -79,14 +80,14 @@ const CardContent = styled.div`
   padding: 3.2rem 2.4rem;
   z-index: 10;
   transition: background 0.12s ease-in-out, color 0.12s ease-in-out;
-  
+
   p {
     margin-top: 1.6rem;
   }
-  
-  @media(min-width: ${dimensions.tabletLandscapeUp}px) {
+
+  @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     padding: 3.2rem 3.2rem 4.8rem;
-    
+
     &::before {
       content: '';
       display: block;
@@ -99,14 +100,12 @@ const CardContent = styled.div`
       transform-origin: center bottom;
       transition: transform 0.12s ease-in-out;
     }
-    
-    
   }
-  
-  @media(min-width: ${dimensions.desktopUp}) {
+
+  @media (min-width: ${dimensions.desktopUp}) {
     .is-dense & {
       padding: 3.2rem 2.4rem;
-    
+
       h4 {
         font-size: 2.1rem;
       }
@@ -114,26 +113,24 @@ const CardContent = styled.div`
   }
 `;
 
-const GenericCard = (props) => {
-
-  const {uid, title, image, description } = props
+const GenericCard = props => {
+  const { uid, title, image, description } = props;
 
   return (
-    <CardContainer to={`/project/${uid}`}>
-      {image && (
-        <CardImage>
-          <img src={image.url} alt={image.alt} />
-        </CardImage>
-      )}
+      <CardContainer to={`/project/${uid}`}>
+        {image && (
+          <CardImage>
+            <img src={image.url} alt={image.alt} />
+          </CardImage>
+        )}
 
-      <CardContent>
+        <CardContent>
+          <h4>{title}</h4>
 
-        <h4>{title}</h4>
-
-        {description && <p>{description}</p>}
-      </CardContent>
-    </CardContainer>
-  )
+          {description && <p>{description}</p>}
+        </CardContent>
+      </CardContainer>
+  );
 };
 
 export default GenericCard;

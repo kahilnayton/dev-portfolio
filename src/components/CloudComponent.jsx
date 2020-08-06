@@ -63,9 +63,7 @@ const CloudComponent = props => {
         </RightCloud>
       )}
       {!props.direction && (
-        <Fade right>
           <CloudTwo />
-        </Fade>
       )}
     </CloudContainer>
   );

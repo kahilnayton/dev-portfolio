@@ -9,9 +9,11 @@ import SEO from 'components/SEO';
 import ContactForm from '../components/ContactForm';
 import FeaturedBlogs from '../components/FeaturedBlogs';
 import FeaturedProjects from '../components/FeaturedProjects';
-import PlaneComponent from '../components/PlaneComponent';
+import ParallaxComponent from '../components/ParallaxComponent';
 import plane from '../images/plane.png';
 import planeRight from '../images/planeRight.png';
+import cloud from '../images/cloudOne.png';
+import Reveal from 'react-reveal/Reveal';
 
 const Wrapper = styled.div`
   background: ${colors.blue};
@@ -36,23 +38,31 @@ const IndexPage = ({ data }) => {
           variant="homepage"
         />
 
-        <PlaneComponent direction="right" plane={plane}/>
+        <ParallaxComponent direction="right" variant="plane" plane={plane} />
 
-        <About />
+          <About />
 
-        <FeaturedBlogs
-          blogs={home.blog_list}
-          variant="homepage"
-          blog_heading={home.blog_heading}
+        <Reveal effect="fadeInUp">
+          <FeaturedBlogs
+            blogs={home.blog_list}
+            variant="homepage"
+            blog_heading={home.blog_heading}
+          />
+        </Reveal>
+
+        <ParallaxComponent
+          direction="left"
+          variant="plane"
+          planeRight={planeRight}
         />
-
-        <PlaneComponent planeRight={planeRight} />
 
         <FeaturedProjects
           projects={home.project_list}
           variant="homepage"
           project_heading={'Projects'}
         />
+
+        <ParallaxComponent variant="cloud" cloud={cloud} />
 
         <ContactForm />
       </Wrapper>
