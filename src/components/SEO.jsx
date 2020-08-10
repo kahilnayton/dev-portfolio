@@ -12,7 +12,7 @@ class SEO extends Component {
       description:
         this.props.description ||
         social.description ||
-        `This is the default page description for this project.`,
+        `Kahil Nayton Portfolio and Blog`,
       image: this.props.image || social.image || `src/images/spring_logo.png`,
       siteName: social.siteName || `Kahil Nayton Full Stack Developer`,
       siteUrl: social.siteUrl || `https://www.kahildev.com/`,

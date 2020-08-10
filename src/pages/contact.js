@@ -8,7 +8,7 @@ import ContactForm from '../components/ContactForm';
 const ContactFormContainer = styled.div`
   padding: 5rem 0;
   background: ${colors.blue};
-  height: calc(100vh - 12rem);
+  height: 100%;
 `;
 
 const Contact = props => {

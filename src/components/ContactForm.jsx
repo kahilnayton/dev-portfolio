@@ -18,6 +18,7 @@ const FormButton = styled(Button)`
 `;
 
 const FormInner = styled(Inner)`
+height: 100rem;
 h2 {
   padding-bottom: 3rem;
   color: ${colors.grey200};

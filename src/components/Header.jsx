@@ -5,7 +5,7 @@ import { Inner } from 'styles/structure';
 import colors from 'styles/colors';
 import gradients from 'styles/gradients';
 import dimensions from 'styles/dimensions';
-import springLogo from '../images/spring_logo.png'
+import springLogo from '../images/spring_logo.png';
 import SocialBar from 'components/SocialBar';
 import { document } from 'browser-monads';
 
@@ -72,7 +72,7 @@ const HeaderInner = styled(Inner)`
       width: 20rem;
 
       &:hover {
-      color: ${colors.blue};
+        color: ${colors.blue};
       }
     }
   }
@@ -246,8 +246,8 @@ const MobileContent = styled(Inner)`
 `;
 
 const BurgerSocialBar = styled(SocialBar)`
-align-self: flex-end;
-`
+  align-self: flex-end;
+`;
 
 export default class Header extends Component {
   constructor(props) {
@@ -295,7 +295,7 @@ export default class Header extends Component {
         <HeaderBar>
           <HeaderInner>
             <Link to="/">
-              <img src={springLogo} alt=""/>
+              <img src={springLogo} alt="" />
             </Link>
 
             <HeaderLinks>
@@ -318,11 +318,32 @@ export default class Header extends Component {
           <MobileLinks>
             <MobileToggle>
               <MobileContent>
-                <Link to='/'>Home</Link>  
-                <Link to='/contact'>Contact</Link>  
-                <Link to='/projects'>Projects</Link>  
+                <Link
+                  onClick={() => {
+                    this.toggleMobile();
+                  }}
+                  to="/"
+                >
+                  Home
+                </Link>
+                <Link
+                  onClick={() => {
+                    this.toggleMobile();
+                  }}
+                  to="/contact"
+                >
+                  Contact
+                </Link>
+                <Link
+                  onClick={() => {
+                    this.toggleMobile();
+                  }}
+                  to="/projects"
+                >
+                  Projects
+                </Link>
               </MobileContent>
-                <BurgerSocialBar variant='burger' />
+              <BurgerSocialBar variant="burger" />
             </MobileToggle>
           </MobileLinks>
         </HeaderMobile>
