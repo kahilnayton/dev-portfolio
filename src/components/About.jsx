@@ -55,7 +55,7 @@ export default function About() {
   return (
     <Section id="about" className="about">
       <Reveal effect="fadeInUp">
-        <CloudComponent direction="left" distance="10rem" />
+        <CloudComponent direction="left" distance="10rem" variant='about' />
         <h2 className="section-title">Languages &amp; Tools</h2>
         <ul>
           <Li>

@@ -25,6 +25,9 @@ const CloudContainer = styled.div`
   right: 10rem;
   padding-left: 26rem;
 }
+.Clouds-about {
+  top: 40rem;
+}
 `;
 
 const RightCloud = styled.div`
