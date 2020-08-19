@@ -2,10 +2,16 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 import colors from 'styles/colors';
+import gradients from 'styles/gradients';
 import dimensions from 'styles/dimensions';
 
-import { GrFacebookOption, GrInstagram, GrTwitter, GrMail, GrLinkedin } from "react-icons/gr";
-
+import {
+  GrFacebookOption,
+  GrInstagram,
+  GrTwitter,
+  GrMail,
+  GrLinkedin,
+} from 'react-icons/gr';
 
 const SocialBarList = styled.ul`
   display: flex;
@@ -24,7 +30,7 @@ const SocialBarList = styled.ul`
   a {
     &:hover {
       svg {
-        fill: ${colors.blue};
+        /* fill: ${colors.blue}; */
       }
     }
   }
@@ -46,55 +52,89 @@ const SocialBarList = styled.ul`
   }
 `;
 
-const SocialBar = props => {
+const FaceBookIcon = styled.a`
+  &:hover {
+    svg {
+      fill: #129df8;
+    }
+  }
+`;
+const InstaIcon = styled.a`
+  &:hover {
+    svg {
+      fill: #f95901;
+    }
+  }
+`;
+const TwitterIcon = styled.a`
+  &:hover {
+    svg {
+      fill: #50abf1;
+    }
+  }
+`;
+const LinkedInIcon = styled.a`
+  &:hover {
+    svg {
+      fill: #017ab9;
+    }
+  }
+`;
 
+const MailLink = styled.div`
+  &:hover {
+    cursor: pointer;
+    svg {
+      fill: ${colors.red};
+    }
+  }
+`;
+
+const SocialBar = props => {
   return (
     <SocialBarList>
       <li>
-        <a
+        <FaceBookIcon
           href={'https://www.facebook.com/kahil.nayton'}
           target="blank"
           rel="noopener noreferrer"
         >
           <GrFacebookOption />
-        </a>
+        </FaceBookIcon>
       </li>
 
       <li>
-        <a
+        <InstaIcon
           href={'https://www.instagram.com/kahilnayton/'}
           target="blank"
           rel="noopener noreferrer"
         >
           <GrInstagram />
-        </a>
+        </InstaIcon>
       </li>
 
       <li>
-        <a
+        <TwitterIcon
           href={'https://twitter.com/kahilnayton'}
           target="blank"
           rel="noopener noreferrer"
         >
           <GrTwitter />
-        </a>
+        </TwitterIcon>
       </li>
       <li>
-        <a
+        <LinkedInIcon
           href={'https://www.linkedin.com/in/kahilnayton/'}
           target="blank"
           rel="noopener noreferrer"
         >
           <GrLinkedin />
-        </a>
+        </LinkedInIcon>
       </li>
       <li>
-        <Link
-          to={'/contact'}
-        >
-
+        <MailLink to={'/contact'}>
           <GrMail />
-        </Link>
+        </MailLink>
       </li>
     </SocialBarList>
   );
