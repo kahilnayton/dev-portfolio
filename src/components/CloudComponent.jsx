@@ -5,29 +5,31 @@ import CloudTwo from '../vectors/cloudTwo.svg';
 import styled from '@emotion/styled';
 
 const CloudContainer = styled.div`
+  overflow: hidden;
   svg {
     width: 10rem;
   }
 
-.Clouds-notFound {
-  right: 10rem;
-  padding-top: 30rem;
-}
-.Clouds-notFound--right {
-  right: 10rem;
-  padding-top: 66rem;
-}
-.Clouds-blog {
-  right: 10rem;
-  padding-left: 12rem;
-}
-.Clouds-project {
-  right: 10rem;
-  padding-left: 26rem;
-}
-.Clouds-about {
-  top: 40rem;
-}
+  .Clouds-notFound {
+    right: 10rem;
+    padding-top: 30rem;
+  }
+  .Clouds-notFound--right {
+    right: 10rem;
+    padding-top: 66rem;
+  }
+  .Clouds-blog {
+    right: 10rem;
+    padding-left: 12rem;
+  }
+  .Clouds-project {
+    right: 20rem;
+    padding-left: 18rem;
+    transform: translateY(-10rem);
+  }
+  .Clouds-about {
+    top: 40rem;
+  }
 `;
 
 const RightCloud = styled.div`
@@ -45,7 +47,6 @@ const LeftCloud = styled.div`
   margin-top: -28rem;
   top: 24rem;
   position: absolute;
-
 `;
 
 const CloudComponent = props => {
@@ -59,15 +60,15 @@ const CloudComponent = props => {
         </LeftCloud>
       )}
       {props.direction === 'right' && (
-        <RightCloud className={props.variant ? `Clouds-${props.variant}--right` : ''}>
+        <RightCloud
+          className={props.variant ? `Clouds-${props.variant}--right` : ''}
+        >
           <Fade right distance={props.distance}>
             <CloudTwo />
           </Fade>
         </RightCloud>
       )}
-      {!props.direction && (
-          <CloudTwo />
-      )}
+      {!props.direction && <CloudTwo />}
     </CloudContainer>
   );
 };

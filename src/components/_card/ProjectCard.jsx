@@ -115,10 +115,10 @@ const CardContent = styled.div`
   }
 `;
 
-const ButtonContainer = styled.a`
+const LinkToProject = styled.a`
   position: relative;
   display: inline-block;
-  padding: 1.6rem 3.33vw 1.4rem;
+  padding: 1.6rem 6.6vw 1.4rem;
   background: ${colors.grey200};
   color: ${colors.grey900};
   font-size: 1.8rem;
@@ -129,15 +129,17 @@ const ButtonContainer = styled.a`
 
   &:hover {
     cursor: pointer;
-    background: ${colors.red};
+    background: ${gradients.redPurple};
     color: #fff;
+  }
+
+  @media (min-width: ${dimensions.tabletLandscapeUp}px) {
+    padding: 1.6rem 3.33vw 1.4rem;
   }
 `;
 
 const ProjectCard = props => {
   const { uid, title, image, description } = props;
-
-  console.log(props);
 
   return (
     <CardContainer>
@@ -152,7 +154,7 @@ const ProjectCard = props => {
 
         {description && <p>{description}</p>}
       </CardContent>
-      <ButtonContainer href={props.projectLink}>See Project</ButtonContainer>
+      <LinkToProject href={props.projectLink}>View Project</LinkToProject>
       <ButtonLink to={`/project/${uid}`}>More Info</ButtonLink>
     </CardContainer>
   );

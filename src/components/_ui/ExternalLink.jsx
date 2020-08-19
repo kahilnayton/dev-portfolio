@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
-import { Link } from 'gatsby';
+import dimensions from '../../styles/dimensions';
 
-const ButtonContainer = styled.a`
+const ExternalLinkTag = styled.a`
   position: relative;
   display: inline-block;
-  padding: 1.6rem 3.33vw 1.4rem;
+  padding: 1.6rem 6.6vw 1.4rem;
   background: ${colors.grey200};
   color: ${colors.grey900};
   font-size: 1.8rem;
@@ -18,8 +18,12 @@ const ButtonContainer = styled.a`
 
   &:hover {
     cursor: pointer;
-    background: ${colors.red};
+    background: ${gradients.redPurple};
     color: #fff;
+  }
+
+  @media (min-width: ${dimensions.tabletLandscapeUp}px) {
+    padding: 1.6rem 3.33vw 1.4rem;
   }
 `;
 
@@ -28,9 +32,9 @@ class ButtonLink extends Component {
     const { children, ...props } = this.props;
 
     return (
-      <ButtonContainer href={this.props.href} {...props}>
+      <ExternalLinkTag href={this.props.href} {...props}>
         {this.props.children}
-      </ButtonContainer>
+      </ExternalLinkTag>
     );
   }
 }

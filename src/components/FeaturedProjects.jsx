@@ -104,7 +104,7 @@ const FeaturedProjects = props => {
     >
       <ProjectInner>
         <CloudComponent variant="project" direction="left" distance="10rem" />
-        <h1>Project</h1>
+        <h1>Projects</h1>
         {(heading || content || (buttonText && destination)) && (
           <header>
             <div>

@@ -4,6 +4,7 @@ import { Parallax } from 'react-scroll-parallax';
 import CloudOne from '../vectors/cloudOne.svg';
 
 const ParallaxWrapper = styled.div`
+  overflow: hidden;
   img {
     height: 8rem;
     width: auto;
@@ -25,7 +26,7 @@ const ParallaxComponent = props => {
       )}
       {props.variant === 'cloud' && (
         <Parallax x={[140, 0]}>
-        <img src={props.cloud} />
+          <img src={props.cloud} />
         </Parallax>
       )}
     </ParallaxWrapper>
