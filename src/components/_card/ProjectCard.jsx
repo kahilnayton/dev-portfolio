@@ -6,8 +6,10 @@ import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
 import dimensions from '../../styles/dimensions';
+import ExternalLink from '../_ui/ExternalLink';
+import ButtonLink from '../_ui/ButtonLink';
 
-const CardContainer = styled(Link)`
+const CardContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -27,7 +29,7 @@ const CardContainer = styled(Link)`
       h4,
       p,
       span {
-        color: #fff;
+        /* color: #fff; */
       }
       
       > div:last-child {
@@ -113,11 +115,32 @@ const CardContent = styled.div`
   }
 `;
 
-const GenericCard = props => {
-  const { uid, title, image, description, variant } = props;
+const ButtonContainer = styled.a`
+  position: relative;
+  display: inline-block;
+  padding: 1.6rem 3.33vw 1.4rem;
+  background: ${colors.grey200};
+  color: ${colors.grey900};
+  font-size: 1.8rem;
+  font-weight: 600;
+  outline: none;
+  border: none;
+  transition: background 0.08s ease-in-out, color 0.12s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    background: ${colors.red};
+    color: #fff;
+  }
+`;
+
+const ProjectCard = props => {
+  const { uid, title, image, description } = props;
+
+  console.log(props);
 
   return (
-    <CardContainer to={`/project/${uid}`}>
+    <CardContainer>
       {image && (
         <CardImage>
           <img src={image.url} alt={image.alt} />
@@ -129,8 +152,10 @@ const GenericCard = props => {
 
         {description && <p>{description}</p>}
       </CardContent>
+      <ButtonContainer href={props.projectLink}>See Project</ButtonContainer>
+      <ButtonLink to={`/project/${uid}`}>More Info</ButtonLink>
     </CardContainer>
   );
 };
 
-export default GenericCard;
+export default ProjectCard;

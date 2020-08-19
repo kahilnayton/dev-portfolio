@@ -7,7 +7,7 @@ import dimensions from '../styles/dimensions';
 import ButtonLink from './_ui/ButtonLink';
 import Content from './_ui/Content';
 import ProjectsGrid from './_grid/ProjectsGrid';
-import GenericCard from './_card/GenericCard';
+import ProjectCard from './_card/ProjectCard';
 import { GrFormNextLink } from 'react-icons/gr';
 import CloudComponent from './CloudComponent';
 
@@ -117,17 +117,18 @@ const FeaturedProjects = props => {
             )}
           </header>
         )}
-
         {projects && projects.length > 0 && (
           <ProjectsGrid dense={projects.length > 3}>
             {projects.map((feature, i) => {
               return (
                 <li key={i}>
-                  <GenericCard
+                  <ProjectCard
                     uid={feature.project._meta.uid}
                     image={feature.project.project_image}
                     title={feature.project.title[0].text}
                     description={feature.project.description[0].text}
+                    projectLink={feature.project.project_link.url}
+                    variant="project"
                   />
                 </li>
               );
