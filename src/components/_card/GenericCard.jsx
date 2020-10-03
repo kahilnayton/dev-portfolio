@@ -57,7 +57,7 @@ const CardImage = styled.div`
     height: 100%;
     transform-origin: center center;
     transition: transform 0.32s ease-out;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   ::after {

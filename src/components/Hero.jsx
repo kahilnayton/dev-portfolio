@@ -5,6 +5,8 @@ import dimensions from '../styles/dimensions';
 import { Inner, Wrap } from '../styles/structure';
 import { Rubric } from '../styles/typography';
 import colors from 'styles/colors';
+import gradients from 'styles/gradients';
+import z from 'styles/base'
 import CloudComponent from './CloudComponent';
 
 const HeroContainer = styled.div`
@@ -19,6 +21,20 @@ const HeroContainer = styled.div`
 
   & + * {
     margin-top: 5.6rem;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: ${gradients.redPurpleCircle};
+    mix-blend-mode: multiply;
+    transition: transform 0.12s ease-in-out;
+    z-index: ${z.content};
   }
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
@@ -52,19 +68,7 @@ const HeroBackground = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: ${colors.blue};
-      mix-blend-mode: multiply;
-      transition: transform 0.12s ease-in-out;
-    }
+    padding-bottom: 4.8rem;
   }
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
@@ -73,42 +77,16 @@ const HeroBackground = styled.div`
   }
 `;
 
-const HeroForeground = styled.div`
-  position: absolute;
-  width: 10vw;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 50%;
-    height: 18rem;
-    background-color: white;
-    z-index: -10;
-    max-width: 60rem;
-  }
-
-  img {
-    z-index: 20;
-    padding: 3rem 0 0 13rem;
-    object-fit: cover;
-  }
-`;
-
 const HeroWrap = styled(Wrap)`
   display: flex;
   align-items: flex-end;
-  min-height: 55.5rem;
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     min-height: 31.2rem;
     padding: 0 7.77vw;
 
     .Hero--homepage & {
-      min-height: 58rem;
+      min-height: 47rem;
     }
   }
 
@@ -120,28 +98,18 @@ const HeroWrap = styled(Wrap)`
 
 const HeroContent = styled.div`
   position: relative;
-  z-index: 10;
-  background: ${colors.grey100};
+  z-index: ${z.modal};
   max-width: 85rem;
   text-shadow: 0 0.3rem 2rem rgba(0, 0, 0, 0.18);
   padding: 1.6rem;
 
-  &:hover {
-    background: ${colors.blue};
-  }
 
   p {
     margin-top: 3.2rem;
     color: ${colors.red};
-    &:hover {
-      color: #fff;
-    }
   }
   h1 {
     color: ${colors.red};
-    &:hover {
-      color: #fff;
-    }
   }
 
   span {

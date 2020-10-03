@@ -3,6 +3,7 @@ import Fade from 'react-reveal/Fade';
 import CloudOne from '../vectors/cloudOne.svg';
 import CloudTwo from '../vectors/cloudTwo.svg';
 import styled from '@emotion/styled';
+import z from 'styles/base';
 
 const CloudContainer = styled.div`
   overflow: hidden;
@@ -38,9 +39,11 @@ const RightCloud = styled.div`
   right: 0rem;
   top: 0;
   margin-top: -4rem;
+  z-index: ${z.modal};
 `;
 
 const LeftCloud = styled.div`
+  z-index: ${z.modal};
   display: block;
   position: absolute;
   left: 5rem;
