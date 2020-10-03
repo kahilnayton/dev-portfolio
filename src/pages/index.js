@@ -14,6 +14,7 @@ import plane from '../images/plane.png';
 import planeRight from '../images/planeRight.png';
 import cloud from '../images/cloudOne.png';
 import Reveal from 'react-reveal/Reveal';
+import Bio from '../components/Bio';
 
 const Wrapper = styled.div`
   background: ${colors.blue};
@@ -40,13 +41,15 @@ const IndexPage = ({ data }) => {
 
         <ParallaxComponent direction="right" variant="plane" plane={plane} />
 
-          <About />
+        <Bio />
+
+        <About />
 
         <Reveal effect="fadeInUp">
-          <FeaturedBlogs
-            blogs={home.blog_list}
+          <FeaturedProjects
+            projects={home.project_list}
             variant="homepage"
-            blog_heading={home.blog_heading}
+            project_heading={'Projects'}
           />
         </Reveal>
 
@@ -56,10 +59,10 @@ const IndexPage = ({ data }) => {
           planeRight={planeRight}
         />
 
-        <FeaturedProjects
-          projects={home.project_list}
+        <FeaturedBlogs
+          blogs={home.blog_list}
           variant="homepage"
-          project_heading={'Projects'}
+          blog_heading={home.blog_heading}
         />
 
         <ParallaxComponent variant="cloud" cloud={cloud} />
@@ -77,6 +80,16 @@ export const query = graphql`
       allHomes {
         edges {
           node {
+            bio {
+              ... on PRISMIC_Bio {
+                heading
+                content
+                _meta {
+                  uid
+                }
+                profile_pic
+              }
+            }
             content
             heading
             project_heading

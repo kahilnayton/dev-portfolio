@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from "@emotion/styled";
 import colors from "../../styles/colors";
-import gradients from '../../styles/gradients';
+// import gradients from '../../styles/gradients';
 
 
 const ButtonContainer = styled("button")`

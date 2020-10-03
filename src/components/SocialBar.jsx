@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 import colors from 'styles/colors';
-import gradients from 'styles/gradients';
 import dimensions from 'styles/dimensions';
+// import gradients from 'styles/gradients';
+// import { Link } from 'gatsby';
 
 import {
   GrFacebookOption,

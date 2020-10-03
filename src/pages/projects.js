@@ -3,11 +3,9 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import styled from '@emotion/styled';
 import colors from 'styles/colors';
-import About from '../components/About';
 import Hero from '../components/Hero';
 import SEO from 'components/SEO';
 import ContactForm from '../components/ContactForm';
-import FeaturedBlogs from '../components/FeaturedBlogs';
 import FeaturedProjects from '../components/FeaturedProjects';
 
 const Wrapper = styled.div`
@@ -20,6 +18,11 @@ const Projects = ({ data }) => {
 
   return (
     <Layout>
+       <SEO
+        title={'Projects'}
+        description={'Page of projects by Kahil Nayton'}
+        image={null}
+      />
       <Wrapper>
         <Hero
           heading={projectPage.heading}
@@ -32,6 +35,7 @@ const Projects = ({ data }) => {
           variant="projectPage"
           project_heading={projectPage.project_heading}
         />
+        <ContactForm />
       </Wrapper>
     </Layout>
   );

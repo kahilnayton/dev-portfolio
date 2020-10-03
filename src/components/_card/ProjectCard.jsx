@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 // import { Rubric } from "../../styles/typography";
+// import ExternalLink from '../_ui/ExternalLink';
 
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
 import dimensions from '../../styles/dimensions';
-import ExternalLink from '../_ui/ExternalLink';
 import ButtonLink from '../_ui/ButtonLink';
 
 const CardContainer = styled.div`

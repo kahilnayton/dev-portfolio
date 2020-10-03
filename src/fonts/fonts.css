@@ -25,3 +25,10 @@
     font-weight: 600;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Zallord';
+    src: url('Zallord.ttf');
+    font-weight: 600;
+    font-style: normal;
+}

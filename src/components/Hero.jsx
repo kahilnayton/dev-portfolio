@@ -3,7 +3,6 @@ import RichText from '../components/RichText';
 import styled from '@emotion/styled';
 import dimensions from '../styles/dimensions';
 import { Inner, Wrap } from '../styles/structure';
-import { Rubric } from '../styles/typography';
 import colors from 'styles/colors';
 import gradients from 'styles/gradients';
 import z from 'styles/base'
@@ -31,7 +30,8 @@ const HeroContainer = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background: ${gradients.redPurpleCircle};
+    /* background: ${gradients.purpleRedCircle}; */
+    background: ${colors.blue};
     mix-blend-mode: multiply;
     transition: transform 0.12s ease-in-out;
     z-index: ${z.content};
@@ -106,10 +106,11 @@ const HeroContent = styled.div`
 
   p {
     margin-top: 3.2rem;
-    color: ${colors.red};
+    color: ${colors.grey200};
+    font-family: 'Zallord';
   }
   h1 {
-    color: ${colors.red};
+    color: ${colors.grey200};
   }
 
   span {
@@ -134,9 +135,6 @@ const Hero = ({
   text,
   background,
   variant,
-  foreground,
-  content,
-  rubric,
 }) => {
   return (
     <HeroContainer className={`${variant ? `Hero--${variant}` : ''}`}>

@@ -114,7 +114,7 @@ const CardContent = styled.div`
 `;
 
 const GenericCard = props => {
-  const { uid, title, image, description, variant } = props;
+  const { uid, title, image, description } = props;
 
   return (
     <CardContainer to={`/project/${uid}`}>
