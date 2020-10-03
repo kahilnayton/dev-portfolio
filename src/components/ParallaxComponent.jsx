@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Parallax } from 'react-scroll-parallax';
+import z from '../styles/base';
 // import CloudOne from '../vectors/cloudOne.svg';
 
 const ParallaxWrapper = styled.div`
   overflow: hidden;
+  z-index: ${z.modal};
   img {
     height: 8rem;
     width: auto;

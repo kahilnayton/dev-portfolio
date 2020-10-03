@@ -41,7 +41,11 @@ const IndexPage = ({ data }) => {
 
         <ParallaxComponent direction="right" variant="plane" plane={plane} />
 
-        <Bio />
+        <Bio
+          heading={home.bio.heading}
+          content={home.bio.content}
+          profilePic={home.bio.profile_pic}
+        />
 
         <About />
 

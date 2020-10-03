@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Inner } from '../styles/structure';
 import colors from 'styles/colors';
 import dimensions from '../styles/dimensions';
-// import RichText from '../components/RichText';
+
 import Content from './_ui/Content';
 import BlogsGrid from './_grid/BlogsGrid';
 import GenericCard from './_card/GenericCard';
@@ -18,6 +18,7 @@ const BlogsContainer = styled.div`
   h1 {
     padding: 3rem 0;
     color: ${colors.grey200};
+    font-family: 'Zallord';
   }
 
   & + * {
@@ -83,8 +84,6 @@ const FeaturedBlogs = props => {
     variant,
   } = props;
   let blogsHeading;
-
-  console.log(props)
 
   return (
     <BlogsContainer

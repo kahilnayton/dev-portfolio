@@ -19,6 +19,7 @@ const ProjectsContainer = styled.div`
   h1 {
     padding: 3rem 0;
     color: ${colors.grey200};
+    font-family: 'Zallord';
   }
 
   & + * {
@@ -95,8 +96,6 @@ const FeaturedProjects = props => {
     variant,
   } = props;
   let projectsHeading;
-
-  console.log(props);
 
   return (
     <ProjectsContainer

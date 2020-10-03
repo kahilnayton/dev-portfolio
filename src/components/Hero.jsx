@@ -45,8 +45,9 @@ const HeroContainer = styled.div`
 `;
 
 const HeroInner = styled(Inner)`
-  padding-top: 5.6rem;
+  padding-top: 10rem;
   padding-bottom: 5.6rem;
+  height: 54rem;
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     padding-top: 8.8rem;
@@ -86,7 +87,7 @@ const HeroWrap = styled(Wrap)`
     padding: 0 7.77vw;
 
     .Hero--homepage & {
-      min-height: 47rem;
+      /* min-height: 47rem; */
     }
   }
 
@@ -103,14 +104,16 @@ const HeroContent = styled.div`
   text-shadow: 0 0.3rem 2rem rgba(0, 0, 0, 0.18);
   padding: 1.6rem;
 
+  h1 {
+    color: ${colors.grey200};
+    font-size: 4.2rem;
+  }
 
   p {
     margin-top: 3.2rem;
     color: ${colors.grey200};
     font-family: 'Zallord';
-  }
-  h1 {
-    color: ${colors.grey200};
+    font-size: 2.8rem;
   }
 
   span {
