@@ -3,6 +3,7 @@ import React from 'react';
 // import { Rubric } from "../../styles/typography";
 // import ExternalLink from '../_ui/ExternalLink';
 
+import Roll from 'react-reveal/Roll';
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
@@ -142,6 +143,7 @@ const ProjectCard = props => {
   const { uid, title, image, description } = props;
 
   return (
+    <Roll right>
     <CardContainer>
       {image && (
         <CardImage>
@@ -157,6 +159,7 @@ const ProjectCard = props => {
       <LinkToProject href={props.projectLink}>View Project</LinkToProject>
       <ButtonLink to={`/project/${uid}`}>More Info</ButtonLink>
     </CardContainer>
+    </Roll>
   );
 };
 

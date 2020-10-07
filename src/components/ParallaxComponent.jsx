@@ -10,6 +10,11 @@ const ParallaxWrapper = styled.div`
   img {
     height: 8rem;
     width: auto;
+    transform: translateY(20px);
+  }
+
+  .parallax-outer {
+    height: 14rem;
   }
 `;
 
@@ -17,17 +22,17 @@ const ParallaxComponent = props => {
   return (
     <ParallaxWrapper>
       {props.direction === 'right' && (
-        <Parallax x={[0, 140]}>
+        <Parallax x={[-40, 140]} y={[0, -46]}>
           <img src={props.plane || undefined} alt="cloud" />
         </Parallax>
       )}
       {props.direction === 'left' && (
-        <Parallax x={[140, 0]}>
+        <Parallax x={[140, -50]} y={[10, 50]}>
           <img src={props.planeRight} alt="cloud two" />
         </Parallax>
       )}
       {props.variant === 'cloud' && (
-        <Parallax x={[140, 0]}>
+        <Parallax x={[-40, 140]} y={[0, -20]}>
           <img src={props.cloud} alt="cloud three" />
         </Parallax>
       )}

@@ -30,6 +30,7 @@ const CloudContainer = styled.div`
   }
   .Clouds-about {
     top: 40rem;
+    margin-top: -7rem;
   }
 `;
 

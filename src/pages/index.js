@@ -39,7 +39,11 @@ const IndexPage = ({ data }) => {
           variant="homepage"
         />
 
-        <ParallaxComponent direction="right" variant="plane" plane={plane} />
+        <ParallaxComponent
+          direction="right"
+          variant="plane"
+          plane={plane}
+        />
 
         <Bio
           heading={home.bio.heading}

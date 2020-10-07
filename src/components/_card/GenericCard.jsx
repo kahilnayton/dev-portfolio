@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 // import { Rubric } from "../../styles/typography";
 
+import Roll from 'react-reveal/Roll';
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
@@ -117,19 +118,21 @@ const GenericCard = props => {
   const { uid, title, image, description } = props;
 
   return (
-    <CardContainer to={`/project/${uid}`}>
-      {image && (
-        <CardImage>
-          <img src={image.url} alt={image.alt} />
-        </CardImage>
-      )}
+    <Roll left>
+      <CardContainer to={`/project/${uid}`}>
+        {image && (
+          <CardImage>
+            <img src={image.url} alt={image.alt} />
+          </CardImage>
+        )}
 
-      <CardContent>
-        <h4>{title}</h4>
+        <CardContent>
+          <h4>{title}</h4>
 
-        {description && <p>{description}</p>}
-      </CardContent>
-    </CardContainer>
+          {description && <p>{description}</p>}
+        </CardContent>
+      </CardContainer>
+    </Roll>
   );
 };
 
