@@ -39,6 +39,7 @@ const Section = styled.section`
   h4 {
     color: ${colors.grey200};
     font-weight: 400;
+    font-size: 1.6rem;
   }
 
   ul {
@@ -50,6 +51,9 @@ const Section = styled.section`
     li {
       margin: 0.75rem 2rem;
     }
+  }
+  .section-title {
+    font-size: 2rem !important;
   }
 `;
 

@@ -24,6 +24,7 @@ const globalStyles = css`
     width: 100%;
     margin: 0 auto;
     font-size: 16px;
+    overflow-x: hidden;
     line-height: 1.5;
     color: ${colors.grey900};
     -webkit-font-smoothing: antialiased;
