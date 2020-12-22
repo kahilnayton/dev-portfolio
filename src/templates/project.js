@@ -64,6 +64,9 @@ const ProjectDescription = styled.div`
     word-wrap: break-word;
     font-size: 1.4rem;
   }
+  em {
+    background: linear-gradient(transparent 1.2rem, ${colors.blue} 1rem);
+  }
 `;
 
 const Project = ({ data }) => {
