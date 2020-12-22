@@ -301,6 +301,7 @@ export default class Header extends Component {
             <HeaderHamburger
               as="button"
               type="button"
+              aria-label="burger"
               onClick={() => {
                 this.toggleMobile();
               }}

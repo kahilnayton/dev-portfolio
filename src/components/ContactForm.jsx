@@ -166,6 +166,7 @@ export default class ContactForm extends Component {
               name="name"
               id="name"
               placeholder="NAME"
+              aria-label="fname"
               value={name}
               required={true}
               onChange={this.handleChange}
@@ -176,6 +177,7 @@ export default class ContactForm extends Component {
             <Input
               name="email"
               id="email"
+              aria-label="lname"
               placeholder="EMAIL"
               required={true}
               value={email}
@@ -188,6 +190,7 @@ export default class ContactForm extends Component {
               name="message"
               id="message"
               placeholder="MESSAGE"
+              aria-label="message"
               required={true}
               value={message}
               onChange={this.handleChange}

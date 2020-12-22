@@ -36,6 +36,7 @@ const IndexPage = ({ data }) => {
           heading={home.heading}
           text={home.body[0].primary.hero_title[0].text}
           background={home.body[0].primary.background_image}
+          background_sharp={home.body[0].primary.background_imageSharp.absolutePath}
           variant="homepage"
         />
 
@@ -139,6 +140,9 @@ export const query = graphql`
                   background_image
                   hero_content
                   hero_title
+                  background_imageSharp {
+                  absolutePath
+                }
                 }
               }
             }

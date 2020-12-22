@@ -5,8 +5,9 @@ import dimensions from '../styles/dimensions';
 import { Inner, Wrap } from '../styles/structure';
 import colors from 'styles/colors';
 import gradients from 'styles/gradients';
-import z from 'styles/base'
+import z from 'styles/base';
 import CloudComponent from './CloudComponent';
+import Img from 'gatsby-image';
 
 const HeroContainer = styled.div`
   position: relative;
@@ -133,17 +134,16 @@ const HeroContent = styled.div`
   }
 `;
 
-const Hero = ({
-  heading,
-  text,
-  background,
-  variant,
-}) => {
+const Hero = ({ heading, text, background, variant, background_sharp }) => {
   return (
     <HeroContainer className={`${variant ? `Hero--${variant}` : ''}`}>
       <HeroInner>
         {background && (
           <HeroBackground>
+            {/* <Img
+              fixed={background_sharp}
+              alt={background.alt}
+            /> */}
             <img src={background.url} alt={background.alt} />
           </HeroBackground>
         )}
