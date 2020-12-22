@@ -13,8 +13,9 @@ import ParallaxComponent from '../components/ParallaxComponent';
 import plane from '../images/plane.png';
 import planeRight from '../images/planeRight.png';
 import cloud from '../images/cloudOne.png';
-import Reveal from 'react-reveal/Reveal';
+// import Slide from 'react-reveal/Slide';
 import Bio from '../components/Bio';
+import Reveal from 'react-reveal/Reveal';
 
 const Wrapper = styled.div`
   background: ${colors.blue};
@@ -36,7 +37,9 @@ const IndexPage = ({ data }) => {
           heading={home.heading}
           text={home.body[0].primary.hero_title[0].text}
           background={home.body[0].primary.background_image}
-          background_sharp={home.body[0].primary.background_imageSharp.absolutePath}
+          background_sharp={
+            home.body[0].primary.background_imageSharp.absolutePath
+          }
           variant="homepage"
         />
 
@@ -141,8 +144,8 @@ export const query = graphql`
                   hero_content
                   hero_title
                   background_imageSharp {
-                  absolutePath
-                }
+                    absolutePath
+                  }
                 }
               }
             }

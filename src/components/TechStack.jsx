@@ -6,7 +6,9 @@ import styled from '@emotion/styled';
 const TechWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  width: 50vw;
+  flex-wrap: wrap;
+  max-width: 33rem;
+  width: 100%;
 `;
 const TechContainer = styled.div`
   padding-left: 2.3rem;

@@ -46,10 +46,10 @@ const SocialBarList = styled.ul`
   &.burger {
     align-self: flex-end;
     width: 100%;
-    position: fixed;
+    position: relative;
     justify-content: space-evenly;
     right: 0;
-    bottom: 2rem;
+    bottom: 6rem;
     height: 4rem;
 
     svg {

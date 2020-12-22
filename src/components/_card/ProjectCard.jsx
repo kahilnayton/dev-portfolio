@@ -3,7 +3,9 @@ import React from 'react';
 // import { Rubric } from "../../styles/typography";
 // import ExternalLink from '../_ui/ExternalLink';
 
-import Roll from 'react-reveal/Roll';
+// import Roll from 'react-reveal/Roll';
+import Slide from 'react-reveal/Slide';
+import Reveal from 'react-reveal/Reveal';
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
@@ -143,24 +145,24 @@ const ProjectCard = props => {
   const { uid, title, image, description } = props;
 
   return (
-    <Roll right>
-    <CardContainer>
-      {image && (
-        <CardImage>
-          <img src={image.url} alt={image.alt} />
-        </CardImage>
-      )}
+    <Slide right>
+      <CardContainer>
+        {image && (
+          <CardImage>
+            <img src={image.url} alt={image.alt} />
+          </CardImage>
+        )}
 
-      <CardContent>
-        <h4>{title}</h4>
+        <CardContent>
+          <h4>{title}</h4>
 
-        {description && <p>{description}</p>}
-      </CardContent>
-      <LinkToProject href={props.projectLink}>View Project</LinkToProject>
-      <ButtonLink to={`/project/${uid}`}>More Info</ButtonLink>
-    </CardContainer>
-    </Roll>
+          {description && <p>{description}</p>}
+        </CardContent>
+        <LinkToProject href={props.projectLink}>View Project</LinkToProject>
+        <ButtonLink to={`/project/${uid}`}>More Info</ButtonLink>
+      </CardContainer>
+    </Slide>
   );
-};
+}
 
 export default ProjectCard;

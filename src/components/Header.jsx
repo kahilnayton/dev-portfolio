@@ -181,11 +181,13 @@ const HeaderMobile = styled.div`
 `;
 
 const MobileLinks = styled.ul`
+  height: 100%;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 `;
 
 const MobileToggle = styled.div`
+  height: 100%;
   position: relative;
   padding: 2.4rem 0 2rem;
   transition: background 0.08s ease-in-out;
