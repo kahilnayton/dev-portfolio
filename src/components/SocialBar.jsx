@@ -12,7 +12,7 @@ import {
   GrMail,
   GrLinkedin,
 } from 'react-icons/gr';
-import { checkPropTypes } from 'prop-types';
+// import { checkPropTypes } from 'prop-types';
 
 const SocialBarList = styled.ul`
   display: flex;
@@ -44,13 +44,14 @@ const SocialBarList = styled.ul`
   }
 
   &.burger {
-    align-self: flex-end;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
     width: 100%;
     position: relative;
     justify-content: space-evenly;
     right: 0;
-    bottom: 6rem;
-    height: 4rem;
+    height: 24rem;
 
     svg {
       height: 3rem;

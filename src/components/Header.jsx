@@ -187,7 +187,7 @@ const MobileLinks = styled.ul`
 `;
 
 const MobileToggle = styled.div`
-  height: 100%;
+  /* height: 100%; */
   position: relative;
   padding: 2.4rem 0 2rem;
   transition: background 0.08s ease-in-out;
@@ -224,6 +224,7 @@ const MobileToggle = styled.div`
 const MobileContent = styled(Inner)`
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
 
   .is-open > & {
     display: block;
@@ -239,7 +240,7 @@ const MobileContent = styled(Inner)`
     font-size: 2.1rem;
     font-weight: 600;
     margin: 1rem 0;
-    color: ${colors.grey800};
+    color: ${colors.grey600};
 
     &:hover {
       color: ${colors.blue};
