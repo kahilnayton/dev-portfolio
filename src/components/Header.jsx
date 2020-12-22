@@ -156,7 +156,7 @@ const HeaderMobile = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  position: absolute;
+  position: fixed;
   top: ${headerHeightMobile};
   width: 100%;
   height: calc(100vh - ${headerHeightMobile});

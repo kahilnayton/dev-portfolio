@@ -32,7 +32,6 @@ const TechStack = props => {
           <TechContainer key={i}>
             <img src={t.tech[0].url} alt={t.alt} />
             <p>{t.alt}</p>
-            {console.log(t)}
           </TechContainer>
         ))}
     </TechWrapper>
