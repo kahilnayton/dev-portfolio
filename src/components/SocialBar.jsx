@@ -12,10 +12,10 @@ import {
   GrMail,
   GrLinkedin,
 } from 'react-icons/gr';
+import { checkPropTypes } from 'prop-types';
 
 const SocialBarList = styled.ul`
   display: flex;
-  justify-content: flex-end;
 
   li {
     display: inline-block;
@@ -24,14 +24,6 @@ const SocialBarList = styled.ul`
 
     & + * {
       margin-left: 1.6rem;
-    }
-  }
-
-  a {
-    &:hover {
-      svg {
-        /* fill: ${colors.blue}; */
-      }
     }
   }
 
@@ -48,6 +40,22 @@ const SocialBarList = styled.ul`
       & + * {
         margin-left: 2.4rem;
       }
+    }
+  }
+
+  &.burger {
+    align-self: flex-end;
+    width: 100%;
+    position: fixed;
+    justify-content: space-evenly;
+    right: 0;
+    bottom: 2rem;
+    height: 4rem;
+
+    svg {
+      height: 3rem;
+      width: 3rem;
+      fill: ${colors.grey600};
     }
   }
 `;
@@ -92,7 +100,7 @@ const MailLink = styled.div`
 
 const SocialBar = props => {
   return (
-    <SocialBarList>
+    <SocialBarList className={`${props.variant && props.variant}`}>
       <li>
         <FaceBookIcon
           href={'https://www.facebook.com/kahil.nayton'}

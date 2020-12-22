@@ -16,6 +16,7 @@ const typeStyles = css`
   li,
   div,
   input,
+  textarea,
   button {
     font-family: "Benton Sans", sans-serif;
   }

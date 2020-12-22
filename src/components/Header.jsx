@@ -245,10 +245,6 @@ const MobileContent = styled(Inner)`
   }
 `;
 
-const BurgerSocialBar = styled(SocialBar)`
-  align-self: flex-end;
-`;
-
 export default class Header extends Component {
   constructor(props) {
     super(props);
@@ -343,7 +339,7 @@ export default class Header extends Component {
                   Projects
                 </Link>
               </MobileContent>
-              <BurgerSocialBar variant="burger" />
+              <SocialBar variant="burger" />
             </MobileToggle>
           </MobileLinks>
         </HeaderMobile>

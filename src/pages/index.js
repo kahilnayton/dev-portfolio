@@ -39,11 +39,7 @@ const IndexPage = ({ data }) => {
           variant="homepage"
         />
 
-        <ParallaxComponent
-          direction="right"
-          variant="plane"
-          plane={plane}
-        />
+        <ParallaxComponent direction="right" variant="plane" plane={plane} />
 
         <Bio
           heading={home.bio.heading}
@@ -51,7 +47,11 @@ const IndexPage = ({ data }) => {
           profilePic={home.bio.profile_pic}
         />
 
-        <About />
+        <FeaturedBlogs
+          blogs={home.blog_list}
+          variant="homepage"
+          blog_heading={home.blog_heading}
+        />
 
         <Reveal effect="fadeInUp">
           <FeaturedProjects
@@ -67,13 +67,9 @@ const IndexPage = ({ data }) => {
           planeRight={planeRight}
         />
 
-        <FeaturedBlogs
-          blogs={home.blog_list}
-          variant="homepage"
-          blog_heading={home.blog_heading}
-        />
-
         <ParallaxComponent variant="cloud" cloud={cloud} />
+
+        <About />
 
         <ContactForm />
       </Wrapper>

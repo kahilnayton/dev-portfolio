@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import colors from '../styles/colors';
 import Button from '../components/_ui/Button';
 import dimensions from '../styles/dimensions';
-import {Inner} from '../styles/structure'
+import { Inner } from '../styles/structure';
 
 const encode = data => {
   return Object.keys(data)
@@ -18,25 +18,22 @@ const FormButton = styled(Button)`
 `;
 
 const FormInner = styled(Inner)`
-height: 100rem;
-h2 {
-  padding-bottom: 3rem;
-  color: ${colors.grey200};
-  font-family: 'Zallord';
-
-}
-
-`
+  h2 {
+    padding-bottom: 3rem;
+    color: ${colors.grey200};
+    font-family: 'Zallord';
+  }
+`;
 
 const Form = styled.form`
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: auto;
-  grid-gap: 2rem;
+  grid-gap: 1rem;
   align-items: center;
-  padding: 6.9rem 2rem 8.2rem 2rem;
+  padding: 4rem 2rem 8.2rem 2rem;
 
-  height: 80%;
+  height: 40rem;
   flex-direction: column;
   background-color: ${colors.grey200};
   max-width: 800px;
@@ -58,8 +55,6 @@ const Form = styled.form`
     .message {
       grid-column: 1 /3;
       grid-row: 2;
-    
-
     }
     .email {
       grid-row: 1;
@@ -77,13 +72,13 @@ const TextArea = styled.textarea`
   resize: none;
   height: 10rem;
   width: 100%;
-
-  input { 
-    border: solid;
-  }
+  text-indent: 1rem;
 
   & + * {
     color: ${colors.teal600};
+  }
+  &::placeholder {
+    padding-top: 2rem;
   }
 `;
 
@@ -91,6 +86,7 @@ const Input = styled.input`
   height: 6rem;
   border: 1px solid #eee;
   width: 100%;
+  text-indent: 1rem;
 
   & + * {
     color: ${colors.teal600};
@@ -110,7 +106,6 @@ export default class ContactForm extends Component {
       message: '',
     };
   }
-
 
   handleSubmit = async e => {
     e.preventDefault();
@@ -136,7 +131,9 @@ export default class ContactForm extends Component {
       .catch(error =>
         console.error('There was a problem with the form response', error)
       )
-      .then(() => console.log('%c Netlify Forms and Mailchimp data sent', 'color: green'))
+      .then(() =>
+        console.log('%c Netlify Forms and Mailchimp data sent', 'color: green')
+      )
       .finally(() =>
         this.setState({
           name: [],
@@ -149,12 +146,7 @@ export default class ContactForm extends Component {
   handleChange = e => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-    const {
-      name,
-      email,
-      message,
-      statusMessage,
-    } = this.state;
+    const { name, email, message, statusMessage } = this.state;
 
     return (
       <FormInner>
@@ -166,38 +158,41 @@ export default class ContactForm extends Component {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}
-          >
+        >
           <input type="hidden" name="form-name" value="contact-kahil-dev" />
 
           <div className="name">
             <Input
               name="name"
               id="name"
+              placeholder="NAME"
               value={name}
               required={true}
               onChange={this.handleChange}
             />
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name"></label>
           </div>
           <div className="email">
             <Input
               name="email"
               id="email"
+              placeholder="EMAIL"
               required={true}
               value={email}
               onChange={this.handleChange}
             />
-            <label htmlFor="email">email</label>
+            <label htmlFor="email"></label>
           </div>
           <div className="message">
             <TextArea
               name="message"
               id="message"
-              required={false}
+              placeholder="MESSAGE"
+              required={true}
               value={message}
               onChange={this.handleChange}
             />
-            <label htmlFor="message">Message</label>
+            <label htmlFor="message"></label>
           </div>
 
           <StatusMessage>{statusMessage}</StatusMessage>

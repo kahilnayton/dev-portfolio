@@ -31,7 +31,7 @@ const ProjectDescription = styled.div`
   align-items: left;
   margin: auto;
 
-  padding: 2rem 2rem 12rem;
+  padding: 2rem 0rem 12rem;
   width: 100%;
   height: 100%;
   color: ${colors.grey900};
@@ -57,11 +57,12 @@ const ProjectDescription = styled.div`
   }
 
   pre {
-    background: ${colors.grey900};
+    background: #53517bb3;
     color: #fff;
     padding: 1.6rem;
     white-space: pre-wrap;
     word-wrap: break-word;
+    font-size: 1.4rem;
   }
 `;
 
