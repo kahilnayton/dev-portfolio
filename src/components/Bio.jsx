@@ -26,8 +26,14 @@ const BioContainer = styled.div`
     overflow: hidden;
   }
 
+  p {
+    max-width: 50rem;
+  }
+
   h1 {
+    margin-bottom: 1rem;
     line-height: 1;
+    display: inline-block;
     font-size: 3.6rem;
     background: linear-gradient(transparent 1.2rem, ${colors.lightPurple} 1rem);
   }
