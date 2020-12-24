@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 import TechStack from '../components/TechStack';
 import dimensions from '../styles/dimensions';
 
-const ProjectWrapper = styled.div`
+const BlogWrapper = styled.div`
   background: #fff;
   padding: 1.6rem 2.3rem 12rem 2.3rem;
 
@@ -24,7 +24,7 @@ const ProjectWrapper = styled.div`
   }
 `;
 
-const ProjectDescription = styled.div`
+const BlogDescription = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -69,53 +69,46 @@ const ProjectDescription = styled.div`
   }
 `;
 
-const Project = ({ data }) => {
-  const project = data.prismic.projectsByUID;
+const Blog = ({ data }) => {
+  const blog = data.prismic.blogsByUID;
 
-  if (!project) {
+  if (!blog) {
     return null;
   }
 
   return (
     <Layout>
-      <ProjectWrapper>
-        {project.edges.length > 0 && (
-          <ProjectDescription>
-            <RichText render={project.edges[0].node.description} />
-            <a href={project.edges[0].node.project_link.url}>
-              <img
-                src={project.edges[0].node.project_gif.url}
-                alt={project.edges[0].node.project_gif.alt}
-              />
-            </a>
-          </ProjectDescription>
+      <BlogWrapper>
+        {blog.edges.length > 0 && (
+          <BlogDescription>
+            <RichText render={blog.edges[0].node.description} />
+          </BlogDescription>
         )}
-        {project.edges.length > 0 && (
-          <TechStack stack={project.edges[0].node.tech_stack} />
+        {blog.edges.length > 0 && (
+          <TechStack stack={blog.edges[0].node.tech_stack} />
         )}
-      </ProjectWrapper>
+      </BlogWrapper>
     </Layout>
   );
 };
 
-export default Project;
+export default Blog;
 
 export const query = graphql`
-  query ProjectPost($uid: String) {
+  query BlogPost($uid: String) {
     prismic {
-      projectsByUID: allProjects(uid: $uid) {
+      blogsByUID: allBlogs(uid: $uid) {
         edges {
           node {
             title
             release_date
-            project_link {
+            blog_link {
               ... on PRISMIC__ExternalLink {
                 url
               }
             }
             description
-            project_image
-            project_gif
+            blog_image
             tech_stack {
               tech
             }

@@ -142,4 +142,5 @@ export const Rubric = styled.span`
   }
 `;
 
+
 export default typeStyles;

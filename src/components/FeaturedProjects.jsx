@@ -10,6 +10,7 @@ import ProjectsGrid from './_grid/ProjectsGrid';
 import ProjectCard from './_card/ProjectCard';
 import { GrFormNextLink } from 'react-icons/gr';
 import CloudComponent from './CloudComponent';
+import {ButtonContainer} from '../styles/components'
 
 const ProjectsContainer = styled.div`
   position: relative;
@@ -80,13 +81,14 @@ const ProjectInner = styled(Inner)`
   flex-direction: column;
 `;
 
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 4rem;
-`;
+// const ButtonContainer = styled.div`
+//   display: flex;
+//   justify-content: flex-end;
+//   margin-top: 4rem;
+// `;
 
 const FeaturedProjects = props => {
+  console.log(props)
   const {
     heading,
     content,
@@ -140,7 +142,7 @@ const FeaturedProjects = props => {
           </ButtonContainer>
         ) : (
           <ButtonContainer>
-            <ButtonLink to="/projects">View all</ButtonLink>
+            <ButtonLink to="/projects">More Projects</ButtonLink>
           </ButtonContainer>
         )}
       </ProjectInner>

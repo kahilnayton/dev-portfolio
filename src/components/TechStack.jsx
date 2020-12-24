@@ -25,6 +25,7 @@ const TechContainer = styled.div`
 `;
 
 const TechStack = props => {
+  // debugger;
   return (
     <TechWrapper>
       {props.stack.length > 0 &&

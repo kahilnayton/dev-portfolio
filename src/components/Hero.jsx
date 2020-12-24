@@ -7,13 +7,12 @@ import colors from 'styles/colors';
 import gradients from 'styles/gradients';
 import z from 'styles/base';
 import CloudComponent from './CloudComponent';
-import Img from 'gatsby-image';
+// import Img from 'gatsby-image';
 
 const HeroContainer = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding-top: 4rem;
 
   * {
     color: #fff;
@@ -49,6 +48,7 @@ const HeroInner = styled(Inner)`
   padding-top: 10rem;
   padding-bottom: 5.6rem;
   height: 54rem;
+  margin: 0;
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     padding-top: 8.8rem;
@@ -70,12 +70,11 @@ const HeroBackground = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    padding-bottom: 4.8rem;
   }
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
-    width: calc(100% - 8rem);
-    left: 4rem;
+    /* width: calc(100% - 8rem); */
+    /* left: 4rem; */
   }
 `;
 
@@ -144,7 +143,7 @@ const Hero = ({ heading, text, background, variant, background_sharp }) => {
               fixed={background_sharp}
               alt={background.alt}
             /> */}
-            <img src={background.url} alt={background.alt} />
+            <img className="lazyload" src={background.url} alt={background.alt} />
           </HeroBackground>
         )}
         <CloudComponent direction="right" distance="2rem" />

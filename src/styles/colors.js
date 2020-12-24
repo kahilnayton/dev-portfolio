@@ -17,6 +17,7 @@ const colors = {
   
   red: "#FF193C",
   purple: "#462178",
+  lightPurple: "#AAAAFF",
   yellow: "#FFF44F",
   blue: "#34C3E0",
   green: "#6DBF67",

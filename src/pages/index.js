@@ -106,16 +106,20 @@ export const query = graphql`
                 ... on PRISMIC_Project {
                   title
                   description
+                  release_date
                   _meta {
                     uid
                   }
                   project_image
+                  project_imageSharp {
+                    absolutePath
+                  }
                   project_link {
                     ... on PRISMIC__ExternalLink {
                       url
+                      target
                     }
                   }
-                  release_date
                 }
               }
             }
@@ -152,25 +156,24 @@ export const query = graphql`
             contact_heading
             blog_list {
               blog {
-                ... on PRISMIC_Project {
+                ... on PRISMIC_Blog {
                   title
                   description
                   _meta {
                     uid
                   }
-                  project_gif
-                  project_image
+                  blog_image
+                  blog_imageSharp {
+                    absolutePath
+                  }
                   tech_stack {
                     tech
                   }
-                  project_link {
+                  blog_link {
                     ... on PRISMIC__ExternalLink {
                       target
                       url
                     }
-                  }
-                  _meta {
-                    uid
                   }
                 }
               }

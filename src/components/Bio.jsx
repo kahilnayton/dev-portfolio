@@ -17,12 +17,22 @@ const BioContainer = styled.div`
 
   img {
     position: absolute;
+    filter: grayscale(1);
     top: 0;
     right: 0;
     width: 12rem;
     height: auto;
     transform: translate(10px, -60px);
     overflow: hidden;
+  }
+
+  h1 {
+    line-height: 1;
+    font-size: 3.6rem;
+    background: linear-gradient(transparent 1.2rem, ${colors.lightPurple} 1rem);
+  }
+  em {
+    font-family: 'Zallord';
   }
 `;
 

@@ -342,6 +342,14 @@ export default class Header extends Component {
                 >
                   Projects
                 </Link>
+                <Link
+                  onClick={() => {
+                    this.toggleMobile();
+                  }}
+                  to="/blog"
+                >
+                  Blog
+                </Link>
               </MobileContent>
               <SocialBar variant="burger" />
             </MobileToggle>

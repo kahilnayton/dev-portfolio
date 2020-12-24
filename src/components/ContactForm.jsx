@@ -171,7 +171,7 @@ export default class ContactForm extends Component {
               required={true}
               onChange={this.handleChange}
             />
-            <label htmlFor="name"></label>
+            {/* <label htmlFor="name"></label> */}
           </div>
           <div className="email">
             <Input
@@ -183,7 +183,7 @@ export default class ContactForm extends Component {
               value={email}
               onChange={this.handleChange}
             />
-            <label htmlFor="email"></label>
+            {/* <label htmlFor="email"></label> */}
           </div>
           <div className="message">
             <TextArea
@@ -195,7 +195,7 @@ export default class ContactForm extends Component {
               value={message}
               onChange={this.handleChange}
             />
-            <label htmlFor="message"></label>
+            {/* <label htmlFor="message"></label> */}
           </div>
 
           <StatusMessage>{statusMessage}</StatusMessage>

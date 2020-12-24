@@ -5,7 +5,7 @@ import React from 'react';
 
 // import Roll from 'react-reveal/Roll';
 import Slide from 'react-reveal/Slide';
-import Reveal from 'react-reveal/Reveal';
+// import Reveal from 'react-reveal/Reveal';
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';

@@ -3,10 +3,11 @@ import styled from '@emotion/styled';
 import { Inner } from '../styles/structure';
 import colors from 'styles/colors';
 import dimensions from '../styles/dimensions';
-
+import ButtonLink from './_ui/ButtonLink';
+import {ButtonContainer} from '../styles/components'
 import Content from './_ui/Content';
 import BlogsGrid from './_grid/BlogsGrid';
-import GenericCard from './_card/GenericCard';
+import BlogCard from './_card/BlogCard';
 import { GrFormNextLink } from 'react-icons/gr';
 import CloudComponent from './CloudComponent'
 
@@ -75,6 +76,7 @@ const BlogsContainer = styled.div`
 `;
 
 const FeaturedBlogs = props => {
+  console.log(props)
   const {
     heading,
     content,
@@ -110,9 +112,9 @@ const FeaturedBlogs = props => {
             {blogs.map((feature, i) => {
               return (
                 <li key={i}>
-                  <GenericCard
+                  <BlogCard
                     uid={feature.blog._meta.uid}
-                    image={feature.blog.project_image}
+                    image={feature.blog.blog_image}
                     title={feature.blog.title[0].text}
                     description={feature.blog.description[0].text}
                   />
@@ -120,6 +122,15 @@ const FeaturedBlogs = props => {
               );
             })}
           </BlogsGrid>
+        )}
+        {props.variant === 'blogPage' ? (
+          <ButtonContainer>
+            <ButtonLink to="/">Home</ButtonLink>
+          </ButtonContainer>
+        ) : (
+          <ButtonContainer>
+            <ButtonLink to="/blog">More Blogs</ButtonLink>
+          </ButtonContainer>
         )}
       </Inner>
     </BlogsContainer>

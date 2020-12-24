@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 // import Roll from 'react-reveal/Roll';
 
 import Slide from 'react-reveal/Slide';
-import Reveal from 'react-reveal/Reveal';
+// import Reveal from 'react-reveal/Reveal';
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
@@ -116,13 +116,13 @@ const CardContent = styled.div`
   }
 `;
 
-const GenericCard = props => {
+const BlogCard = props => {
   const { uid, title, image, description } = props;
 
   return (
     <>
       <Slide left>
-        <CardContainer to={`/project/${uid}`}>
+        <CardContainer to={`/blog/${uid}`}>
           {image && (
             <CardImage>
               <img src={image.url} alt={image.alt} />
@@ -140,4 +140,4 @@ const GenericCard = props => {
   );
 };
 
-export default GenericCard;
+export default BlogCard;
