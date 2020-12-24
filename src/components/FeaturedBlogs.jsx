@@ -76,7 +76,7 @@ const BlogsContainer = styled.div`
 `;
 
 const FeaturedBlogs = props => {
-  console.log(props)
+
   const {
     heading,
     content,

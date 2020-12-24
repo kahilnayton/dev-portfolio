@@ -81,14 +81,8 @@ const ProjectInner = styled(Inner)`
   flex-direction: column;
 `;
 
-// const ButtonContainer = styled.div`
-//   display: flex;
-//   justify-content: flex-end;
-//   margin-top: 4rem;
-// `;
-
 const FeaturedProjects = props => {
-  console.log(props)
+
   const {
     heading,
     content,

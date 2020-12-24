@@ -1,29 +1,29 @@
-import React from "react";
-import styled from "@emotion/styled";
-import {Global} from "@emotion/core";
-import resetStyles from "../styles/reset";
+import React from 'react';
+import styled from '@emotion/styled';
+import { Global } from '@emotion/core';
+import resetStyles from '../styles/reset';
 import globalStyles from '../styles/global';
 import typeStyles from '../styles/typography';
-import Footer from "./Footer";
-import Header from "./Header";
+import Footer from './Footer';
+import Header from './Header';
 
-const LayoutContainer = styled.div`
+const LayoutContainer = styled.div``;
+
+const LayoutContent = styled.main`
+  overflow-x: hidden;
 `;
 
-const Layout = ({children}) => (
+const Layout = ({ children }) => (
   <LayoutContainer>
-    <Global styles={[resetStyles, globalStyles, typeStyles]}/>
+    <Global styles={[resetStyles, globalStyles, typeStyles]} />
 
     <div className="Layout">
-      <Header/>
+      <Header />
 
-      <main className="Layout__content">
-        {children}
-      </main>
+      <LayoutContent>{children}</LayoutContent>
 
-      <Footer/>
+      <Footer />
     </div>
-
   </LayoutContainer>
 );
 
