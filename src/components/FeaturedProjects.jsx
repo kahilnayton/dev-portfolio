@@ -121,6 +121,7 @@ const FeaturedProjects = props => {
                     uid={feature.project._meta.uid}
                     image={feature.project.project_image}
                     title={feature.project.title[0].text}
+                    textSnippet={feature.project.preview_text}
                     description={feature.project.description[0].text}
                     projectLink={feature.project.project_link.url}
                     variant="project"

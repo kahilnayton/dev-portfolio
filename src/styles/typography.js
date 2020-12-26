@@ -1,7 +1,7 @@
 import css from '@emotion/css';
-import styled from "@emotion/styled";
-import dimensions from "./dimensions";
-import colors from "./colors";
+import styled from '@emotion/styled';
+import dimensions from './dimensions';
+import colors from './colors';
 
 const typeStyles = css`
   h1,
@@ -18,63 +18,63 @@ const typeStyles = css`
   input,
   textarea,
   button {
-    font-family: "Benton Sans", sans-serif;
+    font-family: 'Benton Sans', sans-serif;
   }
-  
+
   h1 {
     color: ${colors.teal800};
     font-size: 5.2rem;
     line-height: 1.25;
     font-weight: 400;
-    
-    @media(min-width: ${dimensions.tabletLandscapeUp}px) {
+
+    @media (min-width: ${dimensions.tabletLandscapeUp}px) {
       font-size: 6.6rem;
       line-height: 1.2;
     }
   }
-  
+
   h2 {
     color: ${colors.teal800};
     font-size: 4.2rem;
     line-height: 1.25;
     font-weight: 400;
-    
-    @media(min-width: ${dimensions.tabletLandscapeUp}px) {
+
+    @media (min-width: ${dimensions.tabletLandscapeUp}px) {
       font-size: 5.2rem;
       line-height: 1.2;
     }
   }
-  
+
   h3 {
     color: ${colors.teal800};
     font-size: 3rem;
     line-height: 1.25;
     font-weight: 400;
-    
-    @media(min-width: ${dimensions.tabletLandscapeUp}px) {
+
+    @media (min-width: ${dimensions.tabletLandscapeUp}px) {
       font-size: 4.2rem;
       line-height: 1.32;
     }
   }
-  
+
   h4 {
     color: ${colors.teal800};
     font-size: 2.4rem;
     line-height: 1.25;
     font-weight: 400;
-    
-    @media(min-width: ${dimensions.tabletLandscapeUp}px) {
+
+    @media (min-width: ${dimensions.tabletLandscapeUp}px) {
       font-size: 3rem;
     }
   }
-  
+
   h5 {
     color: ${colors.teal800};
     font-size: 1.8rem;
     line-height: 1.33;
     font-weight: 400;
-    
-    @media(min-width: ${dimensions.tabletLandscapeUp}px) {
+
+    @media (min-width: ${dimensions.tabletLandscapeUp}px) {
       font-size: 2.4rem;
 
       &.is-small {
@@ -82,41 +82,42 @@ const typeStyles = css`
       }
     }
   }
-  
+
   h6 {
     color: ${colors.teal800};
     font-size: 1.4rem;
     line-height: 1.33;
     font-weight: 600;
-    
-    @media(min-width: ${dimensions.tabletLandscapeUp}px) {
+
+    @media (min-width: ${dimensions.tabletLandscapeUp}px) {
       font-size: 2.1rem;
-      
+
       .is-small {
         font-size: 1.6rem;
       }
     }
   }
-  
+
   p {
     color: ${colors.teal700};
     font-size: 1.8rem;
     line-height: 1.55;
-    
+
     & + & {
       margin-top: 2.4rem;
     }
-    
+
     &.is-small {
-      font-size: 1.6rem;  
+      font-size: 1.6rem;
     }
-    
+
     &.is-large {
       font-size: 2.1rem;
     }
   }
-  
+
   a {
+    color: ${colors.blue};
     &:hover {
       cursor: pointer;
     }
@@ -128,19 +129,18 @@ export const Rubric = styled.span`
   color: ${colors.red500};
   font-size: 1.8rem;
   font-weight: 600;
-  
+
   & + * {
     margin-top: 0.4rem;
   }
-  
-  @media(min-width: ${dimensions.tabletLandscapeUp}px) {
+
+  @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     font-size: 2.1rem;
-    
+
     & + * {
       margin-top: 1.6rem;
     }
   }
 `;
-
 
 export default typeStyles;

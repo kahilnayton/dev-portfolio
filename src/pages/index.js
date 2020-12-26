@@ -106,6 +106,7 @@ export const query = graphql`
                 ... on PRISMIC_Project {
                   title
                   description
+                  preview_text
                   release_date
                   _meta {
                     uid
@@ -159,6 +160,7 @@ export const query = graphql`
                 ... on PRISMIC_Blog {
                   title
                   description
+                  preview_text
                   _meta {
                     uid
                   }

@@ -53,7 +53,7 @@ const BlogDescription = styled.div`
 
   a {
     padding-top: 2rem;
-    color: ${colors.purple};
+    color: ${colors.blue};
   }
 
   pre {

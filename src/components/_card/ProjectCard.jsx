@@ -142,7 +142,13 @@ const LinkToProject = styled.a`
 `;
 
 const ProjectCard = props => {
-  const { uid, title, image, description } = props;
+  const { uid, title, image, description, textSnippet } = props;
+
+  let trimmed_preview_text;
+
+  if (textSnippet) {
+    trimmed_preview_text = description > 200 ? `${description.substr(0,200)} …` : description;
+  }
 
   return (
     <Slide right>
@@ -156,7 +162,7 @@ const ProjectCard = props => {
         <CardContent>
           <h4>{title}</h4>
 
-          {description && <p>{description}</p>}
+          {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
         </CardContent>
         <LinkToProject href={props.projectLink}>View Project</LinkToProject>
         <ButtonLink to={`/project/${uid}`}>More Info</ButtonLink>

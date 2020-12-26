@@ -117,7 +117,14 @@ const CardContent = styled.div`
 `;
 
 const BlogCard = props => {
-  const { uid, title, image, description } = props;
+  console.log(props)
+  const { uid, title, image, description, textSnippet } = props;
+
+  let trimmed_preview_text;
+
+  if (textSnippet) {
+    trimmed_preview_text = textSnippet.length > 200 ? `${textSnippet.substr(0,200)} …` : textSnippet;
+  }
 
   return (
     <>
@@ -132,7 +139,7 @@ const BlogCard = props => {
           <CardContent>
             <h4>{title}</h4>
 
-            {description && <p>{description}</p>}
+            {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
           </CardContent>
         </CardContainer>
       </Slide>

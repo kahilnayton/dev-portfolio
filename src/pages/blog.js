@@ -26,7 +26,7 @@ const Blog = ({ data }) => {
       <Wrapper>
         <Hero
           heading={blogPage.heading}
-          text={'Thanks for dropping by!'}
+          // text={''}
           background={blogPage.body[0].primary.background_image}
           variant="blogPage"
         />

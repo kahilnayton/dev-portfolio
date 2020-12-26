@@ -116,6 +116,7 @@ const FeaturedBlogs = props => {
                     uid={feature.blog._meta.uid}
                     image={feature.blog.blog_image}
                     title={feature.blog.title[0].text}
+                    textSnippet={feature.blog.preview_text}
                     description={feature.blog.description[0].text}
                   />
                 </li>

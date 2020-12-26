@@ -17,7 +17,7 @@ const BioContainer = styled.div`
 
   img {
     position: absolute;
-    filter: grayscale(1);
+    /* filter: grayscale(1); */
     top: 0;
     right: 0;
     width: 12rem;
