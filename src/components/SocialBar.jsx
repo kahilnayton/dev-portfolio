@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import colors from 'styles/colors';
 import dimensions from 'styles/dimensions';
 // import gradients from 'styles/gradients';
-// import { Link } from 'gatsby';
+import { Link } from 'gatsby';
 
 import {
   GrFacebookOption,
@@ -90,7 +90,7 @@ const LinkedInIcon = styled.a`
   }
 `;
 
-const MailLink = styled.div`
+const MailLink = styled(Link)`
   &:hover {
     cursor: pointer;
     svg {
@@ -141,7 +141,10 @@ const SocialBar = props => {
         </LinkedInIcon>
       </li>
       <li>
-        <MailLink to={'/contact'}>
+        <MailLink
+          to={'/contact'}
+          onClick={props.toggleMobile}
+        >
           <GrMail />
         </MailLink>
       </li>

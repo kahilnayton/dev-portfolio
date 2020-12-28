@@ -351,7 +351,10 @@ export default class Header extends Component {
                   Blog
                 </Link>
               </MobileContent>
-              <SocialBar variant="burger" />
+              <SocialBar
+                variant="burger"
+                toggleMobile={() => this.toggleMobile()}
+              />
             </MobileToggle>
           </MobileLinks>
         </HeaderMobile>

@@ -107,9 +107,13 @@ const HeroContent = styled.div`
 
   h1 {
     color: ${colors.lightPurple};
-    font-size: 12rem;
+    font-size: 6rem;
     font-weight: 800;
     font-family: 'Zallord';
+    
+    @media (min-width: ${dimensions.tabletLandscapeUp}px) {
+    font-size: 12rem;
+    }
   }
 
   p {
