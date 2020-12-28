@@ -9,6 +9,7 @@ import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
 import dimensions from '../../styles/dimensions';
+import Moment from 'react-moment';
 
 const CardContainer = styled(Link)`
   position: relative;
@@ -88,6 +89,12 @@ const CardContent = styled.div`
     margin-top: 1.6rem;
   }
 
+  span {
+    color: ${colors.blue};
+    font-size: 1.2rem;
+    padding-top: 1rem;
+  }
+
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     padding: 3.2rem 3.2rem 4.8rem;
 
@@ -117,8 +124,8 @@ const CardContent = styled.div`
 `;
 
 const BlogCard = props => {
-  console.log(props)
-  const { uid, title, image, description, textSnippet } = props;
+
+  const { uid, title, image, textSnippet, publishDate } = props;
 
   let trimmed_preview_text;
 
@@ -138,8 +145,13 @@ const BlogCard = props => {
 
           <CardContent>
             <h4>{title}</h4>
-
+            {publishDate && (
+              <span>
+                <Moment format="MMMM Do, YYYY" date={publishDate} />
+              </span>
+            )}
             {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
+
           </CardContent>
         </CardContainer>
       </Slide>

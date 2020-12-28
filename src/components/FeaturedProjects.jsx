@@ -82,7 +82,6 @@ const ProjectInner = styled(Inner)`
 `;
 
 const FeaturedProjects = props => {
-
   const {
     heading,
     content,
@@ -124,6 +123,7 @@ const FeaturedProjects = props => {
                     textSnippet={feature.project.preview_text}
                     description={feature.project.description[0].text}
                     projectLink={feature.project.project_link.url}
+                    publishDate={feature.project.release_date}
                     variant="project"
                   />
                 </li>

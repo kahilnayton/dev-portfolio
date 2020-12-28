@@ -6,6 +6,7 @@ import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import TechStack from '../components/TechStack';
 import dimensions from '../styles/dimensions';
+import Hero from '../components/Hero';
 
 const BlogWrapper = styled.div`
   background: #fff;
@@ -78,6 +79,11 @@ const Blog = ({ data }) => {
 
   return (
     <Layout>
+      <Hero
+        heading={blog.edges[0].node.title}
+          background={blog.edges[0].node.blog_image}
+          variant="blog"
+        />
       <BlogWrapper>
         {blog.edges.length > 0 && (
           <BlogDescription>

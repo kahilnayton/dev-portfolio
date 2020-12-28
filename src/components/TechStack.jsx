@@ -15,7 +15,7 @@ const TechContainer = styled.div`
 
   img {
     height: 4rem;
-    width: 4rem;
+    /* width: 4rem; */
     &:hover {
       transform: scale(1.2);
     }

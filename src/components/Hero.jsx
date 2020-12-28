@@ -19,7 +19,7 @@ const HeroContainer = styled.div`
   }
 
   & + * {
-    margin-top: 5.6rem;
+    /* margin-top: 5.6rem; */
   }
 
   &::after {
@@ -65,6 +65,7 @@ const HeroBackground = styled.div`
 
   img {
     position: absolute;
+    filter: grayscale(1);
     top: 0;
     left: 0;
     width: 100%;
@@ -105,14 +106,16 @@ const HeroContent = styled.div`
   padding: 1.6rem;
 
   h1 {
-    color: ${colors.grey200};
-    font-size: 4.2rem;
+    color: ${colors.lightPurple};
+    font-size: 12rem;
+    font-weight: 800;
+    font-family: 'Zallord';
   }
 
   p {
     margin-top: 3.2rem;
-    color: ${colors.grey200};
-    font-family: 'Zallord';
+    color: ${colors.lightPurple};
+    /* font-family: 'Zallord'; */
     font-size: 2.8rem;
   }
 

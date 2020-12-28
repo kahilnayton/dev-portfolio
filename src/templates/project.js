@@ -6,6 +6,7 @@ import { graphql } from 'gatsby';
 import styled from '@emotion/styled';
 import TechStack from '../components/TechStack';
 import dimensions from '../styles/dimensions';
+import Hero from '../components/Hero';
 
 const ProjectWrapper = styled.div`
   background: #fff;
@@ -19,8 +20,7 @@ const ProjectWrapper = styled.div`
   }
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
-  padding: 1.6rem 4.6rem 12rem 4.6rem;
-
+    padding: 1.6rem 4.6rem 12rem 4.6rem;
   }
 `;
 
@@ -47,8 +47,12 @@ const ProjectDescription = styled.div`
   img {
     align-self: center;
     display: block;
-    width: 60%;
+    width: 100%;
     height: 60%;
+
+    @media (min-width: ${dimensions.tabletLandscapeUp}px) {
+    width: 60%;
+    }
   }
 
   a {
@@ -78,6 +82,11 @@ const Project = ({ data }) => {
 
   return (
     <Layout>
+      <Hero
+        heading={project.edges[0].node.title}
+        background={project.edges[0].node.project_image}
+        variant="project"
+      />
       <ProjectWrapper>
         {project.edges.length > 0 && (
           <ProjectDescription>

@@ -15,7 +15,7 @@ import planeRight from '../images/planeRight.png';
 import cloud from '../images/cloudOne.png';
 // import Slide from 'react-reveal/Slide';
 import Bio from '../components/Bio';
-import Reveal from 'react-reveal/Reveal';
+// import Reveal from 'react-reveal/Reveal';
 
 const Wrapper = styled.div`
   background: ${colors.blue};
@@ -57,13 +57,11 @@ const IndexPage = ({ data }) => {
           blog_heading={home.blog_heading}
         />
 
-        <Reveal effect="fadeInUp">
-          <FeaturedProjects
-            projects={home.project_list}
-            variant="homepage"
-            project_heading={'Projects'}
-          />
-        </Reveal>
+        <FeaturedProjects
+          projects={home.project_list}
+          variant="homepage"
+          project_heading={'Projects'}
+        />
 
         <ParallaxComponent
           direction="left"
@@ -161,6 +159,7 @@ export const query = graphql`
                   title
                   description
                   preview_text
+                  release_date
                   _meta {
                     uid
                   }

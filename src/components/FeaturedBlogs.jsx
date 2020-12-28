@@ -117,6 +117,7 @@ const FeaturedBlogs = props => {
                     image={feature.blog.blog_image}
                     title={feature.blog.title[0].text}
                     textSnippet={feature.blog.preview_text}
+                    publishDate={feature.blog.release_date}
                     description={feature.blog.description[0].text}
                   />
                 </li>

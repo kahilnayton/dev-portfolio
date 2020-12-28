@@ -69,6 +69,7 @@ export const query = graphql`
                 ... on PRISMIC_Project {
                   title
                   description
+                  preview_text
                   project_gif
                   project_image
                   tech_stack {

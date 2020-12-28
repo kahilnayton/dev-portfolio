@@ -69,6 +69,8 @@ export const query = graphql`
                 ... on PRISMIC_Blog {
                   title
                   description
+                  preview_text
+                  release_date
                   blog_image
                   tech_stack {
                     tech

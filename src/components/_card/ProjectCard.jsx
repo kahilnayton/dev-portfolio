@@ -11,6 +11,7 @@ import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
 import dimensions from '../../styles/dimensions';
 import ButtonLink from '../_ui/ButtonLink';
+import Moment from 'react-moment';
 
 const CardContainer = styled.div`
   position: relative;
@@ -90,6 +91,12 @@ const CardContent = styled.div`
     margin-top: 1.6rem;
   }
 
+  span {
+    color: ${colors.blue};
+    font-size: 1.2rem;
+    padding-top: 1rem;
+  }
+
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     padding: 3.2rem 3.2rem 4.8rem;
 
@@ -142,12 +149,13 @@ const LinkToProject = styled.a`
 `;
 
 const ProjectCard = props => {
-  const { uid, title, image, description, textSnippet } = props;
+  console.log(props)
+  const { uid, title, image, textSnippet, publishDate } = props;
 
   let trimmed_preview_text;
 
   if (textSnippet) {
-    trimmed_preview_text = description > 200 ? `${description.substr(0,200)} …` : description;
+    trimmed_preview_text = textSnippet.length > 200 ? `${textSnippet.substr(0,200)} …` : textSnippet;
   }
 
   return (
@@ -161,10 +169,14 @@ const ProjectCard = props => {
 
         <CardContent>
           <h4>{title}</h4>
-
+          {publishDate && (
+              <span>
+                <Moment format="MMMM Do, YYYY" date={publishDate} />
+              </span>
+            )}
           {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
         </CardContent>
-        <LinkToProject href={props.projectLink}>View Project</LinkToProject>
+        <LinkToProject target="_blank" href={props.projectLink}>View</LinkToProject>
         <ButtonLink to={`/project/${uid}`}>More Info</ButtonLink>
       </CardContainer>
     </Slide>
