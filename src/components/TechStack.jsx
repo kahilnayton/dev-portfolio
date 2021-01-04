@@ -20,10 +20,10 @@ const TechContainer = styled.div`
   padding-left: 2.3rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: left;
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
-  justify-content: left;
   }
 
   img {
