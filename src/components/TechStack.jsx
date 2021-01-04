@@ -1,17 +1,30 @@
 import React from 'react';
 import styled from '@emotion/styled';
-// import dimensions from '../styles/dimensions';
+import dimensions from '../styles/dimensions';
 // import colors from 'styles/colors';
 
 const TechWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  grid-gap: 4rem 1rem;
+  grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+  /* flex-direction: row; */
+  /* flex-wrap: wrap; */
   max-width: 33rem;
   width: 100%;
+
+  @media (min-width: ${dimensions.tabletLandscapeUp}px) {
+  max-width: 75%;
+  }
 `;
 const TechContainer = styled.div`
   padding-left: 2.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: ${dimensions.tabletLandscapeUp}px) {
+  justify-content: left;
+  }
 
   img {
     height: 4rem;

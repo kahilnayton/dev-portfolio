@@ -45,11 +45,19 @@ const BlogDescription = styled.div`
     margin-top: 2rem;
   }
 
+  .block-img {
+    object-fit: cover;
+  }
+
   img {
     align-self: center;
+    box-shadow: 0 0.3rem 2rem rgba(0,0,0,0.05);
     display: block;
+    width: 100%;
+    height: 100%;
+    @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     width: 60%;
-    height: 60%;
+    }
   }
 
   a {
