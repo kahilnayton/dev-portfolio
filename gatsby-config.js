@@ -18,6 +18,7 @@ module.exports = {
   siteMetadata,
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-preload-fonts`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-image`,

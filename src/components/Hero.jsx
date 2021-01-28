@@ -7,6 +7,7 @@ import colors from 'styles/colors';
 import gradients from 'styles/gradients';
 import z from 'styles/base';
 import CloudComponent from './CloudComponent';
+import CloudBackground from '../images/clouds.jpg'
 // import Img from 'gatsby-image';
 
 const HeroContainer = styled.div`
@@ -72,6 +73,7 @@ const HeroBackground = styled.div`
     height: 100%;
     object-fit: cover;
   }
+
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     /* width: calc(100% - 8rem); */
@@ -144,15 +146,14 @@ const Hero = ({ heading, text, background, variant, background_sharp }) => {
   return (
     <HeroContainer className={`${variant ? `Hero--${variant}` : ''}`}>
       <HeroInner>
-        {background && (
-          <HeroBackground>
-            {/* <Img
-              fixed={background_sharp}
-              alt={background.alt}
-            /> */}
+        <HeroBackground>
+        {background ? (
             <img className="lazyload" src={background.url} alt={background.alt} />
-          </HeroBackground>
-        )}
+            ) : (
+            <img src={CloudBackground} alt='Cloud background' />
+
+              )}
+        </HeroBackground>
         <CloudComponent direction="right" distance="2rem" />
         <HeroWrap>
           {variant !== 'projectPage' && (

@@ -7,7 +7,11 @@ import {
   FaGithub,
   FaNodeJs,
   FaAws,
+  FaWordpressSimple,
+  FaPhp,
+  FaShopify,
 } from 'react-icons/fa';
+import {SiMongodb, SiNextDotJs} from 'react-icons/si';
 import {
   DiCss3,
   DiRuby,
@@ -54,8 +58,62 @@ const Section = styled.section`
     }
   }
   .section-title {
-    font-size: 2rem !important;
+    font-size: 2.4rem;
+    font-family: 'Zallord';
   }
+
+  .wordpress {
+    fill: #217195;
+  }
+  .php {
+    fill: #7377AD;
+  }
+  .shopify {
+    fill: #7CB163;
+  }
+  .mongo {
+    fill: #49AA4D;
+  }
+  .next {
+    fill: black;
+  }
+
+.fa-html5 {
+  color: #e34f26;
+}
+
+.fa-css3-alt {
+  color: #0074D9;
+}
+
+.fa-js-square {
+  color: #f7df1e;
+}
+
+.fa-code {
+  color: #0769ad;
+}
+
+.fa-react {
+  color: #3f889f;
+}
+
+.fa-git-square {
+  color: #de6b55;
+}
+
+.fa-database {
+  color: #336791;
+}
+.fa-Aws {
+  color: #c55526;
+}
+.fa-gatsby {
+  color: #67208b;
+}
+.fa-graphql {
+  color: #ea2ccd;
+}
 `;
 
 export default function About() {
@@ -63,7 +121,7 @@ export default function About() {
     <Section id="about" className="about">
       <Reveal effect="fadeInUp">
         <CloudComponent direction="left" distance="10rem" variant="about" />
-        <h2 className="section-title">Languages &amp; Tools</h2>
+        <h2 className="section-title">Languages / Tools</h2>
         <ul>
           <Li>
             <Roll left>
@@ -136,19 +194,49 @@ export default function About() {
           <Li>
             <Roll right>
               <FaAws className="fab fa-Aws icon-size" />
-              <h4 className="about-subtitle block">Node.js</h4>
+              <h4 className="about-subtitle block">AWS</h4>
             </Roll>
           </Li>
           <Li>
             <Roll left>
               <GrGatsbyjs className="fab fa-gatsby icon-size" />
-              <h4 className="about-subtitle block">Node.js</h4>
+              <h4 className="about-subtitle block">Gatsby.js</h4>
             </Roll>
           </Li>
           <Li>
             <Roll right>
               <GrGraphQl className="fab fa-graphql icon-size" />
-              <h4 className="about-subtitle block">Node.js</h4>
+              <h4 className="about-subtitle block">GraphQL</h4>
+            </Roll>
+          </Li>
+          <Li>
+            <Roll left>
+              <FaWordpressSimple className="fab wordpress icon-size" />
+              <h4 className="about-subtitle block">WordPress</h4>
+            </Roll>
+          </Li>
+          <Li>
+            <Roll right>
+              <FaPhp className="fab php icon-size" />
+              <h4 className="about-subtitle block">PHP</h4>
+            </Roll>
+          </Li>
+          <Li>
+            <Roll left>
+              <FaShopify className="fab shopify icon-size" />
+              <h4 className="about-subtitle block">Shopify</h4>
+            </Roll>
+          </Li>
+          <Li>
+            <Roll left>
+              <SiMongodb className="fab mongo icon-size" />
+              <h4 className="about-subtitle block">MongoDB</h4>
+            </Roll>
+          </Li>
+          <Li>
+            <Roll left>
+              <SiNextDotJs className="fab next icon-size" />
+              <h4 className="about-subtitle block">Next.js</h4>
             </Roll>
           </Li>
         </ul>

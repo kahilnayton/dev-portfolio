@@ -84,7 +84,7 @@ const Project = ({ data }) => {
     <Layout>
       <Hero
         heading={project.edges[0].node.title}
-        background={project.edges[0].node.project_image}
+        // background={project.edges[0].node.project_image}
         variant="project"
       />
       <ProjectWrapper>

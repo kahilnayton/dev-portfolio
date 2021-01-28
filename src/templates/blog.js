@@ -89,7 +89,7 @@ const Blog = ({ data }) => {
     <Layout>
       <Hero
         heading={blog.edges[0].node.title}
-          background={blog.edges[0].node.blog_image}
+          // background={blog.edges[0].node.blog_image}
           variant="blog"
         />
       <BlogWrapper>
