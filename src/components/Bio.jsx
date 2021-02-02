@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { createRef, useEffect } from 'react';
 import { Inner } from '../styles/structure';
 import RichText from '../components/RichText';
 import colors from 'styles/colors';
 import dimensions from '../styles/dimensions';
+import lottie from 'lottie-web'
+import animation from '../animations/walkwalk.json'
 import styled from '@emotion/styled';
 
 const BioContainer = styled.div`
@@ -42,8 +44,27 @@ const BioContainer = styled.div`
   }
 `;
 
+const HeadAnimation = styled.div`
+height: 20rem;
+width: 20rem;
+`
+
 
 const Bio = props => {
+  let animationContainer = createRef()
+  console.log(animationContainer)
+
+  useEffect(() => {
+    const anim = lottie.loadAnimation({
+      container: animationContainer.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      animationData: animation
+    })
+    return () => anim.destroy()
+  }, [])
+
   // console.log(props);
   return (
     <Inner>
@@ -51,6 +72,7 @@ const Bio = props => {
         <h1>{props.heading[0].text}</h1>
           <img src={props.profilePic.url} alt={props.profilePic.alt} />
         <RichText render={props.content} />
+        <HeadAnimation ref={animationContainer}/>
       </BioContainer>
     </Inner>
   );

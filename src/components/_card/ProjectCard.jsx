@@ -149,7 +149,6 @@ const LinkToProject = styled.a`
 `;
 
 const ProjectCard = props => {
-  console.log(props)
   const { uid, title, image, textSnippet, publishDate } = props;
 
   let trimmed_preview_text;
