@@ -4,7 +4,7 @@ import RichText from '../components/RichText';
 import colors from 'styles/colors';
 import dimensions from '../styles/dimensions';
 import lottie from 'lottie-web'
-import animation from '../animations/walkwalk.json'
+import animation from '../animations/helicopter.json'
 import styled from '@emotion/styled';
 
 const BioContainer = styled.div`
@@ -52,7 +52,7 @@ width: 20rem;
 
 const Bio = props => {
   let animationContainer = createRef()
-  console.log(animationContainer)
+  // console.log(animationContainer)
 
   useEffect(() => {
     const anim = lottie.loadAnimation({
