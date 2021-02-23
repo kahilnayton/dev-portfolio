@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import styled from '@emotion/styled';
 import colors from 'styles/colors';
-import { acrossScreen, bottomToTop } from 'styles/animations';
+import { acrossScreen, bottomToTop, bottomToTopSlow } from 'styles/animations';
 import About from '../components/About';
 import Hero from '../components/Hero';
 import SEO from 'components/SEO';
@@ -28,9 +28,9 @@ const Wrapper = styled.div`
 const PlaneWrapper = styled.div`
   display: block;
   position: relative;
-  height: 100rem;
+  height: 112rem;
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
   margin-bottom: -100rem;
 `;
 
@@ -47,9 +47,15 @@ const Balloon = styled.img`
   left: 40%;
   position: absolute;
   animation-name: ${bottomToTop};
-  animation-duration: 16s;
+  animation-duration: 25s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+
+  &.small {
+    height: 6rem;
+    animation-duration: 60s;
+    animation-name: ${bottomToTopSlow};
+  }
 `;
 
 const IndexPage = ({ data }) => {
@@ -79,6 +85,7 @@ const IndexPage = ({ data }) => {
 
         <Balloon src={BalloonImage} alt="Balloon" />
 
+        <Balloon className="small" src={BalloonImage} alt="Balloon" />
 
         <Bio
           heading={home.bio.heading}
@@ -86,13 +93,12 @@ const IndexPage = ({ data }) => {
           profilePic={home.bio.profile_pic}
         />
 
-
         <FeaturedBlogs
           blogs={home.blog_list}
           variant="homepage"
           blog_heading={home.blog_heading}
         />
-        
+
         <ParallaxComponent direction="right" variant="plane" plane={plane} />
 
         <FeaturedProjects
