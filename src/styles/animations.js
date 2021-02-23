@@ -1,5 +1,19 @@
 import { keyframes } from '@emotion/core';
 
+export const slightRock = keyframes`
+0% {
+transform: rotate(0)
+}
+50% {
+transform: rotate(5deg)
+
+}
+100% {
+transform: rotate(0)
+
+}
+`;
+
 export const acrossScreen = keyframes`
 0% {
   transform: translate(220rem, -4rem)

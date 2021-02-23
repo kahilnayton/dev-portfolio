@@ -27,8 +27,11 @@ const Wrapper = styled.div`
 
 const PlaneWrapper = styled.div`
   display: block;
+  position: relative;
+  height: 100rem;
   width: 100%;
   overflow-x: hidden;
+  margin-bottom: -100rem;
 `;
 
 const Plane = styled.img`
@@ -73,9 +76,9 @@ const IndexPage = ({ data }) => {
         <PlaneWrapper>
           <Plane src={Boeing} alt="Boeing plane" />
         </PlaneWrapper>
+
         <Balloon src={BalloonImage} alt="Balloon" />
 
-        <ParallaxComponent direction="right" variant="plane" plane={plane} />
 
         <Bio
           heading={home.bio.heading}
@@ -83,11 +86,14 @@ const IndexPage = ({ data }) => {
           profilePic={home.bio.profile_pic}
         />
 
+
         <FeaturedBlogs
           blogs={home.blog_list}
           variant="homepage"
           blog_heading={home.blog_heading}
         />
+        
+        <ParallaxComponent direction="right" variant="plane" plane={plane} />
 
         <FeaturedProjects
           projects={home.project_list}
