@@ -25,7 +25,13 @@ const Wrapper = styled.div`
   padding-bottom: 13rem;
 `;
 
-const Img = styled.img`
+const PlaneWrapper = styled.div`
+  display: block;
+  width: 100%;
+  overflow-x: hidden;
+`;
+
+const Plane = styled.img`
   position: absolute;
   animation-name: ${acrossScreen};
   animation-duration: 15s;
@@ -64,7 +70,9 @@ const IndexPage = ({ data }) => {
           variant="homepage"
         />
 
-        <Img src={Boeing} alt="Boeing plane" />
+        <PlaneWrapper>
+          <Plane src={Boeing} alt="Boeing plane" />
+        </PlaneWrapper>
         <Balloon src={BalloonImage} alt="Balloon" />
 
         <ParallaxComponent direction="right" variant="plane" plane={plane} />
