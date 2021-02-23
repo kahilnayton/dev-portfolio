@@ -8,10 +8,15 @@ import animation from '../animations/helicopter.json'
 import styled from '@emotion/styled';
 
 const BioContainer = styled.div`
-  background: ${colors.grey200};
+  background: rgba(255, 255,255, 0.2);
   padding: 2rem;
   margin-bottom: 4rem;
   position: relative;
+  backdrop-filter: blur(40px);
+  border: solid 2px transparent;
+  background-clip: padding-box;
+  box-shadow: 1rem 1rem 1rem rgba(46, 54, 68, 0.03);
+
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     margin-bottom: 8rem;

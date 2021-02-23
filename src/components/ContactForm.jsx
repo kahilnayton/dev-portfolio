@@ -18,6 +18,11 @@ const FormButton = styled(Button)`
 `;
 
 const FormInner = styled(Inner)`
+  backdrop-filter: blur(40px);
+  border: solid 2px transparent;
+  background: rgba(255, 255,255, 0.2);
+  background-clip: padding-box;
+  box-shadow: 1rem 1rem 1rem rgba(46, 54, 68, 0.03);
   h2 {
     padding-bottom: 3rem;
     color: ${colors.grey200};
@@ -32,10 +37,10 @@ const Form = styled.form`
   grid-gap: 1rem;
   align-items: center;
   padding: 4rem 2rem 8.2rem 2rem;
+  
 
   height: 40rem;
   flex-direction: column;
-  background-color: ${colors.grey200};
   max-width: 800px;
   margin: auto;
 

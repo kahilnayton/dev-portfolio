@@ -1,4 +1,64 @@
-import { keyframes } from "@emotion/core";
+import { keyframes } from '@emotion/core';
+
+export const acrossScreen = keyframes`
+0% {
+  transform: translate(220rem, -4rem)
+}
+5% {
+  transform: translate(220rem, -4rem)
+}
+10% {
+  transform: translate(120rem, -4rem)
+}
+25% {
+  transform: translate(25rem, 0rem)
+}
+50% {
+  transform: translate(-100rem, -2rem)
+}
+75% {
+  transform: translate(-250rem, 4rem)
+}
+100% {
+  transform: translate(-250rem, -6rem)
+}
+`;
+
+export const bottomToTop = keyframes`
+0% {
+  transform: translate(0, 500rem)
+}
+10% {
+  transform: translate(0, 300rem)
+}
+20% {
+  transform: translate(0, 200rem) rotate(10deg)
+}
+30% {
+  transform: translate(0, 100rem)
+}
+40% {
+  transform: translate(0, 0rem)
+}
+50% {
+  transform: translate(0, -50rem)
+}
+60% {
+  transform: translate(0, -100rem) rotate(0deg)
+}
+70% {
+  transform: translate(0, -150rem)
+}
+80% {
+  transform: translate(0, -200rem)
+}
+90% {
+  transform: translate(0, -100rem)
+}
+100% {
+  transform: translate(0, -200rem) rotate(-10deg)
+}
+`;
 
 export const slideInBottom = keyframes`
   0% {

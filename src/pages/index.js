@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import styled from '@emotion/styled';
 import colors from 'styles/colors';
+import { acrossScreen, bottomToTop } from 'styles/animations';
 import About from '../components/About';
 import Hero from '../components/Hero';
 import SEO from 'components/SEO';
@@ -13,6 +14,8 @@ import ParallaxComponent from '../components/ParallaxComponent';
 import plane from '../images/plane.png';
 import planeRight from '../images/planeRight.png';
 import cloud from '../images/cloudOne.png';
+import Boeing from '../images/boeing.png';
+import BalloonImage from '../images/balloon.png';
 // import Slide from 'react-reveal/Slide';
 import Bio from '../components/Bio';
 // import Reveal from 'react-reveal/Reveal';
@@ -20,6 +23,24 @@ import Bio from '../components/Bio';
 const Wrapper = styled.div`
   background: ${colors.blue};
   padding-bottom: 13rem;
+`;
+
+const Img = styled.img`
+  position: absolute;
+  animation-name: ${acrossScreen};
+  animation-duration: 15s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+`;
+
+const Balloon = styled.img`
+  height: 18rem;
+  left: 40%;
+  position: absolute;
+  animation-name: ${bottomToTop};
+  animation-duration: 16s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 `;
 
 const IndexPage = ({ data }) => {
@@ -42,6 +63,9 @@ const IndexPage = ({ data }) => {
           }
           variant="homepage"
         />
+
+        <Img src={Boeing} alt="Boeing plane" />
+        <Balloon src={BalloonImage} alt="Balloon" />
 
         <ParallaxComponent direction="right" variant="plane" plane={plane} />
 
