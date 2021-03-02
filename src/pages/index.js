@@ -55,6 +55,7 @@ const Balloon = styled.img`
     height: 6rem;
     animation-duration: 60s;
     animation-name: ${bottomToTopSlow};
+    overflow: hidden;
   }
 `;
 
@@ -213,9 +214,6 @@ export const query = graphql`
                     uid
                   }
                   blog_image
-                  blog_imageSharp {
-                    absolutePath
-                  }
                   tech_stack {
                     tech
                   }

@@ -76,16 +76,16 @@ export const bottomToTop = keyframes`
 
 export const bottomToTopSlow = keyframes`
 0% {
-  transform: translate(0, 800rem) scale(1.01)
+  transform: translate(0, 440rem) scale(1.01)
 }
 10% {
-  transform: translate(2rem, 600rem)
+  transform: translate(6rem, 400rem) scale(1.1)
 }
 20% {
-  transform: translate(4rem, 400rem) rotate(10deg)
+  transform: translate(4rem, 300rem) rotate(10deg)
 }
 30% {
-  transform: translate(6rem, 200rem) scale(0.8)
+  transform: translate(0rem, 200rem) scale(0.8)
 }
 40% {
   transform: translate(4rem, 0rem)
@@ -103,10 +103,10 @@ export const bottomToTopSlow = keyframes`
   transform: translate(-4rem, -800rem) scale(0.4)
 }
 90% {
-  transform: translate(-6rem, -1000rem)
+  transform: translate(-6rem, -800rem)
 }
 100% {
-  transform: translate(0, -200rem) rotate(-10deg) scale(1)
+  transform: translate(0, -800rem) rotate(-10deg) scale(1)
 }
 `;
 
