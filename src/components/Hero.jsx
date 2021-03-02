@@ -12,22 +12,22 @@ import CloudBackground from '../images/clouds.jpg';
 // import Img from 'gatsby-image';
 
 const imgStyle = {
-  'position': 'absolute',
-  'filter': 'grayscale(1)',
-  'top': 0,
-  'left': 0,
-  'width': '100%',
-  'height': '100%',
-  'object-fit': 'cover'
-}
+  position: 'absolute',
+  filter: 'grayscale(1)',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  'object-fit': 'cover',
+};
 
 const gatsbyImageContainer = {
-  'position': 'absolute',
-  'width': '100vw',
-  'height': '100%',
-  'top': 0,
-  'left': 0,
-}
+  position: 'absolute',
+  width: '100vw',
+  height: '100%',
+  top: 0,
+  left: 0,
+};
 
 const HeroContainer = styled.div`
   position: relative;
@@ -63,12 +63,15 @@ const HeroContainer = styled.div`
 const HeroInner = styled(Inner)`
   padding-top: 10rem;
   padding-bottom: 5.6rem;
-  height: 60rem;
+  height: 54rem;
   margin: 0;
+  transition: 0.2s;
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     padding-top: 8.8rem;
     padding-bottom: 8.8rem;
+    height: 66rem;
+    transition: 0.2s;
   }
 `;
 
@@ -163,7 +166,12 @@ const Hero = ({ heading, text, background, variant, gatsby_image }) => {
       <HeroInner>
         <HeroBackground>
           {background ? (
-            <GatsbyImage image={backgroundImage} alt={background.alt} imgStyle={imgStyle} style={gatsbyImageContainer} />
+            <GatsbyImage
+              image={backgroundImage}
+              alt={background.alt}
+              imgStyle={imgStyle}
+              style={gatsbyImageContainer}
+            />
           ) : (
             <img src={CloudBackground} alt="Cloud background" />
           )}

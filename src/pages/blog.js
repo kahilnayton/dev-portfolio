@@ -26,8 +26,10 @@ const Blog = ({ data }) => {
       <Wrapper>
         <Hero
           heading={blogPage.heading}
-          // text={''}
           background={blogPage.body[0].primary.background_image}
+          gatsby_image={
+            blogPage.body[0].primary.background_imageSharp
+          }
           variant="blogPage"
         />
         <FeaturedBlogs
@@ -58,9 +60,17 @@ export const query = graphql`
                 type
                 label
                 primary {
-                  background_image
                   hero_content
                   hero_title
+                  background_image
+                  background_imageSharp {
+                    childImageSharp {
+                      gatsbyImageData(
+                        placeholder: BLURRED
+                        formats: [AUTO, WEBP, AVIF]
+                      )
+                    }
+                  }
                 }
               }
             }

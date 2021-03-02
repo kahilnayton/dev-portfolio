@@ -18,7 +18,7 @@ const Projects = ({ data }) => {
 
   return (
     <Layout>
-       <SEO
+      <SEO
         title={'Projects'}
         description={'Page of projects by Kahil Nayton'}
         image={null}
@@ -28,6 +28,9 @@ const Projects = ({ data }) => {
           heading={projectPage.heading}
           text={'Thanks for dropping by!'}
           background={projectPage.body[0].primary.background_image}
+          gatsby_image={
+            projectPage.body[0].primary.background_imageSharp
+          }
           variant="projectPage"
         />
         <FeaturedProjects
@@ -55,9 +58,17 @@ export const query = graphql`
                 type
                 label
                 primary {
-                  background_image
                   hero_content
                   hero_title
+                  background_image
+                  background_imageSharp {
+                    childImageSharp {
+                      gatsbyImageData(
+                        placeholder: BLURRED
+                        formats: [AUTO, WEBP, AVIF]
+                      )
+                    }
+                  }
                 }
               }
             }
