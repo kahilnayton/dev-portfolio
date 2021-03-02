@@ -1,5 +1,19 @@
 import { keyframes } from '@emotion/core';
 
+export const slightRock = keyframes`
+0% {
+transform: rotate(0)
+}
+50% {
+transform: rotate(5deg)
+
+}
+100% {
+transform: rotate(0)
+
+}
+`;
+
 export const acrossScreen = keyframes`
 0% {
   transform: translate(220rem, -4rem)
@@ -26,37 +40,73 @@ export const acrossScreen = keyframes`
 
 export const bottomToTop = keyframes`
 0% {
-  transform: translate(0, 500rem)
+  transform: translate(0, 500rem) scale(1.01)
 }
 10% {
-  transform: translate(0, 300rem)
+  transform: translate(2rem, 300rem)
 }
 20% {
   transform: translate(0, 200rem) rotate(10deg)
 }
 30% {
-  transform: translate(0, 100rem)
+  transform: translate(-3rem, 100rem) scale(0.8)
 }
 40% {
   transform: translate(0, 0rem)
 }
 50% {
-  transform: translate(0, -50rem)
+  transform: translate(1rem, -50rem) scale(1)
 }
 60% {
   transform: translate(0, -100rem) rotate(0deg)
 }
 70% {
-  transform: translate(0, -150rem)
+  transform: translate(-4rem, -150rem)
 }
 80% {
-  transform: translate(0, -200rem)
+  transform: translate(0, -200rem) scale(0.4)
 }
 90% {
-  transform: translate(0, -100rem)
+  transform: translate(3rem, -100rem)
 }
 100% {
-  transform: translate(0, -200rem) rotate(-10deg)
+  transform: translate(0, -200rem) rotate(-10deg) scale(1)
+}
+`;
+
+export const bottomToTopSlow = keyframes`
+0% {
+  transform: translate(0, 800rem) scale(1.01)
+}
+10% {
+  transform: translate(2rem, 600rem)
+}
+20% {
+  transform: translate(4rem, 400rem) rotate(10deg)
+}
+30% {
+  transform: translate(6rem, 200rem) scale(0.8)
+}
+40% {
+  transform: translate(4rem, 0rem)
+}
+50% {
+  transform: translate(2rem, -200rem) scale(1)
+}
+60% {
+  transform: translate(0, -400rem) rotate(0deg)
+}
+70% {
+  transform: translate(-2rem, -600rem)
+}
+80% {
+  transform: translate(-4rem, -800rem) scale(0.4)
+}
+90% {
+  transform: translate(-6rem, -1000rem)
+}
+100% {
+  transform: translate(0, -200rem) rotate(-10deg) scale(1)
 }
 `;
 
