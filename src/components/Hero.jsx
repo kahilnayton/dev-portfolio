@@ -1,4 +1,5 @@
 import React from 'react';
+import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image';
 import RichText from '../components/RichText';
 import styled from '@emotion/styled';
 import dimensions from '../styles/dimensions';
@@ -7,7 +8,7 @@ import colors from 'styles/colors';
 import gradients from 'styles/gradients';
 import z from 'styles/base';
 import CloudComponent from './CloudComponent';
-import CloudBackground from '../images/clouds.jpg'
+import CloudBackground from '../images/clouds.jpg';
 // import Img from 'gatsby-image';
 
 const HeroContainer = styled.div`
@@ -74,7 +75,6 @@ const HeroBackground = styled.div`
     object-fit: cover;
   }
 
-
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     /* width: calc(100% - 8rem); */
     /* left: 4rem; */
@@ -112,9 +112,9 @@ const HeroContent = styled.div`
     font-size: 6rem;
     font-weight: 800;
     font-family: 'Zallord';
-    
+
     @media (min-width: ${dimensions.tabletLandscapeUp}px) {
-    font-size: 12rem;
+      font-size: 12rem;
     }
   }
 
@@ -142,17 +142,17 @@ const HeroContent = styled.div`
   }
 `;
 
-const Hero = ({ heading, text, background, variant, background_sharp }) => {
+const Hero = ({ heading, text, background, variant, gatsby_image }) => {
+  const backgroundImage = getImage(gatsby_image);
   return (
     <HeroContainer className={`${variant ? `Hero--${variant}` : ''}`}>
       <HeroInner>
         <HeroBackground>
-        {background ? (
-            <img className="lazyload" src={background.url} alt={background.alt} />
-            ) : (
-            <img src={CloudBackground} alt='Cloud background' />
-
-              )}
+          {background ? (
+            <GatsbyImage image={backgroundImage} alt={background.alt} />
+          ) : (
+            <img src={CloudBackground} alt="Cloud background" />
+          )}
         </HeroBackground>
         <CloudComponent direction="right" distance="2rem" />
         <HeroWrap>

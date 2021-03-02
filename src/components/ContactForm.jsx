@@ -20,11 +20,11 @@ const FormButton = styled(Button)`
 const FormInner = styled(Inner)`
   backdrop-filter: blur(40px);
   border: solid 2px transparent;
-  background: rgba(255, 255,255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
   background-clip: padding-box;
   box-shadow: 1rem 1rem 1rem rgba(46, 54, 68, 0.03);
   h2 {
-    padding-bottom: 3rem;
+    padding: 3rem 0;
     color: ${colors.grey200};
     font-family: 'Zallord';
   }
@@ -36,8 +36,7 @@ const Form = styled.form`
   grid-template-columns: auto;
   grid-gap: 1rem;
   align-items: center;
-  padding: 4rem 2rem 8.2rem 2rem;
-  
+  padding-bottom: 4rem;
 
   height: 40rem;
   flex-direction: column;
@@ -54,7 +53,7 @@ const Form = styled.form`
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     grid-template-columns: repeat(2, 1fr);
-    padding: 6rem 11.2rem 8.2rem 7rem;
+    /* padding: 6rem 11.2rem 8.2rem 7rem; */
     grid-gap: 3rem;
 
     .message {
@@ -79,12 +78,21 @@ const TextArea = styled.textarea`
   height: 10rem;
   width: 100%;
   text-indent: 1rem;
+  font-size: 1.6rem;
+  padding-top: 2rem;
 
   & + * {
     color: ${colors.teal600};
   }
   &::placeholder {
-    padding-top: 2rem;
+  }
+
+  &:focus {
+    border: solid ${colors.red};
+
+    &::placeholder {
+      color: transparent;
+    }
   }
 `;
 
@@ -93,9 +101,18 @@ const Input = styled.input`
   border: 1px solid #eee;
   width: 100%;
   text-indent: 1rem;
+  font-size: 1.6rem;
 
   & + * {
     color: ${colors.teal600};
+  }
+
+  &:focus {
+    border: solid ${colors.red};
+
+    &::placeholder {
+      color: transparent;
+    }
   }
 `;
 

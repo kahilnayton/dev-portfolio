@@ -64,8 +64,8 @@ const IndexPage = ({ data }) => {
           heading={home.heading}
           text={home.body[0].primary.hero_title[0].text}
           background={home.body[0].primary.background_image}
-          background_sharp={
-            home.body[0].primary.background_imageSharp.absolutePath
+          gatsby_image={
+            home.body[0].primary.background_imageSharp
           }
           variant="homepage"
         />
@@ -179,7 +179,12 @@ export const query = graphql`
                   hero_content
                   hero_title
                   background_imageSharp {
-                    absolutePath
+                    childImageSharp {
+                      gatsbyImageData(
+                        placeholder: BLURRED
+                        formats: [AUTO, WEBP, AVIF]
+                      )
+                    }
                   }
                 }
               }

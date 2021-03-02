@@ -22,6 +22,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-image`,
+    `gatsby-plugin-image`,
     `gatsby-prismic-lazy-load`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-sass`,

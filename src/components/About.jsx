@@ -34,7 +34,7 @@ const Li = styled.li`
 `;
 
 const Section = styled.section`
-  margin-bottom: 4rem;
+  margin-bottom: 12rem;
   text-align: center;
   background: black;
   position: relative;
