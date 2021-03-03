@@ -18,7 +18,7 @@ const imgStyle = {
   left: 0,
   width: '100%',
   height: '100%',
-  'object-fit': 'cover',
+  objectFit: 'cover',
 };
 
 const gatsbyImageContainer = {
@@ -160,6 +160,7 @@ const HeroContent = styled.div`
 `;
 
 const Hero = ({ heading, text, background, variant, gatsby_image }) => {
+  console.log(gatsby_image)
   const backgroundImage = getImage(gatsby_image);
   return (
     <HeroContainer className={`${variant ? `Hero--${variant}` : ''}`}>
@@ -168,7 +169,7 @@ const Hero = ({ heading, text, background, variant, gatsby_image }) => {
           {background ? (
             <GatsbyImage
               image={backgroundImage}
-              alt={background.alt}
+              alt={'gatsby background image'}
               imgStyle={imgStyle}
               style={gatsbyImageContainer}
             />
