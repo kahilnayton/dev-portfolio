@@ -1,11 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-// import { Rubric } from "../../styles/typography";
-// import Roll from 'react-reveal/Roll';
 
 import Slide from 'react-reveal/Slide';
 // import Reveal from 'react-reveal/Reveal';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
 import dimensions from '../../styles/dimensions';
@@ -139,23 +137,23 @@ const BlogCard = props => {
     <>
       <Slide left>
         <CardContainer href={`/blog/${uid}`}>
-          {image && (
-            <a href="">
+          <a href="">
+            {image && (
               <CardImage>
                 <img src={image.url} alt={image.alt} />
               </CardImage>
-            </a>
-          )}
-
-          <CardContent>
-            <h4>{title}</h4>
-            {publishDate && (
-              <span>
-                <Moment format="MMMM Do, YYYY" date={publishDate} />
-              </span>
             )}
-            {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
-          </CardContent>
+
+            <CardContent>
+              <h4>{title}</h4>
+              {publishDate && (
+                <span>
+                  <Moment format="MMMM Do, YYYY" date={publishDate} />
+                </span>
+              )}
+              {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
+            </CardContent>
+          </a>
         </CardContainer>
       </Slide>
     </>

@@ -6,7 +6,7 @@ import colors from '../styles/colors';
 import dimensions from '../styles/dimensions';
 import lottie from 'lottie-web'
 import animation from '../animations/helicopter.json'
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 const BioContainer = styled.div`
   background: rgba(255, 255,255, 0.2);

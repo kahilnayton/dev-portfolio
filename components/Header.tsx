@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import Link from 'next/link';
 import { Inner } from '../styles/structure';
 import colors from '../styles/colors';
 import gradients from '../styles/gradients';
 import dimensions from '../styles/dimensions';
-import springLogo from '../images/spring_logo.png';
+import Image from 'next/image'
 import SocialBar from '../components/SocialBar';
 import { document } from 'browser-monads';
 
@@ -295,7 +295,7 @@ export default class Header extends Component {
           <HeaderInner>
             <Link href="/">
               <a href="">
-                <img src={springLogo} alt="Spring Logo" />
+                <Image src="/spring_logo.png" alt="Spring Logo" height={20} width={20} />
                 </a>
             </Link>
 

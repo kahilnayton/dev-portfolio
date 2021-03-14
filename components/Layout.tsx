@@ -1,5 +1,5 @@
 
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { Global } from '@emotion/core';
 import resetStyles from '../styles/reset';
 import globalStyles from '../styles/global';

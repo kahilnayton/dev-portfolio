@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import dimensions from '../styles/dimensions';
 import Image from 'next/image';
 // import colors from 'styles/colors';

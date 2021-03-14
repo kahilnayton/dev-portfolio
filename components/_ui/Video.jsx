@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 
 import React, { Component } from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import dimensions from "styles/dimensions";
 import Fade from "react-reveal/Fade";
 import { document } from 'browser-monads';

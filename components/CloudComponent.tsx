@@ -1,9 +1,7 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
-
-import CloudOne from '../vectors/cloudOne.svg';
-import CloudTwo from '../vectors/cloudTwo.svg';
+import Image from 'next/image'
 import z from '../styles/base';
 
 const CloudContainer = styled.div`
@@ -60,7 +58,7 @@ const CloudComponent = props => {
       {props.direction === 'left' && (
         <LeftCloud className={props.variant ? `Clouds-${props.variant}` : ''}>
           <Fade left distance={props.distance}>
-            <CloudOne />
+            <Image src='/cloudOne.svg' alt="cloud" width={20} height={20} />
           </Fade>
         </LeftCloud>
       )}
@@ -69,11 +67,11 @@ const CloudComponent = props => {
           className={props.variant ? `Clouds-${props.variant}--right` : ''}
         >
           <Fade right distance={props.distance}>
-            <CloudTwo />
+            <Image src="/cloudTwo.svg" alt="cloud two" width={20} height={20} />
           </Fade>
         </RightCloud>
       )}
-      {!props.direction && <CloudTwo />}
+      {!props.direction && <Image src="/cloudTwo.svg" alt="cloud two" width={20} height={20} />}
     </CloudContainer>
   );
 };

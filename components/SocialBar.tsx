@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import colors from '../styles/colors';
 import dimensions from '../styles/dimensions';
 // import gradients from 'styles/gradients';

@@ -3,7 +3,7 @@ import Head from 'next/head';
 import ErrorPage from 'next/error';
 import { RichText } from 'prismic-reactjs';
 
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import dimensions from '../styles/dimensions';
 import colors from '../../styles/colors';
 

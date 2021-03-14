@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import ErrorPage from 'next/error';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { RichText } from 'prismic-reactjs';
 
 import colors from '../../styles/colors';

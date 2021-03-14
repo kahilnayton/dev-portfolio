@@ -16,3 +16,9 @@ module.exports = withImages({
     return config;
   },
 });
+
+module.exports = {
+  images: {
+    domains: ['images.prismic.io'],
+  },
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import Slide from 'react-reveal/Slide';
 // import Reveal from 'react-reveal/Reveal';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
 import dimensions from '../../styles/dimensions';

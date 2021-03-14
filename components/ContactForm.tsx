@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import colors from '../styles/colors';
 import Button from './_ui/Button';
 import dimensions from '../styles/dimensions';

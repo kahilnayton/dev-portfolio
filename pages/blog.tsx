@@ -1,5 +1,5 @@
 
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 import Layout from '../components/Layout';
 import colors from '../styles/colors';

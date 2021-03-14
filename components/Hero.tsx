@@ -2,7 +2,7 @@
 
 import { RichText } from 'prismic-reactjs';
 
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import dimensions from '../styles/dimensions';
 import { Inner, Wrap } from '../styles/structure';
 import colors from '../styles/colors';
@@ -162,6 +162,7 @@ const HeroContent = styled.div`
 `;
 
 const Hero = ({ heading, text, background, variant }) => {
+  console.log(background)
 
   return (
     <HeroContainer className={`${variant ? `Hero--${variant}` : ''}`}>
@@ -169,13 +170,13 @@ const Hero = ({ heading, text, background, variant }) => {
         <HeroBackground>
           {background ? (
             <Image
-              src={background}
+              src={background.url}
               alt='Hero background image'
               width={500}
               height={500}
             />
           ) : (
-            <img src={CloudBackground} alt="Cloud background" />
+            <Image src='/clouds.jpg' alt="Cloud background" height={20} width={20} />
           )}
         </HeroBackground>
         <CloudComponent direction="right" distance="2rem" />

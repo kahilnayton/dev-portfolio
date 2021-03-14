@@ -1,5 +1,5 @@
 
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import { Parallax } from 'react-scroll-parallax';
 
 import z from '../styles/base';

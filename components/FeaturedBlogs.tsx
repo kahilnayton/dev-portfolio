@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 import { Inner } from '../styles/structure';
 import colors from '../styles/colors';
@@ -101,10 +101,6 @@ const FeaturedBlogs = props => {
               {blogsHeading}
               {content && <Content content={content} />}
             </div>
-
-            {buttonText && destination && (
-              <GrFormNextLink destination={destination} text={buttonText} />
-            )}
           </header>
         )}
 
@@ -128,11 +124,11 @@ const FeaturedBlogs = props => {
         )}
         {props.variant === 'blogPage' ? (
           <ButtonContainer>
-            <ButtonLink href="/"><a href="">Home</a></ButtonLink>
+            <ButtonLink href="/"><a>Home</a></ButtonLink>
           </ButtonContainer>
         ) : (
           <ButtonContainer>
-            <ButtonLink href="/blog"><a href="">More Blogs</a></ButtonLink>
+            <ButtonLink href="/blog"><a>More Blogs</a></ButtonLink>
           </ButtonContainer>
         )}
       </Inner>

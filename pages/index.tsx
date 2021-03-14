@@ -1,5 +1,5 @@
 
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 import Layout from '../components/Layout';
 import colors from '../styles/colors';
@@ -16,6 +16,8 @@ import planeRight from '../images/planeRight.png';
 import cloud from '../images/cloudOne.png';
 import Boeing from '../images/boeing.png';
 import BalloonImage from '../images/balloon.png';
+
+import Image from 'next/image'
 
 import { getAllHomepage } from '../lib/api';
 // import Slide from 'react-reveal/Slide';
@@ -36,7 +38,7 @@ const PlaneWrapper = styled.div`
   margin-bottom: -100rem;
 `;
 
-const Plane = styled.img`
+const Plane = styled(Image)`
   position: absolute;
   animation-name: ${acrossScreen};
   animation-duration: 15s;
@@ -44,7 +46,7 @@ const Plane = styled.img`
   animation-iteration-count: infinite;
 `;
 
-const Balloon = styled.img`
+const Balloon = styled(Image)`
   height: 18rem;
   left: 40%;
   position: absolute;
@@ -61,34 +63,31 @@ const Balloon = styled.img`
   }
 `;
 
-const IndexPage = ({ data }) => {
-  const home = data.allHomes.edges[0].node;
+const IndexPage = (props) => {
+  const home = props.allHomepage.allHomes.edges[0].node;
 
   return (
     <Layout>
-      <SEO
+      {/* <SEO
         title={home.social_title || 'Home'}
         description={home.social_description ? home.social_description : null}
         image={home.social_image ? home.social_image.url : null}
-      />
+      /> */}
       <Wrapper>
         <Hero
           heading={home.heading}
           text={home.body[0].primary.hero_title[0].text}
           background={home.body[0].primary.background_image}
-          gatsby_image={
-            home.body[0].primary.background_imageSharp
-          }
           variant="homepage"
         />
 
         <PlaneWrapper>
-          <Plane src={Boeing} alt="Boeing plane" />
+          <Plane src="/boeing.png" alt="Boeing plane" width={500} height={500} />
         </PlaneWrapper>
 
-        <Balloon src={BalloonImage} alt="Balloon" />
+        <Balloon src="/balloon.png" alt="Balloon" width={100} height={100} />
 
-        <Balloon className="small" src={BalloonImage} alt="Balloon" />
+        <Balloon className="small" src="/balloon.png" alt="Balloon" width={50} height={50} />
 
         <Bio
           heading={home.bio.heading}
@@ -102,7 +101,7 @@ const IndexPage = ({ data }) => {
           blog_heading={home.blog_heading}
         />
 
-        <ParallaxComponent direction="right" variant="plane" plane={plane} />
+        {/* <ParallaxComponent direction="right" variant="plane" plane={plane} /> */}
 
         <FeaturedProjects
           projects={home.project_list}
@@ -110,13 +109,13 @@ const IndexPage = ({ data }) => {
           project_heading={'Projects'}
         />
 
-        <ParallaxComponent
+        {/* <ParallaxComponent
           direction="left"
           variant="plane"
           planeRight={planeRight}
-        />
+        /> */}
 
-        <ParallaxComponent variant="cloud" cloud={cloud} />
+        {/* <ParallaxComponent variant="cloud" cloud={cloud} /> */}
 
         <About />
 

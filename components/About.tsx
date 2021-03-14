@@ -22,7 +22,7 @@ import {
 import { GrGatsbyjs, GrGraphQl } from 'react-icons/gr';
 import gradients from '../styles/gradients';
 import colors from '../styles/colors';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import CloudComponent from './CloudComponent';
 import Reveal from 'react-reveal/Reveal';
 import Roll from 'react-reveal/Roll';

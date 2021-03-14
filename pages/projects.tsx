@@ -1,6 +1,6 @@
 
 import Layout from '../components/Layout';
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 import colors from '../styles/colors';
 import Hero from '../components/Hero';
 import SEO from '../components/SEO';

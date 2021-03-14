@@ -10,7 +10,7 @@ export default {
   social: {
     twitter: `@kbird`,
   },
-  image: `src/images/spring_logo.png`,
+  image: `/spring_logo.png`,
   siteUrl: `http://www.kahildev.com/`,
   siteLanguage: `en-US`,
   siteLocale: `en_us`,
