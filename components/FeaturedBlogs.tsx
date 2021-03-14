@@ -9,7 +9,6 @@ import {ButtonContainer} from '../styles/components'
 import Content from './_ui/Content';
 import BlogsGrid from './_grid/BlogsGrid';
 import BlogCard from './_card/BlogCard';
-import { GrFormNextLink } from 'react-icons/gr';
 import CloudComponent from './CloudComponent'
 
 const BlogsContainer = styled.div`

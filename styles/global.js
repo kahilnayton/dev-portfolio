@@ -1,8 +1,8 @@
-import css from '@emotion/css';
+import { createGlobalStyle } from 'styled-components';
 import colors from './colors';
 import dimensions from './dimensions';
 
-const globalStyles = css`
+const globalStyles = createGlobalStyle`
   html {
     font-size: 62.5%;
     -webkit-font-smoothing: antialiased;
@@ -46,16 +46,6 @@ const globalStyles = css`
     }
   }
 
-  /*
-  A workaround for forcing accessibility wrappers
-  to have a 100% height.
-  Reach Router issue here: https: //github.com/reach/router/issues/63
-  */
-  #___gatsby,
-  div[role="group"][tabindex] {
-      height: 100%;
-      min-height: 100% !important;
-  }
   
   @media(min-width: ${dimensions.tabletLandscapeUp}px) {
     body.is-locked {

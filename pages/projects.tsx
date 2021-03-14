@@ -3,7 +3,6 @@ import Layout from '../components/Layout';
 import styled from 'styled-components';
 import colors from '../styles/colors';
 import Hero from '../components/Hero';
-import SEO from '../components/SEO';
 import ContactForm from '../components/ContactForm';
 import FeaturedProjects from '../components/FeaturedProjects';
 
@@ -14,24 +13,17 @@ const Wrapper = styled.div`
   padding-bottom: 13rem;
 `;
 
-const Projects = ( props ) => {
-  const projectPage = props.allProject_pages.edges[0].node;
+const Projects = (props) => {
+  console.log(props, 'project page')
+  const projectPage = props.allProjects.allProject_pages.edges[0].node;
 
   return (
     <Layout>
-      <SEO
-        title={'Projects'}
-        description={'Page of projects by Kahil Nayton'}
-        image={null}
-      />
       <Wrapper>
         <Hero
           heading={projectPage.heading}
           text={'Thanks for dropping by!'}
           background={projectPage.body[0].primary.background_image}
-          gatsby_image={
-            projectPage.body[0].primary.background_imageSharp
-          }
           variant="projectPage"
         />
         <FeaturedProjects

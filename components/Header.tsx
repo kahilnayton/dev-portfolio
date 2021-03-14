@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { Inner } from '../styles/structure';
 import colors from '../styles/colors';
 import gradients from '../styles/gradients';
 import dimensions from '../styles/dimensions';
-import Image from 'next/image'
+import Image from 'next/image';
 import SocialBar from '../components/SocialBar';
 import { document } from 'browser-monads';
 
@@ -248,119 +248,70 @@ const MobileContent = styled(Inner)`
   }
 `;
 
-export default class Header extends Component {
-  constructor(props) {
-    super(props);
+export default function Header() {
 
-    this.state = {
-      isSticky: false,
-      isOpen: false,
-    };
-  }
+  const [isSticky, setIsSticky] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  // detects clicks outside header content
-  handleClick = e => {
-    if (this.node && this.node.contains(e.target)) {
-      return;
-    }
-
-    this.setState({
-      isOpen: false,
-    });
-  };
-
-  toggleMobile = () => {
+  const toggleMobile = () => {
     const bodyClasses = document.getElementsByTagName('body')[0].classList;
-
     bodyClasses.toggle('is-locked');
-
-    this.setState(prevState => ({
-      isOpen: !prevState.isOpen,
-    }));
+    setIsOpen(!isOpen);
   };
 
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleClick, false);
-  }
-
-  render() {
-    return (
-      <HeaderContainer
-        className={`${this.state.isOpen ? 'is-open' : ''} ${
-          this.state.isSticky ? 'is-sticky' : ''
-        }`}
-        ref={node => (this.node = node)}
-      >
-        <HeaderBar>
-          <HeaderInner>
-            <Link href="/">
-              <a href="">
-                <Image src="/spring_logo.png" alt="Spring Logo" height={20} width={20} />
-                </a>
-            </Link>
-
-            <HeaderLinks>
-              <SocialBar />
-            </HeaderLinks>
-
-            <HeaderHamburger
-              as="button"
-              type="button"
-              aria-label="burger"
-              onClick={() => {
-                this.toggleMobile();
-              }}
-            >
-              <span></span>
-            </HeaderHamburger>
-          </HeaderInner>
-        </HeaderBar>
-
-        <HeaderMobile>
-          <MobileLinks>
-            <MobileToggle>
-              <MobileContent>
-                <Link
-                  onClick={() => {
-                    this.toggleMobile();
-                  }}
-                  href="/"
-                >
-                  <a>Home</a>
-                </Link>
-                <Link
-                  onClick={() => {
-                    this.toggleMobile();
-                  }}
-                  href="/contact"
-                >
-                  <a>Contact</a>
-                </Link>
-                <Link
-                  onClick={() => {
-                    this.toggleMobile();
-                  }}
-                  href="/projects"
-                >
-                  <a>Projects</a>
-                </Link>
-                <Link
-                  onClick={() => {
-                    this.toggleMobile();
-                  }}
-                  href="/blog"
-                >
-                  <a>Blog</a>
-                </Link>
-              </MobileContent>
-              <SocialBar
-                variant="burger"
-                toggleMobile={() => this.toggleMobile()}
+  return (
+    <HeaderContainer
+      className={`${isOpen ? 'is-open' : ''} ${isSticky ? 'is-sticky' : ''}`}
+    >
+      <HeaderBar>
+        <HeaderInner>
+          <Link href="/">
+            <a>
+              <Image
+                src="/spring_logo.png"
+                alt="Spring Logo"
+                height={20}
+                width={20}
               />
-            </MobileToggle>
-          </MobileLinks>
-        </HeaderMobile>
-      </HeaderContainer>
-    );
-  }
+            </a>
+          </Link>
+
+          <HeaderLinks>
+            <SocialBar />
+          </HeaderLinks>
+
+          <HeaderHamburger
+            as="button"
+            type="button"
+            aria-label="burger"
+            onClick={toggleMobile}
+          >
+            <span></span>
+          </HeaderHamburger>
+        </HeaderInner>
+      </HeaderBar>
+
+      <HeaderMobile>
+        <MobileLinks>
+          <MobileToggle>
+            <MobileContent>
+              <Link href="/">
+                <a onClick={toggleMobile}>Home</a>
+              </Link>
+              <Link href="/contact">
+                <a onClick={toggleMobile}>Contact</a>
+              </Link>
+              <Link href="/projects">
+                <a onClick={toggleMobile}>Projects</a>
+              </Link>
+              <Link href="/blog">
+                <a onClick={toggleMobile}>Blog</a>
+              </Link>
+            </MobileContent>
+            <SocialBar variant="burger" toggleMobile={toggleMobile} />
+          </MobileToggle>
+        </MobileLinks>
+      </HeaderMobile>
+    </HeaderContainer>
+  );
 }

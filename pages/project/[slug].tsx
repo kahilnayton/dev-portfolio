@@ -80,15 +80,16 @@ const ProjectDescription = styled.div`
   }
 `;
 
-const Project = ({ data }) => {
-  const project = data.prismic.projectsByUID;
+const Project = (props) => {
+  console.log(props)
+  const project = props.project;
 
   if (!project) {
     return null;
   }
 
   const router = useRouter();
-  if (!router.isFallback && !caseStudy?._meta?.uid) {
+  if (!router.isFallback && !project?._meta?.uid) {
     return <ErrorPage statusCode={404} />;
   }
 
@@ -98,8 +99,9 @@ const Project = ({ data }) => {
         <title>Project</title>
       </Head>
       <Hero
+        text="project"
         heading={project.edges[0].node.title}
-        // background={project.edges[0].node.project_image}
+        background={project.edges[0].node.project_image}
         variant="project"
       />
       <ProjectWrapper>

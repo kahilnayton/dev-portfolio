@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import colors from '../styles/colors';
 import Button from './_ui/Button';
@@ -120,17 +120,13 @@ const StatusMessage = styled.div`
   font-size: 1.6rem;
 `;
 
-export default class ContactForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      email: '',
-      message: '',
-    };
-  }
+export default function ContactForm() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [statusMessage, setStatusMessage] = useState('');
 
-  handleSubmit = async e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const form = e.target;
     fetch('/', {
@@ -138,94 +134,75 @@ export default class ContactForm extends Component {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
-        ...this.state,
+        name,
+        email,
+        message,
       }),
     })
-      .then(() =>
-        this.setState({
-          statusMessage: 'Thanks for getting in touch!',
-        })
-      )
+      .then(() => setStatusMessage('Thanks for getting in touch!'))
       .catch(() =>
-        this.setState({
-          statusMessage: 'Something went wrong, please try again later',
-        })
+        setStatusMessage('Something went wrong, please try again later')
       )
       .catch(error =>
         console.error('There was a problem with the form response', error)
       )
-      .then(() =>
-        console.log('%c Netlify Forms and Mailchimp data sent', 'color: green')
-      )
-      .finally(() =>
-        this.setState({
-          name: [],
-          email: [],
-          message: [],
-        })
-      );
+      .finally(() => {
+        setName(''), setEmail(''), setMessage('');
+      });
   };
 
-  handleChange = e => this.setState({ [e.target.name]: e.target.value });
+  return (
+    <FormInner>
+      <h2>Get in touch</h2>
+      <Form
+        name="contact-kahil-dev"
+        method="post"
+        action="/thanks/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+      >
+        <input type="hidden" name="form-name" value="contact-kahil-dev" />
 
-  render() {
-    const { name, email, message, statusMessage } = this.state;
+        <div className="name">
+          <Input
+            name="name"
+            id="name"
+            placeholder="NAME"
+            aria-label="fname"
+            value={name}
+            required={true}
+            onChange={e => setName(e.target.value)}
+          />
+          {/* <label htmlFor="name"></label> */}
+        </div>
+        <div className="email">
+          <Input
+            name="email"
+            id="email"
+            aria-label="lname"
+            placeholder="EMAIL"
+            required={true}
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="message">
+          <TextArea
+            name="message"
+            id="message"
+            placeholder="MESSAGE"
+            aria-label="message"
+            required={true}
+            value={message}
+            onChange={e => setMessage(e.target.value)}
+          />
+        </div>
 
-    return (
-      <FormInner>
-        <h2>Get in touch</h2>
-        <Form
-          name="contact-kahil-dev"
-          method="post"
-          action="/thanks/"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          onSubmit={this.handleSubmit}
-        >
-          <input type="hidden" name="form-name" value="contact-kahil-dev" />
+        <StatusMessage>{statusMessage}</StatusMessage>
 
-          <div className="name">
-            <Input
-              name="name"
-              id="name"
-              placeholder="NAME"
-              aria-label="fname"
-              value={name}
-              required={true}
-              onChange={this.handleChange}
-            />
-            {/* <label htmlFor="name"></label> */}
-          </div>
-          <div className="email">
-            <Input
-              name="email"
-              id="email"
-              aria-label="lname"
-              placeholder="EMAIL"
-              required={true}
-              value={email}
-              onChange={this.handleChange}
-            />
-            {/* <label htmlFor="email"></label> */}
-          </div>
-          <div className="message">
-            <TextArea
-              name="message"
-              id="message"
-              placeholder="MESSAGE"
-              aria-label="message"
-              required={true}
-              value={message}
-              onChange={this.handleChange}
-            />
-            {/* <label htmlFor="message"></label> */}
-          </div>
-
-          <StatusMessage>{statusMessage}</StatusMessage>
-
-          <FormButton type="submit">Submit</FormButton>
-        </Form>
-      </FormInner>
-    );
-  }
+        <FormButton type="submit">Submit</FormButton>
+      </Form>
+    </FormInner>
+  );
 }

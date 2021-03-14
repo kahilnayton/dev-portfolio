@@ -4,14 +4,14 @@ import ErrorPage from 'next/error';
 import { RichText } from 'prismic-reactjs';
 
 import styled from 'styled-components';
-import dimensions from '../styles/dimensions';
+import dimensions from '../../styles/dimensions';
 import colors from '../../styles/colors';
 
 import Layout from '../../components/Layout';
 import TechStack from '../../components/TechStack';
 import Hero from '../../components/Hero';
 
-import { getAllPostsWithSlug, getPost } from '../../lib/api';
+import { getAllBlogsWithSlug, getBlog } from '../../lib/api';
 
 const BlogWrapper = styled.div`
   background: #fff;
@@ -82,15 +82,15 @@ const BlogDescription = styled.div`
   }
 `;
 
-const Blog = ({ data }) => {
-  const blog = data.prismic.blogsByUID;
+const Blog = (props) => {
+  const blog = props.blogs;
 
   if (!blog) {
     return null;
   }
 
   const router = useRouter();
-  if (!router.isFallback && !caseStudy?._meta?.uid) {
+  if (!router.isFallback && !blog?._meta?.uid) {
     return <ErrorPage statusCode={404} />;
   }
 
@@ -100,8 +100,9 @@ const Blog = ({ data }) => {
         <title>Blog</title>
       </Head>
       <Hero
+        text="blog"
         heading={blog.edges[0].node.title}
-        // background={blog.edges[0].node.blog_image}
+        background={blog.edges[0].node.blog_image}
         variant="blog"
       />
       <BlogWrapper>
@@ -121,20 +122,20 @@ const Blog = ({ data }) => {
 export default Blog;
 
 export async function getStaticProps({ params, preview = false, previewData }) {
-  const data = await getPost(params.slug, previewData);
+  const data = await getBlog(params.slug, previewData);
 
   return {
     props: {
       preview,
-      post: data?.post ?? null,
+      blog: data?.blog ?? null,
     },
   };
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug();
+  const allBlogs = await getAllBlogsWithSlug();
   return {
-    paths: allPosts?.map(({ node }) => `/blog/${node._meta.uid}`) || [],
+    paths: allBlogs?.map(({ node }) => `/blog/${node._meta.uid}`) || [],
     fallback: false,
   };
 }

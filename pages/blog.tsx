@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Layout from '../components/Layout';
 import colors from '../styles/colors';
 import Hero from '../components/Hero';
-import SEO from '../components/SEO';
 import ContactForm from '../components/ContactForm';
 import FeaturedBlogs from '../components/FeaturedBlogs';
 
@@ -15,23 +14,16 @@ const Wrapper = styled.div`
   padding-bottom: 13rem;
 `;
 
-const Blog = ({ data }) => {
-  const blogPage = data.prismic.allBlog_pages.edges[0].node;
+const Blog = (props) => {
+  const blogPage = props.allPosts.allBlog_pages.edges[0].node;
 
   return (
     <Layout>
-      <SEO
-        title={'Blogs'}
-        description={'Page of blogs by Kahil Nayton'}
-        image={null}
-      />
       <Wrapper>
         <Hero
           heading={blogPage.heading}
+          text={'bog'}
           background={blogPage.body[0].primary.background_image}
-          gatsby_image={
-            blogPage.body[0].primary.background_imageSharp
-          }
           variant="blogPage"
         />
         <FeaturedBlogs

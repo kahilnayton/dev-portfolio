@@ -2,7 +2,6 @@
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
 import colors from '../styles/colors';
 import CloudComponent from '../components/CloudComponent'
 import ButtonLink from '../components/_ui/ButtonLink';
@@ -20,7 +19,6 @@ const Wrapper = styled.div`
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="404: Not found" />
     <Wrapper>
     <CloudComponent variant='notFound' direction='left' distance='10rem'/>
       <h1>NOT FOUND</h1>

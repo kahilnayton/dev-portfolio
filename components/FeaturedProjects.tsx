@@ -8,9 +8,8 @@ import ButtonLink from './_ui/ButtonLink';
 import Content from './_ui/Content';
 import ProjectsGrid from './_grid/ProjectsGrid';
 import ProjectCard from './_card/ProjectCard';
-import { GrFormNextLink } from 'react-icons/gr';
 import CloudComponent from './CloudComponent';
-import {ButtonContainer} from '../styles/components'
+import { ButtonContainer } from '../styles/components';
 
 const ProjectsContainer = styled.div`
   position: relative;
@@ -105,10 +104,6 @@ const FeaturedProjects = props => {
               {projectsHeading}
               {content && <Content content={content} />}
             </div>
-
-            {buttonText && destination && (
-              <GrFormNextLink destination={destination} text={buttonText} />
-            )}
           </header>
         )}
         {projects && projects.length > 0 && (
@@ -133,11 +128,15 @@ const FeaturedProjects = props => {
         )}
         {props.variant === 'projectPage' ? (
           <ButtonContainer>
-            <ButtonLink href="/"><a href="">Home</a></ButtonLink>
+            <ButtonLink href="/">
+              <a href="">Home</a>
+            </ButtonLink>
           </ButtonContainer>
         ) : (
           <ButtonContainer>
-            <ButtonLink href="/projects"><a href="">More Projects</a></ButtonLink>
+            <ButtonLink href="/projects">
+              <a href="">More Projects</a>
+            </ButtonLink>
           </ButtonContainer>
         )}
       </ProjectInner>

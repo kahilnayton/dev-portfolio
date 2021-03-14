@@ -1,6 +1,6 @@
-import css from "@emotion/css";
+import { createGlobalStyle } from 'styled-components'
 
-const resetStyles = css`
+const resetStyles = createGlobalStyle`
   /** * Eric Meyer"s Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */
   html,
   body,

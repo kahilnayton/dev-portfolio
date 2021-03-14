@@ -1,9 +1,9 @@
-import css from '@emotion/css';
+import { createGlobalStyle } from 'styled-components'
 import styled from 'styled-components';
 import dimensions from './dimensions';
 import colors from './colors';
 
-const typeStyles = css`
+const typeStyles = createGlobalStyle`
   h1,
   h2,
   h3,
