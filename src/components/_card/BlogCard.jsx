@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 // import Roll from 'react-reveal/Roll';
 
 import Slide from 'react-reveal/Slide';
-// import Reveal from 'react-reveal/Reveal';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
@@ -49,7 +49,7 @@ const CardContainer = styled(Link)`
 const CardImage = styled.div`
   position: relative;
   width: 100%;
-  padding-bottom: 66.6667%;
+  /* padding-bottom: 66.6667%; */
   overflow: hidden;
 
   img {
@@ -124,13 +124,17 @@ const CardContent = styled.div`
 `;
 
 const BlogCard = props => {
+  const { uid, title, image, gatsbyImage, textSnippet, publishDate } = props;
 
-  const { uid, title, image, textSnippet, publishDate } = props;
+  const cardImage = getImage(gatsbyImage);
 
   let trimmed_preview_text;
 
   if (textSnippet) {
-    trimmed_preview_text = textSnippet.length > 200 ? `${textSnippet.substr(0,200)} …` : textSnippet;
+    trimmed_preview_text =
+      textSnippet.length > 200
+        ? `${textSnippet.substr(0, 200)} …`
+        : textSnippet;
   }
 
   return (
@@ -139,7 +143,12 @@ const BlogCard = props => {
         <CardContainer to={`/blog/${uid}`}>
           {image && (
             <CardImage>
-              <img src={image.url} alt={image.alt} />
+              <GatsbyImage
+                image={cardImage}
+                alt={'gatsby background image'}
+                // imgStyle={imgStyle}
+                style={{ height: '100%', width: '100%' }}
+              />
             </CardImage>
           )}
 
@@ -151,7 +160,6 @@ const BlogCard = props => {
               </span>
             )}
             {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
-
           </CardContent>
         </CardContainer>
       </Slide>

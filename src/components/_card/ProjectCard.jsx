@@ -5,7 +5,7 @@ import React from 'react';
 
 // import Roll from 'react-reveal/Roll';
 import Slide from 'react-reveal/Slide';
-// import Reveal from 'react-reveal/Reveal';
+import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from '@emotion/styled';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
@@ -150,6 +150,8 @@ const LinkToProject = styled.a`
 
 const ProjectCard = props => {
   const { uid, title, image, textSnippet, publishDate } = props;
+
+  // const backgroundImage = getImage(gatsby_image);
 
   let trimmed_preview_text;
 

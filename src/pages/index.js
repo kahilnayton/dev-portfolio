@@ -172,7 +172,12 @@ export const query = graphql`
                   }
                   project_image
                   project_imageSharp {
-                    absolutePath
+                    childImageSharp {
+                      gatsbyImageData(
+                        placeholder: BLURRED
+                        formats: [AUTO, WEBP, AVIF]
+                      )
+                    }
                   }
                   project_link {
                     ... on PRISMIC__ExternalLink {
@@ -230,6 +235,14 @@ export const query = graphql`
                     uid
                   }
                   blog_image
+                  blog_imageSharp {
+                    childImageSharp {
+                      gatsbyImageData(
+                        placeholder: BLURRED
+                        formats: [AUTO, WEBP, AVIF]
+                      )
+                    }
+                  }
                   tech_stack {
                     tech
                   }

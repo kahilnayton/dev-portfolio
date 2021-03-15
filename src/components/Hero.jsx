@@ -8,7 +8,7 @@ import colors from 'styles/colors';
 import gradients from 'styles/gradients';
 import z from 'styles/base';
 import CloudComponent from './CloudComponent';
-import CloudBackground from '../images/clouds.jpg';
+// import CloudBackground from '../images/clouds.jpg';
 // import Img from 'gatsby-image';
 
 const imgStyle = {

@@ -115,6 +115,7 @@ const FeaturedBlogs = props => {
                   <BlogCard
                     uid={feature.blog._meta.uid}
                     image={feature.blog.blog_image}
+                    gatsbyImage={feature.blog.blog_imageSharp}
                     title={feature.blog.title[0].text}
                     textSnippet={feature.blog.preview_text}
                     publishDate={feature.blog.release_date}
