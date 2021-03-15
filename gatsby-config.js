@@ -20,6 +20,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-preload-fonts`,
     `gatsby-transformer-sharp`,
+    `gatsby-transformer-ffmpeg`,
     `gatsby-plugin-sharp`,
     `gatsby-image`,
     `gatsby-plugin-image`,

@@ -98,6 +98,16 @@ const HeroBackground = styled.div`
   }
 `;
 
+const StaticHeroImage = {
+  position: 'absolute',
+  filter: 'grayscale(1)',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+}
+
 const HeroWrap = styled(Wrap)`
   display: flex;
   align-items: flex-end;
@@ -174,7 +184,7 @@ const Hero = ({ heading, text, background, variant, gatsby_image }) => {
               style={gatsbyImageContainer}
             />
           ) : (
-            <img src={CloudBackground} alt="Cloud background" />
+            <StaticImage style={gatsbyImageContainer} imgStyle={StaticHeroImage} src="../images/clouds.jpg" alt="Cloud background" />
           )}
         </HeroBackground>
         <CloudComponent direction="right" distance="2rem" />

@@ -4,6 +4,7 @@ import Layout from '../components/Layout';
 import styled from '@emotion/styled';
 import colors from 'styles/colors';
 import { acrossScreen, bottomToTop, bottomToTopSlow } from 'styles/animations';
+import { StaticImage } from 'gatsby-plugin-image';
 import About from '../components/About';
 import Hero from '../components/Hero';
 import SEO from 'components/SEO';
@@ -32,15 +33,18 @@ const PlaneWrapper = styled.div`
   width: 100%;
   overflow: hidden;
   margin-bottom: -100rem;
+
+  img {
+    animation-name: ${acrossScreen};
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
 `;
 
-const Plane = styled.img`
-  position: absolute;
-  animation-name: ${acrossScreen};
-  animation-duration: 15s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-`;
+// const Plane = styled.img`
+//   position: absolute;
+// `;
 
 const Balloon = styled.img`
   height: 18rem;
@@ -74,14 +78,17 @@ const IndexPage = ({ data }) => {
           heading={home.heading}
           text={home.body[0].primary.hero_title[0].text}
           background={home.body[0].primary.background_image}
-          gatsby_image={
-            home.body[0].primary.background_imageSharp
-          }
+          gatsby_image={home.body[0].primary.background_imageSharp}
           variant="homepage"
         />
 
         <PlaneWrapper>
-          <Plane src={Boeing} alt="Boeing plane" />
+          <StaticImage
+            src="../images/boeing.png"
+            alt="Boeing plane"
+            imgStyle={{ position: 'absolute' }}
+            style={{ height: '112rem' }}
+          />
         </PlaneWrapper>
 
         <Balloon src={BalloonImage} alt="Balloon" />
@@ -92,6 +99,7 @@ const IndexPage = ({ data }) => {
           heading={home.bio.heading}
           content={home.bio.content}
           profilePic={home.bio.profile_pic}
+          video={home.bio.video}
         />
 
         <FeaturedBlogs
@@ -139,6 +147,14 @@ export const query = graphql`
                   uid
                 }
                 profile_pic
+                video {
+                  ... on PRISMIC__FileLink {
+                    _linkType
+                    name
+                    size
+                    url
+                  }
+                }
               }
             }
             content
