@@ -182,7 +182,7 @@ const Hero = ({ heading, text, background, variant, gatsby_image }) => {
               alt={'gatsby background image'}
               imgStyle={imgStyle}
               style={gatsbyImageContainer}
-            />
+              />
           ) : (
             <StaticImage style={gatsbyImageContainer} imgStyle={StaticHeroImage} src="../images/clouds.jpg" alt="Cloud background" />
           )}

@@ -1,13 +1,13 @@
-import React, { createRef, useEffect } from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 import { Inner } from '../styles/structure';
 import RichText from '../components/RichText';
 import colors from 'styles/colors';
 import dimensions from '../styles/dimensions';
 import lottie from 'lottie-web';
 import animation from '../animations/helicopter.json';
-import Video from '../components/Video'
+import { StaticImage } from 'gatsby-plugin-image';
+import Video from '../components/Video';
 import styled from '@emotion/styled';
-
 
 const BioContainer = styled.div`
   background: rgba(255, 255, 255, 0.2);
@@ -19,18 +19,17 @@ const BioContainer = styled.div`
   background-clip: padding-box;
   box-shadow: 1rem 1rem 1rem rgba(46, 54, 68, 0.03);
 
-  @media (min-width: ${dimensions.tabletLandscapeUp}px) {
-    margin-bottom: 8rem;
+  img {
+    transition: 0.2s;
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.04);
+      transition: 0.2s;
+    }
   }
 
-  img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 12rem;
-    height: auto;
-    transform: translate(10px, -60px);
-    overflow: hidden;
+  @media (min-width: ${dimensions.tabletLandscapeUp}px) {
+    margin-bottom: 8rem;
   }
 
   p {
@@ -49,6 +48,22 @@ const BioContainer = styled.div`
   }
 `;
 
+const ProfileContainer = {
+  position: 'absolute',
+  width: '12rem',
+  bottom: '-10rem',
+  right: '2rem',
+  height: 'auto',
+  transform: 'translate(10px, -60px)',
+  overflow: 'hidden',
+};
+
+const ProfileImage = {
+  height: '100%',
+  width: '100%',
+  objectFit: 'contain',
+};
+
 const HeadAnimation = styled.div`
   height: 20rem;
   width: 20rem;
@@ -56,6 +71,7 @@ const HeadAnimation = styled.div`
 
 const Bio = props => {
   let animationContainer = createRef();
+  const [showVideo, setShowVideo] = useState(false);
   // console.log(animationContainer)
 
   useEffect(() => {
@@ -74,7 +90,16 @@ const Bio = props => {
     <Inner>
       <BioContainer>
         <h1>{props.heading[0].text}</h1>
-        <Video source={props.video}/>
+        {showVideo && <Video source={props.video} />}
+        {!showVideo && (
+          <StaticImage
+            onClick={() => setShowVideo(!showVideo)}
+            imgStyle={ProfileImage}
+            style={ProfileContainer}
+            src="../images/kahil_profile.jpg"
+            alt="Profile"
+          />
+        )}
 
         <RichText render={props.content} />
         <HeadAnimation ref={animationContainer} />
