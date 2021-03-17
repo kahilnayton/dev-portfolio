@@ -52,6 +52,7 @@ const globalStyles = createGlobalStyle`
       overflow: initial;
     }
   }
+
 `;
 
 export default globalStyles;
