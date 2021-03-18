@@ -88,6 +88,7 @@ const IndexPage = (props) => {
           content={home.bio.content}
           profilePic={home.bio.profile_pic}
         />
+        
 
         <FeaturedBlogs
           blogs={home.blog_list}
