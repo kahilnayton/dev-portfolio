@@ -162,18 +162,16 @@ const HeroContent = styled.div`
 `;
 
 const Hero = ({ heading, text, background, variant }) => {
-  console.log(background)
+// TODO: OPTIMIZE THIS IMAGE WITH NEXT
 
   return (
     <HeroContainer className={`${variant ? `Hero--${variant}` : ''}`}>
       <HeroInner>
         <HeroBackground>
           {background ? (
-            <Image
+            <img
               src={background.url}
               alt='Hero background image'
-              width={500}
-              height={500}
             />
           ) : (
             <Image src='/clouds.jpg' alt="Cloud background" height={20} width={20} />

@@ -76,7 +76,7 @@ const IndexPage = (props) => {
         />
 
         <PlaneWrapper>
-          <Plane src="/boeing.png" alt="Boeing plane" width={500} height={500} />
+          <Plane src="/boeing.png" alt="Boeing plane" width={800} height={800} />
         </PlaneWrapper>
 
         <Balloon src="/balloon.png" alt="Balloon" width={100} height={100} />
