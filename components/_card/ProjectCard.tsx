@@ -1,6 +1,6 @@
 import React from 'react';
 import Slide from 'react-reveal/Slide';
-// import Reveal from 'react-reveal/Reveal';
+// import Link from 'next/link';
 import styled from 'styled-components';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
@@ -171,7 +171,7 @@ const ProjectCard = props => {
           {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
         </CardContent>
         <LinkToProject target="_blank" href={props.projectLink}>View</LinkToProject>
-        <ButtonLink href={`/projects/${uid}`}><a>More Info</a></ButtonLink>
+        <ButtonLink title="More Info" href={`/projects/${uid}`}/>
       </CardContainer>
     </Slide>
   );

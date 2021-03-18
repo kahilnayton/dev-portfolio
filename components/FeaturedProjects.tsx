@@ -128,15 +128,11 @@ const FeaturedProjects = props => {
         )}
         {props.variant === 'projectPage' ? (
           <ButtonContainer>
-            <ButtonLink href="/">
-              <a href="">Home</a>
-            </ButtonLink>
+            <ButtonLink title="Home" href="/"/>
           </ButtonContainer>
         ) : (
           <ButtonContainer>
-            <ButtonLink href="/projects">
-              <a href="">More Projects</a>
-            </ButtonLink>
+            <ButtonLink title="More Projects" href="/projects"/>
           </ButtonContainer>
         )}
       </ProjectInner>

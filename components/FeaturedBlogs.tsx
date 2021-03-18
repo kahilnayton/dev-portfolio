@@ -123,11 +123,11 @@ const FeaturedBlogs = props => {
         )}
         {props.variant === 'blogPage' ? (
           <ButtonContainer>
-            <ButtonLink href="/"><a>Home</a></ButtonLink>
+            <ButtonLink title="Home" href="/"/>
           </ButtonContainer>
         ) : (
           <ButtonContainer>
-            <ButtonLink href="/blog"><a>More Blogs</a></ButtonLink>
+            <ButtonLink title="More Blogs" href="/blog"/>
           </ButtonContainer>
         )}
       </Inner>

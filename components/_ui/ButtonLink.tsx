@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
@@ -34,16 +34,12 @@ const ButtonContainer = styled.a`
   }
 `;
 
-class ButtonLink extends Component {
-  render() {
-    const { children, ...props } = this.props;
+export default function ButtonLink(props) {
+  const { href, title } = props;
 
-    return (
-      <Link href={this.props.to} {...props}>
-        <ButtonContainer>{this.props.children}</ButtonContainer>
-      </Link>
-    );
-  }
+  return (
+    <Link href={href}>
+      <ButtonContainer>{title}</ButtonContainer>
+    </Link>
+  );
 }
-
-export default ButtonLink;

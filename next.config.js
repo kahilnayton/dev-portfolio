@@ -16,20 +16,20 @@ module.exports = withImages({
   },
 });
 
-const {
-  WebpackBundleSizeAnalyzerPlugin,
-} = require('webpack-bundle-size-analyzer');
-const { ANALYZE } = process.env;
+// const {
+//   WebpackBundleSizeAnalyzerPlugin,
+// } = require('webpack-bundle-size-analyzer');
+// const { ANALYZE } = process.env;
 
-module.exports = {
-  webpack: function(config) {
-    if (ANALYZE) {
-      config.plugins.push(new WebpackBundleSizeAnalyzerPlugin('stats.txt'));
-    }
+// module.exports = {
+//   webpack: function(config) {
+//     if (ANALYZE) {
+//       config.plugins.push(new WebpackBundleSizeAnalyzerPlugin('stats.txt'));
+//     }
 
-    return config;
-  },
-};
+//     return config;
+//   },
+// };
 
 module.exports = {
   images: {

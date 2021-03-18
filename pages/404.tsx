@@ -23,7 +23,7 @@ const NotFoundPage = () => (
     <CloudComponent variant='notFound' direction='left' distance='10rem'/>
       <h1>NOT FOUND</h1>
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-      <ButtonLink href="/"><a>Home</a></ButtonLink>
+      <ButtonLink title="Home" href="/"/>
       <CloudComponent variant='notFound' direction='right' distance='2rem'/>
     </Wrapper>
   </Layout>

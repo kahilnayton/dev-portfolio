@@ -69,6 +69,7 @@ const Balloon = styled(Image)`
 `;
 
 const IndexPage = props => {
+  console.log('hello')
   const home = props.allHomepage.allHomes.edges[0].node;
 
   return (
