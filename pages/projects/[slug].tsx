@@ -82,14 +82,15 @@ const ProjectDescription = styled.div`
 
 const Project = (props) => {
   console.log(props)
-  const project = props.project;
+  // const project = props.project;
+  // debugger;
 
-  if (!project) {
+  if (!props.project) {
     return null;
   }
 
   const router = useRouter();
-  if (!router.isFallback && !project?._meta?.uid) {
+  if (!router.isFallback && !props.project?._meta?.uid) {
     return <ErrorPage statusCode={404} />;
   }
 
@@ -99,25 +100,25 @@ const Project = (props) => {
         <title>Project</title>
       </Head>
       <Hero
-        text="project"
-        heading={project.edges[0].node.title}
-        background={project.edges[0].node.project_image}
+        text=""
+        heading={props.project.edges[0].node.title}
+        background={props.project.edges[0].node.project_image}
         variant="project"
       />
       <ProjectWrapper>
-        {project.edges.length > 0 && (
+        {props.project.description.length > 0 && (
           <ProjectDescription>
-            <RichText render={project.edges[0].node.description} />
-            <a href={project.edges[0].node.project_link.url}>
+            <RichText render={props.project.description} />
+            <a href={props.project.project_link.url}>
               <img
-                src={project.edges[0].node.project_gif.url}
-                alt={project.edges[0].node.project_gif.alt}
+                src={props.project.project_image.url}
+                alt={props.project.project_image.alt}
               />
             </a>
           </ProjectDescription>
         )}
-        {project.edges.length > 0 && (
-          <TechStack stack={project.edges[0].node.tech_stack} />
+        {props.project.tech_stack.length > 0 && (
+          <TechStack stack={props.project.tech_stack} />
         )}
       </ProjectWrapper>
     </Layout>
@@ -143,7 +144,7 @@ export async function getStaticProps({ params, preview = false, previewData }) {
 export async function getStaticPaths() {
   const allProjects = await getAllProjectsWithSlug();
   return {
-    paths: allProjects?.map(({ node }) => `/project/${node._meta.uid}`) || [],
+    paths: allProjects?.map(({ node }) => `/projects/${node._meta.uid}`) || [],
     fallback: false,
   };
 }

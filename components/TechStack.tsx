@@ -45,7 +45,7 @@ const TechStack = props => {
       {props.stack.length > 0 &&
         props.stack.map((t, i) => (
           <TechContainer key={i}>
-            <Image src={t.tech[0].url} alt={t.alt} width={100} height={100} />
+            <img src={t.tech[0].url} alt={t.alt} />
             <p>{t.alt}</p>
           </TechContainer>
         ))}

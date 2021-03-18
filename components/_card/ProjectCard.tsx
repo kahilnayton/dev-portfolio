@@ -171,7 +171,7 @@ const ProjectCard = props => {
           {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
         </CardContent>
         <LinkToProject target="_blank" href={props.projectLink}>View</LinkToProject>
-        <ButtonLink href={`/project/${uid}`}><a>More Info</a></ButtonLink>
+        <ButtonLink href={`/projects/${uid}`}><a>More Info</a></ButtonLink>
       </CardContainer>
     </Slide>
   );

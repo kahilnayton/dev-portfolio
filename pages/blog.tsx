@@ -22,7 +22,7 @@ const Blog = (props) => {
       <Wrapper>
         <Hero
           heading={blogPage.heading}
-          text={'bog'}
+          text={'blogs'}
           background={blogPage.body[0].primary.background_image}
           variant="blogPage"
         />

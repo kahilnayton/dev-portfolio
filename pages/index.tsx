@@ -1,9 +1,12 @@
-
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
 import colors from '../styles/colors';
-import { acrossScreen, bottomToTop, bottomToTopSlow } from '../styles/animations';
+import {
+  acrossScreen,
+  bottomToTop,
+  bottomToTopSlow,
+} from '../styles/animations';
 import About from '../components/About';
 import Hero from '../components/Hero';
 import ContactForm from '../components/ContactForm';
@@ -16,7 +19,7 @@ import cloud from '../images/cloudOne.png';
 import Boeing from '../images/boeing.png';
 import BalloonImage from '../images/balloon.png';
 
-import Image from 'next/image'
+import Image from 'next/image';
 
 import { getAllHomepage } from '../lib/api';
 // import Slide from 'react-reveal/Slide';
@@ -35,6 +38,9 @@ const PlaneWrapper = styled.div`
   width: 100%;
   overflow: hidden;
   margin-bottom: -100rem;
+  div {
+    width: 100%;
+  }
 `;
 
 const Plane = styled(Image)`
@@ -62,7 +68,7 @@ const Balloon = styled(Image)`
   }
 `;
 
-const IndexPage = (props) => {
+const IndexPage = props => {
   const home = props.allHomepage.allHomes.edges[0].node;
 
   return (
@@ -76,19 +82,30 @@ const IndexPage = (props) => {
         />
 
         <PlaneWrapper>
-          <Plane src="/boeing.png" alt="Boeing plane" width={800} height={800} />
+          <Plane
+            src="/boeing.png"
+            alt="Boeing plane"
+            width={800}
+            height={800}
+          />
         </PlaneWrapper>
 
         <Balloon src="/balloon.png" alt="Balloon" width={100} height={100} />
 
-        <Balloon className="small" src="/balloon.png" alt="Balloon" width={50} height={50} />
+        <Balloon
+          className="small"
+          src="/balloon.png"
+          alt="Balloon"
+          width={100}
+          height={100}
+        />
 
         <Bio
           heading={home.bio.heading}
           content={home.bio.content}
           profilePic={home.bio.profile_pic}
+          video={home.bio.video}
         />
-        
 
         <FeaturedBlogs
           blogs={home.blog_list}

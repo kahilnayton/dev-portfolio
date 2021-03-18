@@ -5,6 +5,7 @@ import dimensions from '../../styles/dimensions';
 import colors from '../../styles/colors';
 
 const ContentContainer = styled.div`
+  border: solid;
   > * {
     & + * {
       margin-top: 3.2rem;

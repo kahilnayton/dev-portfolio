@@ -83,14 +83,15 @@ const BlogDescription = styled.div`
 `;
 
 const Blog = (props) => {
-  const blog = props.blogs;
+  console.log(props)
+  // debugger;
 
-  if (!blog) {
+  if (!props.blog) {
     return null;
   }
 
   const router = useRouter();
-  if (!router.isFallback && !blog?._meta?.uid) {
+  if (!router.isFallback && !props.blog?._meta?.uid) {
     return <ErrorPage statusCode={404} />;
   }
 
@@ -100,19 +101,19 @@ const Blog = (props) => {
         <title>Blog</title>
       </Head>
       <Hero
-        text="blog"
-        heading={blog.edges[0].node.title}
-        background={blog.edges[0].node.blog_image}
+        text=""
+        heading={props.blog.title[0].text}
+        background={props.blog.blog_image}
         variant="blog"
       />
       <BlogWrapper>
-        {blog.edges.length > 0 && (
+        {props.blog.description.length > 0 && (
           <BlogDescription>
-            <RichText render={blog.edges[0].node.description} />
+            <RichText render={props.blog.description} />
           </BlogDescription>
         )}
-        {blog.edges.length > 0 && (
-          <TechStack stack={blog.edges[0].node.tech_stack} />
+        {props.blog.tech_stack.length > 0 && (
+          <TechStack stack={props.blog.tech_stack} />
         )}
       </BlogWrapper>
     </Layout>

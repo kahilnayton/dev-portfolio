@@ -2,14 +2,15 @@
 
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import dimensions from "styles/dimensions";
+import dimensions from "../../styles/dimensions";
 import Fade from "react-reveal/Fade";
 import { document } from 'browser-monads';
 
-const IllustrationContainer = styled.div`
+const VideoContainer = styled.div`
   display: block;
   position: relative;
   width: 100%;
+  transform: translate(10px,150px);
   
   &.Illustration--hero {
     display: none;
@@ -22,15 +23,19 @@ const IllustrationContainer = styled.div`
   }
 `;
 
-const IllustrationContent = styled.div`
+const VideoContent = styled.div`
   video {
     display: block;
-    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12rem;
     height: auto;
+    overflow: hidden;
   }
 `;
 
-class Illustration extends Component {
+export default class Video extends Component {
   componentDidMount() {
     const video = document.createElement('video');
     video.autoplay = true;
@@ -52,13 +57,11 @@ class Illustration extends Component {
 
   render() {
     return (
-      <IllustrationContainer className={this.props.variant ? `Illustration--${this.props.variant}` : ''}>
+      <VideoContainer>
         <Fade>
-          <IllustrationContent ref={node => this.contentNode = node} />
+          <VideoContent ref={node => this.contentNode = node} />
         </Fade>
-      </IllustrationContainer>
+      </VideoContainer>
     );
   }
 }
-
-export default Illustration;

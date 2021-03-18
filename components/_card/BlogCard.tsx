@@ -9,7 +9,7 @@ import gradients from '../../styles/gradients';
 import dimensions from '../../styles/dimensions';
 import Moment from 'react-moment';
 
-const CardContainer = styled(Link)`
+const CardContainer = styled.a`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -136,8 +136,8 @@ const BlogCard = props => {
   return (
     <>
       <Slide left>
-        <CardContainer href={`/blog/${uid}`}>
-          <a href="">
+        <Link href={`/blog/${uid}`}>
+          <CardContainer href="">
             {image && (
               <CardImage>
                 <img src={image.url} alt={image.alt} />
@@ -153,8 +153,8 @@ const BlogCard = props => {
               )}
               {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
             </CardContent>
-          </a>
-        </CardContainer>
+          </CardContainer>
+        </Link>
       </Slide>
     </>
   );

@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
-
 import Link from 'next/link';
 import dimensions from '../../styles/dimensions';
 
-const ButtonContainer = styled(Link)`
+const ButtonContainer = styled.a`
   position: relative;
   display: inline-block;
   padding: 1.6rem 6.6vw 1.4rem;
@@ -17,11 +16,17 @@ const ButtonContainer = styled(Link)`
   outline: none;
   border: none;
   transition: background 0.08s ease-in-out, color 0.12s ease-in-out;
+  a {
+    color: ${colors.grey900};
+  }
 
   &:hover {
     cursor: pointer;
     background: ${gradients.purpleRed};
     color: #fff;
+    a {
+      color: #fff;
+    }
   }
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
@@ -34,9 +39,9 @@ class ButtonLink extends Component {
     const { children, ...props } = this.props;
 
     return (
-      <ButtonContainer href={this.props.to} {...props}>
-        <a>{this.props.children}</a>
-      </ButtonContainer>
+      <Link href={this.props.to} {...props}>
+        <ButtonContainer>{this.props.children}</ButtonContainer>
+      </Link>
     );
   }
 }
