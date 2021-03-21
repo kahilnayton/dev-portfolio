@@ -81,7 +81,7 @@ const ProjectDescription = styled.div`
 `;
 
 const Project = (props) => {
-  console.log(props)
+  console.log(props.project)
   // const project = props.project;
   // debugger;
 
@@ -101,8 +101,8 @@ const Project = (props) => {
       </Head>
       <Hero
         text=""
-        heading={props.project.edges[0].node.title}
-        background={props.project.edges[0].node.project_image}
+        heading={props.project.title[0].text}
+        background={props.project.project_image}
         variant="project"
       />
       <ProjectWrapper>
@@ -128,7 +128,7 @@ const Project = (props) => {
 export default Project;
 
 export async function getStaticProps({ params, preview = false, previewData }) {
-  const project = await getProject(
+  const data = await getProject(
     params.slug,
     previewData
   );
@@ -136,7 +136,7 @@ export async function getStaticProps({ params, preview = false, previewData }) {
   return {
     props: {
       preview,
-      project: project?.project ?? null,
+      project: data?.project ?? null,
     },
   };
 }

@@ -58,7 +58,7 @@ export default function ProjectsGrid(props) {
       className={`${props.dense && 'is-dense'} ${props.variant &&
         `Grid--${props.variant}`}`}
     >
-      <GridList>{this.props.children}</GridList>
+      <GridList>{props.children}</GridList>
     </GridContainer>
   );
 }
