@@ -58,7 +58,7 @@ const CloudComponent = props => {
       {props.direction === 'left' && (
         <LeftCloud className={props.variant ? `Clouds-${props.variant}` : ''}>
           <Fade left distance={props.distance}>
-            <Image src='/cloudOne.svg' alt="cloud" width={50} height={50} />
+            <img src='/cloudOne.svg' alt="cloud" width={50} height={50} />
           </Fade>
         </LeftCloud>
       )}
@@ -67,11 +67,11 @@ const CloudComponent = props => {
           className={props.variant ? `Clouds-${props.variant}--right` : ''}
         >
           <Fade right distance={props.distance}>
-            <Image src="/cloudTwo.svg" alt="cloud two" width={50} height={50} />
+            <Image src="/cloudOne.png" alt="cloud two" width={100} height={100} />
           </Fade>
         </RightCloud>
       )}
-      {!props.direction && <Image src="/cloudTwo.svg" alt="cloud two" width={50} height={50} />}
+      {!props.direction && <Image src="/cloudOne.png" alt="cloud two" width={100} height={100} />}
     </CloudContainer>
   );
 };
