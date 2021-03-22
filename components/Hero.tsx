@@ -11,7 +11,7 @@ import z from '../styles/base';
 import CloudComponent from './CloudComponent';
 import CloudBackground from '../images/clouds.jpg';
 
-import Image from 'next/image'
+// import Image from 'next/image'
 
 const imgStyle = {
   position: 'absolute',
@@ -174,7 +174,7 @@ const Hero = ({ heading, text, background, variant }) => {
               alt='Hero background image'
             />
           ) : (
-            <Image src='/clouds.jpg' alt="Cloud background" height={20} width={20} />
+            <img src='/clouds.jpg' alt="Cloud background" height={20} width={20} />
           )}
         </HeroBackground>
         <CloudComponent direction="right" distance="2rem" />

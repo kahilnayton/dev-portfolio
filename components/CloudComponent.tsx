@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
-import Image from 'next/image'
+// import Image from 'next/image'
 import z from '../styles/base';
 
 const CloudContainer = styled.div`
@@ -67,11 +67,11 @@ const CloudComponent = props => {
           className={props.variant ? `Clouds-${props.variant}--right` : ''}
         >
           <Fade right distance={props.distance}>
-            <Image src="/cloudOne.png" alt="cloud two" width={100} height={100} />
+            <img src="/cloudOne.png" alt="cloud two" width={100} height={100} />
           </Fade>
         </RightCloud>
       )}
-      {!props.direction && <Image src="/cloudOne.png" alt="cloud two" width={100} height={100} />}
+      {!props.direction && <img src="/cloudOne.png" alt="cloud two" width={100} height={100} />}
     </CloudContainer>
   );
 };

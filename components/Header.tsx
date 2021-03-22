@@ -5,7 +5,7 @@ import { Inner } from '../styles/structure';
 import colors from '../styles/colors';
 import gradients from '../styles/gradients';
 import dimensions from '../styles/dimensions';
-import Image from 'next/image';
+// import Image from 'next/image';
 import SocialBar from '../components/SocialBar';
 import { document } from 'browser-monads';
 
@@ -267,7 +267,7 @@ export default function Header() {
         <HeaderInner>
           <Link href="/">
             <a>
-              <Image
+              <img
                 src="/spring_logo.png"
                 alt="Spring Logo"
                 height={20}

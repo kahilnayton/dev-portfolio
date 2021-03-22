@@ -13,13 +13,13 @@ import ContactForm from '../components/ContactForm';
 import FeaturedBlogs from '../components/FeaturedBlogs';
 import FeaturedProjects from '../components/FeaturedProjects';
 import ParallaxComponent from '../components/ParallaxComponent';
-import plane from '../images/plane.png';
-import planeRight from '../images/planeRight.png';
-import cloud from '../images/cloudOne.png';
-import Boeing from '../images/boeing.png';
-import BalloonImage from '../images/balloon.png';
+// import plane from '../images/plane.png';
+// import planeRight from '../images/planeRight.png';
+// import cloud from '../images/cloudOne.png';
+// import Boeing from '../images/boeing.png';
+// import BalloonImage from '../images/balloon.png';
 
-import Image from 'next/image';
+// import Image from 'next/image';
 
 import { getAllHomepage } from '../lib/api';
 // import Slide from 'react-reveal/Slide';
@@ -43,7 +43,7 @@ const PlaneWrapper = styled.div`
   }
 `;
 
-const Plane = styled(Image)`
+const Plane = styled.img`
   position: absolute;
   animation-name: ${acrossScreen};
   animation-duration: 15s;
@@ -51,7 +51,7 @@ const Plane = styled(Image)`
   animation-iteration-count: infinite;
 `;
 
-const Balloon = styled(Image)`
+const Balloon = styled.img`
   height: 18rem;
   left: 40%;
   position: absolute;
@@ -69,7 +69,7 @@ const Balloon = styled(Image)`
 `;
 
 const IndexPage = props => {
-  console.log('hello')
+  console.log('hello');
   const home = props.allHomepage.allHomes.edges[0].node;
 
   return (
@@ -83,23 +83,11 @@ const IndexPage = props => {
         />
 
         <PlaneWrapper>
-          <Plane
-            src="/boeing.png"
-            alt="Boeing plane"
-            width={800}
-            height={800}
-          />
+          <Plane src='../public/boeing.png' alt="Boeing plane" />
         </PlaneWrapper>
 
-        <Balloon src="/balloon.png" alt="Balloon" width={100} height={100} />
-
-        <Balloon
-          className="small"
-          src="/balloon.png"
-          alt="Balloon"
-          width={100}
-          height={100}
-        />
+        <Balloon src='../public/balloon.png' alt="Balloon"/>
+        <Balloon src='../public/balloon.png' alt="Balloon"/>
 
         <Bio
           heading={home.bio.heading}
