@@ -19,7 +19,7 @@ import FeaturedProjects from '../components/FeaturedProjects';
 // import Boeing from '../images/boeing.png';
 // import BalloonImage from '../images/balloon.png';
 
-// import Image from 'next/image';
+import Image from 'next/image';
 
 import { getAllHomepage } from '../lib/api';
 // import Slide from 'react-reveal/Slide';
@@ -43,7 +43,7 @@ const PlaneWrapper = styled.div`
   }
 `;
 
-const Plane = styled.img`
+const Plane = styled(Image)`
   position: absolute;
   animation-name: ${acrossScreen};
   animation-duration: 15s;
@@ -51,7 +51,7 @@ const Plane = styled.img`
   animation-iteration-count: infinite;
 `;
 
-const Balloon = styled.img`
+const Balloon = styled(Image)`
   height: 18rem;
   left: 40%;
   position: absolute;
@@ -82,11 +82,16 @@ const IndexPage = props => {
         />
 
         <PlaneWrapper>
-          <Plane src='../public/boeing.png' alt="Boeing plane" />
+          <Plane
+            src="/boeing.png"
+            alt="Boeing plane"
+            height={500}
+            width={300}
+          />
         </PlaneWrapper>
 
-        <Balloon src='../public/balloon.png' alt="Balloon"/>
-        <Balloon src='../public/balloon.png' alt="Balloon"/>
+        <Balloon src="/balloon.png" alt="Balloon" height={100} width={100} />
+        <Balloon src="/balloon.png" alt="Balloon" height={100} width={100} />
 
         <Bio
           heading={home.bio.heading}
