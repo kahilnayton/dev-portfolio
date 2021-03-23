@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
-import {colors} from '../styles/colors';
+import { colors } from '../styles/colors';
 import {
   acrossScreen,
   bottomToTop,
@@ -13,7 +13,7 @@ import ContactForm from '../components/ContactForm';
 import FeaturedBlogs from '../components/FeaturedBlogs';
 import FeaturedProjects from '../components/FeaturedProjects';
 // import ParallaxComponent from '../components/ParallaxComponent';
-// import plane from '../images/plane.png';
+import { Plane } from '../components/_ui/icons';
 // import planeRight from '../images/planeRight.png';
 // import cloud from '../images/cloudOne.png';
 // import Boeing from '../images/boeing.png';
@@ -43,7 +43,7 @@ const PlaneWrapper = styled.div`
   }
 `;
 
-const Plane = styled(Image)`
+const StyledPlane = styled(Plane)`
   position: absolute;
   animation-name: ${acrossScreen};
   animation-duration: 15s;
@@ -82,9 +82,7 @@ const IndexPage = props => {
         />
 
         <PlaneWrapper>
-          <Plane
-            src="/boeing.png"
-            alt="Boeing plane"
+          <StyledPlane
             height={500}
             width={300}
           />
