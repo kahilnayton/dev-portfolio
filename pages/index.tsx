@@ -12,7 +12,7 @@ import Hero from '../components/Hero';
 import ContactForm from '../components/ContactForm';
 import FeaturedBlogs from '../components/FeaturedBlogs';
 import FeaturedProjects from '../components/FeaturedProjects';
-// import ParallaxComponent from '../components/ParallaxComponent';
+import ParallaxComponent from '../components/ParallaxComponent';
 import { Plane } from '../components/_ui/icons';
 // import planeRight from '../images/planeRight.png';
 // import cloud from '../images/cloudOne.png';
@@ -82,10 +82,7 @@ const IndexPage = props => {
         />
 
         <PlaneWrapper>
-          <StyledPlane
-            height={500}
-            width={300}
-          />
+          <StyledPlane height={500} width={300} />
         </PlaneWrapper>
 
         <Balloon src="/balloon.png" alt="Balloon" height={100} width={100} />
@@ -104,7 +101,7 @@ const IndexPage = props => {
           blog_heading={home.blog_heading}
         />
 
-        {/* <ParallaxComponent direction="right" variant="plane" plane={plane} /> */}
+        <ParallaxComponent variant="planeLeftToRight" />
 
         <FeaturedProjects
           projects={home.project_list}
@@ -112,13 +109,9 @@ const IndexPage = props => {
           project_heading={'Projects'}
         />
 
-        {/* <ParallaxComponent
-          direction="left"
-          variant="plane"
-          planeRight={planeRight}
-        /> */}
+        <ParallaxComponent variant="planeRightToLeft" />
 
-        {/* <ParallaxComponent variant="cloud" cloud={cloud} /> */}
+        <ParallaxComponent variant="cloudRightToLeft" />
 
         <About />
 
