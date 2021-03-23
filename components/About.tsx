@@ -20,12 +20,13 @@ import {
   DiPostgresql,
 } from 'react-icons/di';
 import { GrGatsbyjs, GrGraphQl } from 'react-icons/gr';
+import Reveal from 'react-reveal/Reveal';
+import styled from 'styled-components';
+import Roll from 'react-reveal/Roll';
+
 import gradients from '../styles/gradients';
 import colors from '../styles/colors';
-import styled from 'styled-components';
-import CloudComponent from './CloudComponent';
-import Reveal from 'react-reveal/Reveal';
-import Roll from 'react-reveal/Roll';
+import CloudComponent from '../components/CloudComponent';
 
 const Li = styled.li`
   &:hover {

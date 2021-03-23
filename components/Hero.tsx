@@ -1,15 +1,15 @@
 
 
 import { RichText } from 'prismic-reactjs';
-
 import styled from 'styled-components';
+
 import dimensions from '../styles/dimensions';
 import { Inner, Wrap } from '../styles/structure';
 import colors from '../styles/colors';
 import gradients from '../styles/gradients';
 import z from '../styles/base';
-import CloudComponent from './CloudComponent';
-import CloudBackground from '../images/clouds.jpg';
+import CloudComponent from '../components/CloudComponent';
+// import CloudBackground from '../images/clouds.jpg';
 
 // import Image from 'next/image'
 

@@ -1,13 +1,13 @@
 import React, { createRef, useEffect, useState } from 'react';
-import { Inner } from '../styles/structure';
 import { RichText } from 'prismic-reactjs';
+import lottie from 'lottie-web';
+import styled from 'styled-components';
 
+import { Inner } from '../styles/structure';
 import colors from '../styles/colors';
 import dimensions from '../styles/dimensions';
-import lottie from 'lottie-web';
 import animation from '../animations/helicopter.json';
-import Video from './_ui/Video';
-import styled from 'styled-components';
+import Video from '../components/_ui/Video';
 
 const BioContainer = styled.div`
   background: rgba(255, 255, 255, 0.2);

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import { document } from 'browser-monads';
+
 import { Inner } from '../styles/structure';
 import colors from '../styles/colors';
 import gradients from '../styles/gradients';
 import dimensions from '../styles/dimensions';
 // import Image from 'next/image';
 import SocialBar from '../components/SocialBar';
-import { document } from 'browser-monads';
 
 const headerHeightMobile = '6rem';
 const headerHeightDesktop = '6rem';

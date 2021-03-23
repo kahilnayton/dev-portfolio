@@ -4,11 +4,11 @@ import { Inner } from '../styles/structure';
 import colors from '../styles/colors';
 import dimensions from '../styles/dimensions';
 
-import ButtonLink from './_ui/ButtonLink';
-import Content from './_ui/Content';
-import ProjectsGrid from './_grid/ProjectsGrid';
-import ProjectCard from './_card/ProjectCard';
-import CloudComponent from './CloudComponent';
+import ButtonLink from '../components/_ui/ButtonLink';
+import Content from '../components/_ui/Content';
+import ProjectsGrid from '../components/_grid/ProjectsGrid';
+import ProjectCard from '../components/_card/ProjectCard';
+import CloudComponent from '../components/CloudComponent';
 import { ButtonContainer } from '../styles/components';
 
 const ProjectsContainer = styled.div`

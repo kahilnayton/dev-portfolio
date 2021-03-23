@@ -1,11 +1,11 @@
 
-import Layout from '../components/Layout';
 import styled from 'styled-components';
+
+import Layout from '../components/Layout';
 import colors from '../styles/colors';
 import Hero from '../components/Hero';
 import ContactForm from '../components/ContactForm';
 import FeaturedProjects from '../components/FeaturedProjects';
-
 import { getAllProjectPage } from '../lib/api';
 
 const Wrapper = styled.div`

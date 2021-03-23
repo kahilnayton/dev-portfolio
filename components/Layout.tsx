@@ -4,8 +4,8 @@ import styled from 'styled-components';
 // import resetStyles from '../styles/reset';
 // import globalStyles from '../styles/global';
 // import typeStyles from '../styles/typography';
-import Footer from './Footer';
-import Header from './Header';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 const LayoutContainer = styled.div``;
 

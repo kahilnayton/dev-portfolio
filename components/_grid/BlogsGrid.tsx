@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+
 import dimensions from '../../styles/dimensions';
 
 const GridContainer = styled.div`

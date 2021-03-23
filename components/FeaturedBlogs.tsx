@@ -4,12 +4,12 @@ import styled from 'styled-components';
 import { Inner } from '../styles/structure';
 import colors from '../styles/colors';
 import dimensions from '../styles/dimensions';
-import ButtonLink from './_ui/ButtonLink';
-import {ButtonContainer} from '../styles/components'
-import Content from './_ui/Content';
-import BlogsGrid from './_grid/BlogsGrid';
-import BlogCard from './_card/BlogCard';
-import CloudComponent from './CloudComponent'
+import { ButtonContainer } from '../styles/components';
+import ButtonLink from '../components/_ui/ButtonLink';
+import Content from '../components/_ui/Content';
+import BlogsGrid from '../components/_grid/BlogsGrid';
+import BlogCard from '../components/_card/BlogCard';
+import CloudComponent from '../components/CloudComponent';
 
 const BlogsContainer = styled.div`
   position: relative;
@@ -76,23 +76,13 @@ const BlogsContainer = styled.div`
 `;
 
 const FeaturedBlogs = props => {
-
-  const {
-    heading,
-    content,
-    buttonText,
-    destination,
-    blogs,
-    variant,
-  } = props;
+  const { heading, content, buttonText, destination, blogs, variant } = props;
   let blogsHeading;
 
   return (
-    <BlogsContainer
-      className={`${variant ? `FeaturedBlogs--${variant}` : ''}`}
-    >
+    <BlogsContainer className={`${variant ? `FeaturedBlogs--${variant}` : ''}`}>
       <Inner>
-      <CloudComponent variant='blog' direction='left' distance='10rem'/>
+        <CloudComponent variant="blog" direction="left" distance="10rem" />
         <h1>Blog</h1>
         {(heading || content || (buttonText && destination)) && (
           <header>
@@ -123,11 +113,11 @@ const FeaturedBlogs = props => {
         )}
         {props.variant === 'blogPage' ? (
           <ButtonContainer>
-            <ButtonLink title="Home" href="/"/>
+            <ButtonLink title="Home" href="/" />
           </ButtonContainer>
         ) : (
           <ButtonContainer>
-            <ButtonLink title="More Blogs" href="/blog"/>
+            <ButtonLink title="More Blogs" href="/blog" />
           </ButtonContainer>
         )}
       </Inner>

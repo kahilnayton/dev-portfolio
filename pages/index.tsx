@@ -12,7 +12,7 @@ import Hero from '../components/Hero';
 import ContactForm from '../components/ContactForm';
 import FeaturedBlogs from '../components/FeaturedBlogs';
 import FeaturedProjects from '../components/FeaturedProjects';
-import ParallaxComponent from '../components/ParallaxComponent';
+// import ParallaxComponent from '../components/ParallaxComponent';
 // import plane from '../images/plane.png';
 // import planeRight from '../images/planeRight.png';
 // import cloud from '../images/cloudOne.png';

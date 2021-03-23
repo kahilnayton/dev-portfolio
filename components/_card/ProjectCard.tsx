@@ -1,12 +1,12 @@
 import React from 'react';
 import Slide from 'react-reveal/Slide';
-// import Link from 'next/link';
 import styled from 'styled-components';
+import Moment from 'react-moment';
+// import Link from 'next/link';
 import colors from '../../styles/colors';
 import gradients from '../../styles/gradients';
 import dimensions from '../../styles/dimensions';
-import ButtonLink from '../_ui/ButtonLink';
-import Moment from 'react-moment';
+import ButtonLink from '../../components/_ui/ButtonLink';
 
 const CardContainer = styled.div`
   position: relative;

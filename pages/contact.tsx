@@ -1,6 +1,7 @@
 
-import Layout from '../components/Layout';
 import styled from 'styled-components';
+
+import Layout from '../components/Layout';
 import colors from '../styles/colors';
 import ContactForm from '../components/ContactForm';
 

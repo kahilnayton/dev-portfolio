@@ -1,6 +1,7 @@
 import React from 'react';
 import { RichText } from 'prismic-reactjs';
 import styled from 'styled-components';
+
 import dimensions from '../../styles/dimensions';
 import colors from '../../styles/colors';
 

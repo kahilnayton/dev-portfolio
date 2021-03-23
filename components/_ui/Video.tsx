@@ -2,9 +2,10 @@
 
 import React, {createRef, useEffect } from 'react';
 import styled from 'styled-components';
-import dimensions from '../../styles/dimensions';
 import Fade from 'react-reveal/Fade';
 import { document } from 'browser-monads';
+
+import dimensions from '../../styles/dimensions';
 
 const VideoContainer = styled.div`
   display: block;
