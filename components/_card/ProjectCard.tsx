@@ -3,7 +3,7 @@ import Slide from 'react-reveal/Slide';
 import styled from 'styled-components';
 import Moment from 'react-moment';
 // import Link from 'next/link';
-import colors from '../../styles/colors';
+import {colors} from '../../styles/colors';
 import gradients from '../../styles/gradients';
 import dimensions from '../../styles/dimensions';
 import ButtonLink from '../../components/_ui/ButtonLink';

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Inner } from '../styles/structure';
-import colors from '../styles/colors';
+import {colors} from '../styles/colors';
 import dimensions from '../styles/dimensions';
 import { ButtonContainer } from '../styles/components';
 import ButtonLink from '../components/_ui/ButtonLink';

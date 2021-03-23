@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import colors from '../../styles/colors';
+import {colors} from '../../styles/colors';
 // import gradients from '../../styles/gradients';
 
-const ButtonContainer = styled('button')`
+const ButtonContainer = styled.button`
   position: relative;
   display: inline-block;
   padding: 1.6rem 3.33vw 1.4rem;

@@ -4,7 +4,7 @@ import ErrorPage from 'next/error';
 import styled from 'styled-components';
 import { RichText } from 'prismic-reactjs';
 
-import colors from '../../styles/colors';
+import {colors} from '../../styles/colors';
 import Layout from '../../components/Layout';
 import TechStack from '../../components/TechStack';
 import dimensions from '../../styles/dimensions';

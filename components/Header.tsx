@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 import { document } from 'browser-monads';
+import Link from 'next/link';
 
 import { Inner } from '../styles/structure';
-import colors from '../styles/colors';
+import {colors} from '../styles/colors';
 import gradients from '../styles/gradients';
 import dimensions from '../styles/dimensions';
-// import Image from 'next/image';
+import LogoLink from '../components/_ui/LogoLink';
 import SocialBar from '../components/SocialBar';
 
 const headerHeightMobile = '6rem';
@@ -250,7 +250,6 @@ const MobileContent = styled(Inner)`
 `;
 
 export default function Header() {
-
   const [isSticky, setIsSticky] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -266,17 +265,7 @@ export default function Header() {
     >
       <HeaderBar>
         <HeaderInner>
-          <Link href="/">
-            <a>
-              <img
-                src="/spring_logo.png"
-                alt="Spring Logo"
-                height={20}
-                width={20}
-              />
-            </a>
-          </Link>
-
+          <LogoLink />
           <HeaderLinks>
             <SocialBar />
           </HeaderLinks>

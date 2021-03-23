@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Moment from 'react-moment';
 
 // import Reveal from 'react-reveal/Reveal';
-import colors from '../../styles/colors';
+import {colors} from '../../styles/colors';
 import gradients from '../../styles/gradients';
 import dimensions from '../../styles/dimensions';
 

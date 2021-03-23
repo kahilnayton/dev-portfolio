@@ -25,7 +25,7 @@ import styled from 'styled-components';
 import Roll from 'react-reveal/Roll';
 
 import gradients from '../styles/gradients';
-import colors from '../styles/colors';
+import {colors} from '../styles/colors';
 import CloudComponent from '../components/CloudComponent';
 
 const Li = styled.li`

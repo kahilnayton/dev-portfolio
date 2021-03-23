@@ -3,7 +3,7 @@ import { RichText } from 'prismic-reactjs';
 import styled from 'styled-components';
 
 import dimensions from '../../styles/dimensions';
-import colors from '../../styles/colors';
+import {colors} from '../../styles/colors';
 
 const ContentContainer = styled.div`
   border: solid;

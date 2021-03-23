@@ -4,7 +4,7 @@ import lottie from 'lottie-web';
 import styled from 'styled-components';
 
 import { Inner } from '../styles/structure';
-import colors from '../styles/colors';
+import {colors} from '../styles/colors';
 import dimensions from '../styles/dimensions';
 import animation from '../public/animations/helicopter.json';
 import Video from '../components/_ui/Video';

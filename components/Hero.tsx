@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import dimensions from '../styles/dimensions';
 import { Inner, Wrap } from '../styles/structure';
-import colors from '../styles/colors';
+import {colors} from '../styles/colors';
 import gradients from '../styles/gradients';
 import z from '../styles/base';
 import CloudComponent from '../components/CloudComponent';

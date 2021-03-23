@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import styled from 'styled-components';
 import dimensions from './dimensions';
-import colors from './colors';
+import {colors} from './colors';
 
 const typeStyles = createGlobalStyle`
   h1,

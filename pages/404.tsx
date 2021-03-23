@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
-import colors from '../styles/colors';
+import {colors} from '../styles/colors';
 import CloudComponent from '../components/CloudComponent'
 import ButtonLink from '../components/_ui/ButtonLink';
 
