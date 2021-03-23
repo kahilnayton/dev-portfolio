@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'Benton Sans';
+    src: url('BentonSansLight.woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Benton Sans';
+    src: url('BentonSansRegular.woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+000-5FF;
+}
+
+@font-face {
+    font-family: 'Benton Sans';
+    src: url('BentonSansMedium.woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+000-5FF;
+}
+
+@font-face {
+    font-family: 'Benton Sans';
+    src: url('BentonSansBold.woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+000-5FF;
+}
+
+@font-face {
+    font-family: 'Zallord';
+    src: url('Zallord.woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+000-5FF;
+}
+
+
