@@ -21,7 +21,7 @@ export const Logo = props => {
         <rect
           onMouseEnter={randomNum}
           fill={randomColors[number]}
-          class="letter-1"
+          className="letter-1"
           x="16.35"
           y="25.22"
           width="21.45"
@@ -30,25 +30,25 @@ export const Logo = props => {
         <polygon
           onMouseEnter={randomNum}
           fill={randomColors[number]}
-          class="letter-2"
+          className="letter-2"
           points="100.55,25.22 76.46,25.22 45,78.13 45,103.8 79.63,154.77 104.06,154.77 59.06,91.85 	"
         />
         <polygon
           onMouseEnter={randomNum}
           fill={randomColors[number]}
-          class="letter-3"
+          className="letter-3"
           points="167.01,25.4 121.66,154.77 143.63,154.77 177.55,57.74 211.13,154.77 232.93,154.77 187.93,25.4 	"
         />
         <polygon
           onMouseEnter={randomNum}
           fill={randomColors[number]}
-          class="letter-4"
+          className="letter-4"
           points="165.6,113.64 160.68,127.88 194.25,127.88 189.16,113.64 	"
         />
         <rect
           onMouseEnter={randomNum}
           fill={randomColors[number]}
-          class="letter-5"
+          className="letter-5"
           x="253.68"
           y="25.22"
           width="21.45"
@@ -57,13 +57,13 @@ export const Logo = props => {
         <polygon
           onMouseEnter={randomNum}
           fill={randomColors[number]}
-          class="letter-6"
+          className="letter-6"
           points="331.2,82 282.34,82 282.34,96.42 331.2,96.42 331.2,154.77 352.3,154.77 352.3,25.22 331.2,25.22 	"
         />
         <rect
           onMouseEnter={randomNum}
           fill={randomColors[number]}
-          class="letter-7"
+          className="letter-7"
           x="378.5"
           y="25.22"
           width="21.45"
@@ -72,20 +72,20 @@ export const Logo = props => {
         <polygon
           onMouseEnter={randomNum}
           fill={randomColors[number]}
-          class="letter-8"
+          className="letter-8"
           points="447.07,25.22 425.63,25.22 425.63,154.77 506.66,154.77 506.66,138.78 447.07,138.78 	"
         />
         <rect
           onMouseEnter={randomNum}
           fill={randomColors[number]}
-          class="letter-9"
+          className="letter-9"
           x="563.3"
           y="25.22"
           width="21.09"
           height="129.55"
         />
         <path
-          class="letter-16"
+          className="letter-16"
           onMouseEnter={randomNum}
           fill={randomColors[number]}
           d="M651.63,44.21c-5.45-5.74-12.3-10.34-20.57-13.8c-8.26-3.46-17.84-5.19-28.74-5.19H591.6v16h5.1
@@ -97,7 +97,7 @@ export const Logo = props => {
         <rect
           onMouseEnter={randomNum}
           fill={randomColors[number]}
-          class="letter-10"
+          className="letter-10"
           x="727.12"
           y="25.22"
           width="52.38"
@@ -106,7 +106,7 @@ export const Logo = props => {
         <rect
           onMouseEnter={randomNum}
           fill={randomColors[number]}
-          class="letter-11"
+          className="letter-11"
           x="727.12"
           y="82"
           width="46.93"
@@ -115,7 +115,7 @@ export const Logo = props => {
         <rect
           onMouseEnter={randomNum}
           fill={randomColors[number]}
-          class="letter-12"
+          className="letter-12"
           x="727.12"
           y="138.78"
           width="52.38"
@@ -124,7 +124,7 @@ export const Logo = props => {
         <rect
           onMouseEnter={randomNum}
           fill={randomColors[number]}
-          class="letter-13"
+          className="letter-13"
           x="698.47"
           y="25.22"
           width="21.45"
@@ -133,13 +133,13 @@ export const Logo = props => {
         <polygon
           onMouseEnter={randomNum}
           fill={randomColors[number]}
-          class="letter-14"
+          className="letter-14"
           points="888.67,25.22 861.25,121.2 861.25,155.48 870.39,155.48 912.57,25.22 	"
         />
         <polygon
           onMouseEnter={randomNum}
           fill={randomColors[number]}
-          class="letter-15"
+          className="letter-15"
           points="802.71,25.22 842.96,155.48 854.04,155.48 854.04,126.83 826.79,25.22 	"
         />
       </g>
