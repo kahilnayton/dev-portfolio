@@ -50,26 +50,26 @@ const BioContainer = styled.div`
   }
 `;
 
-const HeadAnimation = styled.div`
+const HelicopterAnimation = styled.div`
   height: 20rem;
   width: 20rem;
 `;
 
 const Bio = props => {
-  let animationContainer = createRef();
+  // let animationContainer = createRef();
   const [showVideo, setShowVideo] = useState(false);
   // console.log(animationContainer)
 
-  useEffect(() => {
-    const anim = lottie.loadAnimation({
-      container: animationContainer.current,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      animationData: animation,
-    });
-    return () => anim.destroy();
-  }, []);
+  // useEffect(() => {
+  //   const anim = lottie.loadAnimation({
+  //     container: animationContainer.current,
+  //     renderer: 'svg',
+  //     loop: true,
+  //     autoplay: true,
+  //     animationData: animation,
+  //   });
+  //   return () => anim.destroy();
+  // }, []);
 
   // console.log(props);
   return (
@@ -81,7 +81,7 @@ const Bio = props => {
           <img src={props.profilePic.url} alt={props.profilePic.alt} onClick={() => setShowVideo(!showVideo)} />
         )}
         <RichText render={props.content} />
-        <HeadAnimation ref={animationContainer} />
+        {/* <HelicopterAnimation ref={animationContainer} /> */}
       </BioContainer>
     </Inner>
   );
