@@ -62,10 +62,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && next export",
-    "start": "next start",
-    "analyze": "cross-env ANALYZE=1 next build && cat .next/stats.txt"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
   "repository": {
     "type": "git",
