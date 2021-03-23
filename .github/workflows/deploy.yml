@@ -1,0 +1,28 @@
+name: Build and Deploy
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Install 
+        run: |
+          npm install
+      - name: Configure Prismic details
+        with:
+          NEXT_PUBLIC_PRISMIC_ACCESS_TOKEN: ${{ secrets.NEXT_PUBLIC_PRISMIC_ACCESS_TOKEN }}
+          PRISMIC_REPOSITORY_NAME: ${{ secrets.PRISMIC_REPOSITORY_NAME }}
+          aws-region: us-east-1
+      - name: Build 
+        run: |
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build # The folder the action should deploy.
