@@ -13,6 +13,7 @@ jobs:
         run: |
           npm install
       - name: Configure Prismic details
+        uses: Kahilnayton/github-pages-deploy-action@4.1.0
         with:
           NEXT_PUBLIC_PRISMIC_ACCESS_TOKEN: ${{ secrets.NEXT_PUBLIC_PRISMIC_ACCESS_TOKEN }}
           PRISMIC_REPOSITORY_NAME: ${{ secrets.PRISMIC_REPOSITORY_NAME }}
