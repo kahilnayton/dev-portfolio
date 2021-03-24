@@ -1,9 +1,8 @@
-
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
-import {colors} from '../styles/colors';
-import CloudComponent from '../components/CloudComponent'
+import { colors } from '../styles/colors';
+import CloudComponent from '../components/CloudComponent';
 import ButtonLink from '../components/_ui/ButtonLink';
 
 const Wrapper = styled.div`
@@ -20,11 +19,11 @@ const Wrapper = styled.div`
 const NotFoundPage = () => (
   <Layout>
     <Wrapper>
-    <CloudComponent variant='notFound' direction='left' distance='10rem'/>
+      <CloudComponent variant="notFound" direction="left" distance="10rem" />
       <h1>NOT FOUND</h1>
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-      <ButtonLink title="Home" href="/"/>
-      <CloudComponent variant='notFound' direction='right' distance='2rem'/>
+      <ButtonLink title="Home" href="/" />
+      <CloudComponent variant="notFound" direction="right" distance="2rem" />
     </Wrapper>
   </Layout>
 );

@@ -101,7 +101,7 @@ const Blog = (props) => {
       <Hero
         text=""
         heading={props.blog.title[0].text}
-        background={props.blog.blog_image}
+        // background={props.blog.blog_image}
         variant="blog"
       />
       <BlogWrapper>

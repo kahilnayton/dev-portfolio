@@ -1,15 +1,13 @@
-
-
 import { RichText } from 'prismic-reactjs';
 import styled from 'styled-components';
 
 import dimensions from '../styles/dimensions';
 import { Inner, Wrap } from '../styles/structure';
-import {colors} from '../styles/colors';
+import { colors } from '../styles/colors';
 import gradients from '../styles/gradients';
 import z from '../styles/base';
 import CloudComponent from '../components/CloudComponent';
-// import CloudBackground from '../images/clouds.jpg';
+import { CloudBackground } from '../components/_ui/icons';
 
 // import Image from 'next/image'
 
@@ -84,7 +82,8 @@ const HeroBackground = styled.div`
   top: 0;
   left: 0;
 
-  img {
+  img,
+  svg {
     position: absolute;
     filter: grayscale(1);
     top: 0;
@@ -161,20 +160,17 @@ const HeroContent = styled.div`
   }
 `;
 
-const Hero = ({ heading, text, background, variant }) => {
-// TODO: OPTIMIZE THIS IMAGE WITH NEXT
+const Hero = (props) => {
+const {variant, heading, text} = props
 
   return (
     <HeroContainer className={`${variant ? `Hero--${variant}` : ''}`}>
       <HeroInner>
         <HeroBackground>
-          {background ? (
-            <img
-              src={background.url}
-              alt='Hero background image'
-            />
+          {props.background ? (
+            <img src={props.background.url} alt="Hero background image" />
           ) : (
-            <img src='/clouds.jpg' alt="Cloud background" height={20} width={20} />
+            <CloudBackground alt="Cloud background" />
           )}
         </HeroBackground>
         <CloudComponent direction="right" distance="2rem" />

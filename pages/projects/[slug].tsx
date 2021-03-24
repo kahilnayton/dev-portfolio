@@ -102,7 +102,7 @@ const Project = (props) => {
       <Hero
         text=""
         heading={props.project.title[0].text}
-        background={props.project.project_image}
+        background={null}
         variant="project"
       />
       <ProjectWrapper>

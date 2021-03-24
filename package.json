@@ -64,7 +64,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "analyze": "cross-env ANALYZE=1 next build && cat .next/stats.txt"
   },
   "repository": {
     "type": "git",

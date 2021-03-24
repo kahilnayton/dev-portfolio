@@ -13,7 +13,7 @@ import ContactForm from '../components/ContactForm';
 import FeaturedBlogs from '../components/FeaturedBlogs';
 import FeaturedProjects from '../components/FeaturedProjects';
 import ParallaxComponent from '../components/ParallaxComponent';
-import { Plane } from '../components/_ui/icons';
+import { Plane, Balloon } from '../components/_ui/icons';
 // import planeRight from '../images/planeRight.png';
 // import cloud from '../images/cloudOne.png';
 // import Boeing from '../images/boeing.png';
@@ -51,7 +51,7 @@ const StyledPlane = styled(Plane)`
   animation-iteration-count: infinite;
 `;
 
-const Balloon = styled(Image)`
+const StyledBalloon = styled(Balloon)`
   height: 18rem;
   left: 40%;
   position: absolute;
@@ -85,8 +85,8 @@ const IndexPage = props => {
           <StyledPlane height={500} width={300} />
         </PlaneWrapper>
 
-        <Balloon src="/balloon.png" alt="Balloon" height={100} width={100} />
-        <Balloon src="/balloon.png" alt="Balloon" height={100} width={100} />
+        <StyledBalloon src="/balloon.png" alt="Balloon" height={100} width={100} />
+        <StyledBalloon className="small" src="/balloon.png" alt="Balloon" height={100} width={100} />
 
         <Bio
           heading={home.bio.heading}
@@ -111,7 +111,7 @@ const IndexPage = props => {
 
         <ParallaxComponent variant="planeRightToLeft" />
 
-        <ParallaxComponent variant="cloudRightToLeft" />
+        <ParallaxComponent variant="cloudLeftToRight" />
 
         <About />
 

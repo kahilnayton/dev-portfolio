@@ -29,21 +29,27 @@ import { colors } from '../styles/colors';
 import CloudComponent from '../components/CloudComponent';
 
 const Li = styled.li`
+    transition: 0.2s;
   &:hover {
     transform: scale(1.2);
+    transition: 0.2s;
   }
 `;
 
 const Section = styled.section`
-  padding: 20px 0;
+  padding: 30px 0;
   margin-bottom: 12rem;
   text-align: center;
   background: black;
   position: relative;
   background: ${gradients.purpleRedCircle};
 
+  h2 {
+  }
+
   h2,
   h4 {
+    padding-bottom: 10px;
     color: ${colors.grey200};
     font-weight: 400;
     font-size: 1.6rem;

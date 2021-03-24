@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Fade from 'react-reveal/Fade';
-// import Image from 'next/image'
+import { Cloud } from '../components/_ui/icons';
 
 import z from '../styles/base';
 
@@ -39,7 +39,7 @@ const RightCloud = styled.div`
   position: absolute;
   right: 0rem;
   top: 0;
-  margin-top: -4rem;
+  margin-top: 2rem;
   z-index: ${z.modal};
 `;
 
@@ -59,7 +59,7 @@ const CloudComponent = props => {
       {props.direction === 'left' && (
         <LeftCloud className={props.variant ? `Clouds-${props.variant}` : ''}>
           <Fade left distance={props.distance}>
-            <img src='/cloudOne.svg' alt="cloud" width={50} height={50} />
+            <Cloud alt="cloud" width={50} height={50} />
           </Fade>
         </LeftCloud>
       )}
@@ -68,11 +68,17 @@ const CloudComponent = props => {
           className={props.variant ? `Clouds-${props.variant}--right` : ''}
         >
           <Fade right distance={props.distance}>
-            <img src="/cloudOne.png" alt="cloud two" width={100} height={100} />
+            <Cloud
+              alt="cloud two"
+              width={100}
+              height={100}
+            />
           </Fade>
         </RightCloud>
       )}
-      {!props.direction && <img src="/cloudOne.png" alt="cloud two" width={100} height={100} />}
+      {!props.direction && (
+        <Cloud alt="cloud two" width={100} height={100} />
+      )}
     </CloudContainer>
   );
 };

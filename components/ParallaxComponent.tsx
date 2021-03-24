@@ -41,9 +41,9 @@ const ParallaxComponent = props => {
           <PlaneRight height={300} width={700} />
         </Parallax>
       )}
-      {props.variant === 'cloudRightToLeft' && (
+      {props.variant === 'cloudLeftToRight' && (
         <Parallax x={[-40, 140]} y={[0, 0]}>
-          <Cloud />
+          <Cloud height={100} width={700} />
         </Parallax>
       )}
     </ParallaxWrapper>
