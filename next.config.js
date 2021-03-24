@@ -17,5 +17,5 @@ const sitemap = require('nextjs-sitemap-generator');
 sitemap({  
   baseUrl: 'https://kahildev.com',  
   pagesDirectory: __dirname + "/pages",  
-  targetDirectory : 'static/'  
+  targetDirectory : 'public/'  
 });
