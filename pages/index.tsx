@@ -14,15 +14,11 @@ import FeaturedBlogs from '../components/FeaturedBlogs';
 import FeaturedProjects from '../components/FeaturedProjects';
 import ParallaxComponent from '../components/ParallaxComponent';
 import { Plane, Balloon } from '../components/_ui/icons';
-// import planeRight from '../images/planeRight.png';
-// import cloud from '../images/cloudOne.png';
-// import Boeing from '../images/boeing.png';
-// import BalloonImage from '../images/balloon.png';
+import Head from 'next/head';
 
-import Image from 'next/image';
+// import Image from 'next/image';
 
 import { getAllHomepage } from '../lib/api';
-// import Slide from 'react-reveal/Slide';
 import Bio from '../components/Bio';
 // import Reveal from 'react-reveal/Reveal';
 
@@ -73,6 +69,19 @@ const IndexPage = props => {
 
   return (
     <Layout>
+      <Head>
+        <title>Kahil Dev</title>
+        <meta
+          name="viewport"
+          content="initial-scale=1.0, width=device-width"
+          key="viewport"
+        />
+        <meta
+          name="description"
+          content="Kahil Nayton's portfolio and blog ~ a place to talk about the things I'm learning and the projects I'm working on."
+          key="description"
+        />
+      </Head>
       <Wrapper>
         <Hero
           heading={home.heading}
@@ -85,8 +94,19 @@ const IndexPage = props => {
           <StyledPlane height={500} width={300} />
         </PlaneWrapper>
 
-        <StyledBalloon src="/balloon.png" alt="Balloon" height={100} width={100} />
-        <StyledBalloon className="small" src="/balloon.png" alt="Balloon" height={100} width={100} />
+        <StyledBalloon
+          src="/balloon.png"
+          alt="Balloon"
+          height={100}
+          width={100}
+        />
+        <StyledBalloon
+          className="small"
+          src="/balloon.png"
+          alt="Balloon"
+          height={100}
+          width={100}
+        />
 
         <Bio
           heading={home.bio.heading}

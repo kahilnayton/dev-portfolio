@@ -1,8 +1,8 @@
-
 import styled from 'styled-components';
+import Head from 'next/head';
 
 import Layout from '../components/Layout';
-import {colors} from '../styles/colors';
+import { colors } from '../styles/colors';
 import Hero from '../components/Hero';
 import ContactForm from '../components/ContactForm';
 import FeaturedProjects from '../components/FeaturedProjects';
@@ -13,12 +13,25 @@ const Wrapper = styled.div`
   padding-bottom: 13rem;
 `;
 
-const Projects = (props) => {
-  console.log(props, 'project page')
+const Projects = props => {
+  console.log(props, 'project page');
   const projectPage = props.allProjects.allProject_pages.edges[0].node;
 
   return (
     <Layout>
+      <Head>
+        <title>Projects</title>
+        <meta
+          name="viewport"
+          content="initial-scale=1.0, width=device-width"
+          key="viewport"
+        />
+        <meta
+          name="description"
+          content="Projects I've worked on"
+          key="description"
+        />
+      </Head>
       <Wrapper>
         <Hero
           heading={projectPage.heading}
@@ -46,4 +59,3 @@ export async function getStaticProps({ preview = false, previewData }) {
     props: { preview, allProjects },
   };
 }
-

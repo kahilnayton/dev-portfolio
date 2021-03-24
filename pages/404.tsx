@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Head from 'next/head';
 
 import Layout from '../components/Layout';
 import { colors } from '../styles/colors';
@@ -18,6 +19,19 @@ const Wrapper = styled.div`
 
 const NotFoundPage = () => (
   <Layout>
+    <Head>
+      <title>Kahil Dev 404</title>
+      <meta
+        name="viewport"
+        content="initial-scale=1.0, width=device-width"
+        key="viewport"
+      />
+      <meta
+        name="description"
+        content="Nothing is on this page"
+        key="description"
+      />
+    </Head>
     <Wrapper>
       <CloudComponent variant="notFound" direction="left" distance="10rem" />
       <h1>NOT FOUND</h1>

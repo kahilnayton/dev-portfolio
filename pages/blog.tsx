@@ -1,11 +1,11 @@
-
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
-import {colors} from '../styles/colors';
+import { colors } from '../styles/colors';
 import Hero from '../components/Hero';
 import ContactForm from '../components/ContactForm';
 import FeaturedBlogs from '../components/FeaturedBlogs';
+import Head from 'next/head';
 
 import { getAllBlogPage } from '../lib/api';
 
@@ -14,11 +14,24 @@ const Wrapper = styled.div`
   padding-bottom: 13rem;
 `;
 
-const Blog = (props) => {
+const Blog = props => {
   const blogPage = props.allPosts.allBlog_pages.edges[0].node;
 
   return (
     <Layout>
+      <Head>
+        <title>Blog</title>
+        <meta
+          name="viewport"
+          content="initial-scale=1.0, width=device-width"
+          key="viewport"
+        />
+        <meta
+          name="description"
+          content="Things I've learnt along the way"
+          key="description"
+        />
+      </Head>
       <Wrapper>
         <Hero
           heading={blogPage.heading}
