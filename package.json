@@ -63,7 +63,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "analyze": "cross-env ANALYZE=1 next build && cat .next/stats.txt"
   },
