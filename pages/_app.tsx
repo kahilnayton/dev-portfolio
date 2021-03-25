@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
        <Head>
-        <link rel="shortcut icon" href="/favicon-32x32.png" />
+        <link rel="shortcut icon" href="/spring_logo.ico" />
       </Head>
       <ResetStyles />
       <GlobalStyle />
