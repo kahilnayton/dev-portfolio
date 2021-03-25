@@ -71,16 +71,33 @@ const IndexPage = props => {
   return (
     <Layout>
       <Head>
+        {/* General */}
+        <title>{Seo.site_name}</title>
+        <meta name="description" content={Seo.description} />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary" key="twcard" />
         <meta name="twitter:creator" content={'kahilnayton'} key="twhandle" />
 
         {/* Open Graph */}
         <meta property="og:url" content={Seo.url} key="ogurl" />
-        <meta property="og:image" content={Seo.preview_image.url} key="ogimage" />
-        <meta property="og:site_name" content={Seo.site_name} key="ogsitename" />
+        <meta
+          property="og:image"
+          content={Seo.preview_image.url}
+          key="ogimage"
+        />
+        <meta
+          property="og:site_name"
+          content={Seo.site_name}
+          key="ogsitename"
+        />
         <meta property="og:title" content={Seo.title} key="ogtitle" />
-        <meta property="og:description" content={Seo.description} key="ogdesc" />
+        <meta
+          property="og:description"
+          content={Seo.description}
+          key="ogdesc"
+        />
       </Head>
       <Wrapper>
         <Hero
