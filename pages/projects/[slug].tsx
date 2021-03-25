@@ -81,9 +81,6 @@ const ProjectDescription = styled.div`
 `;
 
 const Project = (props) => {
-  console.log(props.project)
-  // const project = props.project;
-  // debugger;
 
   if (!props.project) {
     return null;

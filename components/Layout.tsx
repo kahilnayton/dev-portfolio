@@ -9,7 +9,6 @@ const LayoutContent = styled.main`
 `;
 
 const Layout = props => {
-  console.log(props);
   return (
     <LayoutContainer>
 

@@ -81,8 +81,6 @@ const BlogDescription = styled.div`
 `;
 
 const Blog = (props) => {
-  console.log(props)
-  // debugger;
 
   if (!props.blog) {
     return null;

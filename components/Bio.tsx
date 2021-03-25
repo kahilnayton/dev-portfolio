@@ -58,7 +58,6 @@ const HelicopterAnimation = styled.div`
 const Bio = props => {
   // let animationContainer = createRef();
   const [showVideo, setShowVideo] = useState(false);
-  // console.log(animationContainer)
 
   // useEffect(() => {
   //   const anim = lottie.loadAnimation({
@@ -71,7 +70,6 @@ const Bio = props => {
   //   return () => anim.destroy();
   // }, []);
 
-  // console.log(props);
   return (
     <Inner>
       <BioContainer>
