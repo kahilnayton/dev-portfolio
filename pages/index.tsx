@@ -66,22 +66,21 @@ const StyledBalloon = styled(Balloon)`
 
 const IndexPage = props => {
   const home = props.allHomepage.allHomes.edges[0].node;
+  const Seo = home.body[1].primary;
 
   return (
     <Layout>
       <Head>
-        <title>Kahil Dev</title>
-        <meta
-          name="viewport"
-          content="initial-scale=1.0, width=device-width"
-          key="viewport"
-        />
-        <meta
-          name="description"
-          content="Kahil Nayton's portfolio and blog ~ a place to talk about the things I'm learning and the projects I'm working on."
-          key="description"
-        />
-        <meta property="og:image" content={home.body[0].primary.background_image} key="ogimage" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary" key="twcard" />
+        <meta name="twitter:creator" content={'kahilnayton'} key="twhandle" />
+
+        {/* Open Graph */}
+        <meta property="og:url" content={Seo.url} key="ogurl" />
+        <meta property="og:image" content={Seo.preview_image.url} key="ogimage" />
+        <meta property="og:site_name" content={Seo.site_name} key="ogsitename" />
+        <meta property="og:title" content={Seo.title} key="ogtitle" />
+        <meta property="og:description" content={Seo.description} key="ogdesc" />
       </Head>
       <Wrapper>
         <Hero
