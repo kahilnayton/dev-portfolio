@@ -81,6 +81,7 @@ const IndexPage = props => {
           content="Kahil Nayton's portfolio and blog ~ a place to talk about the things I'm learning and the projects I'm working on."
           key="description"
         />
+        <meta property="og:image" content={home.body[0].primary.background_image} key="ogimage" />
       </Head>
       <Wrapper>
         <Hero
