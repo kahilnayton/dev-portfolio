@@ -1,4 +1,4 @@
-import { keyframes } from 'styled-components';
+import { keyframes } from 'styled-components'
 
 export const slightRock = keyframes`
 0% {
@@ -12,7 +12,7 @@ transform: rotate(5deg)
 transform: rotate(0)
 
 }
-`;
+`
 
 export const acrossScreen = keyframes`
 0% {
@@ -36,7 +36,7 @@ export const acrossScreen = keyframes`
 100% {
   transform: translate(-250rem, -6rem)
 }
-`;
+`
 
 export const bottomToTop = keyframes`
 0% {
@@ -72,7 +72,7 @@ export const bottomToTop = keyframes`
 100% {
   transform: translate(0, -200rem) rotate(-10deg) scale(1)
 }
-`;
+`
 
 export const bottomToTopSlow = keyframes`
 0% {
@@ -108,7 +108,7 @@ export const bottomToTopSlow = keyframes`
 100% {
   transform: translate(0, -800rem) rotate(-10deg) scale(1)
 }
-`;
+`
 
 export const slideInBottom = keyframes`
   0% {
@@ -118,7 +118,7 @@ export const slideInBottom = keyframes`
   100% {
     transform: translateY(0);
   }
-`;
+`
 
 export const slideInLeft = keyframes`
   0% {
@@ -128,7 +128,7 @@ export const slideInLeft = keyframes`
   100% {
     transform: translateX(0);
   }
-`;
+`
 
 export const slideInTop = keyframes`
   0% {
@@ -138,7 +138,7 @@ export const slideInTop = keyframes`
   100% {
     transform: translateX(0);
   }
-`;
+`
 
 export const drawIn = keyframes`
   0% {
@@ -148,7 +148,7 @@ export const drawIn = keyframes`
   100% {
     transform: scaleX(1);
   }
-`;
+`
 
 export const drawDown = keyframes`
   0% {
@@ -158,7 +158,7 @@ export const drawDown = keyframes`
   100% {
     transform: translateY(-50%) scaleX(1);
   }
-`;
+`
 
 export const slideUpFade = keyframes`
   0% {
@@ -170,7 +170,7 @@ export const slideUpFade = keyframes`
     transform: translate(-50%, -200%);
     opacity: 0;
   }
-`;
+`
 
 export const lineAnimate = keyframes`
   0% {
@@ -191,7 +191,7 @@ export const lineAnimate = keyframes`
     background-size: 100% 0.2rem;
     background-position: left 100%;
   }
-`;
+`
 
 export const fadeIn = keyframes`
 0% {
@@ -200,4 +200,4 @@ export const fadeIn = keyframes`
 100% {
   opacity: 1;
 }
-`;
+`

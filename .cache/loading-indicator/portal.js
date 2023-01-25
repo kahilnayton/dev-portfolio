@@ -1,5 +1,5 @@
-import * as React from "react"
-import { createPortal } from "react-dom"
+import * as React from 'react'
+import { createPortal } from 'react-dom'
 
 // this is `fast-refresh-overlay/portal` ported to class component
 // because we don't have guarantee that query on demand users will use
@@ -26,7 +26,7 @@ class ShadowPortal extends React.Component {
   componentWillUnmount() {
     if (this.portalNode.current && this.portalNode.current.ownerDocument) {
       this.portalNode.current.ownerDocument.body.removeChild(
-        this.portalNode.current
+        this.portalNode.current,
       )
     }
   }

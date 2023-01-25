@@ -1,13 +1,64 @@
-import React from 'react';
-import Link from 'next/link';
-import Slide from 'react-reveal/Slide';
-import styled from 'styled-components';
-import Moment from 'react-moment';
+import React from 'react'
+import Link from 'next/link'
+// @ts-ignore
+import Slide from 'react-reveal/Slide'
+import styled from 'styled-components'
+// import Moment from 'react-moment'
 
 // import Reveal from 'react-reveal/Reveal';
-import {colors} from '../../styles/colors';
-import gradients from '../../styles/gradients';
-import dimensions from '../../styles/dimensions';
+import { colors } from '../../styles/colors'
+import gradients from '../../styles/gradients'
+import dimensions from '../../styles/dimensions'
+
+
+export type BlogCardProps = {
+  uid: string
+  title: string
+  image: Record<string, string>
+  textSnippet: string
+  publishDate: string
+}
+
+
+const BlogCard = ({uid, title, image, textSnippet, publishDate}: BlogCardProps) => {
+
+  let trimmed_preview_text
+
+  if (textSnippet) {
+    trimmed_preview_text =
+      textSnippet.length > 200 ? `${textSnippet.substr(0, 200)} …` : textSnippet
+  }
+
+  return (
+    <>
+      <Slide left>
+        <Link href={`/blog/${uid}`}>
+          <CardContainer href="">
+            {image && (
+              <CardImage>
+                <img src={image.url} alt={image.alt} />
+              </CardImage>
+            )}
+
+            <CardContent>
+              <h4>{title}</h4>
+              {publishDate && (
+                <span>
+                  {/* TODO: update time  */}
+                  {/* <Moment format="MMMM Do, YYYY" date={publishDate} /> */}
+                </span>
+              )}
+              {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
+            </CardContent>
+          </CardContainer>
+        </Link>
+      </Slide>
+    </>
+  )
+}
+
+export default BlogCard
+
 
 const CardContainer = styled.a`
   position: relative;
@@ -17,24 +68,24 @@ const CardContainer = styled.a`
   height: 100%;
   color: inherit;
   background-color: #fff;
-  box-shadow: 0 0.3rem 2rem rgba(0,0,0,0.05);
-  
-  @media(min-width: ${dimensions.tabletLandscapeUp}px) {
+  box-shadow: 0 0.3rem 2rem rgba(0, 0, 0, 0.05);
+
+  @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     &:hover {
       img {
         transform: scale(1.04);
         transition: transform 0.24s ease-in-out;
       }
-      
+
       h4,
       p,
       span {
         color: #fff;
       }
-      
+
       > div:last-child {
         background: ${gradients.purpleRed};
-        
+
         &::before {
           transform: scaleY(1);
           /* background-color: ${colors.grey900}; */
@@ -42,7 +93,7 @@ const CardContainer = styled.a`
       }
     }
   }
-`;
+`
 
 const CardImage = styled.div`
   position: relative;
@@ -74,7 +125,7 @@ const CardImage = styled.div`
     mix-blend-mode: multiply;
     transition: transform 0.12s ease-in-out;
   }
-`;
+`
 
 const CardContent = styled.div`
   position: relative;
@@ -119,45 +170,4 @@ const CardContent = styled.div`
       }
     }
   }
-`;
-
-const BlogCard = props => {
-  const { uid, title, image, textSnippet, publishDate } = props;
-
-  let trimmed_preview_text;
-
-  if (textSnippet) {
-    trimmed_preview_text =
-      textSnippet.length > 200
-        ? `${textSnippet.substr(0, 200)} …`
-        : textSnippet;
-  }
-
-  return (
-    <>
-      <Slide left>
-        <Link href={`/blog/${uid}`}>
-          <CardContainer href="">
-            {image && (
-              <CardImage>
-                <img src={image.url} alt={image.alt} />
-              </CardImage>
-            )}
-
-            <CardContent>
-              <h4>{title}</h4>
-              {publishDate && (
-                <span>
-                  <Moment format="MMMM Do, YYYY" date={publishDate} />
-                </span>
-              )}
-              {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
-            </CardContent>
-          </CardContainer>
-        </Link>
-      </Slide>
-    </>
-  );
-};
-
-export default BlogCard;
+`

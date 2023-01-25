@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
-import styled from 'styled-components';
-import dimensions from './dimensions';
-import {colors} from './colors';
+import styled from 'styled-components'
+import dimensions from './dimensions'
+import { colors } from './colors'
 
 const typeStyles = createGlobalStyle`
   h1,
@@ -122,7 +122,7 @@ const typeStyles = createGlobalStyle`
       cursor: pointer;
     }
   }
-`;
+`
 
 export const Rubric = styled.span`
   display: inline-block;
@@ -141,6 +141,6 @@ export const Rubric = styled.span`
       margin-top: 1.6rem;
     }
   }
-`;
+`
 
-export default typeStyles;
+export default typeStyles

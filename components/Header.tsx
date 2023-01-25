@@ -1,17 +1,74 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { document } from 'browser-monads';
-import Link from 'next/link';
+import React, { useState } from 'react'
+import styled from 'styled-components'
+import Link from 'next/link'
 
-import { Inner } from '../styles/structure';
-import {colors} from '../styles/colors';
-import gradients from '../styles/gradients';
-import dimensions from '../styles/dimensions';
-import LogoLink from '../components/_ui/LogoLink';
-import SocialBar from '../components/SocialBar';
+import { Inner } from '../styles/structure'
+import { colors } from '../styles/colors'
+import gradients from '../styles/gradients'
+import dimensions from '../styles/dimensions'
+import LogoLink from '../components/_ui/LogoLink'
+import SocialBar from '../components/SocialBar'
 
-const headerHeightMobile = '6rem';
-const headerHeightDesktop = '6rem';
+const headerHeightMobile = '6rem'
+const headerHeightDesktop = '6rem'
+
+export default function Header() {
+  const [isSticky, setIsSticky] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleMobile = () => {
+    const bodyClasses = document.getElementsByTagName('body')[0].classList
+    bodyClasses.toggle('is-locked')
+    setIsOpen(!isOpen)
+  }
+
+  return (
+    <HeaderContainer
+      className={`${isOpen ? 'is-open' : ''} ${isSticky ? 'is-sticky' : ''}`}
+    >
+      <HeaderBar>
+        <HeaderInner>
+          <LogoLink />
+          <HeaderLinks>
+            <SocialBar />
+          </HeaderLinks>
+
+          <HeaderHamburger
+            as="button"
+            type="button"
+            aria-label="burger"
+            onClick={toggleMobile}
+          >
+            <span></span>
+          </HeaderHamburger>
+        </HeaderInner>
+      </HeaderBar>
+
+      <HeaderMobile>
+        <MobileLinks>
+          <MobileToggle>
+            <MobileContent>
+              <Link onClick={toggleMobile} href="/">
+                Home
+              </Link>
+              <Link onClick={toggleMobile} href="/contact">
+                Contact
+              </Link>
+              <Link onClick={toggleMobile} href="/projects">
+                Projects
+              </Link>
+              <Link onClick={toggleMobile} href="/blog">
+                Blog
+              </Link>
+            </MobileContent>
+            <SocialBar variant="burger" toggleMobile={toggleMobile} />
+          </MobileToggle>
+        </MobileLinks>
+      </HeaderMobile>
+    </HeaderContainer>
+  )
+}
+
 
 const HeaderContainer = styled.div`
   display: block;
@@ -30,7 +87,7 @@ const HeaderContainer = styled.div`
       margin-top: ${headerHeightDesktop};
     }
   }
-`;
+`
 
 const HeaderBar = styled.div`
   display: block;
@@ -51,7 +108,7 @@ const HeaderBar = styled.div`
     height: ${headerHeightDesktop};
     box-shadow: none;
   }
-`;
+`
 
 const HeaderInner = styled(Inner)`
   display: flex;
@@ -77,7 +134,7 @@ const HeaderInner = styled(Inner)`
       }
     }
   }
-`;
+`
 
 const HeaderLinks = styled.div`
   display: none;
@@ -92,7 +149,7 @@ const HeaderLinks = styled.div`
   a {
     color: ${colors.red500};
   }
-`;
+`
 
 const HeaderHamburger = styled.input`
   display: block;
@@ -151,7 +208,7 @@ const HeaderHamburger = styled.input`
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     display: none;
   }
-`;
+`
 
 const HeaderMobile = styled.div`
   display: flex;
@@ -179,16 +236,15 @@ const HeaderMobile = styled.div`
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     display: none;
   }
-`;
+`
 
 const MobileLinks = styled.ul`
   height: 100%;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-`;
+`
 
 const MobileToggle = styled.div`
-  /* height: 100%; */
   position: relative;
   padding: 2.4rem 0 2rem;
   transition: background 0.08s ease-in-out;
@@ -205,7 +261,6 @@ const MobileToggle = styled.div`
     height: 1.3rem;
     transform-origin: center center;
     transition: transform 0.08s ease-in-out;
-    /* transform: scale(1.8); */
   }
 
   a {
@@ -220,7 +275,7 @@ const MobileToggle = styled.div`
       fill: ${colors.red};
     }
   }
-`;
+`
 
 const MobileContent = styled(Inner)`
   display: flex;
@@ -247,61 +302,4 @@ const MobileContent = styled(Inner)`
       color: ${colors.blue};
     }
   }
-`;
-
-export default function Header() {
-  const [isSticky, setIsSticky] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMobile = () => {
-    const bodyClasses = document.getElementsByTagName('body')[0].classList;
-    bodyClasses.toggle('is-locked');
-    setIsOpen(!isOpen);
-  };
-
-  return (
-    <HeaderContainer
-      className={`${isOpen ? 'is-open' : ''} ${isSticky ? 'is-sticky' : ''}`}
-    >
-      <HeaderBar>
-        <HeaderInner>
-          <LogoLink />
-          <HeaderLinks>
-            <SocialBar />
-          </HeaderLinks>
-
-          <HeaderHamburger
-            as="button"
-            type="button"
-            aria-label="burger"
-            onClick={toggleMobile}
-          >
-            <span></span>
-          </HeaderHamburger>
-        </HeaderInner>
-      </HeaderBar>
-
-      <HeaderMobile>
-        <MobileLinks>
-          <MobileToggle>
-            <MobileContent>
-              <Link href="/">
-                <a onClick={toggleMobile}>Home</a>
-              </Link>
-              <Link href="/contact">
-                <a onClick={toggleMobile}>Contact</a>
-              </Link>
-              <Link href="/projects">
-                <a onClick={toggleMobile}>Projects</a>
-              </Link>
-              <Link href="/blog">
-                <a onClick={toggleMobile}>Blog</a>
-              </Link>
-            </MobileContent>
-            <SocialBar variant="burger" toggleMobile={toggleMobile} />
-          </MobileToggle>
-        </MobileLinks>
-      </HeaderMobile>
-    </HeaderContainer>
-  );
-}
+`

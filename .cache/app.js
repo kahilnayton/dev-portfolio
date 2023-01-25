@@ -1,18 +1,18 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import domReady from "@mikaelkristiansson/domready"
-import io from "socket.io-client"
+import React from 'react'
+import ReactDOM from 'react-dom'
+import domReady from '@mikaelkristiansson/domready'
+import io from 'socket.io-client'
 
-import socketIo from "./socketIo"
-import emitter from "./emitter"
-import { apiRunner, apiRunnerAsync } from "./api-runner-browser"
-import { setLoader, publicLoader } from "./loader"
-import { Indicator } from "./loading-indicator/indicator"
-import DevLoader from "./dev-loader"
-import syncRequires from "$virtual/sync-requires"
+import socketIo from './socketIo'
+import emitter from './emitter'
+import { apiRunner, apiRunnerAsync } from './api-runner-browser'
+import { setLoader, publicLoader } from './loader'
+import { Indicator } from './loading-indicator/indicator'
+import DevLoader from './dev-loader'
+import syncRequires from '$virtual/sync-requires'
 // Generated during bootstrap
-import matchPaths from "$virtual/match-paths.json"
-import { LoadingIndicatorEventHandler } from "./loading-indicator"
+import matchPaths from '$virtual/match-paths.json'
+import { LoadingIndicatorEventHandler } from './loading-indicator'
 
 if (process.env.GATSBY_HOT_LOADER === `fast-refresh` && module.hot) {
   module.hot.accept(`$virtual/sync-requires`, () => {
@@ -50,22 +50,22 @@ apiRunnerAsync(`onClientEntry`).then(() => {
   }
 
   fetch(`/___services`)
-    .then(res => res.json())
-    .then(services => {
+    .then((res) => res.json())
+    .then((services) => {
       if (services.developstatusserver) {
         let isRestarting = false
         const parentSocket = io(
-          `${window.location.protocol}//${window.location.hostname}:${services.developstatusserver.port}`
+          `${window.location.protocol}//${window.location.hostname}:${services.developstatusserver.port}`,
         )
 
-        parentSocket.on(`structured-log`, msg => {
+        parentSocket.on(`structured-log`, (msg) => {
           if (
             !isRestarting &&
             msg.type === `LOG_ACTION` &&
             msg.action.type === `DEVELOP` &&
             msg.action.payload === `RESTART_REQUIRED` &&
             window.confirm(
-              `The develop process needs to be restarted for the changes to ${msg.action.dirtyFile} to be applied.\nDo you want to restart the develop process now?`
+              `The develop process needs to be restarted for the changes to ${msg.action.dirtyFile} to be applied.\nDo you want to restart the develop process now?`,
             )
           ) {
             isRestarting = true
@@ -89,7 +89,7 @@ apiRunnerAsync(`onClientEntry`).then(() => {
         // errors within the console, such as when exiting the develop process.
         parentSocket.on(`disconnect`, () => {
           console.warn(
-            `[socket.io] Disconnected. Unable to perform health-check.`
+            `[socket.io] Disconnected. Unable to perform health-check.`,
           )
           parentSocket.close()
         })
@@ -105,12 +105,12 @@ apiRunnerAsync(`onClientEntry`).then(() => {
    * Let's warn if we find service workers in development.
    */
   if (`serviceWorker` in navigator) {
-    navigator.serviceWorker.getRegistrations().then(registrations => {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
       if (registrations.length > 0)
         console.warn(
           `Warning: found one or more service workers present.`,
           `If your site isn't behaving as expected, you might want to remove these.`,
-          registrations
+          registrations,
         )
     })
   }
@@ -124,7 +124,7 @@ apiRunnerAsync(`onClientEntry`).then(() => {
     // render to avoid React complaining about hydration mis-matches.
     document.getElementById(`___gatsby`).children.length === 0
       ? ReactDOM.render
-      : ReactDOM.hydrate
+      : ReactDOM.hydrate,
   )[0]
 
   let dismissLoadingIndicator
@@ -136,7 +136,7 @@ apiRunnerAsync(`onClientEntry`).then(() => {
 
     const showIndicatorTimeout = setTimeout(() => {
       indicatorMountElement = document.createElement(
-        `first-render-loading-indicator`
+        `first-render-loading-indicator`,
       )
       document.body.append(indicatorMountElement)
       ReactDOM.render(<Indicator />, indicatorMountElement)
@@ -156,7 +156,7 @@ apiRunnerAsync(`onClientEntry`).then(() => {
     loader.loadPage(`/404.html`),
     loader.loadPage(window.location.pathname),
   ]).then(() => {
-    const preferDefault = m => (m && m.default) || m
+    const preferDefault = (m) => (m && m.default) || m
     const Root = preferDefault(require(`./root`))
     domReady(() => {
       if (dismissLoadingIndicator) {
@@ -174,12 +174,12 @@ apiRunnerAsync(`onClientEntry`).then(() => {
           const indicatorMountElement = document.createElement(`div`)
           indicatorMountElement.setAttribute(
             `id`,
-            `query-on-demand-indicator-element`
+            `query-on-demand-indicator-element`,
           )
           document.body.append(indicatorMountElement)
           ReactDOM.render(
             <LoadingIndicatorEventHandler />,
-            indicatorMountElement
+            indicatorMountElement,
           )
         }
       })

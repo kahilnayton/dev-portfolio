@@ -1,1 +1,49 @@
-{"componentChunkName":"component---cache-dev-404-page-js","path":"/dev-404-page","result":{"data":{"allSitePage":{"nodes":[{"path":"/blog/deep-fakes"},{"path":"/blog/gatsby"},{"path":"/blog/ecommerce-store-with-react-stripe"},{"path":"/blog/leading-edge---filtering-front-to-back"},{"path":"/blog/making-the-switch-from-sass-to-styled-components"},{"path":"/blog/full-stack-todo-app"},{"path":"/blog/making-the-youtube-api-adaptive-and-modular-with-es6"},{"path":"/blog/choosing-the-right-framework"},{"path":"/blog/last-year-i-was-working-on-a-history-page-for-a-client"},{"path":"/project/webmusic"},{"path":"/project/2048"},{"path":"/project/karaoke"},{"path":"/project/music_portfolio"},{"path":"/project/write-meow"},{"path":"/project/memory-game"},{"path":"/project/working-with-mailchimp-in-gatsby"},{"path":"/project/full-stack-todo-app"},{"path":"/project/dose"},{"path":"/project/ourbond.com"},{"path":"/project/track-fit"},{"path":"/project/deep-fakes"},{"path":"/project/marino-pr"},{"path":"/project/anyclip"},{"path":"/project/katamaran"},{"path":"/dev-404-page"},{"path":"/404.html"},{"path":"/404"},{"path":"/contact"},{"path":"/"},{"path":"/blog"},{"path":"/projects"}]}},"pageContext":{}},"staticQueryHashes":[]}
+{
+  "componentChunkName": "component---cache-dev-404-page-js",
+  "path": "/dev-404-page",
+  "result": {
+    "data": {
+      "allSitePage": {
+        "nodes": [
+          { "path": "/blog/deep-fakes" },
+          { "path": "/blog/gatsby" },
+          { "path": "/blog/ecommerce-store-with-react-stripe" },
+          { "path": "/blog/leading-edge---filtering-front-to-back" },
+          { "path": "/blog/making-the-switch-from-sass-to-styled-components" },
+          { "path": "/blog/full-stack-todo-app" },
+          {
+            "path": "/blog/making-the-youtube-api-adaptive-and-modular-with-es6"
+          },
+          { "path": "/blog/choosing-the-right-framework" },
+          {
+            "path": "/blog/last-year-i-was-working-on-a-history-page-for-a-client"
+          },
+          { "path": "/project/webmusic" },
+          { "path": "/project/2048" },
+          { "path": "/project/karaoke" },
+          { "path": "/project/music_portfolio" },
+          { "path": "/project/write-meow" },
+          { "path": "/project/memory-game" },
+          { "path": "/project/working-with-mailchimp-in-gatsby" },
+          { "path": "/project/full-stack-todo-app" },
+          { "path": "/project/dose" },
+          { "path": "/project/ourbond.com" },
+          { "path": "/project/track-fit" },
+          { "path": "/project/deep-fakes" },
+          { "path": "/project/marino-pr" },
+          { "path": "/project/anyclip" },
+          { "path": "/project/katamaran" },
+          { "path": "/dev-404-page" },
+          { "path": "/404.html" },
+          { "path": "/404" },
+          { "path": "/contact" },
+          { "path": "/" },
+          { "path": "/blog" },
+          { "path": "/projects" }
+        ]
+      }
+    },
+    "pageContext": {}
+  },
+  "staticQueryHashes": []
+}

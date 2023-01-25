@@ -1,19 +1,84 @@
-import { useRouter } from 'next/router';
-import Head from 'next/head';
-import ErrorPage from 'next/error';
-import styled from 'styled-components';
-import { RichText } from 'prismic-reactjs';
+import { useRouter } from 'next/router'
+import Head from 'next/head'
+import ErrorPage from 'next/error'
+import styled from 'styled-components'
+import { RichText } from 'prismic-reactjs'
 
-import {colors} from '../../styles/colors';
-import Layout from '../../components/Layout';
-import TechStack from '../../components/TechStack';
-import dimensions from '../../styles/dimensions';
-import Hero from '../../components/Hero';
+import { colors } from '../../styles/colors'
+import Layout from '../../components/Layout'
+import TechStack from '../../components/TechStack'
+import dimensions from '../../styles/dimensions'
+import Hero from '../../components/Hero'
 
-import {
-  getAllProjectsWithSlug,
-  getProject,
-} from '../../lib/api';
+import { getAllProjectsWithSlug, getProject } from '../../lib/api'
+import { GetStaticPaths, GetStaticProps } from 'next'
+
+type ProjectPostProps = {
+  project: any
+}
+
+const Project = ({project}: ProjectPostProps) => {
+  if (!project) {
+    return null
+  }
+
+  const router = useRouter()
+  if (!router.isFallback && !project?._meta?.uid) {
+    return <ErrorPage statusCode={404} />
+  }
+
+  return (
+    <Layout>
+      <Head>
+        <title>Project</title>
+      </Head>
+      <Hero
+        text=""
+        heading={project.title[0].text}
+        background={null}
+        variant="project"
+      />
+      <ProjectWrapper>
+        {project.description.length > 0 && (
+          <ProjectDescription>
+            <RichText render={project.description} />
+            <a href={project.project_link.url}>
+              <img
+                src={project.project_image.url}
+                alt={project.project_image.alt}
+              />
+            </a>
+          </ProjectDescription>
+        )}
+        {project.tech_stack.length > 0 && (
+          <TechStack stack={project.tech_stack} />
+        )}
+      </ProjectWrapper>
+    </Layout>
+  )
+}
+
+export default Project
+
+export const getStaticProps: GetStaticProps = async ({ params, preview = false, previewData }) => {
+  const data = await getProject(params?.slug, previewData)
+
+  return {
+    props: {
+      preview,
+      project: data?.project ?? null,
+    },
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const allProjects = await getAllProjectsWithSlug()
+  return {
+    paths: allProjects?.map(({ node }: any) => `/projects/${node._meta.uid}`) || [],
+    fallback: false,
+  }
+}
+
 
 const ProjectWrapper = styled.div`
   background: #fff;
@@ -29,7 +94,7 @@ const ProjectWrapper = styled.div`
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     padding: 1.6rem 4.6rem 12rem 4.6rem;
   }
-`;
+`
 
 const ProjectDescription = styled.div`
   display: flex;
@@ -78,70 +143,4 @@ const ProjectDescription = styled.div`
   em {
     background: linear-gradient(transparent 1.2rem, ${colors.blue} 1rem);
   }
-`;
-
-const Project = (props) => {
-
-  if (!props.project) {
-    return null;
-  }
-
-  const router = useRouter();
-  if (!router.isFallback && !props.project?._meta?.uid) {
-    return <ErrorPage statusCode={404} />;
-  }
-
-  return (
-    <Layout>
-      <Head>
-        <title>Project</title>
-      </Head>
-      <Hero
-        text=""
-        heading={props.project.title[0].text}
-        background={null}
-        variant="project"
-      />
-      <ProjectWrapper>
-        {props.project.description.length > 0 && (
-          <ProjectDescription>
-            <RichText render={props.project.description} />
-            <a href={props.project.project_link.url}>
-              <img
-                src={props.project.project_image.url}
-                alt={props.project.project_image.alt}
-              />
-            </a>
-          </ProjectDescription>
-        )}
-        {props.project.tech_stack.length > 0 && (
-          <TechStack stack={props.project.tech_stack} />
-        )}
-      </ProjectWrapper>
-    </Layout>
-  );
-};
-
-export default Project;
-
-export async function getStaticProps({ params, preview = false, previewData }) {
-  const data = await getProject(
-    params.slug,
-    previewData
-  );
-
-  return {
-    props: {
-      preview,
-      project: data?.project ?? null,
-    },
-  };
-}
-
-export async function getStaticPaths() {
-  const allProjects = await getAllProjectsWithSlug();
-  return {
-    paths: allProjects?.map(({ node }) => `/projects/${node._meta.uid}`) || [],
-    fallback: false,
-  };
-}
+`

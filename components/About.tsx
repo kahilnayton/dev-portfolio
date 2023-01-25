@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   FaReact,
   FaPython,
@@ -10,119 +10,21 @@ import {
   FaWordpressSimple,
   FaPhp,
   FaShopify,
-} from 'react-icons/fa';
-import { SiMongodb, SiNextDotJs } from 'react-icons/si';
-import {
-  DiCss3,
-  DiRuby,
-  DiJsBadge,
-  DiSass,
-  DiPostgresql,
-} from 'react-icons/di';
-import { GrGatsbyjs, GrGraphQl } from 'react-icons/gr';
-import Reveal from 'react-reveal/Reveal';
-import styled from 'styled-components';
-import Roll from 'react-reveal/Roll';
+} from 'react-icons/fa'
+import { SiMongodb, SiNextDotJs } from 'react-icons/si'
+import { DiCss3, DiRuby, DiJsBadge, DiSass, DiPostgresql } from 'react-icons/di'
+import { GrGatsbyjs, GrGraphQl } from 'react-icons/gr'
+// @ts-ignore
+import Reveal from 'react-reveal/Reveal'
+import styled from 'styled-components'
+// @ts-ignore
+import Roll from 'react-reveal/Roll'
 
-import gradients from '../styles/gradients';
-import { colors } from '../styles/colors';
-import CloudComponent from '../components/CloudComponent';
+import gradients from '../styles/gradients'
+import { colors } from '../styles/colors'
+import CloudComponent from '../components/CloudComponent'
 
-const Li = styled.li`
-    transition: 0.2s;
-  &:hover {
-    transform: scale(1.2);
-    transition: 0.2s;
-  }
-`;
 
-const Section = styled.section`
-  padding: 30px 0;
-  margin-bottom: 12rem;
-  text-align: center;
-  background: black;
-  position: relative;
-  background: ${gradients.purpleRedCircle};
-
-  h2 {
-  }
-
-  h2,
-  h4 {
-    padding-bottom: 10px;
-    color: ${colors.grey200};
-    font-weight: 400;
-    font-size: 1.6rem;
-  }
-
-  ul {
-    max-width: 750px;
-    margin: 0 auto;
-    z-index: 2;
-    position: relative;
-
-    li {
-      margin: 0.75rem 2rem;
-    }
-  }
-  .section-title {
-    font-size: 2.4rem;
-    font-family: 'Zallord';
-  }
-
-  .wordpress {
-    fill: #217195;
-  }
-  .php {
-    fill: #7377ad;
-  }
-  .shopify {
-    fill: #7cb163;
-  }
-  .mongo {
-    fill: #49aa4d;
-  }
-  .next {
-    fill: black;
-  }
-
-  .fa-html5 {
-    color: #e34f26;
-  }
-
-  .fa-css3-alt {
-    color: #0074d9;
-  }
-
-  .fa-js-square {
-    color: #f7df1e;
-  }
-
-  .fa-code {
-    color: #0769ad;
-  }
-
-  .fa-react {
-    color: #3f889f;
-  }
-
-  .fa-git-square {
-    color: #de6b55;
-  }
-
-  .fa-database {
-    color: #336791;
-  }
-  .fa-Aws {
-    color: #c55526;
-  }
-  .fa-gatsby {
-    color: #67208b;
-  }
-  .fa-graphql {
-    color: #ea2ccd;
-  }
-`;
 
 export default function About() {
   return (
@@ -219,7 +121,10 @@ export default function About() {
           </Li>
           <Li>
             <Roll left>
-              <FaWordpressSimple size={70} className="fab wordpress icon-size" />
+              <FaWordpressSimple
+                size={70}
+                className="fab wordpress icon-size"
+              />
               <h4 className="about-subtitle block">WordPress</h4>
             </Roll>
           </Li>
@@ -251,5 +156,102 @@ export default function About() {
         <CloudComponent direction="right" distance="2rem" />
       </Reveal>
     </Section>
-  );
+  )
 }
+
+
+const Li = styled.li`
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.2);
+    transition: 0.2s;
+  }
+`
+
+const Section = styled.section`
+  padding: 30px 0;
+  margin-bottom: 12rem;
+  text-align: center;
+  background: black;
+  position: relative;
+  background: ${gradients.purpleRedCircle};
+
+  h2 {
+  }
+
+  h2,
+  h4 {
+    padding-bottom: 10px;
+    color: ${colors.grey200};
+    font-weight: 400;
+    font-size: 1.6rem;
+  }
+
+  ul {
+    max-width: 750px;
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+
+    li {
+      margin: 0.75rem 2rem;
+    }
+  }
+  .section-title {
+    font-size: 2.4rem;
+    font-family: 'Zallord';
+  }
+
+  .wordpress {
+    fill: #217195;
+  }
+  .php {
+    fill: #7377ad;
+  }
+  .shopify {
+    fill: #7cb163;
+  }
+  .mongo {
+    fill: #49aa4d;
+  }
+  .next {
+    fill: black;
+  }
+
+  .fa-html5 {
+    color: #e34f26;
+  }
+
+  .fa-css3-alt {
+    color: #0074d9;
+  }
+
+  .fa-js-square {
+    color: #f7df1e;
+  }
+
+  .fa-code {
+    color: #0769ad;
+  }
+
+  .fa-react {
+    color: #3f889f;
+  }
+
+  .fa-git-square {
+    color: #de6b55;
+  }
+
+  .fa-database {
+    color: #336791;
+  }
+  .fa-Aws {
+    color: #c55526;
+  }
+  .fa-gatsby {
+    color: #67208b;
+  }
+  .fa-graphql {
+    color: #ea2ccd;
+  }
+`

@@ -1,12 +1,26 @@
-import React from 'react';
-import styled from 'styled-components';
-import Link from 'next/link';
+import React from 'react'
+import styled from 'styled-components'
+import Link from 'next/link'
 
-import {colors} from '../../styles/colors';
-import gradients from '../../styles/gradients';
-import dimensions from '../../styles/dimensions';
+import { colors } from '../../styles/colors'
+import gradients from '../../styles/gradients'
+import dimensions from '../../styles/dimensions'
 
-const ButtonContainer = styled.a`
+type ButtonLinkProps = {
+  title: string
+  href: string
+}
+
+export default function ButtonLink({href, title}: ButtonLinkProps) {
+
+  return (
+    <Link href={href}>
+      <ButtonContainer>{title}</ButtonContainer>
+    </Link>
+  )
+}
+
+const ButtonContainer = styled.div`
   position: relative;
   display: inline-block;
   padding: 1.6rem 6.6vw 1.4rem;
@@ -33,14 +47,4 @@ const ButtonContainer = styled.a`
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     padding: 1.6rem 3.33vw 1.4rem;
   }
-`;
-
-export default function ButtonLink(props) {
-  const { href, title } = props;
-
-  return (
-    <Link href={href}>
-      <ButtonContainer>{title}</ButtonContainer>
-    </Link>
-  );
-}
+`

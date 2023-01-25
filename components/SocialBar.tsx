@@ -1,10 +1,9 @@
-import React from 'react';
-import Link from 'next/link';
+import React from 'react'
+import Link from 'next/link'
 
-import styled from 'styled-components';
-import {colors} from '../styles/colors';
-import dimensions from '../styles/dimensions';
-// import gradients from 'styles/gradients';
+import styled from 'styled-components'
+import { colors } from '../styles/colors'
+import dimensions from '../styles/dimensions'
 
 import {
   GrFacebookOption,
@@ -12,8 +11,63 @@ import {
   GrTwitter,
   GrMail,
   GrLinkedin,
-} from 'react-icons/gr';
-// import { checkPropTypes } from 'prop-types';
+} from 'react-icons/gr'
+
+type SocialBarProps = {
+  variant?: string
+  toggleMobile?: () => void
+}
+
+const SocialBar = ({variant, toggleMobile}: SocialBarProps) => {
+  return (
+    <SocialBarList className={`${variant && variant}`}>
+      <li>
+        <FaceBookIcon
+          href={'https://www.facebook.com/kahil.nayton'}
+          target="blank"
+          rel="noopener noreferrer"
+        >
+          <GrFacebookOption />
+        </FaceBookIcon>
+      </li>
+
+      <li>
+        <InstaIcon
+          href={'https://www.instagram.com/kahilnayton/'}
+          target="blank"
+          rel="noopener noreferrer"
+        >
+          <GrInstagram />
+        </InstaIcon>
+      </li>
+
+      <li>
+        <TwitterIcon
+          href={'https://twitter.com/kahilnayton'}
+          target="blank"
+          rel="noopener noreferrer"
+        >
+          <GrTwitter />
+        </TwitterIcon>
+      </li>
+      <li>
+        <LinkedInIcon
+          href={'https://www.linkedin.com/in/kahilnayton/'}
+          target="blank"
+          rel="noopener noreferrer"
+        >
+          <GrLinkedin />
+        </LinkedInIcon>
+      </li>
+      <li>
+        <MailLink href={'/contact'} onClick={toggleMobile}>
+          <GrMail />
+        </MailLink>
+      </li>
+    </SocialBarList>
+  )
+}
+
 
 const SocialBarList = styled.ul`
   display: flex;
@@ -60,36 +114,36 @@ const SocialBarList = styled.ul`
       fill: ${colors.grey600};
     }
   }
-`;
+`
 
-const FaceBookIcon = styled.a`
+const FaceBookIcon = styled(Link)`
   &:hover {
     svg {
       fill: #129df8;
     }
   }
-`;
-const InstaIcon = styled.a`
+`
+const InstaIcon = styled(Link)`
   &:hover {
     svg {
       fill: #f95901;
     }
   }
-`;
-const TwitterIcon = styled.a`
+`
+const TwitterIcon = styled(Link)`
   &:hover {
     svg {
       fill: #50abf1;
     }
   }
-`;
-const LinkedInIcon = styled.a`
+`
+const LinkedInIcon = styled(Link)`
   &:hover {
     svg {
       fill: #017ab9;
     }
   }
-`;
+`
 
 const MailLink = styled(Link)`
   &:hover {
@@ -98,58 +152,6 @@ const MailLink = styled(Link)`
       fill: ${colors.red};
     }
   }
-`;
+`
 
-const SocialBar = props => {
-  return (
-    <SocialBarList className={`${props.variant && props.variant}`}>
-      <li>
-        <FaceBookIcon
-          href={'https://www.facebook.com/kahil.nayton'}
-          target="blank"
-          rel="noopener noreferrer"
-        >
-          <GrFacebookOption />
-        </FaceBookIcon>
-      </li>
-
-      <li>
-        <InstaIcon
-          href={'https://www.instagram.com/kahilnayton/'}
-          target="blank"
-          rel="noopener noreferrer"
-        >
-          <GrInstagram />
-        </InstaIcon>
-      </li>
-
-      <li>
-        <TwitterIcon
-          href={'https://twitter.com/kahilnayton'}
-          target="blank"
-          rel="noopener noreferrer"
-        >
-          <GrTwitter />
-        </TwitterIcon>
-      </li>
-      <li>
-        <LinkedInIcon
-          href={'https://www.linkedin.com/in/kahilnayton/'}
-          target="blank"
-          rel="noopener noreferrer"
-        >
-          <GrLinkedin />
-        </LinkedInIcon>
-      </li>
-      <li>
-        <MailLink href={'/contact'} onClick={props.toggleMobile}>
-          <a>
-            <GrMail />
-          </a>
-        </MailLink>
-      </li>
-    </SocialBarList>
-  );
-};
-
-export default SocialBar;
+export default SocialBar

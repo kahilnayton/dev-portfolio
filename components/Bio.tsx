@@ -1,13 +1,30 @@
-import React, { createRef, useEffect, useState } from 'react';
-import { RichText } from 'prismic-reactjs';
-import lottie from 'lottie-web';
-import styled from 'styled-components';
+import React, { createRef, useEffect, useState } from 'react'
+import { RichText } from 'prismic-reactjs'
+import lottie from 'lottie-web'
+import styled from 'styled-components'
 
-import { Inner } from '../styles/structure';
-import {colors} from '../styles/colors';
-import dimensions from '../styles/dimensions';
-import animation from '../public/animations/helicopter.json';
-import Video from '../components/_ui/Video';
+import { Inner } from '../styles/structure'
+import { colors } from '../styles/colors'
+import dimensions from '../styles/dimensions'
+import animation from '../public/animations/helicopter.json'
+import Video from '../components/_ui/Video'
+
+type BioProps = {
+  heading: string
+  content: string
+  profilePic?: string
+}
+
+const Bio = ({ heading, content, profilePic }: BioProps) => {
+  return (
+    <Inner>
+      <BioContainer>
+        <h1>{heading}</h1>
+        <p>{content}</p>
+      </BioContainer>
+    </Inner>
+  )
+}
 
 const BioContainer = styled.div`
   background: rgba(255, 255, 255, 0.2);
@@ -25,7 +42,6 @@ const BioContainer = styled.div`
 
   img {
     position: absolute;
-    /* filter: grayscale(1); */
     top: 0;
     right: 0;
     width: 12rem;
@@ -48,41 +64,11 @@ const BioContainer = styled.div`
   em {
     font-family: 'Zallord';
   }
-`;
+`
 
 const HelicopterAnimation = styled.div`
   height: 20rem;
   width: 20rem;
-`;
+`
 
-const Bio = props => {
-  // let animationContainer = createRef();
-  const [showVideo, setShowVideo] = useState(false);
-
-  // useEffect(() => {
-  //   const anim = lottie.loadAnimation({
-  //     container: animationContainer.current,
-  //     renderer: 'svg',
-  //     loop: true,
-  //     autoplay: true,
-  //     animationData: animation,
-  //   });
-  //   return () => anim.destroy();
-  // }, []);
-
-  return (
-    <Inner>
-      <BioContainer>
-        <h1>{props.heading[0].text}</h1>
-        {showVideo && <Video source={props.video} />}
-        {!showVideo && (
-          <img src={props.profilePic.url} alt={props.profilePic.alt} onClick={() => setShowVideo(!showVideo)} />
-        )}
-        <RichText render={props.content} />
-        {/* <HelicopterAnimation ref={animationContainer} /> */}
-      </BioContainer>
-    </Inner>
-  );
-};
-
-export default Bio;
+export default Bio

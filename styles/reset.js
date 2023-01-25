@@ -154,6 +154,6 @@ const resetStyles = createGlobalStyle`
     outline: 0;
     background-color: transparent;
   }
-`;
+`
 
-export default resetStyles;
+export default resetStyles

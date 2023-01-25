@@ -7,6 +7,6 @@ const gradients = {
   rainbow: 'linear-gradient(to bottom, #FFF44F, #F47920, #EE1A3B, #44217A)',
   rainbowToRight:
     'linear-gradient(to bottom right, #FFF44F, #F47920, #EE1A3B, #44217A)',
-};
+}
 
-export default gradients;
+export default gradients

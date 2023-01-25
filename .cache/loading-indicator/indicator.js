@@ -1,12 +1,12 @@
-import React from "react"
-import Portal from "./portal"
-import Style from "./style"
-import { isLoadingIndicatorEnabled } from "$virtual/loading-indicator"
-import { debugLog } from "../debug-log"
+import React from 'react'
+import Portal from './portal'
+import Style from './style'
+import { isLoadingIndicatorEnabled } from '$virtual/loading-indicator'
+import { debugLog } from '../debug-log'
 
 if (typeof window === `undefined`) {
   throw new Error(
-    `Loading indicator should never be imported in code that doesn't target only browsers`
+    `Loading indicator should never be imported in code that doesn't target only browsers`,
   )
 }
 
@@ -32,7 +32,7 @@ export function Indicator({ visible = true }) {
   if (!window.___gatsbyDidShowLoadingIndicatorBefore) {
     // not ideal to this in render function, but that's just console info
     debugLog(
-      `A loading indicator is displayed in-browser whenever content is being requested upon navigation (Query On Demand).\n\nYou can disable the loading indicator for your current session by visiting ${window.location.origin}/___loading-indicator/disable`
+      `A loading indicator is displayed in-browser whenever content is being requested upon navigation (Query On Demand).\n\nYou can disable the loading indicator for your current session by visiting ${window.location.origin}/___loading-indicator/disable`,
     )
     window.___gatsbyDidShowLoadingIndicatorBefore = true
   }

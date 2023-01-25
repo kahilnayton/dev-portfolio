@@ -1,11 +1,11 @@
-import { apiRunner } from "./api-runner-browser"
+import { apiRunner } from './api-runner-browser'
 
 if (
   window.location.protocol !== `https:` &&
   window.location.hostname !== `localhost`
 ) {
   console.error(
-    `Service workers can only be used over HTTPS, or on localhost for development`
+    `Service workers can only be used over HTTPS, or on localhost for development`,
   )
 } else if (`serviceWorker` in navigator) {
   navigator.serviceWorker

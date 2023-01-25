@@ -22,11 +22,11 @@ const { version: gatsbyVersion } = require(`gatsby/package.json`)
 const { grabMatchParams } = require(`./find-path`)
 
 const stats = JSON.parse(
-  fs.readFileSync(`${process.cwd()}/public/webpack.stats.json`, `utf-8`)
+  fs.readFileSync(`${process.cwd()}/public/webpack.stats.json`, `utf-8`),
 )
 
 const chunkMapping = JSON.parse(
-  fs.readFileSync(`${process.cwd()}/public/chunk-map.json`, `utf-8`)
+  fs.readFileSync(`${process.cwd()}/public/chunk-map.json`, `utf-8`),
 )
 
 // const testRequireError = require("./test-require-error")
@@ -52,20 +52,20 @@ try {
 
 Html = Html && Html.__esModule ? Html.default : Html
 
-const getPageDataPath = path => {
+const getPageDataPath = (path) => {
   const fixedPagePath = path === `/` ? `index` : path
   return join(`page-data`, fixedPagePath, `page-data.json`)
 }
 
-const getPageDataUrl = pagePath => {
+const getPageDataUrl = (pagePath) => {
   const pageDataPath = getPageDataPath(pagePath)
   return `${__PATH_PREFIX__}/${pageDataPath}`
 }
 
-const getStaticQueryUrl = hash =>
+const getStaticQueryUrl = (hash) =>
   `${__PATH_PREFIX__}/page-data/sq/d/${hash}.json`
 
-const getPageData = pagePath => {
+const getPageData = (pagePath) => {
   const pageDataPath = getPageDataPath(pagePath)
   const absolutePageDataPath = join(process.cwd(), `public`, pageDataPath)
   const pageDataRaw = fs.readFileSync(absolutePageDataPath)
@@ -97,7 +97,7 @@ const getAppDataUrl = memoize(() => {
   return `${__PATH_PREFIX__}/${appDataPath}`
 })
 
-const loadPageDataSync = pagePath => {
+const loadPageDataSync = (pagePath) => {
   const pageDataPath = getPageDataPath(pagePath)
   const pageDataFile = join(process.cwd(), `public`, pageDataPath)
   try {
@@ -111,9 +111,9 @@ const loadPageDataSync = pagePath => {
 
 const createElement = React.createElement
 
-export const sanitizeComponents = components => {
+export const sanitizeComponents = (components) => {
   const componentsArray = ensureArray(components)
-  return componentsArray.map(component => {
+  return componentsArray.map((component) => {
     // Ensure manifest is always loaded from content server
     // And not asset server when an assetPrefix is used
     if (__ASSET_PREFIX__ && component.props.rel === `manifest`) {
@@ -125,11 +125,11 @@ export const sanitizeComponents = components => {
   })
 }
 
-const ensureArray = components => {
+const ensureArray = (components) => {
   if (Array.isArray(components)) {
     // remove falsy items and flatten
     return flattenDeep(
-      components.filter(val => (Array.isArray(val) ? val.length > 0 : val))
+      components.filter((val) => (Array.isArray(val) ? val.length > 0 : val)),
     )
   } else {
     // we also accept single components, so we need to handle this case as well
@@ -152,51 +152,51 @@ export default (pagePath, callback) => {
   let postBodyComponents = []
   let bodyProps = {}
 
-  const replaceBodyHTMLString = body => {
+  const replaceBodyHTMLString = (body) => {
     bodyHtml = body
   }
 
-  const setHeadComponents = components => {
+  const setHeadComponents = (components) => {
     headComponents = headComponents.concat(sanitizeComponents(components))
   }
 
-  const setHtmlAttributes = attributes => {
+  const setHtmlAttributes = (attributes) => {
     htmlAttributes = merge(htmlAttributes, attributes)
   }
 
-  const setBodyAttributes = attributes => {
+  const setBodyAttributes = (attributes) => {
     bodyAttributes = merge(bodyAttributes, attributes)
   }
 
-  const setPreBodyComponents = components => {
+  const setPreBodyComponents = (components) => {
     preBodyComponents = preBodyComponents.concat(sanitizeComponents(components))
   }
 
-  const setPostBodyComponents = components => {
+  const setPostBodyComponents = (components) => {
     postBodyComponents = postBodyComponents.concat(
-      sanitizeComponents(components)
+      sanitizeComponents(components),
     )
   }
 
-  const setBodyProps = props => {
+  const setBodyProps = (props) => {
     bodyProps = merge({}, bodyProps, props)
   }
 
   const getHeadComponents = () => headComponents
 
-  const replaceHeadComponents = components => {
+  const replaceHeadComponents = (components) => {
     headComponents = sanitizeComponents(components)
   }
 
   const getPreBodyComponents = () => preBodyComponents
 
-  const replacePreBodyComponents = components => {
+  const replacePreBodyComponents = (components) => {
     preBodyComponents = sanitizeComponents(components)
   }
 
   const getPostBodyComponents = () => postBodyComponents
 
-  const replacePostBodyComponents = components => {
+  const replacePostBodyComponents = (components) => {
     postBodyComponents = sanitizeComponents(components)
   }
 
@@ -224,7 +224,7 @@ export default (pagePath, callback) => {
 
       const pageElement = createElement(
         syncRequires.components[componentChunkName],
-        props
+        props,
       )
 
       const wrappedPage = apiRunner(
@@ -233,7 +233,7 @@ export default (pagePath, callback) => {
         pageElement,
         ({ result }) => {
           return { element: result, props }
-        }
+        },
       ).pop()
 
       return wrappedPage
@@ -255,7 +255,7 @@ export default (pagePath, callback) => {
     routerElement,
     ({ result }) => {
       return { element: result, pathname: pagePath }
-    }
+    },
   ).pop()
 
   // Let the site or plugin render the page component.
@@ -284,7 +284,7 @@ export default (pagePath, callback) => {
 
   // Create paths to scripts
   let scriptsAndStyles = flatten(
-    [`app`, componentChunkName].map(s => {
+    [`app`, componentChunkName].map((s) => {
       const fetchKey = `assetsByChunkName[${s}]`
 
       let chunks = get(stats, fetchKey)
@@ -294,40 +294,40 @@ export default (pagePath, callback) => {
         return null
       }
 
-      chunks = chunks.map(chunk => {
+      chunks = chunks.map((chunk) => {
         if (chunk === `/`) {
           return null
         }
         return { rel: `preload`, name: chunk }
       })
 
-      namedChunkGroups[s].assets.forEach(asset =>
-        chunks.push({ rel: `preload`, name: asset })
+      namedChunkGroups[s].assets.forEach((asset) =>
+        chunks.push({ rel: `preload`, name: asset }),
       )
 
       const childAssets = namedChunkGroups[s].childAssets
       for (const rel in childAssets) {
         chunks = concat(
           chunks,
-          childAssets[rel].map(chunk => {
+          childAssets[rel].map((chunk) => {
             return { rel, name: chunk }
-          })
+          }),
         )
       }
 
       return chunks
-    })
+    }),
   )
-    .filter(s => isObject(s))
+    .filter((s) => isObject(s))
     .sort((s1, s2) => (s1.rel == `preload` ? -1 : 1)) // given priority to preload
 
-  scriptsAndStyles = uniqBy(scriptsAndStyles, item => item.name)
+  scriptsAndStyles = uniqBy(scriptsAndStyles, (item) => item.name)
 
   const scripts = scriptsAndStyles.filter(
-    script => script.name && script.name.endsWith(`.js`)
+    (script) => script.name && script.name.endsWith(`.js`),
   )
   const styles = scriptsAndStyles.filter(
-    style => style.name && style.name.endsWith(`.css`)
+    (style) => style.name && style.name.endsWith(`.css`),
   )
 
   apiRunner(`onRenderBody`, {
@@ -348,7 +348,7 @@ export default (pagePath, callback) => {
   scripts
     .slice(0)
     .reverse()
-    .forEach(script => {
+    .forEach((script) => {
       // Add preload/prefetch <link>s for scripts.
       headComponents.push(
         <link
@@ -356,7 +356,7 @@ export default (pagePath, callback) => {
           rel={script.rel}
           key={script.name}
           href={`${__PATH_PREFIX__}/${script.name}`}
-        />
+        />,
       )
     })
 
@@ -368,10 +368,10 @@ export default (pagePath, callback) => {
         key={pageDataUrl}
         href={pageDataUrl}
         crossOrigin="anonymous"
-      />
+      />,
     )
   }
-  staticQueryUrls.forEach(staticQueryUrl =>
+  staticQueryUrls.forEach((staticQueryUrl) =>
     headComponents.push(
       <link
         as="fetch"
@@ -379,8 +379,8 @@ export default (pagePath, callback) => {
         key={staticQueryUrl}
         href={staticQueryUrl}
         crossOrigin="anonymous"
-      />
-    )
+      />,
+    ),
   )
 
   if (appDataUrl) {
@@ -391,14 +391,14 @@ export default (pagePath, callback) => {
         key={appDataUrl}
         href={appDataUrl}
         crossOrigin="anonymous"
-      />
+      />,
     )
   }
 
   styles
     .slice(0)
     .reverse()
-    .forEach(style => {
+    .forEach((style) => {
       // Add <link>s for styles that should be prefetched
       // otherwise, inline as a <style> tag
 
@@ -409,7 +409,7 @@ export default (pagePath, callback) => {
             rel={style.rel}
             key={style.name}
             href={`${__PATH_PREFIX__}/${style.name}`}
-          />
+          />,
         )
       } else {
         headComponents.unshift(
@@ -419,10 +419,10 @@ export default (pagePath, callback) => {
             dangerouslySetInnerHTML={{
               __html: fs.readFileSync(
                 join(process.cwd(), `public`, style.name),
-                `utf-8`
+                `utf-8`,
               ),
             }}
-          />
+          />,
         )
       }
     })
@@ -437,12 +437,12 @@ export default (pagePath, callback) => {
       dangerouslySetInnerHTML={{
         __html: windowPageData,
       }}
-    />
+    />,
   )
 
   // Add chunk mapping metadata
   const scriptChunkMapping = `/*<![CDATA[*/window.___chunkMapping=${JSON.stringify(
-    chunkMapping
+    chunkMapping,
   )};/*]]>*/`
 
   postBodyComponents.push(
@@ -452,15 +452,15 @@ export default (pagePath, callback) => {
       dangerouslySetInnerHTML={{
         __html: scriptChunkMapping,
       }}
-    />
+    />,
   )
 
   let bodyScripts = []
   if (chunkMapping[`polyfill`]) {
-    chunkMapping[`polyfill`].forEach(script => {
+    chunkMapping[`polyfill`].forEach((script) => {
       const scriptPath = `${__PATH_PREFIX__}${script}`
       bodyScripts.push(
-        <script key={scriptPath} src={scriptPath} noModule={true} />
+        <script key={scriptPath} src={scriptPath} noModule={true} />,
       )
     })
   }
@@ -469,14 +469,14 @@ export default (pagePath, callback) => {
   // would force high priority fetching.
   bodyScripts = bodyScripts.concat(
     scripts
-      .filter(s => s.rel !== `prefetch`)
-      .map(s => {
+      .filter((s) => s.rel !== `prefetch`)
+      .map((s) => {
         const scriptPath = `${__PATH_PREFIX__}/${JSON.stringify(s.name).slice(
           1,
-          -1
+          -1,
         )}`
         return <script key={scriptPath} src={scriptPath} async />
-      })
+      }),
   )
 
   postBodyComponents.push(...bodyScripts)
@@ -502,7 +502,7 @@ export default (pagePath, callback) => {
       postBodyComponents={postBodyComponents}
       body={bodyHtml}
       path={pagePath}
-    />
+    />,
   )}`
 
   callback(null, html)

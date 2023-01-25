@@ -1,15 +1,53 @@
-import { RichText } from 'prismic-reactjs';
-import styled from 'styled-components';
+import { RichText } from 'prismic-reactjs'
+import styled from 'styled-components'
 
-import dimensions from '../styles/dimensions';
-import { Inner, Wrap } from '../styles/structure';
-import { colors } from '../styles/colors';
-import gradients from '../styles/gradients';
-import z from '../styles/base';
-import CloudComponent from '../components/CloudComponent';
-import { CloudBackground } from '../components/_ui/icons';
+import dimensions from '../styles/dimensions'
+import { Inner, Wrap } from '../styles/structure'
+import { colors } from '../styles/colors'
+import gradients from '../styles/gradients'
+import z from '../styles/base'
+import CloudComponent from '../components/CloudComponent'
+import { CloudBackground } from '../components/_ui/icons'
 
 // import Image from 'next/image'
+
+type HeroProps = {
+  variant: string
+  heading: string
+   text: string
+   background?: Record<string, string>
+}
+
+const Hero = ({variant, heading, text, background}: HeroProps) => {
+
+  return (
+    <HeroContainer className={`${variant ? `Hero--${variant}` : ''}`}>
+      <HeroInner>
+        <HeroBackground>
+          {background ? (
+            <img src={background.url} alt="Hero background image" />
+          ) : (
+            <CloudBackground alt="Cloud background" />
+          )}
+        </HeroBackground>
+        <CloudComponent direction="right" distance="2rem" />
+        <HeroWrap>
+          {variant !== 'projectPage' && (
+            <HeroContent>
+              TODO: Fix rich text
+              {/* {heading && <RichText render={heading} />} */}
+
+              {text && <p className="is-large">{text}</p>}
+            </HeroContent>
+          )}
+        </HeroWrap>
+      </HeroInner>
+    </HeroContainer>
+  )
+}
+
+export default Hero
+
 
 const imgStyle = {
   position: 'absolute',
@@ -19,7 +57,7 @@ const imgStyle = {
   width: '100%',
   height: '100%',
   objectFit: 'cover',
-};
+}
 
 const gatsbyImageContainer = {
   position: 'absolute',
@@ -27,7 +65,7 @@ const gatsbyImageContainer = {
   height: '100%',
   top: 0,
   left: 0,
-};
+}
 
 const HeroContainer = styled.div`
   position: relative;
@@ -58,7 +96,7 @@ const HeroContainer = styled.div`
       margin-top: 8rem;
     }
   }
-`;
+`
 
 const HeroInner = styled(Inner)`
   padding-top: 10rem;
@@ -73,7 +111,7 @@ const HeroInner = styled(Inner)`
     height: 66rem;
     transition: 0.2s;
   }
-`;
+`
 
 const HeroBackground = styled.div`
   position: absolute;
@@ -97,7 +135,7 @@ const HeroBackground = styled.div`
     /* width: calc(100% - 8rem); */
     /* left: 4rem; */
   }
-`;
+`
 
 const HeroWrap = styled(Wrap)`
   display: flex;
@@ -116,7 +154,7 @@ const HeroWrap = styled(Wrap)`
     padding: 0 10.4rem;
     max-width: 128rem;
   }
-`;
+`
 
 const HeroContent = styled.div`
   position: relative;
@@ -158,34 +196,4 @@ const HeroContent = styled.div`
       margin-top: 1.6rem;
     }
   }
-`;
-
-const Hero = (props) => {
-const {variant, heading, text} = props
-
-  return (
-    <HeroContainer className={`${variant ? `Hero--${variant}` : ''}`}>
-      <HeroInner>
-        <HeroBackground>
-          {props.background ? (
-            <img src={props.background.url} alt="Hero background image" />
-          ) : (
-            <CloudBackground alt="Cloud background" />
-          )}
-        </HeroBackground>
-        <CloudComponent direction="right" distance="2rem" />
-        <HeroWrap>
-          {variant !== 'projectPage' && (
-            <HeroContent>
-              {heading && <RichText render={heading} />}
-
-              {text && <p className="is-large">{text}</p>}
-            </HeroContent>
-          )}
-        </HeroWrap>
-      </HeroInner>
-    </HeroContainer>
-  );
-};
-
-export default Hero;
+`

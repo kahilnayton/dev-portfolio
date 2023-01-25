@@ -1,19 +1,19 @@
-import React from "react"
-import { Router, Location, BaseContext } from "@reach/router"
-import { ScrollContext } from "gatsby-react-router-scroll"
+import React from 'react'
+import { Router, Location, BaseContext } from '@reach/router'
+import { ScrollContext } from 'gatsby-react-router-scroll'
 
 import {
   shouldUpdateScroll,
   init as navigationInit,
   RouteUpdates,
-} from "./navigation"
-import { apiRunner } from "./api-runner-browser"
-import loader from "./loader"
-import { PageQueryStore, StaticQueryStore } from "./query-result-store"
-import EnsureResources from "./ensure-resources"
-import FastRefreshOverlay from "./fast-refresh-overlay"
-import { reportError, clearError } from "./error-overlay-handler"
-import { LoadingIndicatorEventHandler } from "./loading-indicator"
+} from './navigation'
+import { apiRunner } from './api-runner-browser'
+import loader from './loader'
+import { PageQueryStore, StaticQueryStore } from './query-result-store'
+import EnsureResources from './ensure-resources'
+import FastRefreshOverlay from './fast-refresh-overlay'
+import { reportError, clearError } from './error-overlay-handler'
+import { LoadingIndicatorEventHandler } from './loading-indicator'
 
 // TODO: Remove entire block when we make fast-refresh the default
 // In fast-refresh, this logic is all moved into the `error-overlay-handler`
@@ -47,7 +47,7 @@ navigationInit()
 // Resetting `basepath`/`baseuri` keeps current behaviour
 // to not introduce breaking change.
 // Remove this in v3
-const RouteHandler = props => (
+const RouteHandler = (props) => (
   <BaseContext.Provider
     value={{
       baseuri: `/`,
@@ -65,7 +65,7 @@ class LocationHandler extends React.Component {
     if (!loader.isPageNotFound(location.pathname)) {
       return (
         <EnsureResources location={location}>
-          {locationAndPageResources => (
+          {(locationAndPageResources) => (
             <RouteUpdates location={location}>
               <ScrollContext
                 location={location}
@@ -79,7 +79,7 @@ class LocationHandler extends React.Component {
                   <RouteHandler
                     path={encodeURI(
                       locationAndPageResources.pageResources.page.matchPath ||
-                        locationAndPageResources.pageResources.page.path
+                        locationAndPageResources.pageResources.page.path,
                     )}
                     {...this.props}
                     {...locationAndPageResources}
@@ -122,7 +122,7 @@ class LocationHandler extends React.Component {
 
 const Root = () => (
   <Location>
-    {locationContext => <LocationHandler {...locationContext} />}
+    {(locationContext) => <LocationHandler {...locationContext} />}
   </Location>
 )
 
@@ -133,7 +133,7 @@ const WrappedRoot = apiRunner(
   <Root />,
   ({ result, plugin }) => {
     return { element: result }
-  }
+  },
 ).pop()
 
 const ConditionalFastRefreshOverlay = ({ children }) => {

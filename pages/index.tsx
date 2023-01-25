@@ -1,78 +1,42 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import Layout from '../components/Layout';
-import { colors } from '../styles/colors';
+import Layout from '../components/Layout'
+import { colors } from '../styles/colors'
 import {
   acrossScreen,
   bottomToTop,
   bottomToTopSlow,
-} from '../styles/animations';
-import About from '../components/About';
-import Hero from '../components/Hero';
-import ContactForm from '../components/ContactForm';
-import FeaturedBlogs from '../components/FeaturedBlogs';
-import FeaturedProjects from '../components/FeaturedProjects';
-import ParallaxComponent from '../components/ParallaxComponent';
-import { Plane, Balloon } from '../components/_ui/icons';
-import Head from 'next/head';
+} from '../styles/animations'
+import About from '../components/About'
+import Hero from '../components/Hero'
+import ContactForm from '../components/ContactForm'
+import FeaturedBlogs from '../components/sections/FeaturedBlogs'
+import FeaturedProjects from '../components/sections/FeaturedProjects'
+import ParallaxComponent from '../components/ParallaxComponent'
+import { Plane, Balloon } from '../components/_ui/icons'
+import Head from 'next/head'
+import { PageContent } from '../lib/constants'
 
 // import Image from 'next/image';
 
-import { getAllHomepage } from '../lib/api';
-import Bio from '../components/Bio';
+import { getAllHomepage } from '../lib/api'
+import Bio from '../components/Bio'
+import SEO from '../components/SEO'
 // import Reveal from 'react-reveal/Reveal';
 
-const Wrapper = styled.div`
-  background: ${colors.blue};
-  padding-bottom: 13rem;
-`;
+type HomeProps = {
+  allHomepage: any
+}
 
-const PlaneWrapper = styled.div`
-  display: block;
-  position: relative;
-  height: 112rem;
-  width: 100%;
-  overflow: hidden;
-  margin-bottom: -100rem;
-  div {
-    width: 100%;
-  }
-`;
-
-const StyledPlane = styled(Plane)`
-  position: absolute;
-  animation-name: ${acrossScreen};
-  animation-duration: 15s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-`;
-
-const StyledBalloon = styled(Balloon)`
-  height: 18rem;
-  left: 40%;
-  position: absolute;
-  animation-name: ${bottomToTop};
-  animation-duration: 25s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-
-  &.small {
-    height: 6rem;
-    animation-duration: 60s;
-    animation-name: ${bottomToTopSlow};
-    overflow: hidden;
-  }
-`;
-
-const IndexPage = props => {
-  const home = props.allHomepage.allHomes.edges[0].node;
-  const Seo = home.body[1].primary;
+const IndexPage = ({allHomepage}: HomeProps) => {
+  const home = allHomepage?.allHomes?.edges[0].node
+  const Seo = home?.body[1].primary || SEO
 
   return (
     <Layout>
       <Head>
         {/* General */}
-        <title>{Seo.site_name}</title>
+        <title>{Seo?.site_name}</title>
         <meta name="description" content={Seo.description} />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -84,7 +48,7 @@ const IndexPage = props => {
         <meta property="og:url" content={Seo.url} key="ogurl" />
         <meta
           property="og:image"
-          content={Seo.preview_image.url}
+          content={Seo?.preview_image?.url}
           key="ogimage"
         />
         <meta
@@ -101,9 +65,9 @@ const IndexPage = props => {
       </Head>
       <Wrapper>
         <Hero
-          heading={home.heading}
-          text={home.body[0].primary.hero_title[0].text}
-          background={home.body[0].primary.background_image}
+          heading={home?.heading || 'hello'}
+          text={home?.body[0]?.primary.hero_title[0].text || 'this is me'}
+          // background={home.body[0].primary.background_image}
           variant="homepage"
         />
 
@@ -126,24 +90,25 @@ const IndexPage = props => {
         />
 
         <Bio
-          heading={home.bio.heading}
-          content={home.bio.content}
-          profilePic={home.bio.profile_pic}
-          video={home.bio.video}
+          heading={home?.bio?.heading || PageContent.heading}
+          content={home?.bio?.conten || ''}
+          profilePic={home?.bio?.profile_pic}
         />
 
         <FeaturedBlogs
-          blogs={home.blog_list}
-          variant="homepage"
-          blog_heading={home.blog_heading}
+        blogs={home?.blog_list}
+        variant="homepage"
+        heading={home.blog_heading}
+        content="hello"
+        buttonText='lets go'
         />
 
         <ParallaxComponent variant="planeLeftToRight" />
 
         <FeaturedProjects
-          projects={home.project_list}
-          variant="homepage"
-          project_heading={'Projects'}
+        // projects={home.project_list}
+        // variant="homepage"
+        // project_heading={'Projects'}
         />
 
         <ParallaxComponent variant="planeRightToLeft" />
@@ -155,14 +120,56 @@ const IndexPage = props => {
         <ContactForm />
       </Wrapper>
     </Layout>
-  );
-};
-export default IndexPage;
-
-export async function getStaticProps({ preview = false, previewData }) {
-  const allHomepage = await getAllHomepage(previewData);
-
-  return {
-    props: { preview, allHomepage },
-  };
+  )
 }
+export default IndexPage
+
+// export async function getStaticProps({ preview = false, previewData }) {
+//   const allHomepage = await getAllHomepage(previewData);
+
+//   return {
+//     props: { preview, allHomepage },
+//   };
+// }
+
+const Wrapper = styled.div`
+  background: ${colors.blue};
+  padding-bottom: 13rem;
+`
+
+const PlaneWrapper = styled.div`
+  display: block;
+  position: relative;
+  height: 112rem;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: -100rem;
+  div {
+    width: 100%;
+  }
+`
+
+const StyledPlane = styled(Plane)`
+  position: absolute;
+  animation-name: ${acrossScreen};
+  animation-duration: 15s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+`
+
+const StyledBalloon = styled(Balloon)`
+  height: 18rem;
+  left: 40%;
+  position: absolute;
+  animation-name: ${bottomToTop};
+  animation-duration: 25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  &.small {
+    height: 6rem;
+    animation-duration: 60s;
+    animation-name: ${bottomToTopSlow};
+    overflow: hidden;
+  }
+`

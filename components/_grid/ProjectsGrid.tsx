@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import dimensions from '../../styles/dimensions';
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import dimensions from '../../styles/dimensions'
 
 const GridContainer = styled.div`
   display: block;
   width: 100%;
-`;
+`
 
 const GridList = styled.ul`
   li + * {
@@ -50,15 +50,16 @@ const GridList = styled.ul`
       }
     }
   }
-`;
+`
 
 export default function ProjectsGrid(props) {
   return (
     <GridContainer
-      className={`${props.dense && 'is-dense'} ${props.variant &&
-        `Grid--${props.variant}`}`}
+      className={`${props.dense && 'is-dense'} ${
+        props.variant && `Grid--${props.variant}`
+      }`}
     >
       <GridList>{props.children}</GridList>
     </GridContainer>
-  );
+  )
 }

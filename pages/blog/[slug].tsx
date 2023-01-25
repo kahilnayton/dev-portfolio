@@ -1,15 +1,76 @@
-import { useRouter } from 'next/router';
-import Head from 'next/head';
-import ErrorPage from 'next/error';
-import { RichText } from 'prismic-reactjs';
-import styled from 'styled-components';
+import { useRouter } from 'next/router'
+import Head from 'next/head'
+import ErrorPage from 'next/error'
+import { RichText } from 'prismic-reactjs'
+import styled from 'styled-components'
 
-import dimensions from '../../styles/dimensions';
-import {colors} from '../../styles/colors';
-import Layout from '../../components/Layout';
-import TechStack from '../../components/TechStack';
-import Hero from '../../components/Hero';
-import { getAllBlogsWithSlug, getBlog } from '../../lib/api';
+import dimensions from '../../styles/dimensions'
+import { colors } from '../../styles/colors'
+import Layout from '../../components/Layout'
+import TechStack from '../../components/TechStack'
+import Hero from '../../components/Hero'
+import { getAllBlogsWithSlug, getBlog } from '../../lib/api'
+import { GetStaticPaths, GetStaticProps } from 'next'
+
+type BlogPostProps = {
+  blog: any
+}
+
+const Blog = ({blog}: BlogPostProps) => {
+  if (!blog) {
+    return null
+  }
+
+  const router = useRouter()
+  if (!router.isFallback && !blog?._meta?.uid) {
+    return <ErrorPage statusCode={404} />
+  }
+
+  return (
+    <Layout>
+      <Head>
+        <title>Blog</title>
+      </Head>
+      <Hero
+        text=""
+        heading={blog.title[0].text}
+        // background={blog.blog_image}
+        variant="blog"
+      />
+      <BlogWrapper>
+        {blog.description.length > 0 && (
+          <BlogDescription>
+            <RichText render={blog.description} />
+          </BlogDescription>
+        )}
+        {blog.tech_stack.length > 0 && (
+          <TechStack stack={blog.tech_stack} />
+        )}
+      </BlogWrapper>
+    </Layout>
+  )
+}
+
+export default Blog
+
+export const getStaticProps: GetStaticProps = async ({ params, preview = false, previewData }) => {
+  const data = await getBlog(params?.slug, previewData)
+
+  return {
+    props: {
+      preview,
+      blog: data?.blog ?? null,
+    },
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const allBlogs = await getAllBlogsWithSlug()
+  return {
+    paths: allBlogs?.map(({ node }: any) => `/blog/${node._meta.uid}`) || [],
+    fallback: false,
+  }
+}
 
 const BlogWrapper = styled.div`
   background: #fff;
@@ -25,7 +86,7 @@ const BlogWrapper = styled.div`
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     padding: 1.6rem 4.6rem 12rem 4.6rem;
   }
-`;
+`
 
 const BlogDescription = styled.div`
   display: flex;
@@ -78,61 +139,4 @@ const BlogDescription = styled.div`
   em {
     background: linear-gradient(transparent 1.2rem, ${colors.blue} 1rem);
   }
-`;
-
-const Blog = (props) => {
-
-  if (!props.blog) {
-    return null;
-  }
-
-  const router = useRouter();
-  if (!router.isFallback && !props.blog?._meta?.uid) {
-    return <ErrorPage statusCode={404} />;
-  }
-
-  return (
-    <Layout>
-      <Head>
-        <title>Blog</title>
-      </Head>
-      <Hero
-        text=""
-        heading={props.blog.title[0].text}
-        // background={props.blog.blog_image}
-        variant="blog"
-      />
-      <BlogWrapper>
-        {props.blog.description.length > 0 && (
-          <BlogDescription>
-            <RichText render={props.blog.description} />
-          </BlogDescription>
-        )}
-        {props.blog.tech_stack.length > 0 && (
-          <TechStack stack={props.blog.tech_stack} />
-        )}
-      </BlogWrapper>
-    </Layout>
-  );
-};
-
-export default Blog;
-
-export async function getStaticProps({ params, preview = false, previewData }) {
-  const data = await getBlog(params.slug, previewData);
-
-  return {
-    props: {
-      preview,
-      blog: data?.blog ?? null,
-    },
-  };
-}
-
-export async function getStaticPaths() {
-  const allBlogs = await getAllBlogsWithSlug();
-  return {
-    paths: allBlogs?.map(({ node }) => `/blog/${node._meta.uid}`) || [],
-    fallback: false,
-  };
-}
+`

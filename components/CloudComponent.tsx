@@ -1,9 +1,39 @@
-import React from 'react';
-import styled from 'styled-components';
-import Fade from 'react-reveal/Fade';
-import { Cloud } from '../components/_ui/icons';
+import React from 'react'
+import styled from 'styled-components'
+// @ts-ignore
+import Fade from 'react-reveal/Fade'
+import { Cloud } from '../components/_ui/icons'
 
-import z from '../styles/base';
+import z from '../styles/base'
+import { isGeneratorObject } from 'util/types'
+
+type CloudProps = {
+  direction: string
+  variant?: string
+  distance: string
+}
+
+const CloudComponent = ({ direction, variant, distance }: CloudProps) => {
+  return (
+    <CloudContainer>
+      {direction === 'left' && (
+        <LeftCloud className={variant ? `Clouds-${variant}` : ''}>
+          <Fade left distance={distance}>
+            <Cloud alt="cloud" width={50} height={50} />
+          </Fade>
+        </LeftCloud>
+      )}
+      {direction === 'right' && (
+        <RightCloud className={variant ? `Clouds-${variant}--right` : ''}>
+          <Fade right distance={distance}>
+            <Cloud alt="cloud two" width={100} height={100} />
+          </Fade>
+        </RightCloud>
+      )}
+      {!direction && <Cloud alt="cloud two" width={100} height={100} />}
+    </CloudContainer>
+  )
+}
 
 const CloudContainer = styled.div`
   overflow: hidden;
@@ -32,7 +62,7 @@ const CloudContainer = styled.div`
     top: 40rem;
     margin-top: -7rem;
   }
-`;
+`
 
 const RightCloud = styled.div`
   display: block;
@@ -41,7 +71,7 @@ const RightCloud = styled.div`
   top: 0;
   margin-top: 2rem;
   z-index: ${z.modal};
-`;
+`
 
 const LeftCloud = styled.div`
   z-index: ${z.modal};
@@ -51,36 +81,6 @@ const LeftCloud = styled.div`
   margin-top: -28rem;
   top: 24rem;
   position: absolute;
-`;
+`
 
-const CloudComponent = props => {
-  return (
-    <CloudContainer>
-      {props.direction === 'left' && (
-        <LeftCloud className={props.variant ? `Clouds-${props.variant}` : ''}>
-          <Fade left distance={props.distance}>
-            <Cloud alt="cloud" width={50} height={50} />
-          </Fade>
-        </LeftCloud>
-      )}
-      {props.direction === 'right' && (
-        <RightCloud
-          className={props.variant ? `Clouds-${props.variant}--right` : ''}
-        >
-          <Fade right distance={props.distance}>
-            <Cloud
-              alt="cloud two"
-              width={100}
-              height={100}
-            />
-          </Fade>
-        </RightCloud>
-      )}
-      {!props.direction && (
-        <Cloud alt="cloud two" width={100} height={100} />
-      )}
-    </CloudContainer>
-  );
-};
-
-export default CloudComponent;
+export default CloudComponent

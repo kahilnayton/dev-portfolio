@@ -1,9 +1,28 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import dimensions from '../styles/dimensions';
+import dimensions from '../styles/dimensions'
 // import Image from 'next/image';
 // import colors from 'styles/colors';
+
+
+
+const TechStack = (props: any) => {
+  return (
+    <TechWrapper>
+      {props.stack.length > 0 &&
+        props.stack.map((t: any, i: number) => (
+          <TechContainer key={i}>
+            <img src={t.tech[0].url} alt={t.alt} />
+            <p>{t.alt}</p>
+          </TechContainer>
+        ))}
+    </TechWrapper>
+  )
+}
+
+export default TechStack
+
 
 const TechWrapper = styled.div`
   display: grid;
@@ -17,7 +36,7 @@ const TechWrapper = styled.div`
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
     max-width: 75%;
   }
-`;
+`
 const TechContainer = styled.div`
   padding-left: 2.3rem;
   display: flex;
@@ -35,23 +54,4 @@ const TechContainer = styled.div`
       transform: scale(1.2);
     }
   }
-  p {
-  }
-`;
-
-const TechStack = props => {
-
-  return (
-    <TechWrapper>
-      {props.stack.length > 0 &&
-        props.stack.map((t, i) => (
-          <TechContainer key={i}>
-            <img src={t.tech[0].url} alt={t.alt} />
-            <p>{t.alt}</p>
-          </TechContainer>
-        ))}
-    </TechWrapper>
-  );
-};
-
-export default TechStack;
+`

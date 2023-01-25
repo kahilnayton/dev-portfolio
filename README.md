@@ -1,4 +1,3 @@
-
 ### Dev portfolio # dev-portfolio
 
 Step 5. Set up environment variables
@@ -13,7 +12,6 @@ PRISMIC_API_TOKEN should be the Permanent access token you just created
 PRISMIC_REPOSITORY_NAME is the name of your repository (the one in the URL)
 PRISMIC_REPOSITORY_LOCALE is the locale of your repository. Defaults to en-us
 Your .env.local file should look like this:
-
 
 PRISMIC_API_TOKEN=...
 PRISMIC_REPOSITORY_NAME=...

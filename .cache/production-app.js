@@ -1,30 +1,30 @@
-import { apiRunner, apiRunnerAsync } from "./api-runner-browser"
-import React from "react"
-import ReactDOM from "react-dom"
-import { Router, navigate, Location, BaseContext } from "@reach/router"
-import { ScrollContext } from "gatsby-react-router-scroll"
-import domReady from "@mikaelkristiansson/domready"
-import { StaticQueryContext } from "gatsby"
+import { apiRunner, apiRunnerAsync } from './api-runner-browser'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Router, navigate, Location, BaseContext } from '@reach/router'
+import { ScrollContext } from 'gatsby-react-router-scroll'
+import domReady from '@mikaelkristiansson/domready'
+import { StaticQueryContext } from 'gatsby'
 import {
   shouldUpdateScroll,
   init as navigationInit,
   RouteUpdates,
-} from "./navigation"
-import emitter from "./emitter"
-import PageRenderer from "./page-renderer"
-import asyncRequires from "$virtual/async-requires"
+} from './navigation'
+import emitter from './emitter'
+import PageRenderer from './page-renderer'
+import asyncRequires from '$virtual/async-requires'
 import {
   setLoader,
   ProdLoader,
   publicLoader,
   PageResourceStatus,
   getStaticQueryResults,
-} from "./loader"
-import EnsureResources from "./ensure-resources"
-import stripPrefix from "./strip-prefix"
+} from './loader'
+import EnsureResources from './ensure-resources'
+import stripPrefix from './strip-prefix'
 
 // Generated during bootstrap
-import matchPaths from "$virtual/match-paths.json"
+import matchPaths from '$virtual/match-paths.json'
 
 const loader = new ProdLoader(asyncRequires, matchPaths)
 setLoader(loader)
@@ -51,7 +51,7 @@ apiRunnerAsync(`onClientEntry`).then(() => {
   // Resetting `basepath`/`baseuri` keeps current behaviour
   // to not introduce breaking change.
   // Remove this in v3
-  const RouteHandler = props => (
+  const RouteHandler = (props) => (
     <BaseContext.Provider
       value={{
         baseuri: `/`,
@@ -109,7 +109,7 @@ apiRunnerAsync(`onClientEntry`).then(() => {
                         ? stripPrefix(location.pathname, __BASE_PATH__)
                         : encodeURI(
                             pageResources.page.matchPath ||
-                              pageResources.page.path
+                              pageResources.page.path,
                           )
                     }
                     {...this.props}
@@ -150,10 +150,10 @@ apiRunnerAsync(`onClientEntry`).then(() => {
     })
   }
 
-  publicLoader.loadPage(browserLoc.pathname).then(page => {
+  publicLoader.loadPage(browserLoc.pathname).then((page) => {
     if (!page || page.status === PageResourceStatus.Error) {
       throw new Error(
-        `page resources for ${browserLoc.pathname} not found. Not rendering React`
+        `page resources for ${browserLoc.pathname} not found. Not rendering React`,
       )
     }
 
@@ -165,7 +165,7 @@ apiRunnerAsync(`onClientEntry`).then(() => {
       <LocationHandler />,
       ({ result }) => {
         return { element: result }
-      }
+      },
     ).pop()
 
     const App = () => <GatsbyRoot>{SiteRoot}</GatsbyRoot>
@@ -173,7 +173,7 @@ apiRunnerAsync(`onClientEntry`).then(() => {
     const renderer = apiRunner(
       `replaceHydrateFunction`,
       undefined,
-      ReactDOM.hydrate
+      ReactDOM.hydrate,
     )[0]
 
     domReady(() => {
@@ -184,7 +184,7 @@ apiRunnerAsync(`onClientEntry`).then(() => {
           : void 0,
         () => {
           apiRunner(`onInitialClientRender`)
-        }
+        },
       )
     })
   })
