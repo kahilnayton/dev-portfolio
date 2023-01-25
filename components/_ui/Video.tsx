@@ -8,7 +8,6 @@ import Fade from 'react-reveal/Fade'
 import dimensions from '../../styles/dimensions'
 
 
-
 export default function Video(props: any) {
   let videoContainer = createRef()
   useEffect(() => {

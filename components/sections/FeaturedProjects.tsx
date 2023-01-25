@@ -10,9 +10,9 @@ import ProjectsGrid from '../_grid/ProjectsGrid'
 import ProjectCard from '../_card/ProjectCard'
 import CloudComponent from '../CloudComponent'
 import { ButtonContainer } from '../../styles/components'
-import { FeaturedSectionProps } from './types'
+import { FeaturedSectionProps, ProjectProps } from './types'
 
-const FeaturedProjects = ({heading, content, buttonText, destination, projects, variant}: FeaturedSectionProps) => {
+const FeaturedProjects = ({heading, content, buttonText, destination, variant, projects}: FeaturedSectionProps & ProjectProps) => {
   let projectsHeading
 
   return (
