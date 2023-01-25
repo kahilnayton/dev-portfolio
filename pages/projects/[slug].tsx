@@ -35,7 +35,6 @@ const Project = ({project}: ProjectPostProps) => {
       <Hero
         text=""
         heading={project.title[0].text}
-        background={null}
         variant="project"
       />
       <ProjectWrapper>

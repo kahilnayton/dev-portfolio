@@ -106,9 +106,13 @@ const IndexPage = ({allHomepage}: HomeProps) => {
         <ParallaxComponent variant="planeLeftToRight" />
 
         <FeaturedProjects
-        // projects={home.project_list}
-        // variant="homepage"
-        // project_heading={'Projects'}
+        projects={home?.project_list}
+        variant="homepage"
+        heading='Projects'
+        content='yolo'
+        buttonText='helll yea'
+        
+
         />
 
         <ParallaxComponent variant="planeRightToLeft" />
