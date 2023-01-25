@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import {colors} from '../../styles/colors';
+import React from 'react'
+import styled from 'styled-components'
+import { colors } from '../../styles/colors'
 // import gradients from '../../styles/gradients';
 
 const ButtonContainer = styled.button`
@@ -21,14 +21,14 @@ const ButtonContainer = styled.button`
     background: ${colors.red};
     color: #fff;
   }
-`;
+`
 
 export default function Button(props) {
-  const { children } = props;
+  const { children } = props
 
   return (
     <ButtonContainer onClick={props.onClick} {...props}>
       {children}
     </ButtonContainer>
-  );
+  )
 }

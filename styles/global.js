@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import {colors} from './colors';
-import dimensions from './dimensions';
+import { createGlobalStyle } from 'styled-components'
+import { colors } from './colors'
+import dimensions from './dimensions'
 
 const globalStyles = createGlobalStyle`
   html {
@@ -53,6 +53,6 @@ const globalStyles = createGlobalStyle`
     }
   }
 
-`;
+`
 
-export default globalStyles;
+export default globalStyles

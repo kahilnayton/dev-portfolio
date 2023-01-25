@@ -1,1 +1,182 @@
-{"componentChunkName":"component---src-templates-blog-js","path":"/blog/making-the-youtube-api-adaptive-and-modular-with-es6","result":{"data":{"prismic":{"blogsByUID":{"edges":[{"node":{"title":[{"type":"heading1","text":"YouTube iframe API integration","spans":[]}],"release_date":"2021-01-08T05:00:00+0000","blog_link":{"__typename":"PRISMIC__ExternalLink","url":"https://www.ourbond.com/"},"description":[{"type":"paragraph","text":"Making the YouTube API adaptive and modular with ES6 syntax and prototypal inheritance.","spans":[{"start":0,"end":87,"type":"strong"}]},{"type":"paragraph","text":"The YouTube iframe API requires a pretty opinionated setup so I want to take a moment to walk through how we managed this integration with our own modern JavaScript setup. The developer docs for the YouTube embed API are very good with one caveat, they require that the onYouTubeIframeReady() be applied to the global window object. For small applications, this is probably fine, but if you're using ES6 modules and Webpack to compile your JS then instantiating methods on the global object is not optimal. Here's an example of how we approached this problem. ","spans":[{"start":176,"end":191,"type":"hyperlink","data":{"link_type":"Web","url":"https://developers.google.com/youtube/iframe_api_reference"}},{"start":270,"end":292,"type":"strong"}]},{"type":"paragraph","text":"First, we assign our custom YouTube class to a variable. Then with that variable bound to the method found in our custom class, we reassign the global onYouTubeIframeAPIReady() that YouTube API is listening for, with the method we instantiating in our class.","spans":[{"start":0,"end":258,"type":"em"}]},{"type":"preformatted","text":"var YT = new YouTubeScript();\nwindow.onYouTubeIframeAPIReady = YT.onYouTubeIframeAPIReady(YT);","spans":[]},{"type":"paragraph","text":"","spans":[]},{"type":"paragraph","text":"Now lets look at our custom onYouTubeIframeAPIReady()","spans":[{"start":0,"end":53,"type":"em"}]},{"type":"paragraph","text":"Here things get interesting... We have to pass a parameter of 'instance' into our function and then assign the global YT method back to that instance.","spans":[]},{"type":"preformatted","text":"  onYouTubeIframeAPIReady(instance) {\n  \twindow.YT = instance;\n  \treturn function() {\n  \t\tjQuery('.yt_player').each(function(index) {\n\n\t      YT.YTplayer[index] = new YT.Player(jQuery(this)[0], {\n\t        events: {\n\t          'onReady' : YT.onPlayerReady,\n\t          'onStateChange': YT.onPlayerStateChange\n\t        }\n\t      });\n\n\t      jQuery(this).parent().find('.you_tube_play_button').on('click', function() {\n\t        YT.YTplayer[index].playVideo();\n\t      });\n\n\t    });\n  \t}\n  };","spans":[]},{"type":"paragraph","text":"","spans":[]},{"type":"paragraph","text":"We can actually refactor this bit to make it a little easier to read with the use of the bind method in JS. The above code is really just a workaround for the way that JavaScript binds methods to the global object. We can be more explicit by refactoring the code in this way.","spans":[{"start":215,"end":275,"type":"em"}]},{"type":"preformatted","text":"  this.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady.bind(this);\n        this.exitHandler = this.exitHandler.bind(this);\n        this.onPlayerReady = this.onPlayerReady.bind(this);\n        this.onPlayerStateChange = this.onPlayerStateChange.bind(this);","spans":[]},{"type":"paragraph","text":"Here we are specifying the scope of the 'this' keyword by binding it to the appropriate function.","spans":[]},{"type":"paragraph","text":"Now we can access the players' lifecycle methods inside our own class and manipulate the video depending on what state it is in. ","spans":[]},{"type":"preformatted","text":"  onPlayerStateChange(e) {\n    let iframe = e.target.h;\n    if (( e.data == 1 || e.data == -1 || e.data == 3 )&& !YT.wasFullScreen) {\n      var requestFullScreen = iframe.requestFullScreen || iframe.mozRequestFullScreen || iframe.webkitRequestFullScreen;\n      if (requestFullScreen) {\n        iframe.style.display = 'initial';\n        requestFullScreen.bind(iframe)();\n      }\n      if (document.addEventListener) {\n          document.addEventListener('webkitfullscreenchange', YT.exitHandler, false);\n          document.addEventListener('mozfullscreenchange', YT.exitHandler, false);\n          document.addEventListener('fullscreenchange', YT.exitHandler, false);\n          document.addEventListener('MSFullscreenChange', YT.exitHandler, false);\n      }\n    }\n  }","spans":[]},{"type":"paragraph","text":"","spans":[]},{"type":"paragraph","text":"At this point, we're pretty much off to the races! We can manipulate the player however we see fit and have integrated the YouTube API without too much pollution to the global state object. This setup also keeps things nice and organized and modular!","spans":[]},{"type":"paragraph","text":"","spans":[]}],"blog_image":{"dimensions":{"width":502,"height":211},"alt":"You tube","copyright":null,"url":"https://prismic-io.s3.amazonaws.com/kahildev/ed0d2060-f4d5-49a2-9595-9e8f223d0f0a_you_tube.svg"},"tech_stack":[{"tech":[{"type":"image","url":"https://images.prismic.io/kahildev/898d255f-d309-4a3a-be84-e4f5e08614e4_analysis-of-php-s-cve-2016-6289-and-cve-2016-6297-2911.png?auto=compress,format","alt":"PHP","copyright":null,"dimensions":{"width":535,"height":366}}]},{"tech":[{"type":"image","url":"https://prismic-io.s3.amazonaws.com/kahildev/ed0d2060-f4d5-49a2-9595-9e8f223d0f0a_you_tube.svg","alt":"you tube ","copyright":null,"dimensions":{"width":502,"height":211}}]},{"tech":[{"type":"image","url":"https://images.prismic.io/kahildev/f432486f-2f99-4848-8592-06588e4683c5_es6.png?auto=compress,format","alt":"es6","copyright":null,"dimensions":{"width":288,"height":288}}]}]}}]}}},"pageContext":{"rootQuery":"\n  query BlogPost($uid: String) {\n    prismic {\n      blogsByUID: allBlogs(uid: $uid) {\n        edges {\n          node {\n            title\n            release_date\n            blog_link {\n              ... on PRISMIC__ExternalLink {\n                url\n              }\n            }\n            description\n            blog_image\n            tech_stack {\n              tech\n            }\n          }\n        }\n      }\n    }\n  }\n","id":"X_h0EBEAACAAN_mH","lang":"en-us","uid":"making-the-youtube-api-adaptive-and-modular-with-es6","type":"blog","alternateLanguages":[],"cursor":"YXJyYXljb25uZWN0aW9uOjY=","paginationPreviousMeta":{"id":"X-OkMhIAACIA5HhK","lang":"en-us","uid":"full-stack-todo-app","type":"blog","alternateLanguages":[]},"paginationPreviousUid":"full-stack-todo-app","paginationPreviousLang":"en-us","paginationNextMeta":{"id":"YB9gExAAACIAomVJ","lang":"en-us","uid":"choosing-the-right-framework","type":"blog","alternateLanguages":[]},"paginationNextUid":"choosing-the-right-framework","paginationNextLang":"en-us","lastQueryChunkEndCursor":""}},"staticQueryHashes":[]}
+{
+  "componentChunkName": "component---src-templates-blog-js",
+  "path": "/blog/making-the-youtube-api-adaptive-and-modular-with-es6",
+  "result": {
+    "data": {
+      "prismic": {
+        "blogsByUID": {
+          "edges": [
+            {
+              "node": {
+                "title": [
+                  {
+                    "type": "heading1",
+                    "text": "YouTube iframe API integration",
+                    "spans": []
+                  }
+                ],
+                "release_date": "2021-01-08T05:00:00+0000",
+                "blog_link": {
+                  "__typename": "PRISMIC__ExternalLink",
+                  "url": "https://www.ourbond.com/"
+                },
+                "description": [
+                  {
+                    "type": "paragraph",
+                    "text": "Making the YouTube API adaptive and modular with ES6 syntax and prototypal inheritance.",
+                    "spans": [{ "start": 0, "end": 87, "type": "strong" }]
+                  },
+                  {
+                    "type": "paragraph",
+                    "text": "The YouTube iframe API requires a pretty opinionated setup so I want to take a moment to walk through how we managed this integration with our own modern JavaScript setup. The developer docs for the YouTube embed API are very good with one caveat, they require that the onYouTubeIframeReady() be applied to the global window object. For small applications, this is probably fine, but if you're using ES6 modules and Webpack to compile your JS then instantiating methods on the global object is not optimal. Here's an example of how we approached this problem. ",
+                    "spans": [
+                      {
+                        "start": 176,
+                        "end": 191,
+                        "type": "hyperlink",
+                        "data": {
+                          "link_type": "Web",
+                          "url": "https://developers.google.com/youtube/iframe_api_reference"
+                        }
+                      },
+                      { "start": 270, "end": 292, "type": "strong" }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "text": "First, we assign our custom YouTube class to a variable. Then with that variable bound to the method found in our custom class, we reassign the global onYouTubeIframeAPIReady() that YouTube API is listening for, with the method we instantiating in our class.",
+                    "spans": [{ "start": 0, "end": 258, "type": "em" }]
+                  },
+                  {
+                    "type": "preformatted",
+                    "text": "var YT = new YouTubeScript();\nwindow.onYouTubeIframeAPIReady = YT.onYouTubeIframeAPIReady(YT);",
+                    "spans": []
+                  },
+                  { "type": "paragraph", "text": "", "spans": [] },
+                  {
+                    "type": "paragraph",
+                    "text": "Now lets look at our custom onYouTubeIframeAPIReady()",
+                    "spans": [{ "start": 0, "end": 53, "type": "em" }]
+                  },
+                  {
+                    "type": "paragraph",
+                    "text": "Here things get interesting... We have to pass a parameter of 'instance' into our function and then assign the global YT method back to that instance.",
+                    "spans": []
+                  },
+                  {
+                    "type": "preformatted",
+                    "text": "  onYouTubeIframeAPIReady(instance) {\n  \twindow.YT = instance;\n  \treturn function() {\n  \t\tjQuery('.yt_player').each(function(index) {\n\n\t      YT.YTplayer[index] = new YT.Player(jQuery(this)[0], {\n\t        events: {\n\t          'onReady' : YT.onPlayerReady,\n\t          'onStateChange': YT.onPlayerStateChange\n\t        }\n\t      });\n\n\t      jQuery(this).parent().find('.you_tube_play_button').on('click', function() {\n\t        YT.YTplayer[index].playVideo();\n\t      });\n\n\t    });\n  \t}\n  };",
+                    "spans": []
+                  },
+                  { "type": "paragraph", "text": "", "spans": [] },
+                  {
+                    "type": "paragraph",
+                    "text": "We can actually refactor this bit to make it a little easier to read with the use of the bind method in JS. The above code is really just a workaround for the way that JavaScript binds methods to the global object. We can be more explicit by refactoring the code in this way.",
+                    "spans": [{ "start": 215, "end": 275, "type": "em" }]
+                  },
+                  {
+                    "type": "preformatted",
+                    "text": "  this.onYouTubeIframeAPIReady = this.onYouTubeIframeAPIReady.bind(this);\n        this.exitHandler = this.exitHandler.bind(this);\n        this.onPlayerReady = this.onPlayerReady.bind(this);\n        this.onPlayerStateChange = this.onPlayerStateChange.bind(this);",
+                    "spans": []
+                  },
+                  {
+                    "type": "paragraph",
+                    "text": "Here we are specifying the scope of the 'this' keyword by binding it to the appropriate function.",
+                    "spans": []
+                  },
+                  {
+                    "type": "paragraph",
+                    "text": "Now we can access the players' lifecycle methods inside our own class and manipulate the video depending on what state it is in. ",
+                    "spans": []
+                  },
+                  {
+                    "type": "preformatted",
+                    "text": "  onPlayerStateChange(e) {\n    let iframe = e.target.h;\n    if (( e.data == 1 || e.data == -1 || e.data == 3 )&& !YT.wasFullScreen) {\n      var requestFullScreen = iframe.requestFullScreen || iframe.mozRequestFullScreen || iframe.webkitRequestFullScreen;\n      if (requestFullScreen) {\n        iframe.style.display = 'initial';\n        requestFullScreen.bind(iframe)();\n      }\n      if (document.addEventListener) {\n          document.addEventListener('webkitfullscreenchange', YT.exitHandler, false);\n          document.addEventListener('mozfullscreenchange', YT.exitHandler, false);\n          document.addEventListener('fullscreenchange', YT.exitHandler, false);\n          document.addEventListener('MSFullscreenChange', YT.exitHandler, false);\n      }\n    }\n  }",
+                    "spans": []
+                  },
+                  { "type": "paragraph", "text": "", "spans": [] },
+                  {
+                    "type": "paragraph",
+                    "text": "At this point, we're pretty much off to the races! We can manipulate the player however we see fit and have integrated the YouTube API without too much pollution to the global state object. This setup also keeps things nice and organized and modular!",
+                    "spans": []
+                  },
+                  { "type": "paragraph", "text": "", "spans": [] }
+                ],
+                "blog_image": {
+                  "dimensions": { "width": 502, "height": 211 },
+                  "alt": "You tube",
+                  "copyright": null,
+                  "url": "https://prismic-io.s3.amazonaws.com/kahildev/ed0d2060-f4d5-49a2-9595-9e8f223d0f0a_you_tube.svg"
+                },
+                "tech_stack": [
+                  {
+                    "tech": [
+                      {
+                        "type": "image",
+                        "url": "https://images.prismic.io/kahildev/898d255f-d309-4a3a-be84-e4f5e08614e4_analysis-of-php-s-cve-2016-6289-and-cve-2016-6297-2911.png?auto=compress,format",
+                        "alt": "PHP",
+                        "copyright": null,
+                        "dimensions": { "width": 535, "height": 366 }
+                      }
+                    ]
+                  },
+                  {
+                    "tech": [
+                      {
+                        "type": "image",
+                        "url": "https://prismic-io.s3.amazonaws.com/kahildev/ed0d2060-f4d5-49a2-9595-9e8f223d0f0a_you_tube.svg",
+                        "alt": "you tube ",
+                        "copyright": null,
+                        "dimensions": { "width": 502, "height": 211 }
+                      }
+                    ]
+                  },
+                  {
+                    "tech": [
+                      {
+                        "type": "image",
+                        "url": "https://images.prismic.io/kahildev/f432486f-2f99-4848-8592-06588e4683c5_es6.png?auto=compress,format",
+                        "alt": "es6",
+                        "copyright": null,
+                        "dimensions": { "width": 288, "height": 288 }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "pageContext": {
+      "rootQuery": "\n  query BlogPost($uid: String) {\n    prismic {\n      blogsByUID: allBlogs(uid: $uid) {\n        edges {\n          node {\n            title\n            release_date\n            blog_link {\n              ... on PRISMIC__ExternalLink {\n                url\n              }\n            }\n            description\n            blog_image\n            tech_stack {\n              tech\n            }\n          }\n        }\n      }\n    }\n  }\n",
+      "id": "X_h0EBEAACAAN_mH",
+      "lang": "en-us",
+      "uid": "making-the-youtube-api-adaptive-and-modular-with-es6",
+      "type": "blog",
+      "alternateLanguages": [],
+      "cursor": "YXJyYXljb25uZWN0aW9uOjY=",
+      "paginationPreviousMeta": {
+        "id": "X-OkMhIAACIA5HhK",
+        "lang": "en-us",
+        "uid": "full-stack-todo-app",
+        "type": "blog",
+        "alternateLanguages": []
+      },
+      "paginationPreviousUid": "full-stack-todo-app",
+      "paginationPreviousLang": "en-us",
+      "paginationNextMeta": {
+        "id": "YB9gExAAACIAomVJ",
+        "lang": "en-us",
+        "uid": "choosing-the-right-framework",
+        "type": "blog",
+        "alternateLanguages": []
+      },
+      "paginationNextUid": "choosing-the-right-framework",
+      "paginationNextLang": "en-us",
+      "lastQueryChunkEndCursor": ""
+    }
+  },
+  "staticQueryHashes": []
+}

@@ -1,9 +1,9 @@
-export const linkResolver = doc => {
+export const linkResolver = (doc) => {
   if (doc.type === 'page') {
-    return `/${doc.uid}`;
+    return `/${doc.uid}`
   }
   if (doc.type === 'preview') {
-    return `/preview/${doc.uid}`;
+    return `/preview/${doc.uid}`
   }
-  return '/';
-};
+  return '/'
+}

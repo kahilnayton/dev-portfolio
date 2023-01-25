@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import { Parallax } from 'react-scroll-parallax';
+import styled from 'styled-components'
+import { Parallax } from 'react-scroll-parallax'
 
-import z from '../styles/base';
-import { slightRock } from '../styles/animations';
-import { PlaneRight, Cloud, PlaneTwo } from '../components/_ui/icons';
+import z from '../styles/base'
+import { slightRock } from '../styles/animations'
+import { PlaneRight, Cloud, PlaneTwo } from '../components/_ui/icons'
 // import CloudOne from '../vectors/cloudOne.svg';
 
 const ParallaxWrapper = styled.div`
@@ -26,28 +26,31 @@ const ParallaxWrapper = styled.div`
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
-`;
+`
 
-const ParallaxComponent = props => {
+const ParallaxComponent = (props: any) => {
   return (
     <ParallaxWrapper>
       {props.variant === 'planeLeftToRight' && (
+        // @ts-ignore
         <Parallax x={[-40, 140]} y={[0, 0]}>
           <PlaneTwo />
         </Parallax>
       )}
       {props.variant === 'planeRightToLeft' && (
-        <Parallax x={[140, -50]} y={[10, 50]}>
+      // @ts-ignore
+      <Parallax x={[140, -50]} y={[10, 50]}>
           <PlaneRight height={300} width={700} />
         </Parallax>
       )}
       {props.variant === 'cloudLeftToRight' && (
+      // @ts-ignore
         <Parallax x={[-40, 140]} y={[0, 0]}>
           <Cloud height={100} width={700} />
         </Parallax>
       )}
     </ParallaxWrapper>
-  );
-};
+  )
+}
 
-export default ParallaxComponent;
+export default ParallaxComponent

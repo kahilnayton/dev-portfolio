@@ -1,17 +1,16 @@
-import styled from 'styled-components';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
+import styled from 'styled-components'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
 
-const LayoutContainer = styled.div``;
+const LayoutContainer = styled.div``
 
 const LayoutContent = styled.main`
   overflow-x: hidden;
-`;
+`
 
-const Layout = props => {
+const Layout = (props: any) => {
   return (
     <LayoutContainer>
-
       <div className="Layout">
         <Header />
 
@@ -20,7 +19,7 @@ const Layout = props => {
         <Footer />
       </div>
     </LayoutContainer>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

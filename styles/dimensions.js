@@ -6,6 +6,6 @@ const dimensions = {
   desktopTransitionUp: 1000,
   desktopUp: 1200,
   desktopLargeUp: 1800,
-};
+}
 
-export default dimensions;
+export default dimensions
