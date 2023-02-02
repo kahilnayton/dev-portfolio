@@ -1,15 +1,17 @@
+import { CardProps } from '../_card'
+
 export type FeaturedSectionProps = {
-    heading: string
-    content: string
-     buttonText?: string
-      destination?: string
-        variant: string
-  }
+  heading: string
+  content: string
+  buttonText?: string
+  destination?: string
+  variant: string
+}
 
-  export type ProjectProps = {
-    projects: any[]
-  }
+export type ProjectProps = {
+  projects: CardProps[]
+}
 
-  export type BlogProps = {
-    blogs: any[]
-  }
+export type BlogProps = {
+  blogs: CardProps[]
+}

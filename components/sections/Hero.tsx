@@ -1,25 +1,24 @@
 import { RichText } from 'prismic-reactjs'
 import styled from 'styled-components'
 
-import dimensions from '../styles/dimensions'
-import { Inner, Wrap } from '../styles/structure'
-import { colors } from '../styles/colors'
-import gradients from '../styles/gradients'
-import z from '../styles/base'
-import CloudComponent from '../components/CloudComponent'
-import { CloudBackground } from '../components/_ui/icons'
+import dimensions from '../../styles/dimensions'
+import { Inner, Wrap } from '../../styles/structure'
+import { colors } from '../../styles/colors'
+import gradients from '../../styles/gradients'
+import z from '../../styles/base'
+import CloudComponent from '../_ui/CloudComponent'
+import { CloudBackground } from '../_ui/icons'
 
 // import Image from 'next/image'
 
 type HeroProps = {
   variant: string
   heading: string
-   text: string
-   background?: Record<string, string>
+  text: string
+  background?: Record<string, string>
 }
 
-const Hero = ({variant, heading, text, background}: HeroProps) => {
-
+export const Hero = ({ variant, heading, text, background }: HeroProps) => {
   return (
     <HeroContainer className={`${variant ? `Hero--${variant}` : ''}`}>
       <HeroInner>
@@ -27,7 +26,7 @@ const Hero = ({variant, heading, text, background}: HeroProps) => {
           {background ? (
             <img src={background.url} alt="Hero background image" />
           ) : (
-            <CloudBackground alt="Cloud background" />
+            <CloudBackground />
           )}
         </HeroBackground>
         <CloudComponent direction="right" distance="2rem" />
@@ -36,7 +35,6 @@ const Hero = ({variant, heading, text, background}: HeroProps) => {
             <HeroContent>
               TODO: Fix rich text
               {/* {heading && <RichText render={heading} />} */}
-
               {text && <p className="is-large">{text}</p>}
             </HeroContent>
           )}
@@ -45,9 +43,6 @@ const Hero = ({variant, heading, text, background}: HeroProps) => {
     </HeroContainer>
   )
 }
-
-export default Hero
-
 
 const imgStyle = {
   position: 'absolute',

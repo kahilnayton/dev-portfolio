@@ -5,15 +5,21 @@ import { Inner } from '../../styles/structure'
 import { colors } from '../../styles/colors'
 import dimensions from '../../styles/dimensions'
 import { ButtonContainer } from '../../styles/components'
-import ButtonLink from '../_ui/ButtonLink'
-import Content from '../_ui/Content'
-import BlogsGrid from '../_grid/BlogsGrid'
-import BlogCard, { BlogCardProps } from '../_card/BlogCard'
-import CloudComponent from '../CloudComponent'
+import { ButtonLink } from '../_ui'
+import { Content } from '../_ui/Content'
+import { BlogsGrid } from '../_grid'
+import { BlogCard, CardProps } from '../_card'
+import CloudComponent from '../_ui/CloudComponent'
 import { BlogProps, FeaturedSectionProps } from './types'
 
-
-const FeaturedBlogs = ({heading, content, buttonText, destination, blogs, variant}: FeaturedSectionProps & BlogProps) => {
+export const FeaturedBlogs = ({
+  heading,
+  content,
+  buttonText,
+  destination,
+  blogs,
+  variant,
+}: FeaturedSectionProps & BlogProps) => {
   let blogsHeading
 
   return (
@@ -32,15 +38,18 @@ const FeaturedBlogs = ({heading, content, buttonText, destination, blogs, varian
 
         {blogs && blogs.length > 0 && (
           <BlogsGrid dense={blogs.length > 3}>
-            {blogs.map((feature: any, i) => {
+            {blogs.map(({ ...blog }: CardProps, i) => {
+              const { _meta, blog_image, title, preview_text, release_date } =
+                blog
+              const { uid } = _meta
               return (
                 <li key={i}>
                   <BlogCard
-                    uid={feature.blog._meta.uid}
-                    image={feature.blog.blog_image}
-                    title={feature.blog.title[0].text}
-                    textSnippet={feature.blog.preview_text}
-                    publishDate={feature.blog.release_date}
+                    uid={uid}
+                    blog_image={blog_image}
+                    title={title[0].text}
+                    preview_text={preview_text}
+                    release_date={release_date}
                   />
                 </li>
               )
@@ -60,8 +69,6 @@ const FeaturedBlogs = ({heading, content, buttonText, destination, blogs, varian
     </BlogsContainer>
   )
 }
-
-export default FeaturedBlogs
 
 const BlogsContainer = styled.div`
   position: relative;

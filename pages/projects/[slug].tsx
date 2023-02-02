@@ -6,9 +6,9 @@ import { RichText } from 'prismic-reactjs'
 
 import { colors } from '../../styles/colors'
 import Layout from '../../components/Layout'
-import TechStack from '../../components/TechStack'
+import { TechStack } from '../../components/sections'
 import dimensions from '../../styles/dimensions'
-import Hero from '../../components/Hero'
+import { Hero } from '../../components/sections'
 
 import { getAllProjectsWithSlug, getProject } from '../../lib/api'
 import { GetStaticPaths, GetStaticProps } from 'next'
@@ -17,7 +17,7 @@ type ProjectPostProps = {
   project: any
 }
 
-const Project = ({project}: ProjectPostProps) => {
+const Project = ({ project }: ProjectPostProps) => {
   if (!project) {
     return null
   }
@@ -32,11 +32,7 @@ const Project = ({project}: ProjectPostProps) => {
       <Head>
         <title>Project</title>
       </Head>
-      <Hero
-        text=""
-        heading={project.title[0].text}
-        variant="project"
-      />
+      <Hero text="" heading={project.title[0].text} variant="project" />
       <ProjectWrapper>
         {project.description.length > 0 && (
           <ProjectDescription>
@@ -59,7 +55,11 @@ const Project = ({project}: ProjectPostProps) => {
 
 export default Project
 
-export const getStaticProps: GetStaticProps = async ({ params, preview = false, previewData }) => {
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  preview = false,
+  previewData,
+}) => {
   const data = await getProject(params?.slug, previewData)
 
   return {
@@ -73,11 +73,11 @@ export const getStaticProps: GetStaticProps = async ({ params, preview = false, 
 export const getStaticPaths: GetStaticPaths = async () => {
   const allProjects = await getAllProjectsWithSlug()
   return {
-    paths: allProjects?.map(({ node }: any) => `/projects/${node._meta.uid}`) || [],
+    paths:
+      allProjects?.map(({ node }: any) => `/projects/${node._meta.uid}`) || [],
     fallback: false,
   }
 }
-
 
 const ProjectWrapper = styled.div`
   background: #fff;

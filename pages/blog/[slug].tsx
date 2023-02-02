@@ -7,8 +7,8 @@ import styled from 'styled-components'
 import dimensions from '../../styles/dimensions'
 import { colors } from '../../styles/colors'
 import Layout from '../../components/Layout'
-import TechStack from '../../components/TechStack'
-import Hero from '../../components/Hero'
+import { TechStack } from '../../components/sections'
+import { Hero } from '../../components/sections'
 import { getAllBlogsWithSlug, getBlog } from '../../lib/api'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
@@ -16,7 +16,7 @@ type BlogPostProps = {
   blog: any
 }
 
-const Blog = ({blog}: BlogPostProps) => {
+const Blog = ({ blog }: BlogPostProps) => {
   if (!blog) {
     return null
   }
@@ -43,9 +43,7 @@ const Blog = ({blog}: BlogPostProps) => {
             <RichText render={blog.description} />
           </BlogDescription>
         )}
-        {blog.tech_stack.length > 0 && (
-          <TechStack stack={blog.tech_stack} />
-        )}
+        {blog.tech_stack.length > 0 && <TechStack stack={blog.tech_stack} />}
       </BlogWrapper>
     </Layout>
   )
@@ -53,7 +51,11 @@ const Blog = ({blog}: BlogPostProps) => {
 
 export default Blog
 
-export const getStaticProps: GetStaticProps = async ({ params, preview = false, previewData }) => {
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  preview = false,
+  previewData,
+}) => {
   const data = await getBlog(params?.slug, previewData)
 
   return {

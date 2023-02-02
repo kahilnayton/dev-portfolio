@@ -1,12 +1,56 @@
 import React from 'react'
+// @ts-ignore
 import Slide from 'react-reveal/Slide'
 import styled from 'styled-components'
-import Moment from 'react-moment'
+// import Moment from 'react-moment'
 // import Link from 'next/link';
 import { colors } from '../../styles/colors'
 import gradients from '../../styles/gradients'
 import dimensions from '../../styles/dimensions'
-import ButtonLink from '../../components/_ui/ButtonLink'
+import { ButtonLink } from '../../components/_ui'
+import { CardProps } from './types'
+
+export const ProjectCard = ({
+  uid,
+  title,
+  project_image: image,
+  preview_text: textSnippet,
+  release_date: publishDate,
+  projectLink,
+}: CardProps & { projectLink: string }) => {
+  let trimmed_preview_text
+
+  if (textSnippet) {
+    trimmed_preview_text =
+      textSnippet.length > 200 ? `${textSnippet.substr(0, 200)} …` : textSnippet
+  }
+
+  return (
+    <Slide right>
+      <CardContainer>
+        {image && (
+          <CardImage>
+            <img src={image.url} alt={image.alt} />
+          </CardImage>
+        )}
+
+        <CardContent>
+          <h4>{title}</h4>
+          {publishDate && (
+            <span>
+              {/* <Moment format="MMMM Do, YYYY" date={publishDate} /> */}
+            </span>
+          )}
+          {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
+        </CardContent>
+        <LinkToProject target="_blank" href={projectLink}>
+          View
+        </LinkToProject>
+        <ButtonLink title="More Info" href={`/projects/${uid}`} />
+      </CardContainer>
+    </Slide>
+  )
+}
 
 const CardContainer = styled.div`
   position: relative;
@@ -142,42 +186,3 @@ const LinkToProject = styled.a`
     padding: 1.6rem 3.33vw 1.4rem;
   }
 `
-
-const ProjectCard = (props) => {
-  const { uid, title, image, textSnippet, publishDate } = props
-
-  let trimmed_preview_text
-
-  if (textSnippet) {
-    trimmed_preview_text =
-      textSnippet.length > 200 ? `${textSnippet.substr(0, 200)} …` : textSnippet
-  }
-
-  return (
-    <Slide right>
-      <CardContainer>
-        {image && (
-          <CardImage>
-            <img src={image.url} alt={image.alt} />
-          </CardImage>
-        )}
-
-        <CardContent>
-          <h4>{title}</h4>
-          {publishDate && (
-            <span>
-              <Moment format="MMMM Do, YYYY" date={publishDate} />
-            </span>
-          )}
-          {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
-        </CardContent>
-        <LinkToProject target="_blank" href={props.projectLink}>
-          View
-        </LinkToProject>
-        <ButtonLink title="More Info" href={`/projects/${uid}`} />
-      </CardContainer>
-    </Slide>
-  )
-}
-
-export default ProjectCard

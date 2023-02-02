@@ -1,7 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import { colors } from '../../styles/colors'
-// import gradients from '../../styles/gradients';
+
+type ButtonProps = {
+  children?: React.ReactNode
+  onClick: () => null
+}
+
+export const Button = ({ children, onClick, ...props }: ButtonProps) => {
+  return (
+    <ButtonContainer onClick={onClick} {...props}>
+      {children}
+    </ButtonContainer>
+  )
+}
 
 const ButtonContainer = styled.button`
   position: relative;
@@ -22,13 +34,3 @@ const ButtonContainer = styled.button`
     color: #fff;
   }
 `
-
-export default function Button(props) {
-  const { children } = props
-
-  return (
-    <ButtonContainer onClick={props.onClick} {...props}>
-      {children}
-    </ButtonContainer>
-  )
-}

@@ -1,8 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import gradients from '../styles/gradients'
-import SocialBar from '../components/SocialBar'
+import gradients from '../../styles/gradients'
+import SocialBar from './SocialBar'
+
+export const Footer = () => {
+  return (
+    <FooterWrapper>
+      <FooterContainer>
+        <SocialBar />
+      </FooterContainer>
+    </FooterWrapper>
+  )
+}
 
 const FooterWrapper = styled.div`
   display: block;
@@ -19,13 +29,3 @@ const FooterContainer = styled.footer`
   justify-content: flex-start;
   background: ${gradients.redPurpleCircle};
 `
-
-export default function Footer() {
-  return (
-    <FooterWrapper>
-      <FooterContainer>
-        <SocialBar />
-      </FooterContainer>
-    </FooterWrapper>
-  )
-}

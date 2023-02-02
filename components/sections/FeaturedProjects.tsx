@@ -4,15 +4,22 @@ import { Inner } from '../../styles/structure'
 import { colors } from '../../styles/colors'
 import dimensions from '../../styles/dimensions'
 
-import ButtonLink from '../_ui/ButtonLink'
-import Content from '../_ui/Content'
-import ProjectsGrid from '../_grid/ProjectsGrid'
-import ProjectCard from '../_card/ProjectCard'
-import CloudComponent from '../CloudComponent'
+import { ButtonLink } from '../_ui'
+import { Content } from '../_ui'
+import { ProjectsGrid } from '../_grid'
+import { CardProps, ProjectCard } from '../_card'
+import CloudComponent from '../_ui/CloudComponent'
 import { ButtonContainer } from '../../styles/components'
 import { FeaturedSectionProps, ProjectProps } from './types'
 
-const FeaturedProjects = ({heading, content, buttonText, destination, variant, projects}: FeaturedSectionProps & ProjectProps) => {
+export const FeaturedProjects = ({
+  heading,
+  content,
+  buttonText,
+  destination,
+  variant,
+  projects,
+}: FeaturedSectionProps & ProjectProps) => {
   let projectsHeading
 
   return (
@@ -32,17 +39,24 @@ const FeaturedProjects = ({heading, content, buttonText, destination, variant, p
         )}
         {projects && projects.length > 0 && (
           <ProjectsGrid dense={projects.length > 3}>
-            {projects.map((feature: any, i: number) => {
+            {projects.map(({ ...project }: CardProps, i: number) => {
+              const {
+                _meta,
+                project_image,
+                title,
+                preview_text,
+                release_date,
+              } = project
+              const { uid } = _meta
               return (
                 <li key={i}>
                   <ProjectCard
-                    uid={feature.project._meta.uid}
-                    image={feature.project.project_image}
-                    title={feature.project.title[0].text}
-                    textSnippet={feature.project.preview_text}
-                    description={feature.project.description[0].text}
-                    projectLink={feature.project.project_link.url}
-                    publishDate={feature.project.release_date}
+                    uid={uid}
+                    project_image={project_image}
+                    title={title[0].text}
+                    preview_text={preview_text}
+                    release_date={release_date}
+                    projectLink={'/'}
                     variant="project"
                   />
                 </li>
@@ -63,8 +77,6 @@ const FeaturedProjects = ({heading, content, buttonText, destination, variant, p
     </ProjectsContainer>
   )
 }
-
-export default FeaturedProjects
 
 const ProjectInner = styled(Inner)`
   display: flex;

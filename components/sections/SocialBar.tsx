@@ -2,8 +2,8 @@ import React from 'react'
 import Link from 'next/link'
 
 import styled from 'styled-components'
-import { colors } from '../styles/colors'
-import dimensions from '../styles/dimensions'
+import { colors } from '../../styles/colors'
+import dimensions from '../../styles/dimensions'
 
 import {
   GrFacebookOption,
@@ -18,7 +18,7 @@ type SocialBarProps = {
   toggleMobile?: () => void
 }
 
-const SocialBar = ({variant, toggleMobile}: SocialBarProps) => {
+const SocialBar = ({ variant, toggleMobile }: SocialBarProps) => {
   return (
     <SocialBarList className={`${variant && variant}`}>
       <li>
@@ -67,7 +67,6 @@ const SocialBar = ({variant, toggleMobile}: SocialBarProps) => {
     </SocialBarList>
   )
 }
-
 
 const SocialBarList = styled.ul`
   display: flex;

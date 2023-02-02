@@ -2,17 +2,17 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 
-import { Inner } from '../styles/structure'
-import { colors } from '../styles/colors'
-import gradients from '../styles/gradients'
-import dimensions from '../styles/dimensions'
-import LogoLink from '../components/_ui/LogoLink'
-import SocialBar from '../components/SocialBar'
+import { Inner } from '../../styles/structure'
+import { colors } from '../../styles/colors'
+import gradients from '../../styles/gradients'
+import dimensions from '../../styles/dimensions'
+import { LogoLink } from '../_ui'
+import SocialBar from './SocialBar'
 
 const headerHeightMobile = '6rem'
 const headerHeightDesktop = '6rem'
 
-export default function Header() {
+export const Header = () => {
   const [isSticky, setIsSticky] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -68,7 +68,6 @@ export default function Header() {
     </HeaderContainer>
   )
 }
-
 
 const HeaderContainer = styled.div`
   display: block;

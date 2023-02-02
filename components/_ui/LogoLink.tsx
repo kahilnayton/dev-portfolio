@@ -7,14 +7,7 @@ import Link from 'next/link'
 // import dimensions from '../../styles/dimensions';
 import { Logo } from '../../components/_ui/icons'
 
-const ButtonContainer = styled.a`
-  svg {
-    transform: translateY(3px);
-    fill: #fff;
-  }
-`
-
-export default function LogoLink() {
+export const LogoLink = () => {
   return (
     <Link href="/">
       <ButtonContainer>
@@ -23,3 +16,10 @@ export default function LogoLink() {
     </Link>
   )
 }
+
+const ButtonContainer = styled.a`
+  svg {
+    transform: translateY(3px);
+    fill: #fff;
+  }
+`

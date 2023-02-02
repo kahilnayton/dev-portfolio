@@ -5,6 +5,18 @@ import styled from 'styled-components'
 import dimensions from '../../styles/dimensions'
 import { colors } from '../../styles/colors'
 
+type ContentProps = {
+  content?: any
+}
+
+export const Content = ({ content }: ContentProps) => {
+  return (
+    <ContentContainer>
+      <RichText render={content} />
+    </ContentContainer>
+  )
+}
+
 const ContentContainer = styled.div`
   border: solid;
   > * {
@@ -46,7 +58,7 @@ const ContentContainer = styled.div`
     display: inline;
     position: relative;
     color: inherit;
-    background-image: linear-gradient(${colors.yellow500}, ${colors.yellow500});
+    background-image: linear-gradient(${colors.grey300}, ${colors.yellow});
     background-position: 0% 100%;
     background-repeat: no-repeat;
     background-size: 100% 0.2rem;
@@ -54,7 +66,7 @@ const ContentContainer = styled.div`
     transition: background 0.24s ease-in-out;
 
     &:hover {
-      color: ${colors.orange500};
+      color: ${colors.orange200};
     }
   }
 
@@ -125,13 +137,3 @@ const ContentContainer = styled.div`
     }
   }
 `
-
-const Content = ({ content }) => {
-  return (
-    <ContentContainer>
-      <RichText render={content} />
-    </ContentContainer>
-  )
-}
-
-export default Content

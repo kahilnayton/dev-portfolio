@@ -3,9 +3,8 @@ import Head from 'next/head'
 
 import Layout from '../components/Layout'
 import { colors } from '../styles/colors'
-import CloudComponent from '../components/CloudComponent'
-import ButtonLink from '../components/_ui/ButtonLink'
-
+import CloudComponent from '../components/_ui/CloudComponent'
+import { ButtonLink } from '../components/_ui'
 
 const NotFoundPage = () => (
   <Layout>
@@ -34,14 +33,13 @@ const NotFoundPage = () => (
 
 export default NotFoundPage
 
-
 const Wrapper = styled.div`
-    background: ${colors.blue};
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    color: #fff;
-    justify-content: center;
-    height: calc(100vh - 12rem);
-    z-index: -1;
-  `
+  background: ${colors.blue};
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+  justify-content: center;
+  height: calc(100vh - 12rem);
+  z-index: -1;
+`

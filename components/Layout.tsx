@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
+import { Footer } from './sections'
+import { Header } from './sections'
 
 const LayoutContainer = styled.div``
 

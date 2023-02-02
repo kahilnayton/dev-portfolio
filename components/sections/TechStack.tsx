@@ -1,13 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import dimensions from '../styles/dimensions'
+import dimensions from '../../styles/dimensions'
 // import Image from 'next/image';
 // import colors from 'styles/colors';
 
-
-
-const TechStack = (props: any) => {
+export const TechStack = (props: any) => {
   return (
     <TechWrapper>
       {props.stack.length > 0 &&
@@ -20,9 +18,6 @@ const TechStack = (props: any) => {
     </TechWrapper>
   )
 }
-
-export default TechStack
-
 
 const TechWrapper = styled.div`
   display: grid;
