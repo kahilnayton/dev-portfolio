@@ -11,8 +11,7 @@ type ButtonLinkProps = {
   href: string
 }
 
-export default function ButtonLink({href, title}: ButtonLinkProps) {
-
+export const ButtonLink = ({ href, title }: ButtonLinkProps) => {
   return (
     <Link href={href}>
       <ButtonContainer>{title}</ButtonContainer>

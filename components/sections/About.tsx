@@ -20,13 +20,11 @@ import styled from 'styled-components'
 // @ts-ignore
 import Roll from 'react-reveal/Roll'
 
-import gradients from '../styles/gradients'
-import { colors } from '../styles/colors'
-import CloudComponent from '../components/CloudComponent'
+import gradients from '../../styles/gradients'
+import { colors } from '../../styles/colors'
+import CloudComponent from '../_ui/CloudComponent'
 
-
-
-export default function About() {
+export const About = () => {
   return (
     <Section id="about" className="about">
       <Reveal effect="fadeInUp">
@@ -158,7 +156,6 @@ export default function About() {
     </Section>
   )
 }
-
 
 const Li = styled.li`
   transition: 0.2s;

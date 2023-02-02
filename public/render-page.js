@@ -2311,7 +2311,6 @@ useStaticQuery(graphql\`${query}\`);
 
                   return target
                 }
-
               ;(module.exports['default'] = module.exports),
                 (module.exports.__esModule = true)
               return _extends.apply(this, arguments)
@@ -2484,7 +2483,6 @@ useStaticQuery(graphql\`${query}\`);
                   o.__proto__ = p
                   return o
                 }
-
               ;(module.exports['default'] = module.exports),
                 (module.exports.__esModule = true)
               return _setPrototypeOf(o, p)
@@ -2513,7 +2511,6 @@ useStaticQuery(graphql\`${query}\`);
                 module.exports = _typeof = function _typeof(obj) {
                   return typeof obj
                 }
-
                 ;(module.exports['default'] = module.exports),
                   (module.exports.__esModule = true)
               } else {
@@ -2525,7 +2522,6 @@ useStaticQuery(graphql\`${query}\`);
                     ? 'symbol'
                     : typeof obj
                 }
-
                 ;(module.exports['default'] = module.exports),
                   (module.exports.__esModule = true)
               }
@@ -15488,7 +15484,6 @@ object-assign
                   )
                 }) // A few React string attributes have a different name.
                 // This is a mapping from React prop names to the attribute names.
-
                 ;[
                   ['acceptCharset', 'accept-charset'],
                   ['className', 'class'],
@@ -15508,7 +15503,6 @@ object-assign
                 }) // These are "enumerated" HTML attributes that accept "true" and "false".
                 // In React, we let users pass `true` and `false` even though technically
                 // these aren't boolean attributes (they are coerced to strings).
-
                 ;[
                   'contentEditable',
                   'draggable',
@@ -15527,7 +15521,6 @@ object-assign
                 // In React, we let users pass `true` and `false` even though technically
                 // these aren't boolean attributes (they are coerced to strings).
                 // Since these are SVG attributes, their attribute names are case-sensitive.
-
                 ;[
                   'autoReverse',
                   'externalResourcesRequired',
@@ -15543,7 +15536,6 @@ object-assign
                     false,
                   )
                 }) // These are HTML boolean attributes.
-
                 ;[
                   'allowFullScreen',
                   'async', // Note: there is a special case that prevents it from being written to the DOM
@@ -15579,7 +15571,6 @@ object-assign
                   )
                 }) // These are the few React props that we set as DOM properties
                 // rather than attributes. These are all booleans.
-
                 ;[
                   'checked', // Note: `option.selected` is not updated if `select.multiple` is
                   // disabled with `removeAttribute`. We have special logic for handling this.
@@ -15599,7 +15590,6 @@ object-assign
                   )
                 }) // These are HTML attributes that are "overloaded booleans": they behave like
                 // booleans, but can also accept a string value.
-
                 ;[
                   'capture',
                   'download', // NOTE: if you add a camelCased prop to this list,
@@ -15615,7 +15605,6 @@ object-assign
                     false,
                   )
                 }) // These are HTML attributes that must be positive numbers.
-
                 ;[
                   'cols',
                   'rows',
@@ -15633,7 +15622,6 @@ object-assign
                     false,
                   )
                 }) // These are HTML attributes that must be numbers.
-
                 ;['rowSpan', 'start'].forEach(function (name) {
                   properties[name] = new PropertyInfoRecord(
                     name,
@@ -15741,7 +15729,6 @@ object-assign
                     false,
                   )
                 }) // String SVG attributes with the xlink namespace.
-
                 ;[
                   'xlink:actuate',
                   'xlink:arcrole',
@@ -15762,7 +15749,6 @@ object-assign
                     false,
                   )
                 }) // String SVG attributes with the xml namespace.
-
                 ;[
                   'xml:base',
                   'xml:lang',
@@ -15782,7 +15768,6 @@ object-assign
                 }) // These attribute exists both in HTML and SVG.
                 // The attribute name is case-sensitive in SVG so we can't just use
                 // the React name like we do for attributes that exist only in HTML.
-
                 ;['tabIndex', 'crossOrigin'].forEach(function (attributeName) {
                   properties[attributeName] = new PropertyInfoRecord(
                     attributeName,

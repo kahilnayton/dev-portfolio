@@ -9,19 +9,15 @@ import styled from 'styled-components'
 import { colors } from '../../styles/colors'
 import gradients from '../../styles/gradients'
 import dimensions from '../../styles/dimensions'
+import { CardProps } from './types'
 
-
-export type BlogCardProps = {
-  uid: string
-  title: string
-  image: Record<string, string>
-  textSnippet: string
-  publishDate: string
-}
-
-
-const BlogCard = ({uid, title, image, textSnippet, publishDate}: BlogCardProps) => {
-
+export const BlogCard = ({
+  uid,
+  title,
+  blog_image: image,
+  preview_text: textSnippet,
+  release_date: publishDate,
+}: CardProps) => {
   let trimmed_preview_text
 
   if (textSnippet) {
@@ -56,9 +52,6 @@ const BlogCard = ({uid, title, image, textSnippet, publishDate}: BlogCardProps) 
     </>
   )
 }
-
-export default BlogCard
-
 
 const CardContainer = styled.a`
   position: relative;

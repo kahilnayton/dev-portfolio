@@ -7,8 +7,7 @@ import Fade from 'react-reveal/Fade'
 
 import dimensions from '../../styles/dimensions'
 
-
-export default function Video(props: any) {
+export const Video = (props: any) => {
   let videoContainer = createRef()
   useEffect(() => {
     const video = document.createElement('video')
@@ -54,7 +53,7 @@ const VideoContainer = styled.div`
   }
 `
 
-const VideoContent = styled.div<{ref: any}>`
+const VideoContent = styled.div<{ ref: any }>`
   video {
     display: block;
     position: absolute;

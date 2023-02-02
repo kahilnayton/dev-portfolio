@@ -7,12 +7,12 @@ import {
   bottomToTop,
   bottomToTopSlow,
 } from '../styles/animations'
-import About from '../components/About'
-import Hero from '../components/Hero'
-import ContactForm from '../components/ContactForm'
-import FeaturedBlogs from '../components/sections/FeaturedBlogs'
-import FeaturedProjects from '../components/sections/FeaturedProjects'
-import ParallaxComponent from '../components/ParallaxComponent'
+import { About } from '../components/sections'
+import { Hero } from '../components/sections'
+import { ContactForm } from '../components/sections'
+import { FeaturedBlogs } from '../components/sections'
+import { FeaturedProjects } from '../components/sections'
+import ParallaxComponent from '../components/_ui/ParallaxComponent'
 import { Plane, Balloon } from '../components/_ui/icons'
 import Head from 'next/head'
 import { PageContent } from '../lib/constants'
@@ -20,15 +20,15 @@ import { PageContent } from '../lib/constants'
 // import Image from 'next/image';
 
 import { getAllHomepage } from '../lib/api'
-import Bio from '../components/Bio'
-import SEO from '../components/SEO'
+import { Bio } from '../components/sections'
+import { SEO } from '../components/SEO'
 // import Reveal from 'react-reveal/Reveal';
 
 type HomeProps = {
   allHomepage: any
 }
 
-const IndexPage = ({allHomepage}: HomeProps) => {
+const IndexPage = ({ allHomepage }: HomeProps) => {
   const home = allHomepage?.allHomes?.edges[0].node
   const Seo = home?.body[1].primary || SEO
 
@@ -75,13 +75,9 @@ const IndexPage = ({allHomepage}: HomeProps) => {
           <StyledPlane height={500} width={300} />
         </PlaneWrapper>
 
+        <StyledBalloon height={100} width={100} />
         <StyledBalloon
-          src="/balloon.png"
-          alt="Balloon"
-          height={100}
-          width={100}
-        />
-        <StyledBalloon
+          // @ts-ignore
           className="small"
           src="/balloon.png"
           alt="Balloon"
@@ -96,23 +92,21 @@ const IndexPage = ({allHomepage}: HomeProps) => {
         />
 
         <FeaturedBlogs
-        blogs={home?.blog_list}
-        variant="homepage"
-        heading={home.blog_heading}
-        content="hello"
-        buttonText='lets go'
+          blogs={home?.blog_list}
+          variant="homepage"
+          heading={home?.blog_heading || "Blogs"}
+          content="hello"
+          buttonText="lets go"
         />
 
         <ParallaxComponent variant="planeLeftToRight" />
 
         <FeaturedProjects
-        projects={home?.project_list}
-        variant="homepage"
-        heading='Projects'
-        content='yolo'
-        buttonText='helll yea'
-        
-
+          projects={home?.project_list}
+          variant="homepage"
+          heading="Projects"
+          content="yolo"
+          buttonText="helll yea"
         />
 
         <ParallaxComponent variant="planeRightToLeft" />
@@ -172,6 +166,7 @@ const StyledBalloon = styled(Balloon)`
 
   &.small {
     height: 6rem;
+    border: solid green;
     animation-duration: 60s;
     animation-name: ${bottomToTopSlow};
     overflow: hidden;

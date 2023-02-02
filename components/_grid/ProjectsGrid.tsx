@@ -1,6 +1,16 @@
-import React, { Component } from 'react'
 import styled from 'styled-components'
 import dimensions from '../../styles/dimensions'
+import { GridProps } from './types'
+
+export const ProjectsGrid = ({ dense, variant, children }: GridProps) => {
+  return (
+    <GridContainer
+      className={`${dense && 'is-dense'} ${variant && `Grid--${variant}`}`}
+    >
+      <GridList>{children}</GridList>
+    </GridContainer>
+  )
+}
 
 const GridContainer = styled.div`
   display: block;
@@ -51,15 +61,3 @@ const GridList = styled.ul`
     }
   }
 `
-
-export default function ProjectsGrid(props) {
-  return (
-    <GridContainer
-      className={`${props.dense && 'is-dense'} ${
-        props.variant && `Grid--${props.variant}`
-      }`}
-    >
-      <GridList>{props.children}</GridList>
-    </GridContainer>
-  )
-}

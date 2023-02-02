@@ -3,9 +3,9 @@ import Head from 'next/head'
 
 import Layout from '../../components/Layout'
 import { colors } from '../../styles/colors'
-import Hero from '../../components/Hero'
-import ContactForm from '../../components/ContactForm'
-import FeaturedProjects from '../../components/sections/FeaturedProjects'
+import { Hero } from '../../components/sections'
+import { ContactForm } from '../../components/sections'
+import { FeaturedProjects } from '../../components/sections'
 import { getAllProjectPage } from '../../lib/api'
 import { GetStaticProps } from 'next'
 
@@ -13,7 +13,7 @@ type ProjectLandingProps = {
   allProjects: any
 }
 
-const Projects = ({allProjects}: ProjectLandingProps) => {
+const Projects = ({ allProjects }: ProjectLandingProps) => {
   const projectPage = allProjects.allProject_pages.edges[0].node
   const Seo = projectPage.body[1].primary
 
@@ -69,7 +69,11 @@ const Projects = ({allProjects}: ProjectLandingProps) => {
 
 export default Projects
 
-export const getStaticProps: GetStaticProps = async ({ params, preview = false, previewData }) => {
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  preview = false,
+  previewData,
+}) => {
   const allProjects = await getAllProjectPage(previewData)
 
   return {

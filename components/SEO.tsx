@@ -3,10 +3,10 @@ import config from '../config'
 
 type SEOProps = {
   description: string
-   title: string
+  title: string
 }
 
-export default function SEO({ description, title }: SEOProps) {
+export const SEO = ({ description, title }: SEOProps) => {
   const siteTitle = config.title
 
   return (

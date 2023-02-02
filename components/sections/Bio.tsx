@@ -3,11 +3,11 @@ import { RichText } from 'prismic-reactjs'
 import lottie from 'lottie-web'
 import styled from 'styled-components'
 
-import { Inner } from '../styles/structure'
-import { colors } from '../styles/colors'
-import dimensions from '../styles/dimensions'
-import animation from '../public/animations/helicopter.json'
-import Video from '../components/_ui/Video'
+import { Inner } from '../../styles/structure'
+import { colors } from '../../styles/colors'
+import dimensions from '../../styles/dimensions'
+import animation from '../../public/animations/helicopter.json'
+import { Video } from '../_ui'
 
 type BioProps = {
   heading: string
@@ -15,7 +15,7 @@ type BioProps = {
   profilePic?: string
 }
 
-const Bio = ({ heading, content, profilePic }: BioProps) => {
+export const Bio = ({ heading, content, profilePic }: BioProps) => {
   return (
     <Inner>
       <BioContainer>
@@ -70,5 +70,3 @@ const HelicopterAnimation = styled.div`
   height: 20rem;
   width: 20rem;
 `
-
-export default Bio

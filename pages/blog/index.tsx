@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 import Layout from '../../components/Layout'
 import { colors } from '../../styles/colors'
-import Hero from '../../components/Hero'
-import ContactForm from '../../components/ContactForm'
-import FeaturedBlogs from '../../components/sections/FeaturedBlogs'
+import { Hero } from '../../components/sections'
+import { ContactForm } from '../../components/sections'
+import { FeaturedBlogs } from '../../components/sections'
 import Head from 'next/head'
 
 import { getAllBlogPage } from '../../lib/api'
@@ -14,8 +14,7 @@ type BlogLandingProps = {
   allPosts: any
 }
 
-
-const Blog = ({allPosts}: BlogLandingProps) => {
+const Blog = ({ allPosts }: BlogLandingProps) => {
   const blogPage = allPosts.allBlog_pages.edges[0].node
   const Seo = blogPage.body[1].primary
 
@@ -62,7 +61,7 @@ const Blog = ({allPosts}: BlogLandingProps) => {
           variant="blogPage"
           heading={blogPage.blog_heading}
           buttonText="yolo"
-          content='content'
+          content="content"
         />
         <ContactForm />
       </Wrapper>
@@ -72,7 +71,11 @@ const Blog = ({allPosts}: BlogLandingProps) => {
 
 export default Blog
 
-export const getStaticProps: GetStaticProps = async ({ params, preview = false, previewData }) => {
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  preview = false,
+  previewData,
+}) => {
   const allPosts = await getAllBlogPage(previewData)
 
   return {
