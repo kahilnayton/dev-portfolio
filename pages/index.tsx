@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import Layout from '../components/Layout'
 import { colors } from '../styles/colors'
+import { createClient } from '../prismicio'
 import {
   acrossScreen,
   bottomToTop,
@@ -22,15 +23,34 @@ import { PageContent } from '../lib/constants'
 import { getAllHomepage } from '../lib/api'
 import { Bio } from '../components/sections'
 import { SEO } from '../components/SEO'
+import { GetStaticProps } from 'next/types'
 // import Reveal from 'react-reveal/Reveal';
 
-type HomeProps = {
-  allHomepage: any
+// Turn this into a generic
+type HomePageProps = {
+  heading:any
+   bio: any
+   blog_heading: any
+   blog_list: any
+   body: any
+   contact_heading: any
+   contact_list: any
+   content: any
+   project_heading: any
+   project_list: any
+} 
+
+type HomeTemplate = {
+  page: {
+    data: HomePageProps
+  } 
 }
 
-const IndexPage = ({ allHomepage }: HomeProps) => {
-  const home = allHomepage?.allHomes?.edges[0].node
-  const Seo = home?.body[1].primary || SEO
+const IndexPage = ({ page }: HomeTemplate) => {
+  const {heading, bio, blog_heading, blog_list, body, contact_heading, contact_list, content, project_heading, project_list } = page.data
+  console.log(blog_list, 'blog_list');
+  
+  const Seo = body[1].primary || SEO
 
   return (
     <Layout>
@@ -38,7 +58,7 @@ const IndexPage = ({ allHomepage }: HomeProps) => {
         {/* General */}
         <title>{Seo?.site_name}</title>
         <meta name="description" content={Seo.description} />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Twitter */}
         <meta name="twitter:card" content="summary" key="twcard" />
@@ -65,8 +85,8 @@ const IndexPage = ({ allHomepage }: HomeProps) => {
       </Head>
       <Wrapper>
         <Hero
-          heading={home?.heading || 'hello'}
-          text={home?.body[0]?.primary.hero_title[0].text || 'this is me'}
+          heading={heading || 'hello'}
+          text={body[0]?.primary.hero_title[0].text || 'this is me'}
           // background={home.body[0].primary.background_image}
           variant="homepage"
         />
@@ -86,15 +106,15 @@ const IndexPage = ({ allHomepage }: HomeProps) => {
         />
 
         <Bio
-          heading={home?.bio?.heading || PageContent.heading}
-          content={home?.bio?.conten || ''}
-          profilePic={home?.bio?.profile_pic}
+          heading={bio?.heading || PageContent.heading}
+          content={bio?.conten || ''}
+          profilePic={bio?.profile_pic}
         />
 
         <FeaturedBlogs
-          blogs={home?.blog_list}
+          blogs={blog_list}
           variant="homepage"
-          heading={home?.blog_heading || "Blogs"}
+          heading={blog_heading || 'Blogs'}
           content="hello"
           buttonText="lets go"
         />
@@ -102,7 +122,7 @@ const IndexPage = ({ allHomepage }: HomeProps) => {
         <ParallaxComponent variant="planeLeftToRight" />
 
         <FeaturedProjects
-          projects={home?.project_list}
+          projects={project_list}
           variant="homepage"
           heading="Projects"
           content="yolo"
@@ -122,13 +142,19 @@ const IndexPage = ({ allHomepage }: HomeProps) => {
 }
 export default IndexPage
 
-// export async function getStaticProps({ preview = false, previewData }) {
-//   const allHomepage = await getAllHomepage(previewData);
+export const getStaticProps: GetStaticProps = async ({
+  previewData,
+}) => {
+  const client = createClient({ previewData })
+  const page = await client.getSingle('home')
+  
 
-//   return {
-//     props: { preview, allHomepage },
-//   };
-// }
+  return {
+    props: {
+      page,
+    },
+  }
+}
 
 const Wrapper = styled.div`
   background: ${colors.blue};

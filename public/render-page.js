@@ -15488,7 +15488,7 @@ object-assign
                   ['acceptCharset', 'accept-charset'],
                   ['className', 'class'],
                   ['htmlFor', 'for'],
-                  ['httpEquiv', 'http-equiv'],
+                  ['httpEquiv', 'httpEquiv'],
                 ].forEach(function (_ref) {
                   var name = _ref[0],
                     attributeName = _ref[1]
@@ -20622,7 +20622,7 @@ object-assign
                   hreflang: 'hrefLang',
                   htmlfor: 'htmlFor',
                   httpequiv: 'httpEquiv',
-                  'http-equiv': 'httpEquiv',
+                  httpEquiv: 'httpEquiv',
                   icon: 'icon',
                   id: 'id',
                   innerhtml: 'innerHTML',

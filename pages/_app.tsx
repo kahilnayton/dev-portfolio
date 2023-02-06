@@ -1,10 +1,15 @@
+import Link from 'next/link'
+import Head from 'next/head'
+
 import { ThemeProvider } from 'styled-components'
 import { ParallaxProvider } from 'react-scroll-parallax'
+import { PrismicProvider } from '@prismicio/react'
+import { PrismicPreview } from '@prismicio/next'
+import { repositoryName } from '../prismicio'
 
 import ResetStyles from '../styles/reset'
 import GlobalStyle from '../styles/global'
 import TypeStyles from '../styles/typography'
-import Head from 'next/head'
 
 import '../public/fonts/fonts.css'
 
@@ -26,7 +31,13 @@ export default function App({ Component, pageProps }: any) {
       {/* @ts-ignore */}
       <ParallaxProvider>
         <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
+          <PrismicProvider
+            internalLinkComponent={(props) => <Link {...props} />}
+          >
+            <PrismicPreview repositoryName={repositoryName}>
+              <Component {...pageProps} />
+            </PrismicPreview>
+          </PrismicProvider>
         </ThemeProvider>
       </ParallaxProvider>
     </>

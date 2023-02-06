@@ -41,19 +41,18 @@ export const FeaturedProjects = ({
           <ProjectsGrid dense={projects.length > 3}>
             {projects.map(({ ...project }: CardProps, i: number) => {
               const {
-                _meta,
+                uid,
                 project_image,
                 title,
                 preview_text,
                 release_date,
               } = project
-              const { uid } = _meta
               return (
                 <li key={i}>
                   <ProjectCard
                     uid={uid}
                     project_image={project_image}
-                    title={title[0].text}
+                    title={title}
                     preview_text={preview_text}
                     release_date={release_date}
                     projectLink={'/'}
