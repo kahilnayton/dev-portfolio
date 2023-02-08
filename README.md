@@ -1,19 +1,27 @@
-### Dev portfolio # dev-portfolio
+# Kahil Dev
 
-Step 5. Set up environment variables
-Follow the instructions in this post to generate a new access token.
+### It's just a little front end site for blogging, talking about new projects and exporing new technologies
 
-Next, copy the .env.local.example file in this directory to .env.local (which will be ignored by Git):
+## Description
 
-cp .env.local.example .env.local
-Then set each variable on .env.local:
+- Next js latest
+- Prismic
+- GraphQL
+- Typescript
+- Styled components
 
-PRISMIC_API_TOKEN should be the Permanent access token you just created
-PRISMIC_REPOSITORY_NAME is the name of your repository (the one in the URL)
-PRISMIC_REPOSITORY_LOCALE is the locale of your repository. Defaults to en-us
-Your .env.local file should look like this:
+## Getting started
 
-PRISMIC_API_TOKEN=...
-PRISMIC_REPOSITORY_NAME=...
-PRISMIC_REPOSITORY_LOCALE=...
-Make sure the locale matches your settings in the Prismic dashboard.
+- Set up environment variables
+
+* Create a .env.local file:
+* Add the prismic credentials
+
+```jsx
+NEXT_PUBLIC_PRISMIC_API_TOKEN=...
+NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME=...
+NEXT_PUBLIC_PRISMIC_REPOSITORY_LOCALE=...
+```
+
+- `yarn` to install deps
+- `yarn dev` to start the project locally
