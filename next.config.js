@@ -12,6 +12,6 @@ module.exports = nextConfig
 const sitemap = require('nextjs-sitemap-generator')
 sitemap({
   baseUrl: 'https://kahildev.com',
-  pagesDirectory: __dirname + '/pages',
+  pagesDirectory: __dirname + '/src/pages',
   targetDirectory: 'public/',
 })

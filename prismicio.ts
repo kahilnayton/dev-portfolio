@@ -1,6 +1,6 @@
 import * as prismic from '@prismicio/client'
 import * as prismicNext from '@prismicio/next'
-import { API_TOKEN } from './lib/api'
+// import { API_TOKEN } from '@/lib/api'
 
 /**
  * The project's Prismic repository name.
