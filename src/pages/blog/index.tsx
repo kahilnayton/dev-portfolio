@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import Layout from '../../components/Layout'
-import { colors } from '../../styles/colors'
-import { Hero } from '../../components/sections'
-import { ContactForm } from '../../components/sections'
-import { FeaturedBlogs } from '../../components/sections'
+import Layout from '@/components/Layout'
+import { colors } from '@/styles/colors'
+import { Hero } from '@/components/sections'
+import { ContactForm } from '@/components/sections'
+import { FeaturedBlogs } from '@/components/sections'
 import Head from 'next/head'
 
-import { getAllBlogPage } from '../../lib/api'
+import { getAllBlogPage } from '@/lib/api'
 import { GetStaticProps } from 'next'
 
 type BlogLandingProps = {

@@ -14,3 +14,8 @@ export const SEO = {
 export const PageContent = {
   heading: 'Hello and welcome',
 }
+
+export const defaultImage = {
+  url: '/logo_logo.png',
+  alt: 'Default image'
+}

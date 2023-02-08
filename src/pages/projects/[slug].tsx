@@ -4,13 +4,13 @@ import ErrorPage from 'next/error'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs'
 
-import { colors } from '../../styles/colors'
-import Layout from '../../components/Layout'
-import { TechStack } from '../../components/sections'
-import dimensions from '../../styles/dimensions'
-import { Hero } from '../../components/sections'
+import { colors } from '@/styles/colors'
+import Layout from '@/components/Layout'
+import { TechStack } from '@/components/sections'
+import dimensions from '@/styles/dimensions'
+import { Hero } from '@/components/sections'
 
-import { getAllProjectsWithSlug, getProject } from '../../lib/api'
+import { getAllProjectsWithSlug, getProject } from '@/lib/api'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 type ProjectPostProps = {

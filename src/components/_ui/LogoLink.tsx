@@ -5,7 +5,7 @@ import Link from 'next/link'
 // import {colors, randomColors} from '../../styles/colors';
 // import gradients from '../../styles/gradients';
 // import dimensions from '../../styles/dimensions';
-import { Logo } from '../../components/_ui/icons'
+import { Logo } from './icons'
 
 export const LogoLink = () => {
   return (

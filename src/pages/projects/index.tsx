@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 import Head from 'next/head'
 
-import Layout from '../../components/Layout'
-import { colors } from '../../styles/colors'
-import { Hero } from '../../components/sections'
-import { ContactForm } from '../../components/sections'
-import { FeaturedProjects } from '../../components/sections'
-import { getAllProjectPage } from '../../lib/api'
+import Layout from '@/components/Layout'
+import { colors } from '@/styles/colors'
+import { Hero } from '@/components/sections'
+import { ContactForm } from '@/components/sections'
+import { FeaturedProjects } from '@/components/sections'
+import { getAllProjectPage } from '@/lib/api'
 import { GetStaticProps } from 'next'
 
 type ProjectLandingProps = {

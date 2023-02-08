@@ -22,7 +22,7 @@ const typeStyles = createGlobalStyle`
   }
 
   h1 {
-    color: ${colors.teal800};
+    color: ${colors.grey500};
     font-size: 5.2rem;
     line-height: 1.25;
     font-weight: 400;
@@ -34,7 +34,7 @@ const typeStyles = createGlobalStyle`
   }
 
   h2 {
-    color: ${colors.teal800};
+    color: ${colors.grey500};
     font-size: 4.2rem;
     line-height: 1.25;
     font-weight: 400;
@@ -46,7 +46,7 @@ const typeStyles = createGlobalStyle`
   }
 
   h3 {
-    color: ${colors.teal800};
+    color: ${colors.grey500};
     font-size: 3rem;
     line-height: 1.25;
     font-weight: 400;
@@ -58,7 +58,7 @@ const typeStyles = createGlobalStyle`
   }
 
   h4 {
-    color: ${colors.teal800};
+    color: ${colors.grey500};
     font-size: 2.4rem;
     line-height: 1.25;
     font-weight: 400;
@@ -69,7 +69,7 @@ const typeStyles = createGlobalStyle`
   }
 
   h5 {
-    color: ${colors.teal800};
+    color: ${colors.grey500};
     font-size: 1.8rem;
     line-height: 1.33;
     font-weight: 400;
@@ -84,7 +84,7 @@ const typeStyles = createGlobalStyle`
   }
 
   h6 {
-    color: ${colors.teal800};
+    color: ${colors.grey500};
     font-size: 1.4rem;
     line-height: 1.33;
     font-weight: 600;
@@ -99,7 +99,7 @@ const typeStyles = createGlobalStyle`
   }
 
   p {
-    color: ${colors.teal700};
+    color: ${colors.grey400};
     font-size: 1.8rem;
     line-height: 1.55;
 

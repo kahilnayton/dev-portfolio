@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-import Layout from '../components/Layout'
-import { colors } from '../styles/colors'
-import { createClient } from '../prismicio'
+import Layout from '@/components/Layout'
+import { colors } from '@/styles/colors'
+import { createClient } from '../../prismicio'
 import {
   acrossScreen,
   bottomToTop,
   bottomToTopSlow,
-} from '../styles/animations'
+} from '@/styles/animations'
 import { About } from '../components/sections'
 import { Hero } from '../components/sections'
 import { ContactForm } from '../components/sections'
@@ -16,7 +16,7 @@ import { FeaturedProjects } from '../components/sections'
 import ParallaxComponent from '../components/_ui/ParallaxComponent'
 import { Plane, Balloon } from '../components/_ui/icons'
 import Head from 'next/head'
-import { PageContent } from '../lib/constants'
+import { PageContent } from './constants'
 
 // import Image from 'next/image';
 
