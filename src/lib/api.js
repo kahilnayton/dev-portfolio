@@ -1,3 +1,5 @@
+
+// TODO: deprecated need to migrate all these queries
 import Prismic from 'prismic-javascript'
 
 const REPOSITORY = process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME
@@ -24,8 +26,6 @@ async function fetchAPI(query, { previewData, variables } = {}) {
       },
     },
   )
-
-  console.log(res, 'response')
 
   if (res.status !== 200) {
     console.warn(await res.text())

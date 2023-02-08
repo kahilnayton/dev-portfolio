@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import Layout from '@/components/Layout'
 import { colors } from '@/styles/colors'
-import { createClient } from '../../prismicio'
+import { prismicClient } from '@/utils/prismicHelpers'
 import {
   acrossScreen,
   bottomToTop,
@@ -20,11 +20,10 @@ import { PageContent } from './constants'
 
 // import Image from 'next/image';
 
-import { getAllHomepage } from '../lib/api'
 import { Bio } from '../components/sections'
 import { SEO } from '../components/SEO'
 import { GetStaticProps } from 'next/types'
-// import Reveal from 'react-reveal/Reveal';
+import { homePageQuery } from '@/utils/prismicQueries'
 
 // Turn this into a generic
 type HomePageProps = {
@@ -41,14 +40,14 @@ type HomePageProps = {
 } 
 
 type HomeTemplate = {
-  page: {
-    data: HomePageProps
-  } 
+  pageProps: {
+    data: any
+  }
 }
 
-const IndexPage = ({ page }: HomeTemplate) => {
-  const {heading, bio, blog_heading, blog_list, body, contact_heading, contact_list, content, project_heading, project_list } = page.data
-  console.log(blog_list, 'blog_list');
+const IndexPage = ({ pageProps }: HomeTemplate) => {
+  
+  const {heading, bio, blog_heading, blog_list, body, contact_heading, contact_list, content, project_heading, project_list } = pageProps.data
   
   const Seo = body[1].primary || SEO
 
@@ -145,13 +144,16 @@ export default IndexPage
 export const getStaticProps: GetStaticProps = async ({
   previewData,
 }) => {
-  const client = createClient({ previewData })
-  const page = await client.getSingle('home')
+  const client = prismicClient({ previewData })
+  const page = await client.getAllByType('home', {
+    graphQuery: homePageQuery
+  })
   
+  const pageProps = page[0]
 
   return {
     props: {
-      page,
+      pageProps,
     },
   }
 }
