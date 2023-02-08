@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import Head from 'next/head'
 
-import Layout from '../components/Layout'
-import { colors } from '../styles/colors'
-import CloudComponent from '../components/_ui/CloudComponent'
-import { ButtonLink } from '../components/_ui'
+import Layout from '@/components/Layout'
+import { colors } from '@/styles/colors'
+import CloudComponent from '@/components/_ui/CloudComponent'
+import { ButtonLink } from '@/components/_ui'
 
 const NotFoundPage = () => (
   <Layout>

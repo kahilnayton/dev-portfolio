@@ -4,12 +4,12 @@ import ErrorPage from 'next/error'
 import { RichText } from 'prismic-reactjs'
 import styled from 'styled-components'
 
-import dimensions from '../../styles/dimensions'
-import { colors } from '../../styles/colors'
-import Layout from '../../components/Layout'
-import { TechStack } from '../../components/sections'
-import { Hero } from '../../components/sections'
-import { getAllBlogsWithSlug, getBlog } from '../../lib/api'
+import dimensions from '@/styles/dimensions'
+import { colors } from '@/styles/colors'
+import Layout from '@/components/Layout'
+import { TechStack } from '@/components/sections'
+import { Hero } from '@/components/sections'
+import { getAllBlogsWithSlug, getBlog } from '@/lib/api'
 import { GetStaticPaths, GetStaticProps } from 'next'
 
 type BlogPostProps = {

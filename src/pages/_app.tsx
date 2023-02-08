@@ -5,13 +5,13 @@ import { ThemeProvider } from 'styled-components'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import { PrismicProvider } from '@prismicio/react'
 import { PrismicPreview } from '@prismicio/next'
-import { repositoryName } from '../prismicio'
+import { repositoryName } from '../../prismicio'
 
-import ResetStyles from '../styles/reset'
-import GlobalStyle from '../styles/global'
-import TypeStyles from '../styles/typography'
+import ResetStyles from '@/styles/reset'
+import GlobalStyle from '@/styles/global'
+import TypeStyles from '@/styles/typography'
 
-import '../public/fonts/fonts.css'
+import '../../public/fonts/fonts.css'
 
 const theme = {
   colors: {

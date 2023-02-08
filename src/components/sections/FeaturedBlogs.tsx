@@ -11,6 +11,7 @@ import { BlogsGrid } from '../_grid'
 import { BlogCard, CardProps } from '../_card'
 import CloudComponent from '../_ui/CloudComponent'
 import { BlogProps, FeaturedSectionProps } from './types'
+import { defaultImage } from '../../pages/constants'
 
 export const FeaturedBlogs = ({
   heading,
@@ -46,7 +47,7 @@ export const FeaturedBlogs = ({
                 <li key={i}>
                   <BlogCard
                     uid={uid}
-                    blog_image={blog_image}
+                    blog_image={blog_image || defaultImage}
                     title={title}
                     preview_text={preview_text}
                     release_date={release_date}

@@ -1,7 +1,5 @@
 import styled from 'styled-components'
-import dimensions from '../styles/dimensions'
-
-const fractionStrToDecimal = (str) => str.split('/').reduce((p, c) => p / c)
+import dimensions from '@/styles/dimensions'
 
 export const Inner = styled.div`
   position: relative;
@@ -28,17 +26,3 @@ export const Wrap = styled.div`
   max-width: 97.4rem;
   margin: 0 auto;
 `
-
-export const gridColumns = (column, gap) => {
-  const columnWidth = column ? column.toString() : '1/2'
-  const gapWidth = gap
-    ? `${(1 - fractionStrToDecimal(column)) * parseFloat(gap)}rem`
-    : '1.6rem'
-
-  return `
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: calc(99.9% * ${columnWidth} - ${gapWidth});
-    width: calc(99.9% * ${columnWidth} - ${gapWidth});
-  `
-}

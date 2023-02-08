@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import { colors } from '../../styles/colors'
 import gradients from '../../styles/gradients'
 import dimensions from '../../styles/dimensions'
-import { ButtonLink } from '../../components/_ui'
+import { ButtonLink } from '../_ui'
 import { CardProps } from './types'
 
 export const ProjectCard = ({
