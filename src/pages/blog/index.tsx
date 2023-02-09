@@ -7,16 +7,19 @@ import { ContactForm } from '@/components/sections'
 import { FeaturedBlogs } from '@/components/sections'
 import Head from 'next/head'
 
-import { getAllBlogPage } from '@/lib/api'
 import { GetStaticProps } from 'next'
+import { prismicClient } from '@/utils/prismicHelpers'
+import { BlogLandingQuery } from '@/utils/prismicQueries'
 
 type BlogLandingProps = {
-  allPosts: any
+  pageProps: {
+    data: any
+  }
 }
 
-const Blog = ({ allPosts }: BlogLandingProps) => {
-  const blogPage = allPosts.allBlog_pages.edges[0].node
-  const Seo = blogPage.body[1].primary
+export default function  Blog ({ pageProps }: BlogLandingProps) {
+  const {heading, blog_heading, blog_list, body} = pageProps.data
+  const Seo = body[1].primary
 
   return (
     <Layout>
@@ -51,15 +54,15 @@ const Blog = ({ allPosts }: BlogLandingProps) => {
       </Head>
       <Wrapper>
         <Hero
-          heading={blogPage.heading}
+          heading={heading}
           text=""
-          background={blogPage.body[0].primary.background_image}
+          background={body[0].primary.background_image}
           variant="blogPage"
         />
         <FeaturedBlogs
-          blogs={blogPage.blog_list}
+          blogs={blog_list}
           variant="blogPage"
-          heading={blogPage.blog_heading}
+          heading={blog_heading}
           buttonText="yolo"
           content="content"
         />
@@ -69,17 +72,20 @@ const Blog = ({ allPosts }: BlogLandingProps) => {
   )
 }
 
-export default Blog
-
 export const getStaticProps: GetStaticProps = async ({
-  params,
-  preview = false,
   previewData,
 }) => {
-  const allPosts = await getAllBlogPage(previewData)
+  const client = prismicClient({ previewData })
+  const page = await client.getAllByType('blog_page', {
+    graphQuery: BlogLandingQuery
+  })
+
+  const pageProps = page[0]
 
   return {
-    props: { preview, allPosts },
+    props: {
+      pageProps,
+    },
   }
 }
 
