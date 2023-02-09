@@ -5,7 +5,6 @@ import { ThemeProvider } from 'styled-components'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import { PrismicProvider } from '@prismicio/react'
 import { PrismicPreview } from '@prismicio/next'
-import { repositoryName } from '../../prismicio'
 
 import ResetStyles from '@/styles/reset'
 import GlobalStyle from '@/styles/global'
@@ -34,7 +33,7 @@ export default function App({ Component, pageProps }: any) {
           <PrismicProvider
             internalLinkComponent={(props) => <Link {...props} />}
           >
-            <PrismicPreview repositoryName={repositoryName}>
+            <PrismicPreview repositoryName={process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME || ''}>
               <Component {...pageProps} />
             </PrismicPreview>
           </PrismicProvider>
