@@ -6,7 +6,6 @@ import * as prismicNext from '@prismicio/next'
 /**
  * The project's Prismic repository name.
  */
-export const repositoryName = 'kahildev'
 
 const REPOSITORY = process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME || ''
 const API_TOKEN = process.env.NEXT_PUBLIC_PRISMIC_API_TOKEN
