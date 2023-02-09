@@ -116,3 +116,68 @@ export const homePageQuery = `{
       }
     }
   }`;
+
+/*
+ * Blog Landing query
+ */
+
+  export const BlogLandingQuery = `{
+  query {
+    allBlog_pages {
+      edges {
+        node {
+          title
+          _meta {
+            uid
+          }
+          body {
+            ... on Blog_pageBodyHero {
+              type
+              label
+              primary {
+                hero_content
+                hero_title
+                background_image
+              }
+            }
+            ... on Blog_pageBodySeo {
+              type
+              label
+              primary {
+                title
+                description
+                preview_image
+                url
+                site_name
+              }
+            }
+          }
+          blog_list {
+            blog {
+              ... on Blog {
+                title
+                description
+                preview_text
+                release_date
+                blog_image
+                tech_stack {
+                  tech
+                }
+                blog_link {
+                  ... on _ExternalLink {
+                    target
+                    url
+                  }
+                }
+                _meta {
+                  uid
+                }
+                release_date
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}`
