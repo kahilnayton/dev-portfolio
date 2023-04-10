@@ -25,3 +25,6 @@ NEXT_PUBLIC_PRISMIC_REPOSITORY_LOCALE=...
 
 - `yarn` to install deps
 - `yarn dev` to start the project locally
+
+## Explore graph QL 
+https://kahildev.prismic.io/graphql

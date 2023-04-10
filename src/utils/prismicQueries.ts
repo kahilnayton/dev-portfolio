@@ -181,3 +181,40 @@ export const homePageQuery = `{
     }
   }
 }`
+
+export const BlogPostQuery = `{
+    query allBlogPosts($slug: String!) {
+      blog(uid: $slug) {
+        title
+        release_date
+        blog_link {
+          __typename
+          ... on _ExternalLink {
+            url
+          }
+        }
+        description
+        blog_image
+        tech_stack {
+          tech
+        }
+        _meta {
+          uid
+        }
+      }
+    }
+  }
+`
+
+  export const BlogPostSlugsQuery = `{
+      allBlogs {
+        edges {
+          node {
+            _meta {
+              uid
+            }
+          }
+        }
+      }
+    }
+  `

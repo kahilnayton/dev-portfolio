@@ -11,18 +11,22 @@ import { TechStack } from '@/components/sections'
 import { Hero } from '@/components/sections'
 import { getAllBlogsWithSlug, getBlog } from '@/lib/api'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { prismicClient } from '@/utils/prismicHelpers'
+import { BlogPostQuery, BlogPostSlugsQuery } from '@/utils/prismicQueries'
 
 type BlogPostProps = {
-  blog: any
+  postProps: any
 }
 
-const Blog = ({ blog }: BlogPostProps) => {
-  if (!blog) {
+export default function Post ({ postProps }: BlogPostProps) {
+  const { title, description, tech_stack, blog_image } = postProps.data
+  
+  if (!postProps) {
     return null
   }
 
   const router = useRouter()
-  if (!router.isFallback && !blog?._meta?.uid) {
+  if (!router.isFallback && !postProps?._meta?.uid) {
     return <ErrorPage statusCode={404} />
   }
 
@@ -33,43 +37,46 @@ const Blog = ({ blog }: BlogPostProps) => {
       </Head>
       <Hero
         text=""
-        heading={blog.title[0].text}
-        // background={blog.blog_image}
+        heading={title[0].text}
+        background={blog_image}
         variant="blog"
       />
       <BlogWrapper>
-        {blog.description.length > 0 && (
+        {description.length > 0 && (
           <BlogDescription>
-            <RichText render={blog.description} />
+            <RichText render={description} />
           </BlogDescription>
         )}
-        {blog.tech_stack.length > 0 && <TechStack stack={blog.tech_stack} />}
+        {tech_stack.length > 0 && <TechStack stack={tech_stack} />}
       </BlogWrapper>
     </Layout>
   )
 }
 
-export default Blog
-
 export const getStaticProps: GetStaticProps = async ({
-  params,
-  preview = false,
-  previewData,
+  params
 }) => {
-  const data = await getBlog(params?.slug, previewData)
+
+  const client = prismicClient({ previewData })
+
+  const slug = {params}
+  const postProps = await client.getByUID('blog', slug)
 
   return {
     props: {
-      preview,
-      blog: data?.blog ?? null,
+      postProps,
     },
   }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allBlogs = await getAllBlogsWithSlug()
+  const client = prismicClient({})
+  const PostSlugs = await client.getAllByType('blog', {
+    graphQuery: BlogPostSlugsQuery
+  })
+  
   return {
-    paths: allBlogs?.map(({ node }: any) => `/blog/${node._meta.uid}`) || [],
+    paths: PostSlugs?.map(({ uid }: any) => `/post/${uid}`) || [],
     fallback: false,
   }
 }
@@ -101,9 +108,6 @@ const BlogDescription = styled.div`
   width: 100%;
   height: 100%;
   color: ${colors.grey900};
-
-  h3 {
-  }
 
   p {
     margin-bottom: 2rem;

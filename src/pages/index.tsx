@@ -45,7 +45,9 @@ type HomeTemplate = {
   }
 }
 
-const IndexPage = ({ pageProps }: HomeTemplate) => {
+export default function IndexPage ({ pageProps }: HomeTemplate) {
+  console.log(pageProps.data);
+  
   
   const {heading, bio, blog_heading, blog_list, body, contact_heading, contact_list, content, project_heading, project_list } = pageProps.data
   
@@ -86,7 +88,7 @@ const IndexPage = ({ pageProps }: HomeTemplate) => {
         <Hero
           heading={heading || 'hello'}
           text={body[0]?.primary.hero_title[0].text || 'this is me'}
-          // background={home.body[0].primary.background_image}
+          background={body[0].primary.background_image}
           variant="homepage"
         />
 
@@ -111,7 +113,7 @@ const IndexPage = ({ pageProps }: HomeTemplate) => {
         />
 
         <FeaturedBlogs
-          blogs={blog_list}
+          posts={blog_list}
           variant="homepage"
           heading={blog_heading || 'Blogs'}
           content="hello"
@@ -139,7 +141,6 @@ const IndexPage = ({ pageProps }: HomeTemplate) => {
     </Layout>
   )
 }
-export default IndexPage
 
 export const getStaticProps: GetStaticProps = async ({
   previewData,

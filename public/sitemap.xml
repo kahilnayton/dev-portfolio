@@ -7,46 +7,46 @@
       
 	<url>
 		<loc>https://kahildev.com/404</loc>
-		<lastmod>2023-02-08</lastmod>
+		<lastmod>2023-04-09</lastmod>
 	</url>
 
 	<url>
 		<loc>https://kahildev.com/api/hello</loc>
-		<lastmod>2023-02-08</lastmod>
-	</url>
-
-	<url>
-		<loc>https://kahildev.com/blog/[slug]</loc>
-		<lastmod>2023-02-08</lastmod>
-	</url>
-
-	<url>
-		<loc>https://kahildev.com/blog/index</loc>
-		<lastmod>2023-02-08</lastmod>
+		<lastmod>2023-04-09</lastmod>
 	</url>
 
 	<url>
 		<loc>https://kahildev.com/constants</loc>
-		<lastmod>2023-02-08</lastmod>
+		<lastmod>2023-04-09</lastmod>
 	</url>
 
 	<url>
 		<loc>https://kahildev.com/contact</loc>
-		<lastmod>2023-02-08</lastmod>
+		<lastmod>2023-04-09</lastmod>
 	</url>
 
 	<url>
 		<loc>https://kahildev.com/index</loc>
-		<lastmod>2023-02-08</lastmod>
+		<lastmod>2023-04-09</lastmod>
+	</url>
+
+	<url>
+		<loc>https://kahildev.com/post/[slug]</loc>
+		<lastmod>2023-04-09</lastmod>
+	</url>
+
+	<url>
+		<loc>https://kahildev.com/post/index</loc>
+		<lastmod>2023-04-09</lastmod>
 	</url>
 
 	<url>
 		<loc>https://kahildev.com/projects/[slug]</loc>
-		<lastmod>2023-02-08</lastmod>
+		<lastmod>2023-04-09</lastmod>
 	</url>
 
 	<url>
 		<loc>https://kahildev.com/projects/index</loc>
-		<lastmod>2023-02-08</lastmod>
+		<lastmod>2023-04-09</lastmod>
 	</url>
 </urlset>

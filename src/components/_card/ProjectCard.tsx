@@ -1,6 +1,6 @@
 import React from 'react'
 // @ts-ignore
-import Slide from 'react-reveal/Slide'
+import { Fade } from "react-awesome-reveal";
 import styled from 'styled-components'
 // import Moment from 'react-moment'
 // import Link from 'next/link';
@@ -26,7 +26,7 @@ export const ProjectCard = ({
   }
 
   return (
-    <Slide right>
+    <Fade>
       <CardContainer>
         {image && (
           <CardImage>
@@ -48,7 +48,7 @@ export const ProjectCard = ({
         </LinkToProject>
         <ButtonLink title="More Info" href={`/projects/${uid}`} />
       </CardContainer>
-    </Slide>
+    </Fade>
   )
 }
 

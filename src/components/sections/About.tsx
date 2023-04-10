@@ -14,8 +14,7 @@ import {
 import { SiMongodb, SiNextDotJs } from 'react-icons/si'
 import { DiCss3, DiRuby, DiJsBadge, DiSass, DiPostgresql } from 'react-icons/di'
 import { GrGatsbyjs, GrGraphQl } from 'react-icons/gr'
-// @ts-ignore
-import Reveal from 'react-reveal/Reveal'
+import { Fade } from "react-awesome-reveal";
 import styled from 'styled-components'
 // @ts-ignore
 import Roll from 'react-reveal/Roll'
@@ -27,132 +26,130 @@ import CloudComponent from '../_ui/CloudComponent'
 export const About = () => {
   return (
     <Section id="about" className="about">
-      <Reveal effect="fadeInUp">
         <CloudComponent direction="left" distance="10rem" variant="about" />
         <h2 className="section-title">Languages / Tools</h2>
         <ul>
           <Li>
-            <Roll left>
+            <Fade direction='left'>
               <FaReact size={70} className="fab fa-react icon-size" />
               <h4 className="about-subtitle block">React</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll right>
+            <Fade direction='right'>
               <FaPython size={70} className="fab fa-python icon-size" />
               <h4 className="about-subtitle block">Python</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll left>
+            <Fade direction='left'>
               <DiPostgresql size={70} className="fas fa-database icon-size" />
               <h4 className="about-subtitle block">PostgreSQL</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll right>
+            <Fade direction='right'>
               <FaHtml5 size={70} className="fab fa-html5 icon-size" />
               <h4 className="about-subtitle block">HTML5</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll left>
+            <Fade direction='left'>
               <DiCss3 size={70} className="fab fa-css3-alt icon-size" />
               <h4 className="about-subtitle block">CSS3</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll right>
+            <Fade direction='right'>
               <DiSass size={70} className="fab fa-css3-alt icon-size" />
               <h4 className="about-subtitle block">SASS</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll left>
+            <Fade direction='left'>
               <DiJsBadge size={70} className="fab fa-js-square icon-size" />
               <h4 className="about-subtitle block">JavaScript</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll right>
+            <Fade direction='right'>
               <FaGit size={70} className="fab fa-git-square icon-size" />
               <h4 className="about-subtitle block">Git</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll left>
+            <Fade direction='left'>
               <FaGithub size={70} className="fab fa-github icon-size" />
               <h4 className="about-subtitle block">Github</h4>
-            </Roll>
+            </Fade>
           </Li>
 
           <Li>
-            <Roll right>
+            <Fade direction='right'>
               <DiRuby size={70} className="ruby icon-size" />
               <h4 className="about-subtitle block">Ruby</h4>
-            </Roll>
+            </Fade>
           </Li>
 
           <Li>
-            <Roll left>
+            <Fade direction='left'>
               <FaNodeJs size={70} className="fab fa-node icon-size" />
               <h4 className="about-subtitle block">Node.js</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll right>
+            <Fade direction='right'>
               <FaAws size={70} className="fab fa-Aws icon-size" />
               <h4 className="about-subtitle block">AWS</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll left>
+            <Fade direction='left'>
               <GrGatsbyjs size={70} className="fab fa-gatsby icon-size" />
               <h4 className="about-subtitle block">Gatsby.js</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll right>
+            <Fade direction='right'>
               <GrGraphQl size={70} className="fab fa-graphql icon-size" />
               <h4 className="about-subtitle block">GraphQL</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll left>
+            <Fade direction='left'>
               <FaWordpressSimple
                 size={70}
                 className="fab wordpress icon-size"
               />
               <h4 className="about-subtitle block">WordPress</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll right>
+            <Fade direction='right'>
               <FaPhp size={70} className="fab php icon-size" />
               <h4 className="about-subtitle block">PHP</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll left>
+            <Fade direction='left'>
               <FaShopify size={70} className="fab shopify icon-size" />
               <h4 className="about-subtitle block">Shopify</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll left>
+            <Fade direction='left'>
               <SiMongodb size={70} className="fab mongo icon-size" />
               <h4 className="about-subtitle block">MongoDB</h4>
-            </Roll>
+            </Fade>
           </Li>
           <Li>
-            <Roll left>
+            <Fade direction='left'>
               <SiNextDotJs size={70} className="fab next icon-size" />
               <h4 className="about-subtitle block">Next.js</h4>
-            </Roll>
+            </Fade>
           </Li>
         </ul>
         <CloudComponent direction="right" distance="2rem" />
-      </Reveal>
     </Section>
   )
 }

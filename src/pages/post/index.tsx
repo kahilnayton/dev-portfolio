@@ -17,7 +17,7 @@ type BlogLandingProps = {
   }
 }
 
-export default function  Blog ({ pageProps }: BlogLandingProps) {
+export default function BlogLanding ({ pageProps }: BlogLandingProps) {
   const {heading, blog_heading, blog_list, body} = pageProps.data
   const Seo = body[1].primary
 
@@ -60,7 +60,7 @@ export default function  Blog ({ pageProps }: BlogLandingProps) {
           variant="blogPage"
         />
         <FeaturedBlogs
-          blogs={blog_list}
+          posts={blog_list}
           variant="blogPage"
           heading={blog_heading}
           buttonText="yolo"

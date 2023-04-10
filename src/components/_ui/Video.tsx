@@ -2,8 +2,7 @@
 
 import React, { createRef, useEffect } from 'react'
 import styled from 'styled-components'
-// @ts-ignore
-import Fade from 'react-reveal/Fade'
+import { Fade } from "react-awesome-reveal";
 
 import dimensions from '../../styles/dimensions'
 
