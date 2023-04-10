@@ -9,7 +9,7 @@ import styled from 'styled-components'
 import { colors } from '../../styles/colors'
 import gradients from '../../styles/gradients'
 import dimensions from '../../styles/dimensions'
-import { CardProps } from './types'
+import { BlogCardProps } from './types'
 
 export const BlogCard = ({
   uid,

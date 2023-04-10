@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import * as prismicH from '@prismicio/helpers'
 import ErrorPage from 'next/error'
 import { RichText } from 'prismic-reactjs'
 import styled from 'styled-components'
@@ -57,29 +58,35 @@ export const getStaticProps: GetStaticProps = async ({
   params
 }) => {
 
-  const client = prismicClient({ previewData })
-
-  const slug = {params}
-  const postProps = await client.getByUID('blog', slug)
-
-  return {
-    props: {
-      postProps,
-    },
-  }
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const client = prismicClient({})
-  const PostSlugs = await client.getAllByType('blog', {
-    graphQuery: BlogPostSlugsQuery
-  })
+  const client = prismicClient()
   
+  try {
+    const postProps = await client.getByUID('blog', params?.uid as string, {})
+    return {
+      props: {
+        postProps,
+      },
+    }
+  } catch (error) {
+    console.log(error)
+  }
   return {
-    paths: PostSlugs?.map(({ uid }: any) => `/post/${uid}`) || [],
-    fallback: false,
+    notFound: true,
   }
 }
+
+// Define Paths
+export async function getStaticPaths() {
+  const client = prismicClient()
+
+  const pages = await client.getAllByType('blog')
+
+  return {
+    paths: pages?.map((page) => `/post/${page.uid}`),
+    fallback: true,
+  }
+}
+
 
 const BlogWrapper = styled.div`
   background: #fff;

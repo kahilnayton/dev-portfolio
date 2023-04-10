@@ -21,7 +21,7 @@ const CONFIG = {
   // to an empty array or remove the option entirely.
   routes: [
     {
-      type: 'page',
+      type: 'post',
       path: '/:uid',
     },
   ],

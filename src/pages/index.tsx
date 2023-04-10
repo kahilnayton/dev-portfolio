@@ -46,8 +46,7 @@ type HomeTemplate = {
 }
 
 export default function IndexPage ({ pageProps }: HomeTemplate) {
-  console.log(pageProps.data);
-  
+  // TODO: page props are returning shallow data
   
   const {heading, bio, blog_heading, blog_list, body, contact_heading, contact_list, content, project_heading, project_list } = pageProps.data
   
@@ -146,9 +145,7 @@ export const getStaticProps: GetStaticProps = async ({
   previewData,
 }) => {
   const client = prismicClient({ previewData })
-  const page = await client.getAllByType('home', {
-    graphQuery: homePageQuery
-  })
+  const page = await client.getAllByType('home')
   
   const pageProps = page[0]
 
