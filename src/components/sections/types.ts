@@ -13,5 +13,5 @@ export type ProjectProps = {
 }
 
 export type BlogProps = {
-  blogs: CardProps[]
+  posts: CardProps[]
 }

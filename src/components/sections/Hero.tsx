@@ -1,30 +1,33 @@
-import { RichText } from 'prismic-reactjs'
 import styled from 'styled-components'
-
-import dimensions from '../../styles/dimensions'
-import { Inner, Wrap } from '../../styles/structure'
-import { colors } from '../../styles/colors'
-import gradients from '../../styles/gradients'
-import z from '../../styles/base'
+import dimensions from '@/styles/dimensions'
+import { Inner, Wrap } from '@/styles/structure'
+import { colors } from '@/styles/colors'
+import gradients from '@/styles/gradients'
+import z from '@/styles/base'
 import CloudComponent from '../_ui/CloudComponent'
 import { CloudBackground } from '../_ui/icons'
 
-// import Image from 'next/image'
-
 type HeroProps = {
-  variant: string
-  heading: string
-  text: string
-  background?: Record<string, string>
+  variant?: 'homepage' | 'projectPage'
+  heading?: string
+  text?: string
+  backgroundImage?: string
+  alt?: string
 }
 
-export const Hero = ({ variant, heading, text, background }: HeroProps) => {
+export const Hero = ({
+  variant = 'homepage',
+  heading = 'Welcome to Kahil Nayton',
+  text = 'A place where creativity meets technology',
+  backgroundImage,
+  alt = 'Hero background image',
+}: HeroProps) => {
   return (
-    <HeroContainer className={`${variant ? `Hero--${variant}` : ''}`}>
+    <HeroContainer className={`Hero--${variant}`}>
       <HeroInner>
         <HeroBackground>
-          {background ? (
-            <img src={background.url} alt="Hero background image" />
+          {backgroundImage ? (
+            <img src={backgroundImage} alt={alt} />
           ) : (
             <CloudBackground />
           )}
@@ -33,9 +36,8 @@ export const Hero = ({ variant, heading, text, background }: HeroProps) => {
         <HeroWrap>
           {variant !== 'projectPage' && (
             <HeroContent>
-              TODO: Fix rich text
-              {/* {heading && <RichText render={heading} />} */}
-              {text && <p className="is-large">{text}</p>}
+              {heading && <h1>{heading}</h1>}
+              {text && <p>{text}</p>}
             </HeroContent>
           )}
         </HeroWrap>

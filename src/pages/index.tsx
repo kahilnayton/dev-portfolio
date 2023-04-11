@@ -1,160 +1,92 @@
+import React, { useRef } from 'react'
+import Head from '@/components/Head'
 import styled from 'styled-components'
-
-import Layout from '@/components/Layout'
+import { createClient } from '../lib/prismic'
+import { PostDocumentWithAuthor } from '../lib/types'
+import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
+import { About, Bio, ContactForm, Hero } from '../components/sections'
+import { acrossScreen, bottomToTop, bottomToTopSlow } from '@/styles/animations'
+import { Balloon, Plane } from '@/components/_ui'
 import { colors } from '@/styles/colors'
-import { prismicClient } from '@/utils/prismicHelpers'
-import {
-  acrossScreen,
-  bottomToTop,
-  bottomToTopSlow,
-} from '@/styles/animations'
-import { About } from '../components/sections'
-import { Hero } from '../components/sections'
-import { ContactForm } from '../components/sections'
-import { FeaturedBlogs } from '../components/sections'
-import { FeaturedProjects } from '../components/sections'
-import ParallaxComponent from '../components/_ui/ParallaxComponent'
-import { Plane, Balloon } from '../components/_ui/icons'
-import Head from 'next/head'
-import { PageContent } from './constants'
+import { useParallax } from 'react-scroll-parallax'
+import { PlaneRight, Cloud, PlaneTwo } from '@/components/_ui'
 
-// import Image from 'next/image';
+// import { CMS_NAME } from '@/lib/constants'
+// import ParallaxComponent from '@/components/_ui/ParallaxComponent'
 
-import { Bio } from '../components/sections'
-import { SEO } from '../components/SEO'
-import { GetStaticProps } from 'next/types'
-import { homePageQuery } from '@/utils/prismicQueries'
-
-// Turn this into a generic
-type HomePageProps = {
-  heading:any
-   bio: any
-   blog_heading: any
-   blog_list: any
-   body: any
-   contact_heading: any
-   contact_list: any
-   content: any
-   project_heading: any
-   project_list: any
-} 
-
-type HomeTemplate = {
-  pageProps: {
-    data: any
-  }
+type IndexProps = {
+  preview: boolean
+  allPosts: PostDocumentWithAuthor[]
 }
 
-const IndexPage = ({ pageProps }: HomeTemplate) => {
-  
-  const {heading, bio, blog_heading, blog_list, body, contact_heading, contact_list, content, project_heading, project_list } = pageProps.data
-  
-  const Seo = body[1].primary || SEO
+export default function Index({ preview, allPosts }: IndexProps) {
+  const target = useRef<HTMLDivElement>()
+  const cloud = useParallax({
+    targetElement: target?.current,
+    easing: 'easeOutQuad',
+    translateX: [0, 100],
+  })
+  const planeLeft = useParallax({
+    targetElement: target?.current,
+    easing: 'easeOutQuad',
+    translateX: [-300, 100],
+    speed: 10,
+  })
+  const [heroPost, ...morePosts] = allPosts
 
   return (
-    <Layout>
-      <Head>
-        {/* General */}
-        <title>{Seo?.site_name}</title>
-        <meta name="description" content={Seo.description} />
-        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary" key="twcard" />
-        <meta name="twitter:creator" content={'kahilnayton'} key="twhandle" />
+    <Wrapper ref={target}>
+        <Head title="Kahil Engineering" />
+          <Hero/>
+          <PlaneWrapper>
+            <StyledPlane height={500} width={300} />
+          </PlaneWrapper>
 
-        {/* Open Graph */}
-        <meta property="og:url" content={Seo.url} key="ogurl" />
-        <meta
-          property="og:image"
-          content={Seo?.preview_image?.url}
-          key="ogimage"
-        />
-        <meta
-          property="og:site_name"
-          content={Seo.site_name}
-          key="ogsitename"
-        />
-        <meta property="og:title" content={Seo.title} key="ogtitle" />
-        <meta
-          property="og:description"
-          content={Seo.description}
-          key="ogdesc"
-        />
-      </Head>
-      <Wrapper>
-        <Hero
-          heading={heading || 'hello'}
-          text={body[0]?.primary.hero_title[0].text || 'this is me'}
-          // background={home.body[0].primary.background_image}
-          variant="homepage"
-        />
+          <StyledBalloon height={100} width={100} />
 
-        <PlaneWrapper>
-          <StyledPlane height={500} width={300} />
-        </PlaneWrapper>
+          <StyledBalloon
+            _className="small"
+            src="/balloon.png"
+            alt="Balloon"
+            height={100}
+            width={100}
+          />
 
-        <StyledBalloon height={100} width={100} />
-        <StyledBalloon
-          // @ts-ignore
-          className="small"
-          src="/balloon.png"
-          alt="Balloon"
-          height={100}
-          width={100}
-        />
+          <Bio
+            heading={'bio?.heading || PageContent.heading'}
+            content={''}
+            profilePic={'bio?.profile_pic'}
+          />
 
-        <Bio
-          heading={bio?.heading || PageContent.heading}
-          content={bio?.conten || ''}
-          profilePic={bio?.profile_pic}
-        />
+        {/* @ts-ignore */}
+        <div ref={planeLeft.ref}>
+          <PlaneTwo />
+        </div>
 
-        <FeaturedBlogs
-          blogs={blog_list}
-          variant="homepage"
-          heading={blog_heading || 'Blogs'}
-          content="hello"
-          buttonText="lets go"
-        />
-
-        <ParallaxComponent variant="planeLeftToRight" />
-
-        <FeaturedProjects
-          projects={project_list}
-          variant="homepage"
-          heading="Projects"
-          content="yolo"
-          buttonText="helll yea"
-        />
-
-        <ParallaxComponent variant="planeRightToLeft" />
-
-        <ParallaxComponent variant="cloudLeftToRight" />
+        {/* @ts-ignore */}
+        <div ref={cloud.ref}>
+          <Cloud height={100} width={700} />
+        </div>
 
         <About />
 
         <ContactForm />
-      </Wrapper>
-    </Layout>
+    </Wrapper>
   )
 }
-export default IndexPage
 
-export const getStaticProps: GetStaticProps = async ({
+export async function getStaticProps({
+  preview = false,
   previewData,
-}) => {
-  const client = prismicClient({ previewData })
-  const page = await client.getAllByType('home', {
-    graphQuery: homePageQuery
+}: GetStaticPropsContext): Promise<GetStaticPropsResult<IndexProps>> {
+  const client = createClient({ previewData })
+
+  const allPosts = await client.getAllByType('post', {
+    orderings: [{ field: 'my.post.date', direction: 'desc' }],
   })
-  
-  const pageProps = page[0]
 
   return {
-    props: {
-      pageProps,
-    },
+    props: { preview, allPosts },
   }
 }
 
@@ -191,12 +123,4 @@ const StyledBalloon = styled(Balloon)`
   animation-duration: 25s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-
-  &.small {
-    height: 6rem;
-    border: solid green;
-    animation-duration: 60s;
-    animation-name: ${bottomToTopSlow};
-    overflow: hidden;
-  }
 `

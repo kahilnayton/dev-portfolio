@@ -18,7 +18,7 @@ export const FeaturedBlogs = ({
   content,
   buttonText,
   destination,
-  blogs,
+  posts,
   variant,
 }: FeaturedSectionProps & BlogProps) => {
   
@@ -38,11 +38,12 @@ export const FeaturedBlogs = ({
           </header>
         )}
 
-        {blogs && blogs.length > 0 && (
-          <BlogsGrid dense={blogs.length > 3}>
-            {blogs.map(({ ...blog }: CardProps, i) => {
+        {posts && posts.length > 0 && (
+          <BlogsGrid dense={posts.length > 3}>
+            {posts.map(( blog: CardProps, i) => {
               const { uid, blog_image, title, preview_text, release_date } =
-                blog
+                blog.blog
+                
               return (
                 <li key={i}>
                   <BlogCard

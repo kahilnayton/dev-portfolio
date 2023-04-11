@@ -11,170 +11,111 @@ import {
   FaPhp,
   FaShopify,
 } from 'react-icons/fa'
-import { SiMongodb, SiNextDotJs } from 'react-icons/si'
+import { SiMongodb, SiNextdotjs } from 'react-icons/si'
 import { DiCss3, DiRuby, DiJsBadge, DiSass, DiPostgresql } from 'react-icons/di'
 import { GrGatsbyjs, GrGraphQl } from 'react-icons/gr'
-// @ts-ignore
-import Reveal from 'react-reveal/Reveal'
+import { Slide } from 'react-awesome-reveal'
 import styled from 'styled-components'
-// @ts-ignore
-import Roll from 'react-reveal/Roll'
 
-import gradients from '../../styles/gradients'
-import { colors } from '../../styles/colors'
+import gradients from '@/styles/gradients'
+import { colors } from '@/styles/colors'
 import CloudComponent from '../_ui/CloudComponent'
+import dimensions from '@/styles/dimensions'
+
+const icons = [
+  {
+    icon: <FaReact size={70} className="fab fa-react icon-size" />,
+    title: 'React',
+  },
+  {
+    icon: <FaPython size={70} className="fab fa-python icon-size" />,
+    title: 'Python',
+  },
+  {
+    icon: <DiPostgresql size={70} className="fas fa-database icon-size" />,
+    title: 'PostgreSQL',
+  },
+  {
+    icon: <FaHtml5 size={70} className="fab fa-html5 icon-size" />,
+    title: 'HTML5',
+  },
+  {
+    icon: <DiCss3 size={70} className="fab fa-css3-alt icon-size" />,
+    title: 'CSS3',
+  },
+  {
+    icon: <DiSass size={70} className="fab fa-css3-alt icon-size" />,
+    title: 'SASS',
+  },
+  {
+    icon: <DiJsBadge size={70} className="fab fa-js-square icon-size" />,
+    title: 'JavaScript',
+  },
+  {
+    icon: <FaGit size={70} className="fab fa-git-square icon-size" />,
+    title: 'Git',
+  },
+  {
+    icon: <FaGithub size={70} className="fab fa-github icon-size" />,
+    title: 'Github',
+  },
+  { icon: <DiRuby size={70} className="ruby icon-size" />, title: 'Ruby' },
+  {
+    icon: <FaNodeJs size={70} className="fab fa-node icon-size" />,
+    title: 'Node.js',
+  },
+  { icon: <FaAws size={70} className="fab fa-Aws icon-size" />, title: 'AWS' },
+  {
+    icon: <GrGatsbyjs size={70} className="fab fa-gatsby icon-size" />,
+    title: 'Gatsby.js',
+  },
+  {
+    icon: <GrGraphQl size={70} className="fab fa-graphql icon-size" />,
+    title: 'GraphQL',
+  },
+  {
+    icon: <FaWordpressSimple size={70} className="fab wordpress icon-size" />,
+    title: 'WordPress',
+  },
+  { icon: <FaPhp size={70} className="fab php icon-size" />, title: 'PHP' },
+  {
+    icon: <FaShopify size={70} className="fab shopify icon-size" />,
+    title: 'Shopify',
+  },
+  { icon: <SiMongodb size={70} />, title: 'MongoDB' },
+  { icon: <SiNextdotjs size={70} />, title: 'Next.js' },
+]
+
+const Icons = icons.map((icon, index) => {
+  const direction = index % 2 === 0 ? 'left' : 'right'
+  return (
+    <div key={index} className="icon-item">
+      <Slide triggerOnce direction={direction}>
+        {icon.icon}
+      </Slide>
+      <div className="icon-title">{icon.title}</div>
+    </div>
+  )
+})
 
 export const About = () => {
   return (
     <Section id="about" className="about">
-      <Reveal effect="fadeInUp">
-        <CloudComponent direction="left" distance="10rem" variant="about" />
-        <h2 className="section-title">Languages / Tools</h2>
-        <ul>
-          <Li>
-            <Roll left>
-              <FaReact size={70} className="fab fa-react icon-size" />
-              <h4 className="about-subtitle block">React</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll right>
-              <FaPython size={70} className="fab fa-python icon-size" />
-              <h4 className="about-subtitle block">Python</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll left>
-              <DiPostgresql size={70} className="fas fa-database icon-size" />
-              <h4 className="about-subtitle block">PostgreSQL</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll right>
-              <FaHtml5 size={70} className="fab fa-html5 icon-size" />
-              <h4 className="about-subtitle block">HTML5</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll left>
-              <DiCss3 size={70} className="fab fa-css3-alt icon-size" />
-              <h4 className="about-subtitle block">CSS3</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll right>
-              <DiSass size={70} className="fab fa-css3-alt icon-size" />
-              <h4 className="about-subtitle block">SASS</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll left>
-              <DiJsBadge size={70} className="fab fa-js-square icon-size" />
-              <h4 className="about-subtitle block">JavaScript</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll right>
-              <FaGit size={70} className="fab fa-git-square icon-size" />
-              <h4 className="about-subtitle block">Git</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll left>
-              <FaGithub size={70} className="fab fa-github icon-size" />
-              <h4 className="about-subtitle block">Github</h4>
-            </Roll>
-          </Li>
-
-          <Li>
-            <Roll right>
-              <DiRuby size={70} className="ruby icon-size" />
-              <h4 className="about-subtitle block">Ruby</h4>
-            </Roll>
-          </Li>
-
-          <Li>
-            <Roll left>
-              <FaNodeJs size={70} className="fab fa-node icon-size" />
-              <h4 className="about-subtitle block">Node.js</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll right>
-              <FaAws size={70} className="fab fa-Aws icon-size" />
-              <h4 className="about-subtitle block">AWS</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll left>
-              <GrGatsbyjs size={70} className="fab fa-gatsby icon-size" />
-              <h4 className="about-subtitle block">Gatsby.js</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll right>
-              <GrGraphQl size={70} className="fab fa-graphql icon-size" />
-              <h4 className="about-subtitle block">GraphQL</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll left>
-              <FaWordpressSimple
-                size={70}
-                className="fab wordpress icon-size"
-              />
-              <h4 className="about-subtitle block">WordPress</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll right>
-              <FaPhp size={70} className="fab php icon-size" />
-              <h4 className="about-subtitle block">PHP</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll left>
-              <FaShopify size={70} className="fab shopify icon-size" />
-              <h4 className="about-subtitle block">Shopify</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll left>
-              <SiMongodb size={70} className="fab mongo icon-size" />
-              <h4 className="about-subtitle block">MongoDB</h4>
-            </Roll>
-          </Li>
-          <Li>
-            <Roll left>
-              <SiNextDotJs size={70} className="fab next icon-size" />
-              <h4 className="about-subtitle block">Next.js</h4>
-            </Roll>
-          </Li>
-        </ul>
-        <CloudComponent direction="right" distance="2rem" />
-      </Reveal>
+      <CloudComponent direction="left" distance="10rem" variant="about" />
+      <h2 className="section-title">Languages / Tools</h2>
+      <IconGrid>{Icons}</IconGrid>
+      <CloudComponent direction="right" distance="2rem" />
     </Section>
   )
 }
-
-const Li = styled.li`
-  transition: 0.2s;
-  &:hover {
-    transform: scale(1.2);
-    transition: 0.2s;
-  }
-`
 
 const Section = styled.section`
   padding: 30px 0;
   margin-bottom: 12rem;
   text-align: center;
-  background: black;
   position: relative;
   background: ${gradients.purpleRedCircle};
-
-  h2 {
-  }
+  background-size: 400% 400%;
 
   h2,
   h4 {
@@ -250,5 +191,24 @@ const Section = styled.section`
   }
   .fa-graphql {
     color: #ea2ccd;
+  }
+`
+const IconGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 0 1rem;
+
+  .icon-item {
+    transition: 0.2s;
+    &:hover {
+      transform: scale(1.2);
+      transition: 0.2s;
+    }
+  }
+  @media (min-width: ${dimensions.tabletLandscapeUp}px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 `

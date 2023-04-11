@@ -1,4 +1,8 @@
 export type CardProps = {
+  [key: string]: BlogCardProps
+}
+
+export type BlogCardProps = {
   uid: string
   title: any
   blog_image?: Record<string, string>
@@ -7,4 +11,5 @@ export type CardProps = {
   release_date: string
   _meta?: any
   variant?: string
+  
 }

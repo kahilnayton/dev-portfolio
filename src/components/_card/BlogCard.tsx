@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 // @ts-ignore
-import Slide from 'react-reveal/Slide'
+import { Fade } from "react-awesome-reveal";
 import styled from 'styled-components'
 // import Moment from 'react-moment'
 
@@ -9,7 +9,7 @@ import styled from 'styled-components'
 import { colors } from '../../styles/colors'
 import gradients from '../../styles/gradients'
 import dimensions from '../../styles/dimensions'
-import { CardProps } from './types'
+import { BlogCardProps } from './types'
 
 export const BlogCard = ({
   uid,
@@ -17,7 +17,7 @@ export const BlogCard = ({
   blog_image: image,
   preview_text: textSnippet,
   release_date: publishDate,
-}: CardProps) => {
+}: BlogCard) => {
   let trimmed_preview_text
 
   if (textSnippet) {
@@ -27,8 +27,8 @@ export const BlogCard = ({
 
   return (
     <>
-      <Slide left>
-        <Link href={`/blog/${uid}`}>
+      <Fade direction='down'>
+        <Link href={`/post/${uid}`}>
           <CardContainer href="">
             {image && (
               <CardImage>
@@ -48,7 +48,7 @@ export const BlogCard = ({
             </CardContent>
           </CardContainer>
         </Link>
-      </Slide>
+      </Fade>
     </>
   )
 }
