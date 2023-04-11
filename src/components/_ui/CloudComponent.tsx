@@ -1,11 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-// @ts-ignore
 import { Fade } from "react-awesome-reveal";
 import { Cloud } from './icons'
-
 import z from '../../styles/base'
-import { isGeneratorObject } from 'util/types'
 
 type CloudProps = {
   direction: string
