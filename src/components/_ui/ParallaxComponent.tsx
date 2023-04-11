@@ -6,27 +6,7 @@ import { slightRock } from '../../styles/animations'
 import { PlaneRight, Cloud, PlaneTwo } from './icons'
 // import CloudOne from '../vectors/cloudOne.svg';
 
-const ParallaxWrapper = styled.div`
-  overflow: hidden;
-  z-index: ${z.modal};
-  img {
-    width: auto;
-    height: 8rem;
-    /* transform: translateY(20px); */
-  }
 
-  .parallax-outer {
-    height: 14rem;
-  }
-
-  svg {
-    height: 12rem;
-    animation-name: ${slightRock};
-    animation-duration: 3s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-`
 
 const ParallaxComponent = (props: any) => {
   return (
@@ -54,3 +34,26 @@ const ParallaxComponent = (props: any) => {
 }
 
 export default ParallaxComponent
+
+
+const ParallaxWrapper = styled.div`
+  overflow: hidden;
+  z-index: ${z.modal};
+  img {
+    width: auto;
+    height: 8rem;
+    /* transform: translateY(20px); */
+  }
+
+  .parallax-outer {
+    height: 14rem;
+  }
+
+  svg {
+    height: 12rem;
+    animation-name: ${slightRock};
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+`

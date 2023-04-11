@@ -1,11 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-// @ts-ignore
-import Fade from 'react-reveal/Fade'
+import { Fade } from "react-awesome-reveal";
 import { Cloud } from './icons'
-
 import z from '../../styles/base'
-import { isGeneratorObject } from 'util/types'
 
 type CloudProps = {
   direction: string
@@ -18,14 +15,14 @@ const CloudComponent = ({ direction, variant, distance }: CloudProps) => {
     <CloudContainer>
       {direction === 'left' && (
         <LeftCloud className={variant ? `Clouds-${variant}` : ''}>
-          <Fade left distance={distance}>
+          <Fade>
             <Cloud width={50} height={50} />
           </Fade>
         </LeftCloud>
       )}
       {direction === 'right' && (
         <RightCloud className={variant ? `Clouds-${variant}--right` : ''}>
-          <Fade right distance={distance}>
+          <Fade>
             <Cloud width={100} height={100} />
           </Fade>
         </RightCloud>

@@ -1,24 +1,16 @@
-import Link from 'next/link'
 import Head from 'next/head'
-
-import { ThemeProvider } from 'styled-components'
+// import localFont from 'next/font/local'
+import CustomFont from 'next/font/local'
 import { ParallaxProvider } from 'react-scroll-parallax'
-import { PrismicProvider } from '@prismicio/react'
 import { PrismicPreview } from '@prismicio/next'
-
+import { repositoryName } from '@/lib/prismic'
 import ResetStyles from '@/styles/reset'
 import GlobalStyle from '@/styles/global'
 import TypeStyles from '@/styles/typography'
 
 import '../../public/fonts/fonts.css'
 
-const theme = {
-  colors: {
-    primary: '#0070f3',
-  },
-}
-
-export default function App({ Component, pageProps }: any) {
+function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
@@ -27,18 +19,13 @@ export default function App({ Component, pageProps }: any) {
       <ResetStyles />
       <GlobalStyle />
       <TypeStyles />
-      {/* @ts-ignore */}
       <ParallaxProvider>
-        <ThemeProvider theme={theme}>
-          <PrismicProvider
-            internalLinkComponent={(props) => <Link {...props} />}
-          >
-            <PrismicPreview repositoryName={process.env.NEXT_PUBLIC_PRISMIC_REPOSITORY_NAME || ''}>
-              <Component {...pageProps} />
-            </PrismicPreview>
-          </PrismicProvider>
-        </ThemeProvider>
+        <PrismicPreview repositoryName={repositoryName}>
+          <Component {...pageProps} />
+        </PrismicPreview>
       </ParallaxProvider>
     </>
   )
 }
+
+export default MyApp
