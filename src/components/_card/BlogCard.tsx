@@ -1,11 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
-// @ts-ignore
 import { Fade } from "react-awesome-reveal";
 import styled from 'styled-components'
 // import Moment from 'react-moment'
 
-// import Reveal from 'react-reveal/Reveal';
 import { colors } from '../../styles/colors'
 import gradients from '../../styles/gradients'
 import dimensions from '../../styles/dimensions'
@@ -17,7 +15,7 @@ export const BlogCard = ({
   blog_image: image,
   preview_text: textSnippet,
   release_date: publishDate,
-}: BlogCard) => {
+}: BlogCardProps) => {
   let trimmed_preview_text
 
   if (textSnippet) {
