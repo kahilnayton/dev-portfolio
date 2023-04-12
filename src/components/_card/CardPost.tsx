@@ -1,23 +1,21 @@
 import React from 'react'
-// @ts-ignore
-import { Fade } from "react-awesome-reveal";
+import Link from 'next/link'
+import { Fade } from 'react-awesome-reveal'
 import styled from 'styled-components'
 // import Moment from 'react-moment'
-// import Link from 'next/link';
-import { colors } from '../../styles/colors'
-import gradients from '../../styles/gradients'
-import dimensions from '../../styles/dimensions'
-import { ButtonLink } from '../_ui'
-import { CardProps } from './types'
 
-export const ProjectCard = ({
+import { colors } from '@/styles'
+import { gradients } from '@/styles'
+import { dimensions } from '@/styles'
+import { CardProps } from './'
+
+export const CardPost = ({
   uid,
   title,
-  project_image: image,
+  blog_image: image,
   preview_text: textSnippet,
   release_date: publishDate,
-  projectLink,
-}: CardProps & { projectLink: string }) => {
+}: CardProps) => {
   let trimmed_preview_text
 
   if (textSnippet) {
@@ -26,33 +24,34 @@ export const ProjectCard = ({
   }
 
   return (
-    <Fade>
-      <CardContainer>
-        {image && (
-          <CardImage>
-            <img src={image.url} alt={image.alt} />
-          </CardImage>
-        )}
+    <>
+      <Fade direction="down">
+        <Link href={`/post/${uid}`}>
+          <CardContainer href="">
+            {image && (
+              <CardImage>
+                <img src={image.url} alt={image.alt} />
+              </CardImage>
+            )}
 
-        <CardContent>
-          <h4>{title}</h4>
-          {publishDate && (
-            <span>
-              {/* <Moment format="MMMM Do, YYYY" date={publishDate} /> */}
-            </span>
-          )}
-          {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
-        </CardContent>
-        <LinkToProject target="_blank" href={projectLink}>
-          View
-        </LinkToProject>
-        <ButtonLink title="More Info" href={`/projects/${uid}`} />
-      </CardContainer>
-    </Fade>
+            <CardContent>
+              <h4>{title}</h4>
+              {publishDate && (
+                <span>
+                  {/* TODO: update time  */}
+                  {/* <Moment format="MMMM Do, YYYY" date={publishDate} /> */}
+                </span>
+              )}
+              {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
+            </CardContent>
+          </CardContainer>
+        </Link>
+      </Fade>
+    </>
   )
 }
 
-const CardContainer = styled.div`
+const CardContainer = styled.a`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -72,7 +71,7 @@ const CardContainer = styled.div`
       h4,
       p,
       span {
-        /* color: #fff; */
+        color: #fff;
       }
 
       > div:last-child {
@@ -102,7 +101,7 @@ const CardImage = styled.div`
     height: 100%;
     transform-origin: center center;
     transition: transform 0.32s ease-out;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   ::after {
@@ -161,28 +160,5 @@ const CardContent = styled.div`
         font-size: 2.1rem;
       }
     }
-  }
-`
-
-const LinkToProject = styled.a`
-  position: relative;
-  display: inline-block;
-  padding: 1.6rem 6.6vw 1.4rem;
-  background: ${colors.grey200};
-  color: ${colors.grey900};
-  font-size: 1.8rem;
-  font-weight: 600;
-  outline: none;
-  border: none;
-  transition: background 0.08s ease-in-out, color 0.12s ease-in-out;
-
-  &:hover {
-    cursor: pointer;
-    background: ${gradients.redPurple};
-    color: #fff;
-  }
-
-  @media (min-width: ${dimensions.tabletLandscapeUp}px) {
-    padding: 1.6rem 3.33vw 1.4rem;
   }
 `

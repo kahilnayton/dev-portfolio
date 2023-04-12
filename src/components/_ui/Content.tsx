@@ -2,8 +2,8 @@ import React from 'react'
 import { RichText } from 'prismic-reactjs'
 import styled from 'styled-components'
 
-import dimensions from '../../styles/dimensions'
-import { colors } from '../../styles/colors'
+import { dimensions } from '@/styles/'
+import { colors } from '@/styles/colors'
 
 type ContentProps = {
   content?: any

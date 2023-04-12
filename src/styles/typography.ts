@@ -1,9 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 import styled from 'styled-components'
-import dimensions from './dimensions'
-import { colors } from './colors'
+import { dimensions, colors } from './'
 
-const typeStyles = createGlobalStyle`
+export const TypographyStyles = createGlobalStyle`
   h1,
   h2,
   h3,
@@ -142,5 +141,3 @@ export const Rubric = styled.span`
     }
   }
 `
-
-export default typeStyles

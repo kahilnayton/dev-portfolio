@@ -1,12 +1,8 @@
 import Head from 'next/head'
-// import localFont from 'next/font/local'
-import CustomFont from 'next/font/local'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import { PrismicPreview } from '@prismicio/next'
 import { repositoryName } from '@/lib/prismic'
-import ResetStyles from '@/styles/reset'
-import GlobalStyle from '@/styles/global'
-import TypeStyles from '@/styles/typography'
+import { ResetStyles, GlobalStyles, TypographyStyles } from '@/styles'
 
 import '../../public/fonts/fonts.css'
 
@@ -17,8 +13,8 @@ function MyApp({ Component, pageProps }) {
         <link rel="shortcut icon" href="/spring_logo.ico" />
       </Head>
       <ResetStyles />
-      <GlobalStyle />
-      <TypeStyles />
+      <GlobalStyles />
+      <TypographyStyles />
       <ParallaxProvider>
         <PrismicPreview repositoryName={repositoryName}>
           <Component {...pageProps} />

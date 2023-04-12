@@ -1,26 +1,51 @@
-import React, { createRef, useEffect, useState } from 'react'
-import { RichText } from 'prismic-reactjs'
-import lottie from 'lottie-web'
+import { useEffect, useRef, useState } from 'react'
+import type { LottiePlayer } from 'lottie-web'
+import Image from 'next/image'
+// import { RichText } from 'prismic-reactjs'
+// import lottie from 'lottie-web'
 import styled from 'styled-components'
 
-import { Inner } from '../../styles/structure'
-import { colors } from '../../styles/colors'
-import dimensions from '../../styles/dimensions'
-import animation from '../../../public/animations/helicopter.json'
-import { Video } from '../_ui'
+import { Inner, colors, dimensions } from '@/styles'
+import { PAGE_DATA } from '@/lib/constants'
 
 type BioProps = {
-  heading: string
-  content: string
+  heading?: string
+  content?: string
   profilePic?: string
 }
 
-export const Bio = ({ heading, content, profilePic }: BioProps) => {
+export const Bio = ({
+  heading = PAGE_DATA.bioData.heading,
+  content = PAGE_DATA.bioData.content,
+  profilePic = PAGE_DATA.bioData.profilePic,
+}: BioProps) => {
+  const ref = useRef<HTMLDivElement>(null)
+  const [lottie, setLottie] = useState<LottiePlayer | null>(null)
+  useEffect(() => {
+    import('lottie-web').then((Lottie) => setLottie(Lottie.default))
+  }, [])
+
+  useEffect(() => {
+    if (lottie && ref.current) {
+      const animation = lottie.loadAnimation({
+        container: ref.current,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        // path to your animation file, place it inside public folder
+        path: '/animations/head.json',
+      })
+
+      return () => animation.destroy()
+    }
+  }, [lottie])
   return (
     <Inner>
       <BioContainer>
         <h1>{heading}</h1>
         <p>{content}</p>
+        <Image fill alt="alt" src={profilePic}></Image>
+        <div ref={ref} />
       </BioContainer>
     </Inner>
   )

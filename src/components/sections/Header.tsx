@@ -2,10 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 
-import { Inner } from '../../styles/structure'
-import { colors } from '../../styles/colors'
-import gradients from '../../styles/gradients'
-import dimensions from '../../styles/dimensions'
+import { Inner, colors, gradients, dimensions } from '@/styles'
+
 import { LogoLink } from '../_ui'
 import SocialBar from './SocialBar'
 

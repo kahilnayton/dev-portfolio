@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 
-import { colors } from '../../styles/colors'
-import gradients from '../../styles/gradients'
-import dimensions from '../../styles/dimensions'
+import { colors } from '@/styles'
+import { gradients } from '@/styles'
+import { dimensions } from '@/styles'
 
 type ButtonLinkProps = {
   title: string

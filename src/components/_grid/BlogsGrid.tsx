@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import dimensions from '../../styles/dimensions'
+import { dimensions } from '@/styles'
 import { GridProps } from './types'
 
 export const BlogsGrid = ({ dense, variant, children }: GridProps) => {

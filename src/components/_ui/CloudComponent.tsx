@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Fade } from "react-awesome-reveal";
+import { Fade } from 'react-awesome-reveal'
 import { Cloud } from './icons'
-import z from '../../styles/base'
+import { z } from '@/styles'
 
 type CloudProps = {
   direction: string
@@ -10,7 +10,11 @@ type CloudProps = {
   distance: string
 }
 
-const CloudComponent = ({ direction, variant, distance }: CloudProps) => {
+export const CloudComponent = ({
+  direction,
+  variant,
+  distance,
+}: CloudProps) => {
   return (
     <CloudContainer>
       {direction === 'left' && (
@@ -79,5 +83,3 @@ const LeftCloud = styled.div`
   top: 24rem;
   position: absolute;
 `
-
-export default CloudComponent

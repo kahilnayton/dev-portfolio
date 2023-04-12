@@ -17,10 +17,8 @@ import { GrGatsbyjs, GrGraphQl } from 'react-icons/gr'
 import { Slide } from 'react-awesome-reveal'
 import styled from 'styled-components'
 
-import gradients from '@/styles/gradients'
-import { colors } from '@/styles/colors'
-import CloudComponent from '../_ui/CloudComponent'
-import dimensions from '@/styles/dimensions'
+import { gradients, colors, dimensions } from '@/styles'
+import { CloudComponent } from '@/components/_ui/'
 
 const icons = [
   {

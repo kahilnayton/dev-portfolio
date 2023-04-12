@@ -1,11 +1,6 @@
 import styled from 'styled-components'
-import dimensions from '@/styles/dimensions'
-import { Inner, Wrap } from '@/styles/structure'
-import { colors } from '@/styles/colors'
-import gradients from '@/styles/gradients'
-import z from '@/styles/base'
-import CloudComponent from '../_ui/CloudComponent'
-import { CloudBackground } from '../_ui/icons'
+import { Inner, Wrap, dimensions, colors, gradients, z } from '@/styles'
+import { CloudBackground, CloudComponent } from '@/components/_ui'
 
 type HeroProps = {
   variant?: 'homepage' | 'projectPage'
