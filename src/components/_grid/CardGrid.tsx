@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 import { dimensions } from '@/styles'
-import { GridProps } from './types'
+import { CardGridProps } from './types'
 
-export const BlogsGrid = ({ dense, variant, children }: GridProps) => {
+export const CardGrid = ({ dense, variant, children }: CardGridProps) => {
   return (
     <GridContainer
       className={`${dense && 'is-dense'} ${variant && `Grid--${variant}`}`}

@@ -16,4 +16,11 @@ export const PAGE_DATA = {
     buttonText: 'See more',
     destination: '/posts',
   },
+  cardDefaults: {
+    uid: 'uid',
+    title: 'title',
+    blog_image: '/spring_logo.png',
+    preview_text: 'preview_text',
+    release_date: 'release_date',
+  },
 }

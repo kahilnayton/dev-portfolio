@@ -1,57 +1,57 @@
 import React from 'react'
 import Link from 'next/link'
-import { Fade } from 'react-awesome-reveal'
+import { Slide } from 'react-awesome-reveal'
 import styled from 'styled-components'
-// import Moment from 'react-moment'
+import Moment from 'react-moment'
 
 import { colors } from '@/styles'
 import { gradients } from '@/styles'
 import { dimensions } from '@/styles'
 import { CardProps } from './'
+import { PAGE_DATA } from '@/lib/constants'
 
 export const CardPost = ({
-  uid,
-  title,
-  blog_image: image,
-  preview_text: textSnippet,
-  release_date: publishDate,
-}: CardProps) => {
+  uid = PAGE_DATA.cardDefaults.uid,
+  title = PAGE_DATA.cardDefaults.title,
+  blog_image: image = PAGE_DATA.cardDefaults.blog_image,
+  preview_text = PAGE_DATA.cardDefaults.preview_text,
+  release_date: publishDate = PAGE_DATA.cardDefaults.release_date,
+}: any) => {
   let trimmed_preview_text
 
-  if (textSnippet) {
+  if (preview_text) {
     trimmed_preview_text =
-      textSnippet.length > 200 ? `${textSnippet.substr(0, 200)} …` : textSnippet
+      preview_text.length > 200
+        ? `${preview_text.substr(0, 200)} …`
+        : preview_text
   }
 
   return (
-    <>
-      <Fade direction="down">
-        <Link href={`/post/${uid}`}>
-          <CardContainer href="">
-            {image && (
-              <CardImage>
-                <img src={image.url} alt={image.alt} />
-              </CardImage>
-            )}
+    <Slide direction="right" triggerOnce={true}>
+      <Link href={`/posts/${uid}`}>
+        <CardContainer href="">
+          {image && (
+            <CardImage>
+              <img src={image.url} alt={image.alt} />
+            </CardImage>
+          )}
 
-            <CardContent>
-              <h4>{title}</h4>
-              {publishDate && (
-                <span>
-                  {/* TODO: update time  */}
-                  {/* <Moment format="MMMM Do, YYYY" date={publishDate} /> */}
-                </span>
-              )}
-              {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
-            </CardContent>
-          </CardContainer>
-        </Link>
-      </Fade>
-    </>
+          <CardContent>
+            <h4>{title}</h4>
+            {publishDate && (
+              <span>
+                <Moment format="MMMM Do, YYYY" date={publishDate} />
+              </span>
+            )}
+            {trimmed_preview_text && <p>{trimmed_preview_text}</p>}
+          </CardContent>
+        </CardContainer>
+      </Link>
+    </Slide>
   )
 }
 
-const CardContainer = styled.a`
+const CardContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;

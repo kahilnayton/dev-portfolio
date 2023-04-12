@@ -2,16 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Inner, colors, dimensions, ButtonContainer } from '@/styles'
-import { ButtonLink } from '../_ui'
-import { Content } from '../_ui/Content'
-import { BlogsGrid } from '../_grid'
-import { CloudComponent } from '../_ui/CloudComponent'
-import { BlogProps, FeaturedSectionProps } from './types'
-import { defaultImage } from '../../pages/constants'
-import { PAGE_DATA } from '@/lib/constants'
+import { ButtonLink, Content, CloudComponent } from '@/components/_ui'
+import { CardGrid } from '@/components/_grid'
 import { CardPostProps, CardPost, CardProps } from '@/components/_card'
 
-export const FeaturedBlogs = ({
+import { BlogProps, FeaturedSectionProps } from './types'
+import { PAGE_DATA } from '@/lib/constants'
+
+export const FeaturedPosts = ({
   heading = PAGE_DATA.featuredData.heading,
   content = PAGE_DATA.featuredData.content,
   buttonText = PAGE_DATA.featuredData.buttonText,
@@ -36,25 +34,24 @@ export const FeaturedBlogs = ({
         )}
 
         {posts && posts.length > 0 && (
-          <BlogsGrid dense={posts.length > 3}>
-            {posts.map((post: CardPostProps, i) => {
-              //   debugger
+          <CardGrid dense={posts.length > 3}>
+            {posts.map((post: any, i) => {
               const { blog_image, title, preview_text, release_date } =
-                post.data || {}
-              if (post?.uid)
-                return (
-                  <li key={i}>
-                    <CardPost
-                      uid={post.uid}
-                      blog_image={blog_image || defaultImage}
-                      title={title}
-                      preview_text={preview_text}
-                      release_date={release_date}
-                    />
-                  </li>
-                )
+                post.data
+
+              return (
+                <li key={i}>
+                  <CardPost
+                    uid={post.uid}
+                    blog_image={blog_image}
+                    title={title[0].text}
+                    preview_text={preview_text}
+                    release_date={release_date}
+                  />
+                </li>
+              )
             })}
-          </BlogsGrid>
+          </CardGrid>
         )}
         {variant === 'blogPage' ? (
           <ButtonContainer>

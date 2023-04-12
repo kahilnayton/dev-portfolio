@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import type { LottiePlayer } from 'lottie-web'
 import Image from 'next/image'
 // import { RichText } from 'prismic-reactjs'
-// import lottie from 'lottie-web'
 import styled from 'styled-components'
 
 import { Inner, colors, dimensions } from '@/styles'
@@ -32,8 +31,7 @@ export const Bio = ({
         renderer: 'svg',
         loop: true,
         autoplay: true,
-        // path to your animation file, place it inside public folder
-        path: '/animations/head.json',
+        path: '/animations/helicopter.json',
       })
 
       return () => animation.destroy()

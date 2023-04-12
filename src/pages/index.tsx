@@ -8,7 +8,7 @@ import {
   About,
   Bio,
   ContactForm,
-  FeaturedBlogs,
+  FeaturedPosts,
   Hero,
 } from '../components/sections'
 import { acrossScreen, bottomToTop, bottomToTopSlow } from '@/styles/animations'
@@ -17,17 +17,12 @@ import { colors } from '@/styles/colors'
 import { useParallax } from 'react-scroll-parallax'
 import { PlaneRight, Cloud, PlaneTwo } from '@/components/_ui'
 
-// import { CMS_NAME } from '@/lib/constants'
-// import ParallaxComponent from '@/components/_ui/ParallaxComponent'
-
 type IndexProps = {
   preview: boolean
   allPosts: PostDocumentWithAuthor[]
 }
 
 export default function Index({ preview, allPosts }: IndexProps) {
-  console.log('allPosts', allPosts)
-
   const target = useRef<HTMLDivElement>()
   const cloud = useParallax({
     targetElement: target?.current,
@@ -54,7 +49,7 @@ export default function Index({ preview, allPosts }: IndexProps) {
 
       <Bio />
 
-      {/* <FeaturedBlogs posts={allPosts} /> */}
+      <FeaturedPosts posts={allPosts} />
 
       {/* @ts-ignore */}
       <div ref={planeLeft.ref}>
@@ -79,6 +74,7 @@ export async function getStaticProps({
 }: GetStaticPropsContext): Promise<GetStaticPropsResult<IndexProps>> {
   const client = createClient({ previewData })
 
+  //   @ts-ignore
   const allPosts = await client.getAllByType('blog', {
     orderings: [{ field: 'my.post.date', direction: 'desc' }],
   })
