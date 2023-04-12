@@ -2,8 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 
 import styled from 'styled-components'
-import { colors } from '@/styles/colors'
-import dimensions from '@/styles/dimensions'
+import { dimensions, colors } from '@/styles'
 
 import {
   GrFacebookOption,

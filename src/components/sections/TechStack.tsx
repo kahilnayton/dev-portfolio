@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import dimensions from '../../styles/dimensions'
+import { dimensions } from '@/styles'
 // import Image from 'next/image';
 // import colors from 'styles/colors';
 

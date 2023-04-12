@@ -1,5 +1,5 @@
 //Dimensions for device media queries and layout padding
-const dimensions = {
+export const dimensions = {
   mobileDown: 599,
   tabletPortraitUp: 750,
   tabletLandscapeUp: 900,
@@ -7,5 +7,3 @@ const dimensions = {
   desktopUp: 1200,
   desktopLargeUp: 1800,
 }
-
-export default dimensions

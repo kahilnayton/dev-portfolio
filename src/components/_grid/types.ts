@@ -1,6 +1,6 @@
 import React from 'react'
 
-export type GridProps = {
+export type CardGridProps = {
   dense?: boolean
   variant?: string
   children?: React.ReactNode

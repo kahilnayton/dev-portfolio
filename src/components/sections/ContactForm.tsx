@@ -1,10 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import { colors } from '../../styles/colors'
-import { Button } from '../_ui'
-import dimensions from '../../styles/dimensions'
-import { Inner } from '../../styles/structure'
+import { colors, dimensions, Inner } from '@/styles'
+import { Button } from '@/components/_ui'
 
 const encode = (data: any) => {
   return Object.keys(data)

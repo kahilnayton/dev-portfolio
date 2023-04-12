@@ -2,9 +2,9 @@
 
 import React, { createRef, useEffect } from 'react'
 import styled from 'styled-components'
-import { Fade } from "react-awesome-reveal";
+import { Fade } from 'react-awesome-reveal'
 
-import dimensions from '../../styles/dimensions'
+import { dimensions } from '@/styles'
 
 export const Video = (props: any) => {
   let videoContainer = createRef()

@@ -4,15 +4,18 @@ import styled from 'styled-components'
 import { createClient } from '../lib/prismic'
 import { PostDocumentWithAuthor } from '../lib/types'
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
-import { About, Bio, ContactForm, Hero } from '../components/sections'
+import {
+  About,
+  Bio,
+  ContactForm,
+  FeaturedPosts,
+  Hero,
+} from '../components/sections'
 import { acrossScreen, bottomToTop, bottomToTopSlow } from '@/styles/animations'
 import { Balloon, Plane } from '@/components/_ui'
 import { colors } from '@/styles/colors'
 import { useParallax } from 'react-scroll-parallax'
 import { PlaneRight, Cloud, PlaneTwo } from '@/components/_ui'
-
-// import { CMS_NAME } from '@/lib/constants'
-// import ParallaxComponent from '@/components/_ui/ParallaxComponent'
 
 type IndexProps = {
   preview: boolean
@@ -36,41 +39,31 @@ export default function Index({ preview, allPosts }: IndexProps) {
 
   return (
     <Wrapper ref={target}>
-        <Head title="Kahil Engineering" />
-          <Hero/>
-          <PlaneWrapper>
-            <StyledPlane height={500} width={300} />
-          </PlaneWrapper>
+      <Head title="Kahil Engineering" />
+      <Hero />
+      <Plane height={500} width={300} />
 
-          <StyledBalloon height={100} width={100} />
+      <Balloon height={100} width={100} />
 
-          <StyledBalloon
-            _className="small"
-            src="/balloon.png"
-            alt="Balloon"
-            height={100}
-            width={100}
-          />
+      <Balloon _className="animate" height={100} width={100} />
 
-          <Bio
-            heading={'bio?.heading || PageContent.heading'}
-            content={''}
-            profilePic={'bio?.profile_pic'}
-          />
+      <Bio />
 
-        {/* @ts-ignore */}
-        <div ref={planeLeft.ref}>
-          <PlaneTwo />
-        </div>
+      <FeaturedPosts posts={allPosts} />
 
-        {/* @ts-ignore */}
-        <div ref={cloud.ref}>
-          <Cloud height={100} width={700} />
-        </div>
+      {/* @ts-ignore */}
+      <div ref={planeLeft.ref}>
+        <PlaneTwo />
+      </div>
 
-        <About />
+      {/* @ts-ignore */}
+      <div ref={cloud.ref}>
+        <Cloud height={100} width={700} />
+      </div>
 
-        <ContactForm />
+      <About />
+
+      <ContactForm />
     </Wrapper>
   )
 }
@@ -81,7 +74,8 @@ export async function getStaticProps({
 }: GetStaticPropsContext): Promise<GetStaticPropsResult<IndexProps>> {
   const client = createClient({ previewData })
 
-  const allPosts = await client.getAllByType('post', {
+  //   @ts-ignore
+  const allPosts = await client.getAllByType('blog', {
     orderings: [{ field: 'my.post.date', direction: 'desc' }],
   })
 

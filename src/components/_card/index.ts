@@ -1,3 +1,2 @@
-export * from './BlogCard'
-export * from './ProjectCard'
+export * from './CardPost'
 export * from './types'

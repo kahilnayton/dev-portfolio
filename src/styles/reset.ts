@@ -1,7 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-const resetStyles = createGlobalStyle`
-  /** * Eric Meyer"s Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */
+export const ResetStyles = createGlobalStyle`
   html,
   body,
   div,
@@ -155,5 +154,3 @@ const resetStyles = createGlobalStyle`
     background-color: transparent;
   }
 `
-
-export default resetStyles

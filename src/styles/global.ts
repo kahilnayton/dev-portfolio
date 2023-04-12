@@ -1,8 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
-import { colors } from './colors'
-import dimensions from './dimensions'
+import { colors, dimensions } from '.'
 
-const globalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
   html {
     font-size: 62.5%;
     -webkit-font-smoothing: antialiased;
@@ -33,7 +32,7 @@ const globalStyles = createGlobalStyle`
       overflow: hidden;
     }
 
-    @media(max-width: ${dimensions.maxwidthMobile}px) {
+    @media(max-width: ${dimensions.mobileDown}px) {
       font-size: 14px;
     }
 
@@ -41,7 +40,7 @@ const globalStyles = createGlobalStyle`
       box-sizing: border-box;
 
       &::selection {
-        background: ${colors.yellow500};
+        background: ${colors.yellow};
       }
     }
   }
@@ -52,7 +51,4 @@ const globalStyles = createGlobalStyle`
       overflow: initial;
     }
   }
-
 `
-
-export default globalStyles

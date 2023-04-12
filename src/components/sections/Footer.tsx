@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import gradients from '../../styles/gradients'
+import { gradients } from '@/styles'
 import SocialBar from './SocialBar'
 
 export const Footer = () => {

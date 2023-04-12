@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import dimensions from '@/styles/dimensions'
+import { dimensions } from '.'
 
 export const Inner = styled.div`
   position: relative;

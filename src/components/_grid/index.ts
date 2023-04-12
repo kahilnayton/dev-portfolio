@@ -1,3 +1,2 @@
-export * from './BlogsGrid'
-export * from './ProjectsGrid'
+export * from './CardGrid'
 export * from './types'

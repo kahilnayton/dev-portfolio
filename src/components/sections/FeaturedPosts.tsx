@@ -1,27 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Inner } from '../../styles/structure'
-import { colors } from '../../styles/colors'
-import dimensions from '../../styles/dimensions'
-import { ButtonContainer } from '../../styles/components'
-import { ButtonLink } from '../_ui'
-import { Content } from '../_ui/Content'
-import { BlogsGrid } from '../_grid'
-import { BlogCard, CardProps } from '../_card'
-import CloudComponent from '../_ui/CloudComponent'
-import { BlogProps, FeaturedSectionProps } from './types'
-import { defaultImage } from '../../pages/constants'
+import { Inner, colors, dimensions, ButtonContainer } from '@/styles'
+import { ButtonLink, Content, CloudComponent } from '@/components/_ui'
+import { CardGrid } from '@/components/_grid'
+import { CardPostProps, CardPost, CardProps } from '@/components/_card'
 
-export const FeaturedBlogs = ({
-  heading,
-  content,
-  buttonText,
-  destination,
+import { BlogProps, FeaturedSectionProps } from './types'
+import { PAGE_DATA } from '@/lib/constants'
+
+export const FeaturedPosts = ({
+  heading = PAGE_DATA.featuredData.heading,
+  content = PAGE_DATA.featuredData.content,
+  buttonText = PAGE_DATA.featuredData.buttonText,
+  destination = PAGE_DATA.featuredData.destination,
   posts,
   variant,
-}: FeaturedSectionProps & BlogProps) => {
-  
+}: FeaturedSectionProps) => {
   let blogsHeading
 
   return (
@@ -39,24 +34,24 @@ export const FeaturedBlogs = ({
         )}
 
         {posts && posts.length > 0 && (
-          <BlogsGrid dense={posts.length > 3}>
-            {posts.map(( blog: CardProps, i) => {
-              const { uid, blog_image, title, preview_text, release_date } =
-                blog.blog
-                
+          <CardGrid dense={posts.length > 3}>
+            {posts.map((post: any, i) => {
+              const { blog_image, title, preview_text, release_date } =
+                post.data
+
               return (
                 <li key={i}>
-                  <BlogCard
-                    uid={uid}
-                    blog_image={blog_image || defaultImage}
-                    title={title}
+                  <CardPost
+                    uid={post.uid}
+                    blog_image={blog_image}
+                    title={title[0].text}
                     preview_text={preview_text}
                     release_date={release_date}
                   />
                 </li>
               )
             })}
-          </BlogsGrid>
+          </CardGrid>
         )}
         {variant === 'blogPage' ? (
           <ButtonContainer>

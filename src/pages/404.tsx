@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 import Layout from '@/components/Layout'
 import { colors } from '@/styles/colors'
-import CloudComponent from '@/components/_ui/CloudComponent'
+import { CloudComponent } from '@/components/_ui/'
 import { ButtonLink } from '@/components/_ui'
 
 const NotFoundPage = () => (
