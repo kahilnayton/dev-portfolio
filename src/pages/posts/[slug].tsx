@@ -1,5 +1,7 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next'
+import styled from 'styled-components'
 import Head from 'next/head'
+import { PrismicRichText } from '@prismicio/react'
 import { useRouter } from 'next/router'
 import { predicate } from '@prismicio/client'
 import { asImageSrc, asText } from '@prismicio/helpers'
@@ -7,31 +9,28 @@ import { asImageSrc, asText } from '@prismicio/helpers'
 import { CMS_NAME } from '../../lib/constants'
 import { PostDocumentWithAuthor } from '../../lib/types'
 import { createClient } from '../../lib/prismic'
-
-import Container from '../../componentss/container'
-import Header from '../../componentss/header'
-import Layout from '../../componentss/layout'
-import MoreStories from '../../componentss/more-stories'
-import PostBody from '../../componentss/post-body'
-import PostHeader from '../../componentss/post-header'
-import PostTitle from '../../componentss/post-title'
-import SectionSeparator from '../../componentss/section-separator'
+import Layout from '@/components/Layout'
+import { Hero, TechStack } from '@/components/sections'
+import { colors, dimensions } from '@/styles'
 
 type PostProps = {
   preview: boolean
-  post: PostDocumentWithAuthor
-  morePosts: PostDocumentWithAuthor[]
+  post: any
+  morePosts: any[]
 }
 
 export default function Post({ post, morePosts, preview }: PostProps) {
   const router = useRouter()
 
   return (
-    <Layout preview={preview}>
-      <Container>
-        <Header />
+    <Layout>
+      <Head>
+        <title>Blog</title>
+      </Head>
+      {/* <Hero /> */}
+      <BlogWrapper>
         {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
+          <h1>Loading…</h1>
         ) : (
           <>
             <article>
@@ -49,21 +48,31 @@ export default function Post({ post, morePosts, preview }: PostProps) {
                   })}
                 />
               </Head>
-              <PostHeader
-                title={post.data.title}
-                coverImage={post.data.cover_image}
-                date={post.data.date}
-                author={post.data.author}
-              />
-              <PostBody slices={post.data.slices} />
+
+              {post?.data.description?.length > 0 && (
+                <BlogDescription>
+                  <PrismicRichText
+                    field={post?.description}
+                    components={{
+                      paragraph: ({ children }) => (
+                        <blockquote>{children}</blockquote>
+                      ),
+                    }}
+                  />
+                </BlogDescription>
+              )}
+              {post?.data.tech_stack.length > 0 && (
+                <TechStack stack={post?.data.tech_stack} />
+              )}
             </article>
-            <SectionSeparator />
+
             {morePosts && morePosts.length > 0 && (
-              <MoreStories posts={morePosts} />
+              <p>fix this</p>
+              //   <MoreStories posts={morePosts} />
             )}
           </>
         )}
-      </Container>
+      </BlogWrapper>
     </Layout>
   )
 }
@@ -78,13 +87,10 @@ export async function getStaticProps({
   const client = createClient({ previewData })
 
   const [post, morePosts] = await Promise.all([
-    client.getByUID<PostDocumentWithAuthor>('post', params.slug, {
-      fetchLinks: ['author.name', 'author.picture'],
-    }),
-    client.getAllByType<PostDocumentWithAuthor>('post', {
-      fetchLinks: ['author.name', 'author.picture'],
-      orderings: [{ field: 'my.post.date', direction: 'desc' }],
-      predicates: [predicate.not('my.post.uid', params.slug)],
+    // @ts-ignore
+    client.getByUID<any>('blog', params.slug),
+    // @ts-ignore
+    client.getAllByType<any>('blog', {
       limit: 2,
     }),
   ])
@@ -103,10 +109,70 @@ export async function getStaticProps({
 export async function getStaticPaths() {
   const client = createClient()
 
-  const allPosts = await client.getAllByType('post')
+  // @ts-ignore
+  const allPosts = await client.getAllByType('blog')
 
   return {
-    paths: allPosts.map((post) => post.url),
+    paths: allPosts.map((post) => `/posts/${post.uid}`),
     fallback: true,
   }
 }
+
+const BlogWrapper = styled.div`
+  background: #fff;
+  padding: 1.6rem 2.3rem 12rem 2.3rem;
+  h2.tech-stack {
+    font-size: 2.4rem;
+    text-decoration: underline;
+    margin-bottom: 1.6rem;
+    padding-left: 2.3rem;
+  }
+  @media (min-width: ${dimensions.tabletLandscapeUp}px) {
+    padding: 1.6rem 4.6rem 12rem 4.6rem;
+  }
+`
+
+const BlogDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  margin: auto;
+  padding: 2rem 0rem 12rem;
+  width: 100%;
+  height: 100%;
+  color: ${colors.grey900};
+
+  p {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+  .block-img {
+    object-fit: cover;
+  }
+  img {
+    align-self: center;
+    box-shadow: 0 0.3rem 2rem rgba(0, 0, 0, 0.05);
+    display: block;
+    width: 100%;
+    height: 100%;
+    @media (min-width: ${dimensions.tabletLandscapeUp}px) {
+      width: 60%;
+    }
+  }
+  a {
+    padding-top: 2rem;
+    color: ${colors.blue};
+  }
+  pre {
+    background: #53517bb3;
+    color: #fff;
+    padding: 1.6rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 1.4rem;
+  }
+  em {
+    background: linear-gradient(transparent 1.2rem, ${colors.blue} 1rem);
+  }
+`
