@@ -1,10 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
-
-// import {colors, randomColors} from '../../styles/colors';
-// import gradients from '../../styles/gradients';
-// import dimensions from '../../styles/dimensions';
 import { Logo } from './icons'
 
 export const LogoLink = () => {
@@ -17,7 +13,7 @@ export const LogoLink = () => {
   )
 }
 
-const ButtonContainer = styled.a`
+const ButtonContainer = styled.div`
   svg {
     transform: translateY(3px);
     fill: #fff;

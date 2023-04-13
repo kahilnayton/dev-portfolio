@@ -25,3 +25,7 @@ NEXT_PUBLIC_PRISMIC_REPOSITORY_LOCALE=...
 
 - `yarn` to install deps
 - `yarn dev` to start the project locally
+
+## Typescript
+Prismic  types are auto generated using prismic ts codegen
+https://prismic.io/docs/technical-reference/prismic-ts-codegen

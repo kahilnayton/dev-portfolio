@@ -6,7 +6,7 @@ export type FeaturedSectionProps = {
   buttonText?: string
   destination?: string
   variant?: string
-  posts?: CardProps[]
+  posts?: any
 }
 
 export type ProjectProps = {

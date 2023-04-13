@@ -71,7 +71,7 @@ export default function Index({ preview, allPosts }: IndexProps) {
 export async function getStaticProps({
   preview = false,
   previewData,
-}: GetStaticPropsContext): Promise<GetStaticPropsResult<IndexProps>> {
+}: GetStaticPropsContext): Promise<GetStaticPropsResult<any>> {
   const client = createClient({ previewData })
 
   //   @ts-ignore
