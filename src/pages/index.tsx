@@ -16,6 +16,7 @@ import { Balloon, Plane } from '@/components/_ui'
 import { colors } from '@/styles/colors'
 import { useParallax } from 'react-scroll-parallax'
 import { PlaneRight, Cloud, PlaneTwo } from '@/components/_ui'
+import Layout from '@/components/Layout'
 
 type IndexProps = {
   preview: boolean
@@ -38,33 +39,35 @@ export default function Index({ preview, allPosts }: IndexProps) {
   const [heroPost, ...morePosts] = allPosts
 
   return (
-    <Wrapper ref={target}>
-      <Head title="Kahil Engineering" />
-      <Hero />
-      <Plane height={500} width={300} />
+    <Layout>
+      <Wrapper ref={target}>
+        <Head title="Kahil Engineering" />
+        <Hero />
+        <Plane height={500} width={300} />
 
-      <Balloon height={100} width={100} />
+        <Balloon height={100} width={100} />
 
-      <Balloon _className="animate" height={100} width={100} />
+        <Balloon _className="animate" height={100} width={100} />
 
-      <Bio />
+        <Bio />
 
-      <FeaturedPosts posts={allPosts} />
+        <FeaturedPosts posts={allPosts} />
 
-      {/* @ts-ignore */}
-      <div ref={planeLeft.ref}>
-        <PlaneTwo />
-      </div>
+        {/* @ts-ignore */}
+        <div ref={planeLeft.ref}>
+          <PlaneTwo />
+        </div>
 
-      {/* @ts-ignore */}
-      <div ref={cloud.ref}>
-        <Cloud height={100} width={700} />
-      </div>
+        {/* @ts-ignore */}
+        <div ref={cloud.ref}>
+          <Cloud height={100} width={700} />
+        </div>
 
-      <About />
+        <About />
 
-      <ContactForm />
-    </Wrapper>
+        <ContactForm />
+      </Wrapper>
+    </Layout>
   )
 }
 

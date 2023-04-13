@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { Inner, Wrap, dimensions, colors, gradients, z } from '@/styles'
 import { CloudBackground, CloudComponent } from '@/components/_ui'
+import { PAGE_DATA } from '@/lib/constants'
 
 type HeroProps = {
   variant?: 'homepage' | 'projectPage'
@@ -12,9 +13,9 @@ type HeroProps = {
 
 export const Hero = ({
   variant = 'homepage',
-  heading = 'Welcome to Kahil Nayton',
-  text = 'A place where creativity meets technology',
-  backgroundImage,
+  heading = PAGE_DATA.heroData.title,
+  text = PAGE_DATA.heroData.content,
+  backgroundImage = PAGE_DATA.heroData.backgroundImage,
   alt = 'Hero background image',
 }: HeroProps) => {
   return (

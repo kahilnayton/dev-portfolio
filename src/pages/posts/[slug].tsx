@@ -27,7 +27,7 @@ export default function Post({ post, morePosts, preview }: PostProps) {
       <Head>
         <title>Blog</title>
       </Head>
-      {/* <Hero /> */}
+      <Hero />
       <BlogWrapper>
         {router.isFallback ? (
           <h1>Loading…</h1>
@@ -52,7 +52,7 @@ export default function Post({ post, morePosts, preview }: PostProps) {
               {post?.data.description?.length > 0 && (
                 <BlogDescription>
                   <PrismicRichText
-                    field={post?.description}
+                    field={post?.data.description}
                     components={{
                       paragraph: ({ children }) => (
                         <blockquote>{children}</blockquote>
@@ -121,6 +121,7 @@ export async function getStaticPaths() {
 const BlogWrapper = styled.div`
   background: #fff;
   padding: 1.6rem 2.3rem 12rem 2.3rem;
+  max-width: 1000px;
   h2.tech-stack {
     font-size: 2.4rem;
     text-decoration: underline;

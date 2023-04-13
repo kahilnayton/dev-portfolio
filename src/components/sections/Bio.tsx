@@ -42,8 +42,8 @@ export const Bio = ({
       <BioContainer>
         <h1>{heading}</h1>
         <p>{content}</p>
-        <Image fill alt="alt" src={profilePic}></Image>
-        <div ref={ref} />
+        <Image height={100} width={100} alt="alt" src={profilePic}></Image>
+        {/* <div ref={ref} /> */}
       </BioContainer>
     </Inner>
   )

@@ -21,10 +21,17 @@ export const defaultImage = {
 }
 
 export const PAGE_DATA = {
+  heroData: {
+    title: 'Frontend Engineer',
+    content:
+      "I'm a Frontend Engineer who loves to help organizations find creative solutions to their digitally-based problems.",
+    backgroundImage: '/images/city.png',
+  },
   bioData: {
-    heading: 'Bio',
-    content: 'Bio',
-    profilePic: '/spring_logo.png',
+    heading: 'Kahil Nayton',
+    content:
+      'I am a Frontend Engineer who loves to help organizations find creative solutions to their digitally-based problems.',
+    profilePic: '/images/face.png',
   },
   featuredData: {
     heading: 'Bio',

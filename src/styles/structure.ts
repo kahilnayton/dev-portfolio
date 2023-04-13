@@ -5,14 +5,12 @@ export const Inner = styled.div`
   position: relative;
   width: 100%;
   margin: 0 auto;
-  padding-left: 1.8rem;
-  padding-right: 1.8rem;
+  padding: 1.8rem 2.4rem 0;
   height: 100%;
   max-width: 120rem;
 
   @media (min-width: ${dimensions.tabletLandscapeUp}px) {
-    padding-left: 3.2rem;
-    padding-right: 3.2rem;
+    padding: 3.2rem 2.4rem 0;
   }
 
   @media (min-width: ${dimensions.desktopLargeUp}px) {
