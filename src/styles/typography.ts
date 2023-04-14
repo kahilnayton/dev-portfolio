@@ -21,7 +21,7 @@ export const TypographyStyles = createGlobalStyle`
   }
 
   h1 {
-    color: ${colors.grey500};
+    color: ${colors.grey800};
     font-size: 5.2rem;
     line-height: 1.25;
     font-weight: 400;
@@ -33,7 +33,7 @@ export const TypographyStyles = createGlobalStyle`
   }
 
   h2 {
-    color: ${colors.grey500};
+    color: ${colors.grey700};
     font-size: 4.2rem;
     line-height: 1.25;
     font-weight: 400;
@@ -45,7 +45,7 @@ export const TypographyStyles = createGlobalStyle`
   }
 
   h3 {
-    color: ${colors.grey500};
+    color: ${colors.grey800};
     font-size: 3rem;
     line-height: 1.25;
     font-weight: 400;
@@ -57,7 +57,7 @@ export const TypographyStyles = createGlobalStyle`
   }
 
   h4 {
-    color: ${colors.grey500};
+    color: ${colors.grey800};
     font-size: 2.4rem;
     line-height: 1.25;
     font-weight: 400;
@@ -83,7 +83,7 @@ export const TypographyStyles = createGlobalStyle`
   }
 
   h6 {
-    color: ${colors.grey500};
+    color: ${colors.grey800};
     font-size: 1.4rem;
     line-height: 1.33;
     font-weight: 600;
@@ -98,7 +98,7 @@ export const TypographyStyles = createGlobalStyle`
   }
 
   p {
-    color: ${colors.grey400};
+    color: ${colors.grey800};
     font-size: 1.8rem;
     line-height: 1.55;
 

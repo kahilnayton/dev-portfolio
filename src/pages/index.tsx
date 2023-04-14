@@ -43,11 +43,11 @@ export default function Index({ preview, allPosts }: IndexProps) {
       <Wrapper ref={target}>
         <Head title="Kahil Engineering" />
         <Hero />
-        <Plane height={500} width={300} />
+        {/* <Plane height={500} width={300} /> */}
 
-        <Balloon height={100} width={100} />
+        {/* <Balloon height={100} width={100} /> */}
 
-        <Balloon _className="animate" height={100} width={100} />
+        {/* <Balloon _className="animate" height={100} width={100} /> */}
 
         <Bio />
 

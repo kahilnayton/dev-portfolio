@@ -67,7 +67,7 @@ export const Header = () => {
   )
 }
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.span`
   display: block;
   position: fixed;
   top: 0;
